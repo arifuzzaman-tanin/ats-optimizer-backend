@@ -1,25 +1,22 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import spacy
-from spacy.lang.en.stop_words import STOP_WORDS
-import string
-import numpy as np
 import math
-import re
-
-# -------------------- Load spaCy Model --------------------
-nlp = spacy.load("en_core_web_sm")
+from skill_extractor import compare_skills, extract_skill_evidence, extract_skills
 
 # -------------------- Initialize Flask App --------------------
 app = Flask(__name__)
-# Update CORS configuration to be more specific
+ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+    "http://www.atsoptimizer.com",
+    "https://www.atsoptimizer.com",
+]
+
 CORS(app, resources={
     r"/extract_skills": {
-        "origins": [
-            "http://127.0.0.1:5500",
-            "http://www.atsoptimizer.com",
-            "https://www.atsoptimizer.com"
-        ],
+        "origins": ALLOWED_ORIGINS,
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"]
     }
@@ -27,66 +24,12 @@ CORS(app, resources={
 
 # -------------------- Utility Functions --------------------
 
-def extract_skills(job_description):
-    """Extract potential skill words from job description."""
-    doc = nlp(job_description)
-    skills = set()
-    skill_pos_tags = {"NOUN", "PROPN"}
-    exclude_pos_tags = {"DET", "NUM", "SYM", "PUNCT", "SPACE", "ADP", "CONJ"}
-    stop_words = set(STOP_WORDS)
-    exclude_characters = string.punctuation
-    exclude_terms = {"day", "days", "week", "weeks", "month", "months", "year", "years"}
-    url_pattern = re.compile(r'https?://\S+|www\.\S+')
-
-    for token in doc:
-        if (
-            len(token.text) > 1
-            and token.pos_ in skill_pos_tags
-            and token.pos_ not in exclude_pos_tags
-            and token.text.lower() not in stop_words
-            and token.text.lower() not in exclude_terms
-            and not all(char in exclude_characters for char in token.text)
-            and not re.match(url_pattern, token.text)
-        ):
-            skill = token.text.lower()
-            skills.add(skill)
-            # Add combined 2-word skill
-            if token.i < len(doc) - 1 and doc[token.i + 1].pos_ in skill_pos_tags:
-                combined_skill = skill + " " + doc[token.i + 1].text.lower()
-                skills.add(combined_skill)
-    return list(skills)
-
-
 def find_missing_skills_in_resume(skills_in_job_description, skills_in_resume):
-    skills_in_job_description_lower = np.char.lower(skills_in_job_description)
-    skills_in_resume_lower = np.char.lower(skills_in_resume)
-    missing_skills = np.setdiff1d(
-        skills_in_job_description_lower,
-        skills_in_resume_lower,
-        assume_unique=True
-    )
-    missing_skills_original_case = np.array([
-        skills_in_job_description[i]
-        for i in range(len(skills_in_job_description_lower))
-        if skills_in_job_description_lower[i] in missing_skills
-    ])
-    return missing_skills_original_case
+    return compare_skills(skills_in_job_description, skills_in_resume, matching=False)
 
 
 def find_matching_skills_in_resume(skills_in_job_description, skills_in_resume):
-    skills_in_job_description_lower = np.char.lower(skills_in_job_description)
-    skills_in_resume_lower = np.char.lower(skills_in_resume)
-    matching_skills = np.intersect1d(
-        skills_in_job_description_lower,
-        skills_in_resume_lower,
-        assume_unique=True
-    )
-    matching_skills_original_case = np.array([
-        skills_in_job_description[i]
-        for i in range(len(skills_in_job_description_lower))
-        if skills_in_job_description_lower[i] in matching_skills
-    ])
-    return matching_skills_original_case
+    return compare_skills(skills_in_job_description, skills_in_resume, matching=True)
 
 
 def round_number_ceil_or_floor(number):
@@ -114,6 +57,11 @@ def format_skills(skills, is_available_in_resume: bool):
 
 # -------------------- Main API Endpoint --------------------
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "ok"}), 200
+
+
 @app.route('/extract_skills', methods=['POST', 'OPTIONS'])
 def extract_skills_from_description():
     # Handle preflight OPTIONS request
@@ -121,9 +69,12 @@ def extract_skills_from_description():
         return jsonify({"message": "CORS preflight OK"}), 200
 
     try:
-        data = request.get_json() or {}
-        if 'job_description' not in data or 'resume' not in data:
+        data = request.get_json(silent=True)
+        if not isinstance(data, dict):
             return jsonify({"error": "Invalid request data"}), 400
+
+        if not all(isinstance(data.get(field), str) for field in ('job_description', 'resume')):
+            return jsonify({"error": "job_description and resume must be strings"}), 400
 
         job_description = data['job_description'].strip()
         resume = data['resume'].strip()
@@ -133,9 +84,11 @@ def extract_skills_from_description():
         if not resume:
             return jsonify({"error": "Empty resume"}), 400
 
-        # Extract skills
-        skills_in_job_description = extract_skills(job_description)
-        skills_in_resume = extract_skills(resume)
+        # Compare canonical skill names; preserve the phrases that support them.
+        job_evidence = extract_skill_evidence(job_description, source="job_description")
+        resume_evidence = extract_skill_evidence(resume, source="resume")
+        skills_in_job_description = list(job_evidence)
+        skills_in_resume = list(resume_evidence)
 
         missing_skills = find_missing_skills_in_resume(skills_in_job_description, skills_in_resume)
         matching_skills = find_matching_skills_in_resume(skills_in_job_description, skills_in_resume)
@@ -143,13 +96,15 @@ def extract_skills_from_description():
         missing_skills_formatted = format_skills(missing_skills, False)
         matching_skills_formatted = format_skills(matching_skills, True)
         all_skills = matching_skills_formatted + missing_skills_formatted
+        for skill in all_skills:
+            name = skill["name"]
+            skill["category"] = job_evidence[name].category
+            skill["job_description_evidence"] = list(job_evidence[name].phrases)
+            skill["resume_evidence"] = list(resume_evidence[name].phrases) if name in resume_evidence else []
 
         total_required = len(all_skills)
         total_matching = total_required - len(missing_skills_formatted)
-        resume_score = round((100 * total_matching) / total_required, 2)
-        resume_score = round_number_ceil_or_floor(resume_score)
-        if resume_score == 100:
-            resume_score = 99  # slight adjustment
+        resume_score = round_number_ceil_or_floor(100 * total_matching / total_required) if total_required else 0
 
         response_data = {
             "resume_score_in_percentage": resume_score,
@@ -159,12 +114,17 @@ def extract_skills_from_description():
             "total_matching_skills_in_resume": total_matching,
             "skills": all_skills,
             "comma_separated_missing_skills": ', '.join(missing_skills),
+            "skill_extraction_method": "curated_catalogue_with_context_and_aliases",
+            "score_scope": "Recognized job skills evidenced in the resume; not an overall ATS score",
         }
+        if not total_required:
+            response_data["warning"] = "No recognized job skills found. Extend skills_catalog.json for this domain; the score is not informative."
 
         return jsonify(response_data), 200
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    except Exception:
+        app.logger.exception("Skill extraction failed")
+        return jsonify({"error": "Skill extraction failed"}), 500
 
 
 # -------------------- Run Flask App --------------------

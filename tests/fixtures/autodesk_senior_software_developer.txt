@@ -1,0 +1,43 @@
+About the job
+
+Position Overview
+
+Our ecosystem comprises cloud services, desktop add-ins, and web application components. You will be responsible for the full lifecycle of our products, from writing and evolving code to deploying, monitoring and providing support in production. Success depends on the ability to collaborate and communicate.
+
+Responsibilities
+
+Create and maintain reliable, secure, performant, and efficient web/desktop applications and high-throughput services.
+Partner closely with product managers, product owners, software architects and other stakeholders to turn high-level requirements into product enhancements.
+Be an integral member of our scrum team.
+Contribute to software design and architecture by leveraging software design patterns throughout the development lifecycle.
+Contribute to improvements in processes.
+Research and prototype innovative ideas, technologies and patterns.
+Document and present your ideas and solutions.
+Utilize LLMs and AI tools like Claude, Copilot, Cursor, and GitHub Copilot.
+Participate in on-call rotations to support production systems.
+
+Minimum Qualifications
+
+Hands-on software development experience with application and cloud services development.
+Experience with Typescript, C# and Python.
+Understanding of web or desktop application architecture.
+Experience building secure APIs, Microservices and Desktop applications.
+Experience with relational database technologies such as Postgres, including schema design and query performance.
+Familiarity with monitoring, logging, alerting and incident response practices.
+AI-assisted tools for software development, debugging, testing and operational problem-solving.
+Unit and automated testing tools such as Cypress and Playwright.
+Strong written and verbal communication skills.
+Self-directed, with ownership, able to work independently while balancing multiple priorities.
+
+Preferred Qualifications
+
+AWS services such as Lambda, API Gateway, S3 and RDS.
+CAD applications such as Autodesk Inventor and Autodesk Revit, or other CAD and AEC software.
+AI or automation for testing and developer productivity.
+DevOps practices, including CI/CD pipelines and infrastructure as code.
+
+Learn More
+
+About Autodesk
+
+Our sales roles may receive commissions.

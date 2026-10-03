@@ -1,0 +1,60 @@
+About The Role
+
+AlphaSense is seeking an exceptional engineer to own our Excel plugin strategy, bringing the power of AI-driven market intelligence directly into the workflow of financial professionals worldwide. You'll build the bridge between our cutting-edge AI platform and the tool that millions of analysts, investors, and researchers use every day - Microsoft Excel.
+
+This is a unique opportunity to work at the intersection of enterprise desktop development, financial technology, and AI. You'll create experiences that feel magical to users - imagine Excel formulas that can query 1.6 billion documents, or financial models that update with real-time market intelligence.
+
+Who You Are
+
+5+ years building production software, with significant experience in desktop applications or Office add-ins
+Deep expertise in C#, .NET and modern development practices
+Strong understanding of asynchronous programming, state management, and event-driven architectures
+Experience with enterprise software deployment, updates, and version management
+Track record of building performant applications with excellent error handling and recovery
+Excellence in debugging complex integration issues and memory/performance optimization
+Strong testing philosophy adapted to desktop environments
+Ability to mentor teams and establish development best practices
+
+Preferred
+
+Production experience with C#, VSTO, or COM add-ins
+Knowledge of Excel's calculation engine, object model, and common power-user patterns
+Knowledge of AWS
+Understanding of financial modeling, data analysis workflows, or trading systems
+Experience with web development technologies
+Familiarity with financial data formats (XLSX, CSV, JSON) and transformations
+Background in building offline-capable applications with sync mechanisms
+Experience with WebSocket, real-time data feeds, or streaming architectures
+
+Technical Environment
+
+Visual Studio & Visual Studio Tools for Office (VSTO)
+REST APIs and WebSocket connections to AlphaSense platform
+Complex state management between local and cloud data
+Enterprise authentication (SSO, OAuth, SAML)
+Cross-platform support (Windows and Mac)
+AWS
+
+What You'll Do
+
+Architect the Excel Experience: Design and build a production-grade Excel plugin that seamlessly integrates AlphaSense's AI capabilities while respecting Excel's performance and stability requirements
+Master Complex Integration: Navigate Excel's object model, calculation engine, and event system to create features that feel native while accessing cloud-based intelligence
+Ensure Enterprise Excellence: Build plugins that work flawlessly across Excel 2016, 2019, and Office 365, handling corporate proxies, SSO, offline scenarios, and IT restrictions
+Optimize Ruthlessly: Make complex operations feel instantaneous, managing memory carefully and ensuring our plugin never slows down Excel
+Bridge Worlds: Translate between financial users' needs and technical possibilities, creating intuitive interfaces for sophisticated AI capabilities
+Establish Best Practices: Define patterns for desktop development excellence, mentoring the team on testing, deployment, and monitoring strategies for Office plugins
+
+You'll fundamentally change how AlphaSense's own equity research analysts turn raw market data into finished financial models. Our internal Excel add-in is how every analyst builds, updates, and validates company models without ever leaving Excel. Within your first year, you'll ship improvements used daily across our entire internal research org, migrating the tool off legacy infrastructure onto AlphaSense's own platform and making powerful research workflows as simple as typing a formula. You'll eliminate the context-switching between Excel and outside data sources, saving analysts hours daily while improving the quality of every model that ultimately powers the platform our clients rely on.
+
+More importantly, you'll establish the technical foundation and best practices that will guide our Office integration strategy for years. You'll mentor a team of engineers in the unique challenges of desktop development, raising the bar for quality and performance in an environment where every millisecond matters.
+
+Why This Role is Unique
+
+This isn't just another plugin development role. You'll be working with:
+
+Cutting-edge AI capabilities that need to feel simple in Excel
+Financial professionals who depend on Excel for critical decisions
+Complex technical constraints that require creative solutions
+A team eager to learn desktop development best practices
+
+You'll need to think like a financial analyst, architect like a distributed systems engineer, and optimize like a game developer. It's a rare opportunity to work on deeply technical challenges while directly impacting how the financial world operates.

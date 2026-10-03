@@ -1,0 +1,1557 @@
+[
+  {
+    "name": "customer support",
+    "category": "customer_support",
+    "aliases": [
+      "customer service",
+      "client support",
+      "client service",
+      "customer care",
+      "support team",
+      "customer support representative",
+      "customer service representative"
+    ],
+    "patterns": [
+      "\\b(?:help|helping|assist|assisting|support|supporting)\\s+(?:customers|clients|families|care partners)\\b"
+    ]
+  },
+  {
+    "name": "technical support",
+    "category": "customer_support",
+    "aliases": [
+      "tech support",
+      "it support",
+      "help desk",
+      "helpdesk",
+      "service desk"
+    ]
+  },
+  {
+    "name": "troubleshooting",
+    "category": "customer_support",
+    "aliases": [
+      "troubleshoot",
+      "troubleshoots",
+      "troubleshot",
+      "technical troubleshooting",
+      "diagnosing technical issues",
+      "diagnose technical issues"
+    ],
+    "patterns": [
+      "\\bfix(?:ing)? (?:what isn't working|technical (?:issues|problems)|software (?:issues|problems)|hardware (?:issues|problems))\\b"
+    ]
+  },
+  {
+    "name": "ticket management",
+    "category": "customer_support",
+    "aliases": [
+      "ticketing",
+      "support tickets",
+      "ticket resolution",
+      "case management",
+      "case resolution",
+      "managing tickets",
+      "resolving tickets",
+      "tickets from start to finish"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "tickets"
+        ],
+        "context": "\\b(?:support|customers?|clients?|resolv\\w*|escalat\\w*|troubleshoot\\w*|help ?desk)\\b"
+      }
+    ]
+  },
+  {
+    "name": "phone support",
+    "category": "customer_support",
+    "aliases": [
+      "telephone support",
+      "phone customer service",
+      "call centre",
+      "call center",
+      "inbound calls",
+      "inbound calling"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "calls",
+          "phone",
+          "telephone"
+        ],
+        "context": "\\b(?:support|customer service|customer care|client interaction|inquir\\w*|resolv\\w*|respond\\w*)\\b"
+      }
+    ]
+  },
+  {
+    "name": "email support",
+    "category": "customer_support",
+    "aliases": [
+      "email customer service",
+      "email enquiries",
+      "email inquiries"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "email",
+          "emails"
+        ],
+        "context": "\\b(?:support|customer service|customer care|client interaction|inquir\\w*|resolv\\w*|respond\\w*)\\b"
+      }
+    ]
+  },
+  {
+    "name": "live chat support",
+    "category": "customer_support",
+    "aliases": [
+      "chat support",
+      "live chat",
+      "web chat support"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "chat",
+          "chats"
+        ],
+        "context": "\\b(?:support|customer service|customer care|client interaction|inquir\\w*|resolv\\w*|respond\\w*)\\b"
+      }
+    ]
+  },
+  {
+    "name": "escalation management",
+    "category": "customer_support",
+    "aliases": [
+      "escalations",
+      "handling escalations",
+      "handle escalations",
+      "managing escalations",
+      "escalation handling",
+      "escalation resolution"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "escalations",
+          "escalated cases",
+          "escalated tickets"
+        ],
+        "context": "\\b(?:cases?|tickets?|support|customers?|clients?|bpo|resolv\\w*)\\b"
+      }
+    ]
+  },
+  {
+    "name": "product setup",
+    "category": "customer_support",
+    "aliases": [
+      "device setup",
+      "product installation",
+      "device installation",
+      "account setup",
+      "software setup",
+      "software installation"
+    ],
+    "patterns": [
+      "\\bhelp(?:ing)? (?:customers|clients|users) get (?:up and )?running\\b"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "setup"
+        ],
+        "context": "\\b(?:troubleshoot\\w*|customers?|clients?|devices?|products?|installation)\\b"
+      }
+    ]
+  },
+  {
+    "name": "customer onboarding",
+    "category": "customer_support",
+    "aliases": [
+      "client onboarding",
+      "user onboarding",
+      "onboarding customers",
+      "onboarding clients"
+    ]
+  },
+  {
+    "name": "knowledge base management",
+    "category": "customer_support",
+    "aliases": [
+      "knowledge base",
+      "knowledgebase",
+      "help centre",
+      "help center",
+      "knowledge base maintenance",
+      "faq maintenance"
+    ]
+  },
+  {
+    "name": "technical writing",
+    "category": "customer_support",
+    "aliases": [
+      "technical documentation",
+      "user documentation",
+      "user guides",
+      "support documentation",
+      "help articles",
+      "knowledge base articles"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "articles",
+          "guides"
+        ],
+        "context": "\\b(?:help|support|customers?|users?|documentation|knowledge base)\\b"
+      }
+    ],
+    "patterns": [
+      "\\b(?:document|documenting) (?:and present )?(?:your )?(?:technical )?(?:ideas|solutions|designs|systems|architecture)\\b"
+    ]
+  },
+  {
+    "name": "customer feedback analysis",
+    "category": "customer_support",
+    "aliases": [
+      "customer insight",
+      "customer insights",
+      "voice of the customer",
+      "customer feedback",
+      "client feedback",
+      "analysing customer feedback",
+      "analyzing customer feedback"
+    ]
+  },
+  {
+    "name": "trend analysis",
+    "category": "analysis",
+    "aliases": [
+      "pattern identification",
+      "identifying patterns",
+      "identify patterns",
+      "identifying trends",
+      "identify trends",
+      "spot patterns",
+      "spotting patterns",
+      "ticket analysis",
+      "recurring issue analysis"
+    ]
+  },
+  {
+    "name": "cross-functional collaboration",
+    "category": "interpersonal",
+    "aliases": [
+      "cross functional teamwork",
+      "cross functional coordination",
+      "cross departmental collaboration"
+    ],
+    "patterns": [
+      "\\bbring (?:them|issues|patterns|feedback|insights) to product and engineering\\b",
+      "\\b(?:collaborat\\w*|work\\w*|coordinat\\w*) with (?:the )?(?:product and engineering|engineering and product|production team)\\b",
+      "\\bpartner closely with (?:product managers|product owners|software architects|[^.;]+ stakeholders)\\b"
+    ]
+  },
+  {
+    "name": "outsourced support coordination",
+    "category": "customer_support",
+    "aliases": [
+      "bpo coordination",
+      "bpo management",
+      "bpo collaboration",
+      "outsourced support management"
+    ],
+    "patterns": [
+      "\\b(?:work|working|collaborate|collaborating|coordinate|coordinating) (?:alongside|with) (?:our |the |a )?bpo (?:support )?team\\b",
+      "\\b(?:cases|escalations|tickets) from (?:our |the |a )?bpo team\\b"
+    ]
+  },
+  {
+    "name": "first contact resolution",
+    "category": "customer_support",
+    "aliases": [
+      "first call resolution",
+      "first point of contact",
+      "fewer need a second contact",
+      "fcr"
+    ]
+  },
+  {
+    "name": "complaint resolution",
+    "category": "customer_support",
+    "aliases": [
+      "complaint handling",
+      "handling complaints",
+      "customer complaint resolution",
+      "resolving customer complaints",
+      "resolve customer complaints",
+      "resolving client concerns"
+    ]
+  },
+  {
+    "name": "customer education",
+    "category": "customer_support",
+    "aliases": [
+      "customer training",
+      "client training",
+      "user training",
+      "product training"
+    ],
+    "patterns": [
+      "\\b(?:educate|educating|train|training) (?:and assist )?(?:customers|clients|users)\\b"
+    ]
+  },
+  {
+    "name": "zendesk",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "freshdesk",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "intercom",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "salesforce",
+    "category": "tool",
+    "aliases": [
+      "salesforce crm"
+    ]
+  },
+  {
+    "name": "hubspot",
+    "category": "tool",
+    "aliases": [
+      "hubspot crm"
+    ]
+  },
+  {
+    "name": "servicenow",
+    "category": "tool",
+    "aliases": [
+      "service now"
+    ]
+  },
+  {
+    "name": "jira",
+    "category": "tool",
+    "aliases": [
+      "jira service management"
+    ]
+  },
+  {
+    "name": "confluence",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "customer relationship management",
+    "category": "business",
+    "aliases": [
+      "crm",
+      "client relationship management",
+      "crm software"
+    ]
+  },
+  {
+    "name": "communication",
+    "category": "interpersonal",
+    "aliases": [
+      "communication skills",
+      "written communication",
+      "verbal communication",
+      "oral communication",
+      "interpersonal communication"
+    ]
+  },
+  {
+    "name": "active listening",
+    "category": "interpersonal",
+    "aliases": [
+      "active listening skills"
+    ]
+  },
+  {
+    "name": "empathy",
+    "category": "interpersonal",
+    "aliases": [
+      "empathetic",
+      "empathetically"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "kindly",
+          "kindness"
+        ],
+        "context": "\\b(?:support|customers?|families|care partners|resolv\\w*)\\b"
+      }
+    ]
+  },
+  {
+    "name": "patience",
+    "category": "interpersonal",
+    "aliases": []
+  },
+  {
+    "name": "problem solving",
+    "category": "interpersonal",
+    "aliases": [
+      "problem-solving",
+      "problem resolution",
+      "solving problems",
+      "solve problems",
+      "problem solving skills"
+    ]
+  },
+  {
+    "name": "ownership",
+    "category": "interpersonal",
+    "aliases": [
+      "accountability",
+      "own a problem",
+      "take ownership",
+      "taking ownership",
+      "end to end ownership"
+    ]
+  },
+  {
+    "name": "teamwork",
+    "category": "interpersonal",
+    "aliases": [
+      "team work",
+      "team collaboration",
+      "work collaboratively",
+      "working collaboratively"
+    ]
+  },
+  {
+    "name": "time management",
+    "category": "interpersonal",
+    "aliases": [
+      "time management skills"
+    ]
+  },
+  {
+    "name": "attention to detail",
+    "category": "interpersonal",
+    "aliases": [
+      "detail oriented",
+      "detail orientation"
+    ]
+  },
+  {
+    "name": "adaptability",
+    "category": "interpersonal",
+    "aliases": [
+      "adaptable",
+      "adaptability skills"
+    ]
+  },
+  {
+    "name": "conflict resolution",
+    "category": "interpersonal",
+    "aliases": [
+      "de escalation",
+      "de-escalation",
+      "conflict management"
+    ]
+  },
+  {
+    "name": "leadership",
+    "category": "interpersonal",
+    "aliases": [
+      "team leadership",
+      "leadership skills"
+    ]
+  },
+  {
+    "name": "stakeholder management",
+    "category": "business",
+    "aliases": [
+      "stakeholder engagement"
+    ]
+  },
+  {
+    "name": "project management",
+    "category": "business",
+    "aliases": []
+  },
+  {
+    "name": "agile",
+    "category": "business",
+    "name_is_alias": false,
+    "aliases": [
+      "agile methodology",
+      "agile methodologies",
+      "agile development",
+      "agile practices"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "agile"
+        ],
+        "context": "\\b(?:scrum|kanban|sprints?|methodolog\\w*|development|project management|skills?|experience|proficien\\w*)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "scrum",
+    "category": "business",
+    "aliases": []
+  },
+  {
+    "name": "process improvement",
+    "category": "business",
+    "aliases": [
+      "continuous improvement",
+      "process optimization",
+      "process optimisation"
+    ],
+    "patterns": ["\\bimprovements? in processes\\b"]
+  },
+  {
+    "name": "root cause analysis",
+    "category": "analysis",
+    "aliases": [
+      "root-cause analysis",
+      "rca"
+    ]
+  },
+  {
+    "name": "data analysis",
+    "category": "analysis",
+    "aliases": [
+      "data analytics",
+      "analysing data",
+      "analyzing data"
+    ]
+  },
+  {
+    "name": "data visualization",
+    "category": "analysis",
+    "aliases": [
+      "data visualisation"
+    ]
+  },
+  {
+    "name": "report writing",
+    "category": "business",
+    "aliases": [
+      "writing reports",
+      "report preparation"
+    ]
+  },
+  {
+    "name": "sales",
+    "category": "business",
+    "aliases": [
+      "sales skills",
+      "door to door sales"
+    ]
+  },
+  {
+    "name": "upselling",
+    "category": "business",
+    "aliases": [
+      "up selling"
+    ]
+  },
+  {
+    "name": "cross selling",
+    "category": "business",
+    "aliases": [
+      "cross-selling"
+    ]
+  },
+  {
+    "name": "lead generation",
+    "category": "business",
+    "aliases": [
+      "generate leads",
+      "generating leads"
+    ]
+  },
+  {
+    "name": "cold calling",
+    "category": "business",
+    "aliases": [
+      "cold calls"
+    ]
+  },
+  {
+    "name": "account management",
+    "category": "business",
+    "aliases": [
+      "managing accounts",
+      "manage existing accounts"
+    ]
+  },
+  {
+    "name": "risk management",
+    "category": "business",
+    "aliases": [
+      "manage risks",
+      "managing risks"
+    ]
+  },
+  {
+    "name": "regulatory compliance",
+    "category": "business",
+    "aliases": [
+      "compliance routines",
+      "regulatory requirements"
+    ]
+  },
+  {
+    "name": "financial services",
+    "category": "business",
+    "aliases": [
+      "financial products and services"
+    ]
+  },
+  {
+    "name": "cash handling",
+    "category": "business",
+    "aliases": [
+      "cash and card payments",
+      "handling cash"
+    ]
+  },
+  {
+    "name": "python",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "javascript",
+    "category": "technical",
+    "aliases": [
+      "java script"
+    ]
+  },
+  {
+    "name": "typescript",
+    "category": "technical",
+    "aliases": [
+      "type script"
+    ]
+  },
+  {
+    "name": "java",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "c++",
+    "category": "technical",
+    "aliases": [
+      "cpp"
+    ]
+  },
+  {
+    "name": "c#",
+    "category": "technical",
+    "aliases": [
+      "c sharp",
+      "csharp"
+    ]
+  },
+  {
+    "name": ".net",
+    "category": "technical",
+    "aliases": [
+      "dotnet",
+      "dot net"
+    ]
+  },
+  {
+    "name": "sql",
+    "category": "technical",
+    "aliases": [
+      "structured query language"
+    ]
+  },
+  {
+    "name": "postgresql",
+    "category": "technical",
+    "aliases": [
+      "postgres"
+    ]
+  },
+  {
+    "name": "mysql",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "mongodb",
+    "category": "technical",
+    "aliases": [
+      "mongo db"
+    ]
+  },
+  {
+    "name": "react",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": [
+      "react.js",
+      "reactjs"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "react"
+        ],
+        "context": "\\b(?:javascript|typescript|frameworks?|front[ -]?end|web|developers?|development|skills?|experience|proficien\\w*|python|sql|node\\.js)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "angular",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": [
+      "angularjs"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "angular"
+        ],
+        "context": "\\b(?:javascript|typescript|frameworks?|front[ -]?end|web|developers?|development|skills?|experience|proficien\\w*)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "vue",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": [
+      "vue.js",
+      "vuejs"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "vue"
+        ],
+        "context": "\\b(?:javascript|typescript|frameworks?|front[ -]?end|web|developers?|development|skills?|experience|proficien\\w*)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "node.js",
+    "category": "technical",
+    "aliases": [
+      "nodejs",
+      "node js"
+    ]
+  },
+  {
+    "name": "html",
+    "category": "technical",
+    "aliases": [
+      "html5"
+    ]
+  },
+  {
+    "name": "css",
+    "category": "technical",
+    "aliases": [
+      "css3"
+    ]
+  },
+  {
+    "name": "git",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "docker",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "kubernetes",
+    "category": "technical",
+    "aliases": [
+      "k8s"
+    ]
+  },
+  {
+    "name": "amazon web services",
+    "category": "technical",
+    "aliases": [
+      "aws"
+    ]
+  },
+  {
+    "name": "microsoft azure",
+    "category": "technical",
+    "aliases": [
+      "azure"
+    ]
+  },
+  {
+    "name": "google cloud platform",
+    "category": "technical",
+    "aliases": [
+      "gcp",
+      "google cloud"
+    ]
+  },
+  {
+    "name": "linux",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "windows administration",
+    "category": "technical",
+    "aliases": [
+      "windows server administration"
+    ]
+  },
+  {
+    "name": "rest api",
+    "category": "technical",
+    "aliases": [
+      "rest apis",
+      "restful api",
+      "restful apis"
+    ]
+  },
+  {
+    "name": "software testing",
+    "category": "technical",
+    "aliases": [
+      "quality assurance",
+      "qa testing",
+      "testing philosophy",
+      "desktop testing",
+      "desktop application testing"
+    ]
+  },
+  {
+    "name": "unit testing",
+    "category": "technical",
+    "aliases": [
+      "unit tests"
+    ],
+    "patterns": ["\\bunit(?: and automated)? testing\\b"]
+  },
+  {
+    "name": "ci/cd",
+    "category": "technical",
+    "aliases": [
+      "continuous integration",
+      "continuous delivery",
+      "continuous deployment"
+    ]
+  },
+  {
+    "name": "machine learning",
+    "category": "technical",
+    "aliases": [
+      "ml"
+    ]
+  },
+  {
+    "name": "natural language processing",
+    "category": "technical",
+    "aliases": [
+      "nlp"
+    ]
+  },
+  {
+    "name": "pandas",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": [],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "pandas"
+        ],
+        "context": "\\b(?:python|data|dataframes?|numpy|libraries|library|skills?|experience|proficien\\w*)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "numpy",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "tensorflow",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "pytorch",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "microsoft excel",
+    "category": "tool",
+    "aliases": [
+      "ms excel"
+    ],
+    "contextual_aliases": [
+      {
+        "aliases": [
+          "excel"
+        ],
+        "context": "\\b(?:microsoft|ms|spreadsheets?|pivot|vlookup|xlookup|formulas?|skills?|proficien\\w*|experience|tools?|data|word|powerpoint|sql)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "microsoft word",
+    "category": "tool",
+    "aliases": [
+      "ms word"
+    ]
+  },
+  {
+    "name": "microsoft powerpoint",
+    "category": "tool",
+    "aliases": [
+      "ms powerpoint",
+      "powerpoint"
+    ]
+  },
+  {
+    "name": "microsoft office",
+    "category": "tool",
+    "aliases": [
+      "ms office",
+      "office 365",
+      "microsoft 365"
+    ]
+  },
+  {
+    "name": "google workspace",
+    "category": "tool",
+    "aliases": [
+      "g suite",
+      "gsuite"
+    ]
+  },
+  {
+    "name": "power bi",
+    "category": "tool",
+    "aliases": [
+      "powerbi"
+    ]
+  },
+  {
+    "name": "tableau",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "figma",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "hvac",
+    "category": "technical",
+    "aliases": [
+      "heating ventilation and air conditioning"
+    ]
+  },
+  {
+    "name": "plumbing",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "electrical systems",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "software development",
+    "category": "technical",
+    "aliases": ["software engineering", "application development", "developing software", "building production software", "production software development"]
+  },
+  {
+    "name": "web application development",
+    "category": "technical",
+    "aliases": ["web app development", "web applications", "web application architecture"],
+    "patterns": ["\\bweb(?:\\s*/\\s*| or )desktop applications?\\b", "\\bweb or desktop application architecture\\b"]
+  },
+  {
+    "name": "desktop application development",
+    "category": "technical",
+    "aliases": ["desktop app development", "desktop applications", "desktop application architecture", "desktop add-ins"],
+    "patterns": ["\\bweb(?:\\s*/\\s*| or )desktop applications?\\b", "\\bweb or desktop application architecture\\b"]
+  },
+  {
+    "name": "cloud services development",
+    "category": "technical",
+    "aliases": ["cloud service development", "cloud services", "cloud development"]
+  },
+  {
+    "name": "software architecture",
+    "category": "technical",
+    "aliases": ["application architecture", "software design and architecture"]
+  },
+  {
+    "name": "software design",
+    "category": "technical",
+    "aliases": ["application design"]
+  },
+  {
+    "name": "software design patterns",
+    "category": "technical",
+    "aliases": ["design patterns", "software patterns"]
+  },
+  {
+    "name": "software development lifecycle",
+    "category": "technical",
+    "aliases": ["software development life cycle", "development lifecycle", "sdlc", "full lifecycle"]
+  },
+  {
+    "name": "requirements analysis",
+    "category": "business",
+    "aliases": ["requirements gathering", "requirements engineering"],
+    "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b"]
+  },
+  {
+    "name": "prototyping",
+    "category": "technical",
+    "aliases": ["prototype", "prototypes"]
+  },
+  {
+    "name": "technical research",
+    "category": "technical",
+    "aliases": ["technology research"],
+    "patterns": ["\\bresearch (?:and prototype )?(?:innovative )?(?:ideas|technologies|patterns|solutions)\\b"]
+  },
+  {
+    "name": "presentation skills",
+    "category": "interpersonal",
+    "aliases": ["presenting ideas", "present solutions"],
+    "patterns": ["\\bpresent (?:your |technical )?(?:ideas|solutions|designs)\\b"]
+  },
+  {
+    "name": "large language models",
+    "category": "technical",
+    "aliases": ["large language model", "llms", "llm"]
+  },
+  {
+    "name": "ai-assisted software development",
+    "category": "technical",
+    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools"]
+  },
+  {
+    "name": "artificial intelligence",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["artificial intelligence", "ai tools", "ai techniques"],
+    "contextual_aliases": [
+      {
+        "aliases": ["ai"],
+        "context": "\\b(?:tools?|techniques?|coding|software|development|automation|testing|productivity|llms?)\\b"
+      }
+    ]
+  },
+  {
+    "name": "github copilot",
+    "category": "tool",
+    "aliases": ["copilot"]
+  },
+  {
+    "name": "cursor",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": [],
+    "contextual_aliases": [
+      {
+        "aliases": ["cursor"],
+        "context": "\\b(?:ai|coding|development|developer|tools?|copilot|claude)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "claude",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": [],
+    "contextual_aliases": [
+      {
+        "aliases": ["claude"],
+        "context": "\\b(?:ai|llms?|coding|development|developer|tools?|copilot|cursor)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "production support",
+    "category": "technical",
+    "aliases": ["support production systems", "production systems support"]
+  },
+  {
+    "name": "software deployment",
+    "category": "technical",
+    "aliases": ["application deployment", "deploying software", "deploying applications"],
+    "patterns": ["\\b(?:deploying|deployment)(?:,| and) (?:monitoring|supporting|providing support)\\b"]
+  },
+  {
+    "name": "high-throughput systems",
+    "category": "technical",
+    "aliases": ["high throughput systems", "high-throughput services", "high throughput services"]
+  },
+  {
+    "name": "on-call support",
+    "category": "technical",
+    "aliases": ["on-call rotation", "on-call rotations", "on call rotation", "on call rotations"]
+  },
+  {
+    "name": "api development",
+    "category": "technical",
+    "aliases": ["api design", "building apis", "secure apis"]
+  },
+  {
+    "name": "microservices",
+    "category": "technical",
+    "aliases": ["microservice", "microservices architecture", "microservice architecture"]
+  },
+  {
+    "name": "application security",
+    "category": "technical",
+    "aliases": ["secure application development", "secure software development", "application security practices"],
+    "patterns": ["\\b(?:building|developing|designing) secure apis\\b"]
+  },
+  {
+    "name": "relational databases",
+    "category": "technical",
+    "aliases": ["relational database", "relational database technologies", "rdbms"]
+  },
+  {
+    "name": "database schema design",
+    "category": "technical",
+    "aliases": ["schema design", "database design"]
+  },
+  {
+    "name": "query performance optimization",
+    "category": "technical",
+    "aliases": ["query performance", "query optimization", "query optimisation", "database performance tuning"]
+  },
+  {
+    "name": "monitoring",
+    "category": "technical",
+    "aliases": ["system monitoring", "application monitoring", "production monitoring"]
+  },
+  {
+    "name": "logging",
+    "category": "technical",
+    "aliases": ["application logging", "system logging"]
+  },
+  {
+    "name": "alerting",
+    "category": "technical",
+    "aliases": ["system alerting", "application alerting"]
+  },
+  {
+    "name": "incident response",
+    "category": "technical",
+    "aliases": ["incident management", "production incident response"]
+  },
+  {
+    "name": "debugging",
+    "category": "technical",
+    "aliases": ["software debugging", "debug software"]
+  },
+  {
+    "name": "automated testing",
+    "category": "technical",
+    "aliases": ["automation testing", "automated tests", "test automation"]
+  },
+  {
+    "name": "cypress",
+    "category": "tool",
+    "aliases": ["cypress.io"]
+  },
+  {
+    "name": "playwright",
+    "category": "tool",
+    "aliases": ["microsoft playwright"]
+  },
+  {
+    "name": "independent work",
+    "category": "interpersonal",
+    "aliases": ["work independently", "working independently", "self-directed", "self directed"]
+  },
+  {
+    "name": "prioritization",
+    "category": "interpersonal",
+    "aliases": ["prioritisation", "balancing multiple priorities", "manage multiple priorities", "managing multiple priorities"]
+  },
+  {
+    "name": "aws lambda",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["amazon lambda"],
+    "contextual_aliases": [
+      {
+        "aliases": ["lambda"],
+        "context": "\\b(?:aws|amazon web services|api gateway|s3|rds|cloud)\\b"
+      }
+    ]
+  },
+  {
+    "name": "amazon api gateway",
+    "category": "technical",
+    "aliases": ["aws api gateway", "api gateway"]
+  },
+  {
+    "name": "amazon s3",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["aws s3"],
+    "contextual_aliases": [
+      {
+        "aliases": ["s3"],
+        "context": "\\b(?:aws|amazon web services|lambda|api gateway|rds|cloud)\\b"
+      }
+    ]
+  },
+  {
+    "name": "amazon rds",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["aws rds", "relational database service"],
+    "contextual_aliases": [
+      {
+        "aliases": ["rds"],
+        "context": "\\b(?:aws|amazon web services|lambda|api gateway|s3|cloud)\\b"
+      }
+    ]
+  },
+  {
+    "name": "computer-aided design",
+    "category": "technical",
+    "aliases": ["computer aided design", "cad applications", "cad software", "cad design"]
+  },
+  {
+    "name": "autodesk inventor",
+    "category": "tool",
+    "aliases": ["inventor"]
+  },
+  {
+    "name": "autodesk revit",
+    "category": "tool",
+    "aliases": ["revit"]
+  },
+  {
+    "name": "aec",
+    "category": "domain",
+    "aliases": ["architecture engineering and construction"]
+  },
+  {
+    "name": "automation",
+    "category": "technical",
+    "aliases": ["software automation", "process automation"]
+  },
+  {
+    "name": "devops",
+    "category": "technical",
+    "aliases": ["devops practices"]
+  },
+  {
+    "name": "infrastructure as code",
+    "category": "technical",
+    "aliases": ["iac"]
+  },
+  {
+    "name": "office add-in development",
+    "category": "technical",
+    "aliases": ["office add-ins", "office plugins", "office plugin development", "office integration"]
+  },
+  {
+    "name": "excel add-in development",
+    "category": "technical",
+    "aliases": ["excel add-ins", "excel add-in", "excel plugin", "excel plugins", "excel plugin development"]
+  },
+  {
+    "name": "asynchronous programming",
+    "category": "technical",
+    "aliases": ["async programming", "asynchronous development"]
+  },
+  {
+    "name": "state management",
+    "category": "technical",
+    "aliases": ["application state management"]
+  },
+  {
+    "name": "event-driven architecture",
+    "category": "technical",
+    "aliases": ["event driven architecture", "event-driven architectures", "event driven architectures", "event system"]
+  },
+  {
+    "name": "software update management",
+    "category": "technical",
+    "aliases": ["application update management", "software updates", "application updates"],
+    "patterns": ["\\b(?:software deployment|application deployment|enterprise software)[^.;]{0,40}\\bupdates\\b"]
+  },
+  {
+    "name": "software version management",
+    "category": "technical",
+    "aliases": ["application version management", "version management"]
+  },
+  {
+    "name": "error handling",
+    "category": "technical",
+    "aliases": ["exception handling"]
+  },
+  {
+    "name": "fault recovery",
+    "category": "technical",
+    "aliases": ["error recovery", "failure recovery", "application recovery"],
+    "patterns": ["\\berror handling and recovery\\b"]
+  },
+  {
+    "name": "performance optimization",
+    "category": "technical",
+    "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation"]
+  },
+  {
+    "name": "memory optimization",
+    "category": "technical",
+    "aliases": ["memory optimisation", "memory performance optimization", "memory management"],
+    "patterns": ["\\bmemory\\s*/\\s*performance optimi[sz]ation\\b", "\\bmanaging memory\\b"]
+  },
+  {
+    "name": "technical mentoring",
+    "category": "interpersonal",
+    "aliases": ["engineering mentoring", "developer mentoring", "mentoring engineers", "mentor engineers", "mentor teams", "mentoring the team"]
+  },
+  {
+    "name": "software development best practices",
+    "category": "technical",
+    "aliases": ["development best practices", "software engineering best practices", "desktop development best practices"]
+  },
+  {
+    "name": "visual studio tools for office",
+    "category": "tool",
+    "aliases": ["vsto"]
+  },
+  {
+    "name": "com add-in development",
+    "category": "technical",
+    "aliases": ["com add-ins", "com add-in"]
+  },
+  {
+    "name": "excel calculation engine",
+    "category": "technical",
+    "aliases": ["excel's calculation engine"]
+  },
+  {
+    "name": "excel object model",
+    "category": "technical",
+    "aliases": ["excel's object model"]
+  },
+  {
+    "name": "financial modeling",
+    "category": "business",
+    "aliases": ["financial modelling", "financial models", "company models"]
+  },
+  {
+    "name": "trading systems",
+    "category": "domain",
+    "aliases": ["trading platforms"]
+  },
+  {
+    "name": "web development",
+    "category": "technical",
+    "aliases": ["web development technologies"]
+  },
+  {
+    "name": "xlsx",
+    "category": "technical",
+    "aliases": ["xlsx format", "xlsx files"]
+  },
+  {
+    "name": "csv",
+    "category": "technical",
+    "aliases": ["csv format", "csv files", "comma-separated values"]
+  },
+  {
+    "name": "json",
+    "category": "technical",
+    "aliases": ["json format", "json data"]
+  },
+  {
+    "name": "data transformation",
+    "category": "technical",
+    "aliases": ["data transformations", "transforming data"],
+    "patterns": ["\\bdata formats?[^.;]{0,60}\\btransformations?\\b", "\\b(?:xlsx|csv|json)[^.;]{0,40}\\btransformations?\\b"]
+  },
+  {
+    "name": "offline application development",
+    "category": "technical",
+    "aliases": ["offline-capable applications", "offline capable applications", "offline-first applications", "offline first applications", "offline scenarios"]
+  },
+  {
+    "name": "data synchronization",
+    "category": "technical",
+    "aliases": ["data synchronisation", "sync mechanisms", "synchronization mechanisms", "synchronisation mechanisms"]
+  },
+  {
+    "name": "websocket",
+    "category": "technical",
+    "aliases": ["websockets", "websocket connections"]
+  },
+  {
+    "name": "real-time data feeds",
+    "category": "technical",
+    "aliases": ["real time data feeds", "real-time feeds", "real time feeds"]
+  },
+  {
+    "name": "streaming architecture",
+    "category": "technical",
+    "aliases": ["streaming architectures", "streaming systems"]
+  },
+  {
+    "name": "visual studio",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "cloud integration",
+    "category": "technical",
+    "aliases": ["cloud-based integration", "cloud based integration", "local and cloud data"]
+  },
+  {
+    "name": "enterprise authentication",
+    "category": "technical",
+    "aliases": ["enterprise identity management"]
+  },
+  {
+    "name": "single sign-on",
+    "category": "technical",
+    "aliases": ["single sign on", "sso"]
+  },
+  {
+    "name": "oauth",
+    "category": "technical",
+    "aliases": ["oauth 2.0", "oauth2"]
+  },
+  {
+    "name": "saml",
+    "category": "technical",
+    "aliases": ["security assertion markup language"]
+  },
+  {
+    "name": "cross-platform development",
+    "category": "technical",
+    "aliases": ["cross-platform support", "cross platform development", "cross platform support"]
+  },
+  {
+    "name": "windows",
+    "category": "platform",
+    "name_is_alias": false,
+    "aliases": ["microsoft windows"],
+    "contextual_aliases": [
+      {
+        "aliases": ["windows"],
+        "context": "\\b(?:mac|macos|cross[ -]?platform|desktop|operating systems?|platform support)\\b"
+      }
+    ]
+  },
+  {
+    "name": "macos",
+    "category": "platform",
+    "aliases": ["mac os", "os x"],
+    "contextual_aliases": [
+      {
+        "aliases": ["mac"],
+        "context": "\\b(?:windows|cross[ -]?platform|desktop|operating systems?|platform support)\\b"
+      }
+    ]
+  },
+  {
+    "name": "corporate proxy support",
+    "category": "technical",
+    "aliases": ["corporate proxies", "enterprise proxies", "proxy support"]
+  },
+  {
+    "name": "user interface design",
+    "category": "technical",
+    "aliases": ["interface design", "intuitive interfaces", "ui design"]
+  },
+  {
+    "name": "financial analysis",
+    "category": "business",
+    "aliases": ["financial analyst", "financial analysts", "equity research analysis"]
+  },
+  {
+    "name": "distributed systems",
+    "category": "technical",
+    "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer"]
+  },
+  {
+    "name": "legacy system modernization",
+    "category": "technical",
+    "aliases": ["legacy modernization", "legacy system migration", "migrating off legacy infrastructure", "legacy infrastructure migration"],
+    "patterns": ["\\bmigrat(?:e|es|ed|ing)[^.;]{0,40}off legacy infrastructure\\b"]
+  },
+  {
+    "name": "advanced excel",
+    "category": "technical",
+    "aliases": ["excel power-user", "excel power user", "excel power-user patterns", "excel power user patterns"],
+    "patterns": ["\\bexcel(?:'s)?[^.;]{0,100}\\bpower[ -]user patterns\\b"]
+  },
+  {
+    "name": "excel formula development",
+    "category": "technical",
+    "aliases": ["excel formulas", "excel formula", "spreadsheet formulas"]
+  },
+  {
+    "name": "systems integration",
+    "category": "technical",
+    "aliases": ["system integration", "software integration", "complex integration", "platform integration", "application integration"]
+  },
+  {
+    "name": "software reliability",
+    "category": "technical",
+    "aliases": ["application reliability", "application stability", "software stability", "performance and stability"]
+  },
+  {
+    "name": "financial technology",
+    "category": "domain",
+    "aliases": ["fintech"]
+  },
+  {
+    "name": "equity research",
+    "category": "domain",
+    "aliases": ["equities research"]
+  },
+  {
+    "name": "market intelligence",
+    "category": "domain",
+    "aliases": ["financial market intelligence"]
+  }
+]
