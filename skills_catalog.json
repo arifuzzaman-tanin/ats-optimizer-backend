@@ -1137,7 +1137,7 @@
   {
     "name": "api development",
     "category": "technical",
-    "aliases": ["api design", "building apis", "secure apis"]
+    "aliases": ["api design", "api design practices", "api contracts", "rest api design", "restful api design", "building apis", "secure apis"]
   },
   {
     "name": "microservices",
@@ -1305,7 +1305,7 @@
   {
     "name": "asynchronous programming",
     "category": "technical",
-    "aliases": ["async programming", "asynchronous development"]
+    "aliases": ["async programming", "asynchronous development", "async i/o", "asynchronous i/o", "event loops"]
   },
   {
     "name": "state management",
@@ -1913,5 +1913,782 @@
     "name": "gitlab",
     "category": "tool",
     "aliases": ["gitlab ci", "gitlab ci/cd"]
-  }
+  },
+  {
+    "name": "data engineering",
+    "category": "technical",
+    "aliases": ["data engineer", "data engineering designs", "data engineering projects"]
+  },
+  {
+    "name": "snowflake",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["snowflake data warehouse", "snowflake platform"],
+    "contextual_aliases": [
+      {"aliases": ["snowflake"], "context": "\\b(?:data|warehouse|sql|dbt|etl|elt|airflow|cloud|database|pipelines?|databricks|aws|azure|gcp)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "dbt",
+    "category": "tool",
+    "aliases": ["data build tool"]
+  },
+  {
+    "name": "apache airflow",
+    "category": "tool",
+    "aliases": ["airflow", "airflow dags"]
+  },
+  {
+    "name": "informatica iics",
+    "category": "tool",
+    "aliases": ["iics", "informatica intelligent cloud services"]
+  },
+  {
+    "name": "etl",
+    "category": "technical",
+    "aliases": ["extract transform load", "extract-transform-load", "etl development", "etl pipelines", "etl processes"]
+  },
+  {
+    "name": "elt",
+    "category": "technical",
+    "aliases": ["extract load transform", "extract-load-transform", "elt development", "elt pipelines", "elt processes"]
+  },
+  {
+    "name": "data pipeline development",
+    "category": "technical",
+    "aliases": ["data pipeline design", "data pipeline architecture", "building data pipelines", "data pipelines", "ingestion pipelines"]
+  },
+  {
+    "name": "data warehousing",
+    "category": "technical",
+    "aliases": ["data warehouse", "cloud data warehouse", "warehouse architecture", "modern warehouse design"]
+  },
+  {
+    "name": "data modeling",
+    "category": "technical",
+    "aliases": ["data modelling", "data models", "schema modeling", "schema modelling"]
+  },
+  {
+    "name": "dimensional modeling",
+    "category": "technical",
+    "aliases": ["dimensional modelling", "dimensional data modeling", "dimensional data modelling", "dimensional data models", "star schema", "star schemas", "snowflake schema", "snowflake schemas"]
+  },
+  {
+    "name": "data quality",
+    "category": "technical",
+    "aliases": ["data quality checks", "data quality frameworks", "data quality practices", "data quality issues"]
+  },
+  {
+    "name": "data governance",
+    "category": "business",
+    "aliases": ["data governance practices", "data governance principles", "data lineage", "metadata management"]
+  },
+  {
+    "name": "role-based access control",
+    "category": "technical",
+    "aliases": ["rbac", "role based access control"]
+  },
+  {
+    "name": "fivetran",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "airbyte",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "matillion",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "dagster",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "apache spark",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["apache spark"],
+    "contextual_aliases": [
+      {"aliases": ["spark"], "context": "\\b(?:apache|data|etl|pipelines?|processing|distributed|pyspark|databricks|sql|python)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "pyspark",
+    "category": "technical",
+    "aliases": ["py spark"]
+  },
+  {
+    "name": "databricks",
+    "category": "tool",
+    "aliases": ["databricks lakehouse"]
+  },
+  {
+    "name": "apache iceberg",
+    "category": "technical",
+    "aliases": ["iceberg tables", "iceberg table format"],
+    "contextual_aliases": [
+      {"aliases": ["iceberg"], "context": "\\b(?:apache|data|tables?|formats?|snowflake|spark|emr)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "apache kafka",
+    "category": "tool",
+    "aliases": ["kafka"]
+  },
+  {
+    "name": "terraform",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "aws cloudformation",
+    "category": "tool",
+    "aliases": ["cloudformation", "cloud formation"]
+  },
+  {
+    "name": "amazon redshift",
+    "category": "tool",
+    "aliases": ["aws redshift", "redshift"]
+  },
+  {
+    "name": "google bigquery",
+    "category": "tool",
+    "aliases": ["bigquery", "big query"]
+  },
+  {
+    "name": "data lakes",
+    "category": "technical",
+    "aliases": ["data lake", "lakehouse architecture", "lakehouse architectures"]
+  },
+  {
+    "name": "fastapi",
+    "category": "tool",
+    "aliases": ["fast api"]
+  },
+  {
+    "name": "graphql",
+    "category": "technical",
+    "aliases": ["graph ql"]
+  },
+  {
+    "name": "grpc",
+    "category": "technical",
+    "aliases": ["google remote procedure call"]
+  },
+  {
+    "name": "caching",
+    "category": "technical",
+    "aliases": ["cache management", "caching strategies", "application caching"]
+  },
+  {
+    "name": "rate limiting",
+    "category": "technical",
+    "aliases": ["rate limits", "api throttling"]
+  },
+  {
+    "name": "concurrent programming",
+    "category": "technical",
+    "aliases": ["safe concurrency", "concurrency best practices", "concurrent processing"]
+  },
+  {
+    "name": "background job processing",
+    "category": "technical",
+    "aliases": ["background processing", "background jobs", "worker processes", "queues and workers"]
+  },
+  {
+    "name": "message queues",
+    "category": "technical",
+    "aliases": ["message queue", "message brokers", "message broker", "queue-based processing"]
+  },
+  {
+    "name": "retry handling",
+    "category": "technical",
+    "aliases": ["retry logic", "retry mechanisms", "retry strategies", "retries and fallbacks", "retries"]
+  },
+  {
+    "name": "idempotency",
+    "category": "technical",
+    "aliases": ["idempotent operations", "idempotent processing"]
+  },
+  {
+    "name": "dead-letter queues",
+    "category": "technical",
+    "aliases": ["dead letter queues", "dead-letter queue", "dead letter queue", "dlq", "dlqs"]
+  },
+  {
+    "name": "application metrics",
+    "category": "technical",
+    "aliases": ["service metrics", "operational metrics", "application metrics"],
+    "contextual_aliases": [
+      {"aliases": ["metrics"], "context": "\\b(?:logging|tracing|alerting|observability|monitoring|dashboards?|services?|production)\\b"}
+    ]
+  },
+  {
+    "name": "distributed tracing",
+    "category": "technical",
+    "aliases": ["application tracing", "request tracing"],
+    "contextual_aliases": [
+      {"aliases": ["tracing"], "context": "\\b(?:distributed|logging|metrics|observability|monitoring|production)\\b"}
+    ]
+  },
+  {
+    "name": "code review",
+    "category": "technical",
+    "aliases": ["code reviews", "peer code review", "reviewing code"]
+  },
+  {
+    "name": "object-oriented programming",
+    "category": "technical",
+    "aliases": ["object oriented programming", "oop", "object-oriented design", "object oriented design"]
+  },
+  {
+    "name": "dependency injection",
+    "category": "technical",
+    "aliases": ["dependency inversion"]
+  },
+  {
+    "name": "semantic search",
+    "category": "technical",
+    "aliases": ["semantic retrieval"]
+  },
+  {
+    "name": "vector databases",
+    "category": "technical",
+    "aliases": ["vector database", "vector store", "vector stores", "vector search"]
+  },
+  {
+    "name": "rabbitmq",
+    "category": "tool",
+    "aliases": ["rabbit mq"]
+  },
+  {
+    "name": "redis",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "elasticsearch",
+    "category": "tool",
+    "aliases": ["elastic search"]
+  },
+  {
+    "name": "datadog",
+    "category": "tool",
+    "aliases": ["data dog"]
+  },
+  {
+    "name": "amazon sqs",
+    "category": "tool",
+    "aliases": ["aws sqs", "sqs"]
+  },
+  {
+    "name": "amazon sns",
+    "category": "tool",
+    "aliases": ["aws sns", "sns"]
+  },
+  {
+    "name": "amazon eventbridge",
+    "category": "tool",
+    "aliases": ["aws eventbridge", "eventbridge", "event bridge"]
+  },
+  {
+    "name": "amazon cloudwatch",
+    "category": "tool",
+    "aliases": ["aws cloudwatch", "cloudwatch", "cloud watch"]
+  },
+  {
+    "name": "amazon ec2",
+    "category": "tool",
+    "aliases": ["aws ec2", "ec2"]
+  },
+  {
+    "name": "amazon vpc",
+    "category": "technical",
+    "aliases": ["aws vpc", "virtual private cloud", "vpc"]
+  },
+  {
+    "name": "aws identity and access management",
+    "category": "technical",
+    "aliases": ["aws iam", "identity and access management", "iam hardening", "iam"]
+  },
+  {
+    "name": "aws key management service",
+    "category": "tool",
+    "aliases": ["aws kms", "key management service", "kms"]
+  },
+  {
+    "name": "jenkins",
+    "category": "tool",
+    "aliases": ["jenkins pipelines"]
+  },
+  {
+    "name": "bash",
+    "category": "technical",
+    "aliases": ["bash scripting", "shell scripting", "unix shell"]
+  },
+  {
+    "name": "prometheus",
+    "category": "tool",
+    "aliases": ["prometheus monitoring"]
+  },
+  {
+    "name": "grafana",
+    "category": "tool",
+    "aliases": ["grafana dashboards"]
+  },
+  {
+    "name": "helm",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["helm charts", "helm chart"],
+    "contextual_aliases": [
+      {"aliases": ["helm"], "context": "\\b(?:kubernetes|k8s|charts?|deploy|deployment|containers?)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "github actions",
+    "category": "tool",
+    "aliases": ["github workflows"]
+  },
+  {
+    "name": "secrets management",
+    "category": "technical",
+    "aliases": ["secret management", "secrets rotation", "secret rotation"]
+  },
+  {
+    "name": "vulnerability management",
+    "category": "technical",
+    "aliases": ["vulnerability scanning", "security scanning", "container scanning"]
+  },
+  {
+    "name": "argocd",
+    "category": "tool",
+    "aliases": ["argo cd"]
+  },
+  {
+    "name": "flux cd",
+    "category": "tool",
+    "aliases": ["fluxcd"]
+  },
+  {
+    "name": "service mesh",
+    "category": "technical",
+    "aliases": ["service meshes"]
+  },
+  {
+    "name": "finops",
+    "category": "business",
+    "aliases": ["cloud cost management", "cloud cost optimization"]
+  },
+  {
+    "name": "saas support",
+    "category": "customer_support",
+    "aliases": ["saas technical support", "software-as-a-service support", "software as a service support"]
+  },
+  {
+    "name": "service level management",
+    "category": "customer_support",
+    "aliases": ["service level agreements", "service-level agreements", "sla management", "sla targets", "sla commitments"]
+  },
+  {
+    "name": "customer satisfaction",
+    "category": "customer_support",
+    "aliases": ["customer satisfaction score", "csat", "csat benchmarks", "csat metrics"]
+  },
+  {
+    "name": "issue reproduction",
+    "category": "customer_support",
+    "aliases": ["reproduce issues", "reproducing issues", "replicate issues", "reproducible steps"]
+  },
+  {
+    "name": "salesforce service cloud",
+    "category": "tool",
+    "aliases": ["service cloud"]
+  },
+  {
+    "name": "zoho desk",
+    "category": "tool",
+    "aliases": ["zoho support", "zoho desk support"],
+    "contextual_aliases": [
+      {"aliases": ["zoho"], "context": "\\b(?:support|ticketing|help ?desk|customer)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "next.js",
+    "category": "technical",
+    "aliases": ["nextjs", "next js"]
+  },
+  {
+    "name": "json web tokens",
+    "category": "technical",
+    "aliases": ["jwt", "jwts"]
+  },
+  {
+    "name": "jest",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["jest testing", "jest tests"],
+    "contextual_aliases": [
+      {"aliases": ["jest"], "context": "\\b(?:javascript|typescript|react|testing|tests?|frontend|node)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "redux",
+    "category": "technical",
+    "aliases": ["react-redux", "redux saga", "redux-saga"]
+  },
+  {
+    "name": "webpack",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "npm",
+    "category": "tool",
+    "aliases": ["node package manager"]
+  },
+  {
+    "name": "yarn",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["yarn package manager"],
+    "contextual_aliases": [
+      {"aliases": ["yarn"], "context": "\\b(?:npm|node|javascript|typescript|frontend|package manager|webpack)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "eslint",
+    "category": "tool",
+    "aliases": ["es lint"]
+  },
+  {
+    "name": "sass",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["sass css", "scss"],
+    "contextual_aliases": [
+      {"aliases": ["sass"], "context": "\\b(?:css|styles?|frontend|web|less|scss)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "less css",
+    "category": "technical",
+    "aliases": ["lesscss"]
+  },
+  {
+    "name": "responsive web design",
+    "category": "technical",
+    "aliases": ["responsive design", "responsive interfaces", "responsive ui"]
+  },
+  {
+    "name": "web accessibility",
+    "category": "technical",
+    "aliases": ["accessible web interfaces", "frontend accessibility", "web content accessibility", "wcag"]
+  },
+  {
+    "name": "tailwind css",
+    "category": "technical",
+    "aliases": ["tailwindcss", "tailwind"]
+  },
+  {
+    "name": "storybook",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["storybook.js", "storybook js"],
+    "contextual_aliases": [
+      {"aliases": ["storybook"], "context": "\\b(?:react|components?|frontend|ui|design system|tailwind)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "tanstack query",
+    "category": "technical",
+    "aliases": ["react query"]
+  },
+  {
+    "name": "trpc",
+    "category": "technical",
+    "aliases": ["t-rpc"]
+  },
+  {
+    "name": "react native",
+    "category": "technical",
+    "aliases": []
+  },
+  {
+    "name": "expo",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["expo framework"],
+    "contextual_aliases": [
+      {"aliases": ["expo"], "context": "\\b(?:react native|mobile|typescript|javascript|app development)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "webrtc",
+    "category": "technical",
+    "aliases": ["web rtc"]
+  },
+  {
+    "name": "vercel",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "scikit-learn",
+    "category": "tool",
+    "aliases": ["scikit learn", "sklearn"]
+  },
+  {
+    "name": "mlflow",
+    "category": "tool",
+    "aliases": ["ml flow"]
+  },
+  {
+    "name": "langchain",
+    "category": "tool",
+    "aliases": ["lang chain"]
+  },
+  {
+    "name": "mlops",
+    "category": "technical",
+    "aliases": ["machine learning operations", "ml operations"]
+  },
+  {
+    "name": "model training",
+    "category": "technical",
+    "aliases": ["training machine learning models", "training ml models", "model development"]
+  },
+  {
+    "name": "model evaluation",
+    "category": "technical",
+    "aliases": ["evaluating machine learning models", "evaluating ml models", "evaluation metrics"]
+  },
+  {
+    "name": "model monitoring",
+    "category": "technical",
+    "aliases": ["ml monitoring", "monitoring models", "model drift monitoring", "drift monitoring"]
+  },
+  {
+    "name": "responsible ai",
+    "category": "technical",
+    "aliases": ["responsible artificial intelligence", "ai governance", "ai safety"]
+  },
+  {
+    "name": "feature engineering",
+    "category": "technical",
+    "aliases": ["feature computation"]
+  },
+  {
+    "name": "xgboost",
+    "category": "tool",
+    "aliases": ["xg boost"]
+  },
+  {
+    "name": "lightgbm",
+    "category": "tool",
+    "aliases": ["light gbm"]
+  },
+  {
+    "name": "hugging face",
+    "category": "tool",
+    "aliases": ["huggingface", "hugging face transformers"]
+  },
+  {
+    "name": "model registry",
+    "category": "technical",
+    "aliases": ["ml model registry", "model registries"]
+  },
+  {
+    "name": "machine learning deployment",
+    "category": "technical",
+    "aliases": ["model deployment", "deploying machine learning models", "deploying ml models", "model serving"]
+  },
+  {
+    "name": "retrieval-augmented generation",
+    "category": "technical",
+    "aliases": ["retrieval augmented generation", "rag"]
+  },
+  {
+    "name": "prompt engineering",
+    "category": "technical",
+    "aliases": ["prompt design", "prompt management"]
+  },
+  {"name": "selenium", "category": "tool", "aliases": ["selenium webdriver"]},
+  {"name": "appium", "category": "tool", "aliases": []},
+  {
+    "name": "postman",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["postman api"],
+    "contextual_aliases": [
+      {"aliases": ["postman"], "context": "\\b(?:api|testing|rest|newman|qa|automation)\\b", "allow_standalone": true}
+    ]
+  },
+  {"name": "rest assured", "category": "tool", "aliases": ["restassured"]},
+  {"name": "testng", "category": "tool", "aliases": ["test ng"]},
+  {"name": "junit", "category": "tool", "aliases": ["j unit"]},
+  {"name": "pytest", "category": "tool", "aliases": ["py.test", "py test"]},
+  {"name": "performance testing", "category": "technical", "aliases": ["performance tests", "performance test automation"]},
+  {"name": "load testing", "category": "technical", "aliases": ["load tests", "stress testing", "volume testing"]},
+  {"name": "jmeter", "category": "tool", "aliases": ["apache jmeter", "j meter"]},
+  {"name": "loadrunner", "category": "tool", "aliases": ["load runner"]},
+  {"name": "browserstack", "category": "tool", "aliases": ["browser stack"]},
+  {"name": "sauce labs", "category": "tool", "aliases": ["saucelabs"]},
+  {"name": "manual testing", "category": "technical", "aliases": ["manual test execution", "manual software testing"]},
+  {"name": "exploratory testing", "category": "technical", "aliases": ["exploratory tests"]},
+  {"name": "regression testing", "category": "technical", "aliases": ["regression tests", "manual regression testing"]},
+  {"name": "defect management", "category": "technical", "aliases": ["defect tracking", "bug tracking", "manage defects"]},
+  {"name": "test planning", "category": "technical", "aliases": ["test plans", "testing plans"]},
+  {"name": "mobile application testing", "category": "technical", "aliases": ["mobile testing", "mobile app testing", "ios and android testing"]},
+  {"name": "api testing", "category": "technical", "aliases": ["rest api testing", "api test automation", "testing rest apis"]},
+  {"name": "database testing", "category": "technical", "aliases": ["sql testing", "database validation"]},
+  {"name": "user acceptance testing", "category": "technical", "aliases": ["uat", "user acceptance tests"]},
+  {"name": "system integration testing", "category": "technical", "aliases": ["sit", "integration test execution"]},
+  {"name": "test strategy", "category": "technical", "aliases": ["testing strategy", "automated test strategy", "test automation strategy"]},
+  {"name": "test automation frameworks", "category": "technical", "aliases": ["test automation framework", "automated test frameworks", "automation frameworks"]},
+  {"name": "teamcity", "category": "tool", "aliases": ["team city"]},
+  {"name": "bitbucket", "category": "tool", "aliases": ["bitbucket pipelines"]},
+  {"name": "openapi", "category": "technical", "aliases": ["open api", "swagger openapi", "swagger"]},
+  {"name": "information security", "category": "technical", "aliases": ["infosec", "information security management"]},
+  {"name": "security operations center", "category": "technical", "aliases": ["security operations centre", "soc operations", "soc analyst", "soc environment"]},
+  {
+    "name": "security information and event management",
+    "category": "technical",
+    "aliases": ["security information event management", "siem platforms", "siem management"],
+    "contextual_aliases": [{"aliases": ["siem"], "context": "\\b(?:security|events?|alerts?|logs?|soc|splunk|qradar|sentinel)\\b", "allow_standalone": true}]
+  },
+  {"name": "security alert triage", "category": "technical", "aliases": ["alert triage", "incident triage", "triage security alerts"]},
+  {"name": "endpoint detection and response", "category": "technical", "aliases": ["endpoint detection & response", "edr monitoring", "edr tools"]},
+  {"name": "extended detection and response", "category": "technical", "aliases": ["xdr tools", "xdr platforms"]},
+  {"name": "crowdstrike", "category": "tool", "aliases": ["crowd strike"]},
+  {"name": "splunk", "category": "tool", "aliases": []},
+  {"name": "qradar", "category": "tool", "aliases": ["ibm qradar", "q radar"]},
+  {"name": "microsoft sentinel", "category": "tool", "aliases": ["azure sentinel"]},
+  {"name": "threat detection", "category": "technical", "aliases": ["incident detection", "security detection", "detection engineering"]},
+  {"name": "threat hunting", "category": "technical", "aliases": ["cyber threat hunting"]},
+  {"name": "malware analysis", "category": "technical", "aliases": ["malware investigation"]},
+  {"name": "digital forensics", "category": "technical", "aliases": ["forensic investigations", "computer forensics", "network forensics", "memory forensics"]},
+  {"name": "network security", "category": "technical", "aliases": ["network security engineering", "secure networking"]},
+  {"name": "intrusion detection and prevention", "category": "technical", "aliases": ["intrusion detection", "intrusion prevention", "ids/ips", "ids ips"]},
+  {"name": "threat intelligence", "category": "technical", "aliases": ["cyber threat intelligence", "threat intelligence platforms"]},
+  {"name": "mitre att&ck", "category": "technical", "aliases": ["mitre attack", "att&ck framework", "attack framework"]},
+  {"name": "nist cybersecurity framework", "category": "domain", "aliases": ["nist csf", "nist 800-53", "nist security framework"]},
+  {"name": "iso 27001", "category": "domain", "aliases": ["iso/iec 27001"]},
+  {"name": "soc 2", "category": "domain", "aliases": ["soc2", "service organization control 2"]},
+  {"name": "pci dss", "category": "domain", "aliases": ["payment card industry data security standard", "pci compliance"]},
+  {"name": "penetration testing", "category": "technical", "aliases": ["pentesting", "pen testing", "security penetration testing"]},
+  {"name": "threat modeling", "category": "technical", "aliases": ["threat modelling", "threat models", "threat risk assessment"]},
+  {
+    "name": "stride threat modeling",
+    "category": "technical",
+    "aliases": ["stride methodology", "stride framework"],
+    "contextual_aliases": [{"aliases": ["stride"], "context": "\\b(?:threat|security|modeling|modelling|methodology|framework)\\b", "allow_standalone": true}]
+  },
+  {"name": "owasp", "category": "technical", "aliases": ["owasp top ten", "owasp asvs", "open worldwide application security project"]},
+  {"name": "static application security testing", "category": "technical", "aliases": ["static security testing", "sast"]},
+  {"name": "dynamic application security testing", "category": "technical", "aliases": ["dynamic security testing", "dast"]},
+  {"name": "zero trust security", "category": "technical", "aliases": ["zero-trust security", "zero trust principles", "zero-trust principles"]},
+  {"name": "cloud security", "category": "technical", "aliases": ["cloud security architecture", "aws security", "azure security", "gcp security"]},
+  {"name": "secure coding", "category": "technical", "aliases": ["secure coding practices", "secure coding standards", "security by design"]},
+  {"name": "devsecops", "category": "technical", "aliases": ["dev sec ops", "security in ci/cd"]},
+  {"name": "security risk assessment", "category": "technical", "aliases": ["security risk assessments", "security assessment", "threat risk assessments"]},
+  {"name": "cryptography", "category": "technical", "aliases": ["cryptographic controls", "encryption controls", "data encryption"]},
+  {"name": "multi-factor authentication", "category": "technical", "aliases": ["multifactor authentication", "mfa"]},
+  {"name": "privileged access management", "category": "technical", "aliases": ["pam", "privileged account management"]},
+  {"name": "virtual private networks", "category": "technical", "aliases": ["virtual private network", "vpn", "vpns"]},
+  {"name": "budget management", "category": "business", "aliases": ["project budgeting", "manage project budgets", "budget tracking"]},
+  {"name": "resource management", "category": "business", "aliases": ["resource allocation", "resource planning", "resource forecasts"]},
+  {"name": "scope management", "category": "business", "aliases": ["project scope", "scope control"]},
+  {"name": "schedule management", "category": "business", "aliases": ["project scheduling", "project schedules", "schedule control"]},
+  {"name": "vendor management", "category": "business", "aliases": ["vendor coordination", "supplier management", "third-party vendor management"]},
+  {"name": "change management", "category": "business", "aliases": ["organizational change management", "change control", "change requests"]},
+  {"name": "project governance", "category": "business", "aliases": ["program governance", "governance meetings", "governance forums"]},
+  {"name": "dependency management", "category": "business", "aliases": ["dependency tracking", "managing dependencies"]},
+  {"name": "waterfall methodology", "category": "business", "aliases": ["waterfall delivery", "waterfall project management", "waterfall methods"], "contextual_aliases": [{"aliases": ["waterfall"], "context": "\\b(?:agile|delivery|project|methodology|methods?|hybrid|sdlc)\\b", "allow_standalone": true}]},
+  {"name": "project management professional", "category": "business", "aliases": ["pmp certification", "pmp-certified", "pmp certified"], "contextual_aliases": [{"aliases": ["pmp"], "context": "\\b(?:project|certification|certified|prince2|agile|manager)\\b", "allow_standalone": true}]},
+  {"name": "prince2", "category": "business", "aliases": ["projects in controlled environments"]},
+  {"name": "itil", "category": "business", "aliases": ["itil foundation", "itil 4", "information technology infrastructure library"]},
+  {"name": "scaled agile framework", "category": "business", "aliases": ["safe agile", "safe agilist", "scaled agile delivery"]},
+  {"name": "raid management", "category": "business", "aliases": ["raid logs", "raid log", "risks assumptions issues dependencies"]},
+  {"name": "portfolio management", "category": "business", "aliases": ["project portfolio management", "portfolio reporting"]},
+  {"name": "microsoft project", "category": "tool", "aliases": ["ms project"]},
+  {"name": "smartsheet", "category": "tool", "aliases": ["smart sheet"]},
+  {"name": "azure devops", "category": "tool", "aliases": ["azure devops services", "azure boards", "azure pipelines"]},
+  {"name": "business analysis", "category": "business", "aliases": ["business analyst", "business analysis techniques"]},
+  {"name": "requirements elicitation", "category": "business", "aliases": ["eliciting requirements", "requirements workshops", "gather business requirements"]},
+  {"name": "requirements management", "category": "business", "aliases": ["managing requirements", "requirements traceability"]},
+  {"name": "functional requirements", "category": "business", "aliases": ["functional and non-functional requirements", "non-functional requirements", "functional specifications"]},
+  {"name": "use case development", "category": "business", "aliases": ["use cases", "develop use cases"]},
+  {"name": "acceptance criteria", "category": "business", "aliases": ["definition of done"]},
+  {"name": "business process analysis", "category": "business", "aliases": ["process analysis", "analyze business processes"]},
+  {"name": "business process model and notation", "category": "business", "aliases": ["bpmn", "business process modeling notation"]},
+  {"name": "process mapping", "category": "business", "aliases": ["process maps", "process flows", "workflow mapping"]},
+  {"name": "gap analysis", "category": "analysis", "aliases": ["fit-gap analysis", "fit gap analysis"]},
+  {"name": "journey mapping", "category": "business", "aliases": ["customer journey mapping", "journey maps"]},
+  {"name": "workshop facilitation", "category": "interpersonal", "aliases": ["facilitating workshops", "facilitate workshops", "requirements workshop facilitation"]},
+  {"name": "knowledge transfer", "category": "business", "aliases": ["knowledge sharing", "skills transfer"]},
+  {"name": "business architecture", "category": "business", "aliases": ["business architect"]},
+  {"name": "sales cycle management", "category": "business", "aliases": ["full sales cycle", "end-to-end sales cycle", "sales cycle"]},
+  {"name": "sales prospecting", "category": "business", "aliases": ["outbound prospecting", "inbound prospecting", "prospecting"]},
+  {"name": "lead qualification", "category": "business", "aliases": ["qualify leads", "qualify opportunities", "opportunity qualification"]},
+  {"name": "sales pipeline management", "category": "business", "aliases": ["pipeline management", "managing sales pipeline", "pipeline data"]},
+  {"name": "sales forecasting", "category": "business", "aliases": ["revenue forecasting", "forecast sales", "forecasting with precision"]},
+  {"name": "product demonstrations", "category": "business", "aliases": ["product demos", "sales demos", "solution demonstrations"]},
+  {"name": "negotiation", "category": "interpersonal", "aliases": ["negotiation skills", "contract negotiation"]},
+  {"name": "channel sales", "category": "business", "aliases": ["partner sales", "channel partnerships"]},
+  {"name": "field sales", "category": "business", "aliases": ["outside sales", "in-person sales"]},
+  {"name": "saas sales", "category": "business", "aliases": ["software sales", "b2b saas sales"]},
+  {"name": "revenue growth", "category": "business", "aliases": ["revenue targets", "sales targets", "quota attainment", "exceeding quota"]},
+  {"name": "digital marketing", "category": "business", "aliases": ["online marketing", "digital marketing strategy"]},
+  {"name": "search engine optimization", "category": "business", "aliases": ["seo", "seo strategy", "organic search"]},
+  {"name": "search engine marketing", "category": "business", "aliases": ["sem", "search marketing"]},
+  {"name": "pay-per-click advertising", "category": "business", "aliases": ["ppc", "pay per click", "paid search"]},
+  {"name": "paid media", "category": "business", "aliases": ["paid media campaigns", "digital advertising"]},
+  {"name": "google ads", "category": "tool", "aliases": ["google adwords"]},
+  {"name": "linkedin ads", "category": "tool", "aliases": ["linkedin advertising"]},
+  {"name": "meta ads", "category": "tool", "aliases": ["facebook ads", "meta ads manager"]},
+  {"name": "google analytics", "category": "tool", "aliases": ["google analytics 4", "ga4"]},
+  {"name": "google search console", "category": "tool", "aliases": ["search console", "gsc"]},
+  {"name": "marketo", "category": "tool", "aliases": ["adobe marketo"]},
+  {"name": "semrush", "category": "tool", "aliases": ["sem rush"]},
+  {"name": "ahrefs", "category": "tool", "aliases": ["ah refs"]},
+  {"name": "moz", "category": "tool", "aliases": ["moz pro"]},
+  {"name": "keyword research", "category": "business", "aliases": ["seo keyword research"]},
+  {"name": "on-page optimization", "category": "business", "aliases": ["on-page seo", "on page seo", "off-page seo", "off page seo"]},
+  {"name": "conversion rate optimization", "category": "business", "aliases": ["conversion optimization", "cro"]},
+  {"name": "return on ad spend", "category": "analysis", "aliases": ["roas"]},
+  {"name": "account-based marketing", "category": "business", "aliases": ["account based marketing", "abm"]},
+  {"name": "audience segmentation", "category": "business", "aliases": ["customer segmentation", "market segmentation"]},
+  {"name": "email marketing", "category": "business", "aliases": ["email campaigns", "marketing emails"]},
+  {"name": "social media marketing", "category": "business", "aliases": ["social media campaigns", "organic social media"]},
+  {"name": "content marketing", "category": "business", "aliases": ["content strategy", "content campaigns"]},
+  {"name": "mailchimp", "category": "tool", "aliases": ["mail chimp"]},
+  {"name": "klaviyo", "category": "tool", "aliases": []},
+  {"name": "canva", "category": "tool", "aliases": []},
+  {"name": "adobe creative suite", "category": "tool", "aliases": ["adobe creative cloud"]},
+  {"name": "google tag manager", "category": "tool", "aliases": ["gtm"]},
+  {"name": "looker studio", "category": "tool", "aliases": ["google data studio"]},
+  {"name": "wordpress", "category": "tool", "aliases": ["word press"]},
+  {"name": "woocommerce", "category": "tool", "aliases": ["woo commerce"]},
+  {"name": "budgeting", "category": "business", "aliases": ["financial budgeting", "budget preparation"]},
+  {"name": "financial forecasting", "category": "business", "aliases": ["financial forecasts", "forecast financial performance"]},
+  {"name": "variance analysis", "category": "analysis", "aliases": ["budget variance analysis", "actual versus budget analysis"]},
+  {"name": "cash flow forecasting", "category": "business", "aliases": ["cashflow forecasting", "cash flow forecasts"]},
+  {"name": "account reconciliation", "category": "business", "aliases": ["account reconciliations", "balance sheet reconciliation"]},
+  {"name": "revenue recognition", "category": "business", "aliases": ["recognizing revenue"]},
+  {"name": "financial reporting", "category": "business", "aliases": ["management reporting", "finance reporting"]},
+  {"name": "financial planning and analysis", "category": "business", "aliases": ["fp&a", "financial planning & analysis"]},
+  {"name": "scenario analysis", "category": "analysis", "aliases": ["financial scenario analysis", "scenario modeling", "scenario modelling"]},
+  {"name": "power query", "category": "tool", "aliases": ["microsoft power query"]},
+  {"name": "enterprise resource planning", "category": "business", "aliases": ["erp systems", "erp software", "erp implementation"]},
+  {"name": "microsoft dynamics", "category": "tool", "aliases": ["dynamics 365", "microsoft dynamics 365", "ms dynamics"]},
+  {"name": "accounting", "category": "business", "aliases": ["general accounting", "accounting principles"]},
+  {"name": "consolidated financial statements", "category": "business", "aliases": ["financial statement consolidation", "consolidated financials"]},
+  {"name": "tax planning", "category": "business", "aliases": ["corporate tax planning", "tax compliance"]},
+  {"name": "auditing", "category": "business", "aliases": ["financial audit", "audit support", "audit requirements"]}
 ]

@@ -57,6 +57,83 @@ runs under a quality management system (QMS), software lifecycle and risk
 management. Documentation and verification and validation evidence are needed.
 """
 
+# Paraphrased recurring requirements sampled from public LinkedIn, Indeed,
+# Lever, Greenhouse and Ashby postings in October 2026.
+PUBLIC_JOB_SAMPLES = {
+    "data_engineering": (
+        "Data engineering with AWS, Snowflake, dbt, Apache Airflow and Informatica IICS. "
+        "Build ETL/ELT data pipelines and dimensional data models for a cloud data "
+        "warehouse. Use Fivetran, Airbyte, Matillion or Dagster. Strong Python, SQL, "
+        "Spark, PySpark, Databricks, Iceberg, Kafka, Terraform, Redshift and BigQuery. "
+        "Implement data quality, data governance and RBAC.",
+        {
+            "airbyte", "amazon redshift", "amazon web services", "apache airflow",
+            "apache iceberg", "apache kafka", "apache spark", "dagster",
+            "data engineering", "data governance", "data modeling",
+            "data pipeline development", "data quality", "data warehousing",
+            "databricks", "dbt", "dimensional modeling", "elt", "etl", "fivetran",
+            "google bigquery", "informatica iics", "matillion", "pyspark", "python",
+            "role-based access control", "snowflake", "sql", "terraform",
+        },
+    ),
+    "backend": (
+        "Backend engineering with Python, FastAPI, REST APIs, GraphQL and gRPC. API "
+        "design, caching, rate limiting, async I/O, safe concurrency, background "
+        "processing, message brokers, retries, idempotency and dead-letter queues. "
+        "Production observability includes logging, metrics, distributed tracing, "
+        "Datadog and CloudWatch. Code reviews, OOP, dependency injection, RabbitMQ, "
+        "Redis, Elasticsearch, SQS, SNS and EventBridge.",
+        {
+            "amazon cloudwatch", "amazon eventbridge", "amazon sns", "amazon sqs",
+            "api development", "application metrics", "asynchronous programming",
+            "backend software development", "background job processing", "caching",
+            "code review", "concurrent programming", "datadog", "dead-letter queues",
+            "dependency injection", "distributed tracing", "elasticsearch", "fastapi",
+            "graphql", "grpc", "idempotency", "logging", "message queues",
+            "object-oriented programming", "observability", "python", "rabbitmq",
+            "rate limiting", "redis", "rest api", "retry handling",
+        },
+    ),
+    "devops": (
+        "AWS EC2, VPC, IAM, KMS, Terraform and CloudFormation. Kubernetes and Helm, "
+        "Docker, Jenkins, GitHub Actions, Prometheus and Grafana. Bash scripting, "
+        "secrets management, vulnerability scanning, ArgoCD, FluxCD, service mesh and "
+        "cloud cost optimization.",
+        {
+            "amazon ec2", "amazon vpc", "amazon web services", "argocd",
+            "aws cloudformation", "aws identity and access management",
+            "aws key management service", "bash", "docker", "finops", "flux cd",
+            "github actions", "grafana", "helm", "jenkins", "kubernetes",
+            "prometheus", "secrets management", "service mesh", "terraform",
+            "vulnerability management",
+        },
+    ),
+    "support_frontend_ml": (
+        "SaaS technical support with Zendesk, Salesforce Service Cloud and Zoho "
+        "ticketing. Meet SLA targets and CSAT benchmarks; reproduce issues. React, "
+        "Next.js, GraphQL, JWT, Jest, Redux, Webpack, npm, Yarn, ESLint, Sass CSS, "
+        "LessCSS, responsive web design, WCAG, TailwindCSS, Storybook.js, TanStack "
+        "Query, tRPC, React Native, Expo framework, WebRTC and Vercel. MLOps with "
+        "scikit-learn, MLflow, LangChain, model training, model evaluation, model "
+        "monitoring, responsible AI, feature engineering, XGBoost, LightGBM, Hugging "
+        "Face, a model registry, model deployment, semantic search, vector databases, "
+        "RAG and prompt engineering.",
+        {
+            "customer satisfaction", "eslint", "expo", "feature engineering",
+            "graphql", "hugging face", "issue reproduction", "jest",
+            "json web tokens", "langchain", "less css", "lightgbm",
+            "machine learning deployment", "mlflow", "mlops", "model evaluation",
+            "model monitoring", "model registry", "model training", "next.js", "npm",
+            "prompt engineering", "react", "react native", "redux", "responsible ai",
+            "responsive web design", "retrieval-augmented generation", "saas support",
+            "salesforce service cloud", "sass", "scikit-learn", "semantic search",
+            "service level management", "storybook", "tailwind css", "tanstack query",
+            "trpc", "vector databases", "vercel", "web accessibility", "webpack",
+            "webrtc", "xgboost", "yarn", "zendesk", "zoho desk",
+        },
+    ),
+}
+
 # Selected experience and skills from the supplied resume, without personal data.
 RESUME = """
 Customer Service Representative
@@ -160,6 +237,18 @@ class ExtractionTests(unittest.TestCase):
             "vendor neutral archive", "verification and validation", "workos",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_public_job_market_samples_extract_recurring_skills(self):
+        for role, (description, expected) in PUBLIC_JOB_SAMPLES.items():
+            with self.subTest(role=role):
+                skills = set(extract_skills(description, source="job_description"))
+                self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_ambiguous_new_tool_names_still_require_technical_context(self):
+        self.assertEqual(extract_skills(
+            "The snowflake melted. We bought yarn at the expo and read a storybook. "
+            "Use less paint and add a spark of creativity."
+        ), [])
 
     def test_supplied_job_produces_capabilities_only(self):
         self.assertEqual(set(extract_skills(JOB, source="job_description")), {
