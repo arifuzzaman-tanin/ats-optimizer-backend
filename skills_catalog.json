@@ -151,8 +151,7 @@
       "product installation",
       "device installation",
       "account setup",
-      "software setup",
-      "software installation"
+      "software setup"
     ],
     "patterns": [
       "\\bhelp(?:ing)? (?:customers|clients|users) get (?:up and )?running\\b"
@@ -174,7 +173,8 @@
       "user onboarding",
       "onboarding customers",
       "onboarding clients"
-    ]
+    ],
+    "patterns": ["\\bper-hospital onboarding\\b", "\\bcustomer implementations?[^.;]{0,100}\\b(?:site readiness|configuration|validation|go-live)\\b"]
   },
   {
     "name": "knowledge base management",
@@ -209,7 +209,9 @@
       }
     ],
     "patterns": [
-      "\\b(?:document|documenting) (?:and present )?(?:your )?(?:technical )?(?:ideas|solutions|designs|systems|architecture)\\b"
+      "\\b(?:document|documenting) (?:and present )?(?:your )?(?:technical )?(?:ideas|solutions|designs|systems|architecture)\\b",
+      "\\bdocumentation and (?:verification|validation) evidence\\b",
+      "\\bdocumentation and verification\\b"
     ]
   },
   {
@@ -251,7 +253,8 @@
     "patterns": [
       "\\bbring (?:them|issues|patterns|feedback|insights) to product and engineering\\b",
       "\\b(?:collaborat\\w*|work\\w*|coordinat\\w*) with (?:the )?(?:product and engineering|engineering and product|production team)\\b",
-      "\\bpartner closely with (?:product managers|product owners|software architects|[^.;]+ stakeholders)\\b"
+      "\\bpartner closely with (?:product managers|product owners|software architects|[^.;]+ stakeholders)\\b",
+      "\\bworking across (?:engineering|product|cybersecurity|hospital it|quality|regulatory affairs)(?:[^.;]{0,120})\\b"
     ]
   },
   {
@@ -420,7 +423,8 @@
       "take ownership",
       "taking ownership",
       "end to end ownership"
-    ]
+    ],
+    "patterns": ["\\bown (?:the )?(?:implementation|delivery|development|service|system|systems)\\b"]
   },
   {
     "name": "teamwork",
@@ -609,7 +613,8 @@
     "category": "business",
     "aliases": [
       "compliance routines",
-      "regulatory requirements"
+      "regulatory requirements",
+      "regulatory affairs"
     ]
   },
   {
@@ -844,7 +849,8 @@
       "testing philosophy",
       "desktop testing",
       "desktop application testing"
-    ]
+    ],
+    "patterns": ["\\bimplementation, testing, and packaging\\b", "\\bverification and validation\\b"]
   },
   {
     "name": "unit testing",
@@ -1029,7 +1035,7 @@
   {
     "name": "software development lifecycle",
     "category": "technical",
-    "aliases": ["software development life cycle", "development lifecycle", "sdlc", "full lifecycle"]
+    "aliases": ["software development life cycle", "software lifecycle", "development lifecycle", "sdlc", "full lifecycle"]
   },
   {
     "name": "requirements analysis",
@@ -1110,12 +1116,12 @@
   {
     "name": "production support",
     "category": "technical",
-    "aliases": ["support production systems", "production systems support"]
+    "aliases": ["support production systems", "production systems support", "supporting customers directly during production incidents"]
   },
   {
     "name": "software deployment",
     "category": "technical",
-    "aliases": ["application deployment", "deploying software", "deploying applications"],
+    "aliases": ["application deployment", "deploying software", "deploying applications", "production deployment", "production deployments"],
     "patterns": ["\\b(?:deploying|deployment)(?:,| and) (?:monitoring|supporting|providing support)\\b"]
   },
   {
@@ -1167,7 +1173,8 @@
   {
     "name": "logging",
     "category": "technical",
-    "aliases": ["application logging", "system logging"]
+    "aliases": ["application logging", "system logging"],
+    "patterns": ["\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b"]
   },
   {
     "name": "alerting",
@@ -1177,7 +1184,7 @@
   {
     "name": "incident response",
     "category": "technical",
-    "aliases": ["incident management", "production incident response"]
+    "aliases": ["incident management", "production incident response", "production incidents"]
   },
   {
     "name": "debugging",
@@ -1313,13 +1320,14 @@
   {
     "name": "software update management",
     "category": "technical",
-    "aliases": ["application update management", "software updates", "application updates"],
+    "aliases": ["application update management", "software updates", "application updates", "upgrade path", "software upgrades"],
     "patterns": ["\\b(?:software deployment|application deployment|enterprise software)[^.;]{0,40}\\bupdates\\b"]
   },
   {
     "name": "software version management",
     "category": "technical",
-    "aliases": ["application version management", "version management"]
+    "aliases": ["application version management", "version management"],
+    "patterns": ["\\b(?:software|container|image)[^.;]{0,60}\\bversioning\\b", "\\bconfiguration and versioning for software\\b"]
   },
   {
     "name": "error handling",
@@ -1532,12 +1540,14 @@
   {
     "name": "systems integration",
     "category": "technical",
-    "aliases": ["system integration", "software integration", "complex integration", "platform integration", "application integration"]
+    "aliases": ["system integration", "software integration", "complex integration", "platform integration", "application integration", "third-party integration", "third party integration"],
+    "patterns": ["\\bintegrat(?:e|es|ed|ing) third-party [^.;]{0,50}(?:components|software)\\b"]
   },
   {
     "name": "software reliability",
     "category": "technical",
-    "aliases": ["application reliability", "application stability", "software stability", "performance and stability"]
+    "aliases": ["application reliability", "application stability", "software stability", "performance and stability"],
+    "patterns": ["\\b(?:service|software|system|connector)[^.;]{0,180}\\breliable\\b", "\\bhas to be reliable\\b"]
   },
   {
     "name": "financial technology",
@@ -1553,5 +1563,355 @@
     "name": "market intelligence",
     "category": "domain",
     "aliases": ["financial market intelligence"]
+  },
+  {
+    "name": "backend software development",
+    "category": "technical",
+    "aliases": ["backend software engineering", "backend development", "backend engineering"]
+  },
+  {
+    "name": "medical device software",
+    "category": "domain",
+    "aliases": ["medical-device software", "medical device software development", "clinical software"]
+  },
+  {
+    "name": "medical image analysis",
+    "category": "domain",
+    "aliases": ["medical-image analysis", "medical imaging analysis"]
+  },
+  {
+    "name": "federated authentication",
+    "category": "technical",
+    "aliases": ["authentication federation", "identity federation", "federated identity"]
+  },
+  {
+    "name": "authentication troubleshooting",
+    "category": "technical",
+    "aliases": ["diagnose a federation failure", "diagnosing a federation failure", "identity federation troubleshooting", "sso troubleshooting"]
+  },
+  {
+    "name": "openid connect",
+    "category": "technical",
+    "aliases": ["oidc", "open id connect"]
+  },
+  {
+    "name": "identity provider configuration",
+    "category": "technical",
+    "aliases": ["identity provider integration", "idp configuration", "per-tenant identity provider configuration"]
+  },
+  {
+    "name": "just-in-time provisioning",
+    "category": "technical",
+    "aliases": ["just in time provisioning", "jit provisioning", "jit user provisioning"]
+  },
+  {
+    "name": "session management",
+    "category": "technical",
+    "aliases": ["session lifetime management", "session lifetime"],
+    "patterns": ["\\bsession and token lifetime\\b"]
+  },
+  {
+    "name": "token management",
+    "category": "technical",
+    "aliases": ["token lifetime management", "token lifetime", "working with tokens", "token handling"]
+  },
+  {
+    "name": "multi-tenant architecture",
+    "category": "technical",
+    "aliases": ["multitenant architecture", "multi-tenancy", "multitenancy", "tenant isolation"]
+  },
+  {
+    "name": "zero-downtime migration",
+    "category": "technical",
+    "aliases": ["zero downtime migration", "migration without service interruption", "migrating without a service interruption"]
+  },
+  {
+    "name": "dicom",
+    "category": "technical",
+    "aliases": ["digital imaging and communications in medicine"]
+  },
+  {
+    "name": "dicomweb",
+    "category": "technical",
+    "aliases": ["dicom web"]
+  },
+  {
+    "name": "pacs",
+    "category": "technical",
+    "aliases": ["picture archiving and communication system", "picture archiving and communication systems"]
+  },
+  {
+    "name": "vendor neutral archive",
+    "category": "technical",
+    "aliases": ["vna", "vna environments"]
+  },
+  {
+    "name": "dicom query/retrieve",
+    "category": "technical",
+    "aliases": ["dicom query retrieve", "query/retrieve"]
+  },
+  {
+    "name": "dicom transfer syntax",
+    "category": "technical",
+    "aliases": ["dicom transfer syntaxes", "transfer syntaxes"]
+  },
+  {
+    "name": "store-and-forward",
+    "category": "technical",
+    "aliases": ["store and forward"]
+  },
+  {
+    "name": "backpressure",
+    "category": "technical",
+    "aliases": ["back-pressure", "back pressure"]
+  },
+  {
+    "name": "observability",
+    "category": "technical",
+    "aliases": ["system observability", "application observability"]
+  },
+  {
+    "name": "fo-dicom",
+    "category": "tool",
+    "aliases": ["fo dicom", "fo.dicom"]
+  },
+  {
+    "name": "orthanc",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "dcm4che",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "auth0",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "workos",
+    "category": "tool",
+    "aliases": ["work os"]
+  },
+  {
+    "name": "okta",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "microsoft entra id",
+    "category": "tool",
+    "aliases": ["entra id", "azure active directory", "azure ad"]
+  },
+  {
+    "name": "keycloak",
+    "category": "tool",
+    "aliases": []
+  },
+  {
+    "name": "amazon cognito",
+    "category": "tool",
+    "aliases": ["aws cognito", "cognito"]
+  },
+  {
+    "name": "network troubleshooting",
+    "category": "technical",
+    "aliases": ["network diagnostics", "diagnose network failures", "diagnosing network failures"],
+    "patterns": ["\\bnetworking fundamentals[^.;]{0,100}\\bdiagnos(?:e|ing)\\b"]
+  },
+  {
+    "name": "computer networking",
+    "category": "technical",
+    "aliases": ["networking fundamentals", "network fundamentals", "network infrastructure"]
+  },
+  {
+    "name": "transport layer security",
+    "category": "technical",
+    "aliases": ["tls", "transport-layer security"]
+  },
+  {
+    "name": "proxy servers",
+    "category": "technical",
+    "aliases": ["proxy server", "network proxies", "http proxies", "proxy failures"]
+  },
+  {
+    "name": "network address translation",
+    "category": "technical",
+    "aliases": ["nat"]
+  },
+  {
+    "name": "domain name system",
+    "category": "technical",
+    "aliases": ["dns"]
+  },
+  {
+    "name": "firewall configuration",
+    "category": "technical",
+    "aliases": ["firewall rules", "firewall management"]
+  },
+  {
+    "name": "ip allowlisting",
+    "category": "technical",
+    "aliases": ["ip allowlist", "ip allowlists", "ip whitelisting"]
+  },
+  {
+    "name": "certificate management",
+    "category": "technical",
+    "aliases": ["certificate configuration", "network certificates", "tls certificates", "networking and certificate surface"]
+  },
+  {
+    "name": "packet analysis",
+    "category": "technical",
+    "aliases": ["packet capture analysis", "packet captures", "packet inspection"]
+  },
+  {
+    "name": "log analysis",
+    "category": "technical",
+    "aliases": ["diagnosing from logs", "diagnose from logs", "log diagnostics"],
+    "patterns": ["\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b"]
+  },
+  {
+    "name": "on-premises software",
+    "category": "technical",
+    "aliases": ["on-premise software", "on-premise agents", "on-premises agents", "installed services"]
+  },
+  {
+    "name": "embedded systems",
+    "category": "technical",
+    "aliases": ["embedded software"]
+  },
+  {
+    "name": "software packaging",
+    "category": "technical",
+    "aliases": ["application packaging", "container packaging", "packaging and installation"]
+  },
+  {
+    "name": "software installation",
+    "category": "technical",
+    "aliases": ["application installation", "software installer", "installation process"],
+    "patterns": ["\\bpackaging and installation\\b"]
+  },
+  {
+    "name": "docker image building",
+    "category": "technical",
+    "aliases": ["docker image builds", "container image builds", "image builds"]
+  },
+  {
+    "name": "configuration management",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["software configuration management"],
+    "patterns": ["\\b(?:image builds|software packaging|packaging and installation)[^.;]{0,80}\\bconfiguration\\b"]
+  },
+  {
+    "name": "runbook development",
+    "category": "technical",
+    "aliases": ["runbook creation", "operational runbooks", "deployment runbooks"],
+    "patterns": ["\\b(?:build|write|create|document|follow)[^.;]{0,40}\\brunbooks?\\b", "\\brunbooks?[^.;]{0,50}\\b(?:follow|documentation|instructions?)\\b"]
+  },
+  {
+    "name": "deployment validation",
+    "category": "technical",
+    "aliases": ["site validation", "implementation validation", "deployment verification"],
+    "patterns": ["\\bcustomer implementations?[^.;]{0,220}\\bvalidation\\b"]
+  },
+  {
+    "name": "technical discovery",
+    "category": "business",
+    "aliases": ["technical requirements discovery"],
+    "patterns": ["\\bcustomer implementations?[^.;]{0,80}\\btechnical discovery\\b"]
+  },
+  {
+    "name": "deployment readiness",
+    "category": "technical",
+    "aliases": ["site readiness", "implementation readiness"]
+  },
+  {
+    "name": "go-live support",
+    "category": "customer_support",
+    "aliases": ["go live support", "supporting go-live", "go-live"]
+  },
+  {
+    "name": "quality management systems",
+    "category": "domain",
+    "aliases": ["quality management system", "qms"]
+  },
+  {
+    "name": "iso 13485",
+    "category": "domain",
+    "aliases": []
+  },
+  {
+    "name": "iec 62304",
+    "category": "domain",
+    "aliases": []
+  },
+  {
+    "name": "iso 14971",
+    "category": "domain",
+    "aliases": []
+  },
+  {
+    "name": "design controls",
+    "category": "domain",
+    "aliases": ["medical device design controls"]
+  },
+  {
+    "name": "verification and validation",
+    "category": "technical",
+    "aliases": ["verification & validation", "v&v", "verification evidence", "validation evidence"]
+  },
+  {
+    "name": "regulated software development",
+    "category": "domain",
+    "aliases": ["regulated software delivery", "regulated software", "medical-device standards", "medical device standards"]
+  },
+  {
+    "name": "health data privacy",
+    "category": "domain",
+    "aliases": ["healthcare data privacy", "health information privacy"]
+  },
+  {
+    "name": "safety-critical software",
+    "category": "domain",
+    "aliases": ["safety critical software", "safety-critical discipline", "safety critical discipline"]
+  },
+  {
+    "name": "cybersecurity",
+    "category": "technical",
+    "aliases": ["cyber security", "security engineering"]
+  },
+  {
+    "name": "open-source software",
+    "category": "technical",
+    "aliases": ["open source software", "open-source components", "open source components"],
+    "patterns": ["\\bopen[ -]source [^.;]{0,40}software\\b"]
+  },
+  {
+    "name": "data ingestion",
+    "category": "technical",
+    "aliases": ["data ingest", "dicom ingest", "dicomweb ingest"]
+  },
+  {
+    "name": "f#",
+    "category": "technical",
+    "aliases": ["f sharp"]
+  },
+  {
+    "name": "functional programming",
+    "category": "technical",
+    "aliases": ["functional code", "functional language", "functional languages", "functional or statically-typed language", "functional or statically typed language"]
+  },
+  {
+    "name": "statically typed programming",
+    "category": "technical",
+    "aliases": ["statically-typed language", "statically typed language", "statically-typed languages", "statically typed languages", "strongly-typed code", "strongly typed code"]
+  },
+  {
+    "name": "gitlab",
+    "category": "tool",
+    "aliases": ["gitlab ci", "gitlab ci/cd"]
   }
 ]

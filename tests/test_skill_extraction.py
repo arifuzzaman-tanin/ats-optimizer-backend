@@ -13,6 +13,50 @@ ALPHASENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
     "alphasense_excel_engineer.txt"
 ).read_text(encoding="utf-8")
 
+VITAA_JOB = """
+About the job
+ViTAA is a medical-device software company developing AI-powered medical-image
+analysis technology. We need a primary developer for federated single sign-on
+and an edge connector that retrieves imaging studies from hospital PACS.
+
+What you'll work on
+Federated authentication as a relying party: per-tenant identity provider
+configuration, just-in-time provisioning, session and token lifetime, and
+tenant isolation. Implement SAML 2.0 and OpenID Connect (OIDC) against Microsoft
+Entra ID and Okta, and diagnose a federation failure. Migrate authentication
+without a service interruption.
+The edge connector must be reliable and includes DICOM and DICOMweb ingest (AE titles,
+query/retrieve, storage and transfer syntaxes), store-and-forward,
+back-pressure, and observability. Integrate third-party open-source DICOM
+software outside .NET. The deployment surface includes TLS, proxies, NAT, DNS,
+firewall rules, IP allowlists, logs and packet captures.
+Packaging and installation includes image builds, configuration, the upgrade
+path, software versioning, and a runbook the hospital IT team will follow.
+
+Requirements
+Professional backend software engineering and production .NET. Experience with
+on-premise agents, installed services, appliances or embedded systems. Docker
+and container packaging. Networking fundamentals sufficient to diagnose TLS
+and proxy failures from logs and packet captures. Rigour and attention to
+detail. Own implementation, testing, and packaging; customer implementations
+cover technical discovery, site readiness, configuration, validation and
+go-live while working across engineering, product, cybersecurity, hospital IT,
+quality and regulatory affairs.
+
+Nice to have
+DICOM or DICOMweb and PACS or VNA. Any of fo-dicom, Orthanc or dcm4che. Any of
+Auth0, WorkOS, Okta, Entra ID, Keycloak or Cognito. F# or another functional or
+statically-typed language. Regulated software delivery with design controls,
+verification evidence, medical-device standards (ISO 13485, IEC 62304 and ISO
+14971), health data privacy, or a safety-critical discipline. Services on AWS,
+CI pipelines, and supporting customers directly during production incidents.
+
+Our stack
+F# on .NET, PostgreSQL and AWS, with continuous integration in GitLab. The work
+runs under a quality management system (QMS), software lifecycle and risk
+management. Documentation and verification and validation evidence are needed.
+"""
+
 # Selected experience and skills from the supplied resume, without personal data.
 RESUME = """
 Customer Service Representative
@@ -83,6 +127,39 @@ class ExtractionTests(unittest.TestCase):
             "infrastructure as code", "scrum",
         }.issubset(skills))
         self.assertNotIn("sales", skills)
+
+    def test_vitaa_job_extracts_healthcare_integration_and_delivery_skills(self):
+        skills = set(extract_skills(VITAA_JOB, source="job_description"))
+        expected = {
+            ".net", "amazon cognito", "amazon web services", "artificial intelligence",
+            "attention to detail", "auth0", "authentication troubleshooting",
+            "backend software development", "backpressure", "ci/cd",
+            "computer networking", "configuration management",
+            "cross-functional collaboration", "customer onboarding", "cybersecurity",
+            "data ingestion", "dcm4che", "deployment readiness", "deployment validation",
+            "design controls", "dicom", "dicom query/retrieve", "dicom transfer syntax",
+            "dicomweb", "docker", "docker image building", "domain name system",
+            "embedded systems", "f#", "federated authentication", "firewall configuration",
+            "fo-dicom", "functional programming", "gitlab", "go-live support",
+            "health data privacy", "identity provider configuration", "iec 62304",
+            "incident response", "ip allowlisting", "iso 13485", "iso 14971",
+            "just-in-time provisioning", "keycloak", "log analysis", "logging",
+            "medical device software", "medical image analysis", "microsoft entra id",
+            "multi-tenant architecture", "network address translation",
+            "network troubleshooting", "observability", "okta", "on-premises software",
+            "openid connect", "open-source software", "orthanc", "ownership",
+            "packet analysis", "pacs", "postgresql", "production support", "proxy servers",
+            "quality management systems", "regulated software development",
+            "regulatory compliance", "risk management", "runbook development",
+            "safety-critical software", "saml", "session management", "single sign-on",
+            "software development lifecycle", "software installation", "software packaging",
+            "software reliability", "software testing", "software update management",
+            "software version management", "statically typed programming",
+            "store-and-forward", "systems integration", "technical discovery",
+            "technical writing", "token management", "transport layer security",
+            "vendor neutral archive", "verification and validation", "workos",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
 
     def test_supplied_job_produces_capabilities_only(self):
         self.assertEqual(set(extract_skills(JOB, source="job_description")), {

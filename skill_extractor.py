@@ -72,6 +72,7 @@ IGNORED_HEADINGS = {
     "learn more", "about autodesk", "salary transparency", "belonging",
     "in-person onboarding and identity verification",
     "equal opportunity", "equal opportunity employer", "how to apply",
+    "equal employment opportunity",
     "this isn't for you if",
 }
 ROLE_HEADINGS = {
@@ -82,6 +83,7 @@ ROLE_HEADINGS = {
     "preferred skills", "minimum qualifications", "preferred qualifications",
     "what we're looking for", "what we are looking for", "what you bring",
     "this is for you if", "nice to have",
+    "what you'll work on", "what you will work on", "our stack", "why this role",
 }
 
 
