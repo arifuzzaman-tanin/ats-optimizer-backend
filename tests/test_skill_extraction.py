@@ -355,6 +355,18 @@ class ExtractionTests(unittest.TestCase):
             "I can clarify how life can make us perform better on example.com."
         ), [])
 
+    def test_ready_win_wins_and_web_are_not_skills_without_technical_context(self):
+        self.assertEqual(extract_skills(
+            "We are ready to win. Our team wins by making the web better."
+        ), [])
+        self.assertEqual(extract_skills("Ready, win, wins, web"), [])
+
+    def test_wins_networking_acronym_requires_network_context(self):
+        self.assertIn(
+            "wins",
+            extract_skills("Maintained WINS servers for NetBIOS name resolution."),
+        )
+
     def test_company_technology_is_not_a_job_requirement(self):
         description = """**The Company**
 We build our platform with Python and Docker.

@@ -5600,10 +5600,6 @@
     "category": "technologies"
   },
   {
-    "name": "web",
-    "category": "technologies"
-  },
-  {
     "name": "web crypto",
     "category": "technologies"
   },
@@ -13064,10 +13060,6 @@
     "category": "methods_and_standards"
   },
   {
-    "name": "ready",
-    "category": "methods_and_standards"
-  },
-  {
     "name": "red team excercise",
     "category": "methods_and_standards"
   },
@@ -15195,7 +15187,14 @@
   },
   {
     "name": "wins",
-    "category": "datacommunication_and_network_technology"
+    "category": "datacommunication_and_network_technology",
+    "name_is_alias": false,
+    "contextual_aliases": [
+      {
+        "aliases": ["wins", "windows internet name service"],
+        "context": "\\b(?:netbios|name resolution|dns|network(?:ing)?|servers?)\\b"
+      }
+    ]
   },
   {
     "name": "wireless security",
