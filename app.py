@@ -13,6 +13,7 @@ ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
     "http://www.atsoptimizer.com",
     "https://www.atsoptimizer.com",
+    "https://arifuzzaman-tanin.github.io",
 ]
 
 CORS(app, resources={

@@ -646,6 +646,16 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(response.headers['Access-Control-Allow-Origin'], 'http://localhost:5173')
         self.assertEqual(response.headers['Access-Control-Allow-Credentials'], 'true')
 
+        with patch.object(app_module, "get_first_key", return_value="ARIF_100"):
+            response = self.client.get('/access_key', headers={
+                "Origin": "https://arifuzzaman-tanin.github.io",
+            })
+        self.assertEqual(
+            response.headers['Access-Control-Allow-Origin'],
+            'https://arifuzzaman-tanin.github.io',
+        )
+        self.assertEqual(response.headers['Access-Control-Allow-Credentials'], 'true')
+
 
 class AccessKeyTests(unittest.TestCase):
     @staticmethod
