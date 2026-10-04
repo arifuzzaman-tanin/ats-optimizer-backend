@@ -51,7 +51,7 @@ jobs:
           fi
 
           api_base="https://www.pythonanywhere.com/api/v0/user/arifuzzamantanin"
-          project_dir="/home/arifuzzamantanin/ats-optimizer-backend"
+          project_dir="/home/arifuzzamantanin/mysite"
 
           while IFS= read -r -d '' file; do
             case "$file" in

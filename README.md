@@ -165,6 +165,6 @@ once from a PythonAnywhere Bash console before deploying:
 
 ```bash
 workon ats-optimizer-env
-cd /home/arifuzzamantanin/ats-optimizer-backend
+cd /home/arifuzzamantanin/mysite
 pip install -r requirements.txt
 ```
