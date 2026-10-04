@@ -59,14 +59,23 @@ that the candidate lacks the capability.
 
 `GET /health` returns `{"status": "ok"}`.
 
-`POST /extract_skills` accepts JSON with two nonempty strings:
+`GET /access_key` returns the first access key from the configured Google Sheet.
+It returns HTTP 404 when the sheet has no keys and HTTP 503 when the sheet
+cannot be read.
+
+`POST /extract_skills` accepts JSON with three nonempty strings:
 
 ```json
 {
   "job_description": "Customer support, troubleshooting and Python skills",
-  "resume": "Customer service representative with Python experience"
+  "resume": "Customer service representative with Python experience",
+  "access_key": "ARIF_PREMIUM"
 }
 ```
+
+The access key is checked case-insensitively against the Google Sheet before
+skill extraction starts. A missing key returns HTTP 400, an invalid key returns
+HTTP 401, and a Sheet connectivity failure returns HTTP 503.
 
 Existing response fields and the `skills` array's `name` and
 `is_available_in_resume` fields are preserved. Each skill also includes its
@@ -135,5 +144,5 @@ cached. Add tests with both positive evidence and plausible false positives.
 
 Tests cover the supplied job description, selected resume experience without
 personal data, synonyms, company noise, multiword skills, context boundaries,
-negation, PDF text normalization, technical symbols, scoring, input validation,
-health checks, and CORS.
+negation, PDF text normalization, technical symbols, scoring, access-key
+validation, input validation, health checks, and CORS.

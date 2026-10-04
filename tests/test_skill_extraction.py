@@ -1,6 +1,9 @@
 from pathlib import Path
 import unittest
+from unittest.mock import MagicMock, patch
 
+import app as app_module
+import access_keys
 from app import app, find_matching_skills_in_resume, find_missing_skills_in_resume
 from skill_extractor import extract_skill_evidence, extract_skills
 
@@ -472,9 +475,16 @@ Zendesk experience.
 class ApiTests(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
+        self.key_validator = patch.object(app_module, "is_valid_key", return_value=True)
+        self.key_validator.start()
+        self.addCleanup(self.key_validator.stop)
 
     def post(self, job, resume):
-        return self.client.post('/extract_skills', json={"job_description": job, "resume": resume})
+        return self.client.post('/extract_skills', json={
+            "job_description": job,
+            "resume": resume,
+            "access_key": "ARIF_PREMIUM",
+        })
 
     def test_existing_response_fields_and_explainable_matches(self):
         response = self.post(JOB, RESUME)
@@ -523,6 +533,49 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(self.post("  ", RESUME).status_code, 400)
         self.assertEqual(self.post(JOB, "  ").status_code, 400)
 
+    def test_missing_access_key_returns_400(self):
+        response = self.client.post('/extract_skills', json={
+            "job_description": JOB,
+            "resume": RESUME,
+        })
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.get_json(), {"error": "Access key is required"})
+
+    def test_invalid_access_key_returns_401_before_extraction(self):
+        with patch.object(app_module, "is_valid_key", return_value=False), patch.object(
+            app_module, "extract_skill_evidence"
+        ) as extractor:
+            response = self.post(JOB, RESUME)
+
+        self.assertEqual(response.status_code, 401)
+        self.assertEqual(response.get_json(), {"error": "Invalid access key"})
+        extractor.assert_not_called()
+
+    def test_key_validation_connectivity_failure_returns_503(self):
+        with patch.object(app_module, "is_valid_key", side_effect=OSError("offline")):
+            response = self.post(JOB, RESUME)
+
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.get_json(), {"error": "Unable to validate access key"})
+
+    def test_access_key_endpoint(self):
+        with patch.object(app_module, "get_first_key", return_value="ARIF_100"):
+            response = self.client.get('/access_key')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.get_json(), {"access_key": "ARIF_100"})
+
+    def test_access_key_endpoint_handles_empty_sheet_and_connectivity_failure(self):
+        with patch.object(app_module, "get_first_key", return_value=None):
+            response = self.client.get('/access_key')
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.get_json(), {"error": "No access key found"})
+
+        with patch.object(app_module, "get_first_key", side_effect=OSError("offline")):
+            response = self.client.get('/access_key')
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.get_json(), {"error": "Unable to retrieve access key"})
+
     def test_malformed_json_and_wrong_content_type_return_400(self):
         self.assertEqual(self.client.post('/extract_skills', data='{', content_type='application/json').status_code, 400)
         self.assertEqual(self.client.post('/extract_skills', data='text').status_code, 400)
@@ -534,6 +587,41 @@ class ApiTests(unittest.TestCase):
         })
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['Access-Control-Allow-Origin'], 'http://localhost:5173')
+        self.assertEqual(response.headers['Access-Control-Allow-Credentials'], 'true')
+
+        with patch.object(app_module, "get_first_key", return_value="ARIF_100"):
+            response = self.client.get('/access_key', headers={"Origin": "http://localhost:5173"})
+        self.assertEqual(response.headers['Access-Control-Allow-Origin'], 'http://localhost:5173')
+        self.assertEqual(response.headers['Access-Control-Allow-Credentials'], 'true')
+
+
+class AccessKeyTests(unittest.TestCase):
+    @staticmethod
+    def sheet_response(csv_text):
+        response = MagicMock()
+        response.read.return_value = csv_text.encode("utf-8")
+        response.__enter__.return_value = response
+        response.__exit__.return_value = False
+        return response
+
+    def test_reads_first_column_and_skips_empty_values(self):
+        response = self.sheet_response(' ARIF_100 ,ignored\n\nARIF_PREMIUM,other\n')
+        with patch.object(access_keys.urllib.request, "urlopen", return_value=response) as urlopen:
+            self.assertEqual(access_keys.get_all_keys(), ["ARIF_100", "ARIF_PREMIUM"])
+
+        urlopen.assert_called_once_with(access_keys.SHEET_URL)
+
+    def test_first_key_and_case_insensitive_validation(self):
+        with patch.object(access_keys, "get_all_keys", return_value=["ARIF_PREMIUM"]):
+            self.assertEqual(access_keys.get_first_key(), "ARIF_PREMIUM")
+            for candidate in ["ARIF_PREMIUM", "arif_premium", "  Arif_Premium  "]:
+                with self.subTest(candidate=candidate):
+                    self.assertTrue(access_keys.is_valid_key(candidate))
+            self.assertFalse(access_keys.is_valid_key("WRONG"))
+
+    def test_first_key_returns_none_for_empty_sheet(self):
+        with patch.object(access_keys, "get_all_keys", return_value=[]):
+            self.assertIsNone(access_keys.get_first_key())
 
 
 if __name__ == '__main__':
