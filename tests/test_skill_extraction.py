@@ -57,6 +57,49 @@ runs under a quality management system (QMS), software lifecycle and risk
 management. Documentation and verification and validation evidence are needed.
 """
 
+BALLYS_QA_JOB = """
+About the role
+Own and evolve the test strategy and partner with Engineers, Product Managers,
+and stakeholders to build and approve smart, risk-based test plans. Lead
+end-to-end quality efforts and build dashboards, metrics, and KPIs to measure
+quality and release health. Improve QA processes, tools, and frameworks.
+Support testing, troubleshooting, bug triage, prioritization, and defect
+management, with leadership, coaching, and continuous improvement.
+
+Role requirements
+Deep understanding of QA methodologies: Unit, API, UI, Integration,
+Performance, and E2E testing. Experience with CI/CD pipelines such as Jenkins,
+GitLab CI/CD, and GoCD. Experience testing both web and mobile applications.
+Turn business requirements into clear, testable scenarios. Excellent
+communication, stakeholder influence, ownership, analytical and
+problem-solving skills, and cross-functional collaboration.
+"""
+
+KUMARAN_AI_AUTOMATION_JOB = """
+About the job
+About Us
+Kumaran Systems builds AI-enabled enterprise systems.
+
+Key Responsibilities
+Develop and maintain robust UI automation frameworks using Selenium with Java.
+Design and execute functional, regression, and end-to-end automated tests.
+Integrate automation suites with CI/CD pipelines using Jenkins, GitHub Actions,
+Azure DevOps, or similar tools. Leverage AI/GenAI tools and coding assistants
+such as GitHub Copilot to accelerate test creation, script generation,
+debugging, and test analysis. Explore and implement AI-driven testing
+approaches, including test-case generation, defect analysis, and automation
+optimization. Participate in framework design, code reviews, debugging, and
+continuous improvement of automation solutions. Work closely with developers,
+QA engineers, and business teams in Agile environments.
+
+Required Skills
+6+ years of QA Automation experience. Strong Selenium + Java automation
+experience. Hands-on Playwright experience. Good knowledge of API testing,
+SQL, Git, and CI/CD. Experience with Jenkins / Azure DevOps / GitHub Actions.
+Exposure to GenAI/AI tools for software development and QA. Strong
+problem-solving, analytical, and communication skills.
+"""
+
 # Paraphrased recurring requirements sampled from public LinkedIn, Indeed,
 # Lever, Greenhouse and Ashby postings in October 2026.
 PUBLIC_JOB_SAMPLES = {
@@ -238,6 +281,34 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
+    def test_ballys_job_extracts_qa_strategy_delivery_and_tooling_skills(self):
+        skills = set(extract_skills(BALLYS_QA_JOB, source="job_description"))
+        expected = {
+            "api testing", "bug triage", "ci/cd", "coaching", "communication",
+            "cross-functional collaboration", "defect management", "end-to-end testing",
+            "gocd", "jenkins", "key performance indicator",
+            "leadership", "mobile application testing", "ownership", "performance testing",
+            "prioritization", "problem solving", "process improvement", "quality metrics",
+            "release quality management", "risk-based testing", "software testing",
+            "system integration testing", "test case design", "test planning",
+            "test strategy", "troubleshooting", "unit testing", "user interface testing",
+            "web application testing",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_kumaran_ai_automation_role_extracts_testing_and_ai_skills(self):
+        skills = set(extract_skills(KUMARAN_AI_AUTOMATION_JOB, source="job_description"))
+        expected = {
+            "agile", "ai-driven testing", "api testing", "automated test generation",
+            "automated testing", "azure devops", "ci/cd", "code review",
+            "communication", "debugging", "defect analysis", "end-to-end testing",
+            "functional testing", "git", "github actions", "github copilot", "java",
+            "jenkins", "playwright", "problem solving", "process improvement",
+            "regression testing", "selenium", "sql", "test analysis",
+            "test automation frameworks", "test automation optimization",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
     def test_public_job_market_samples_extract_recurring_skills(self):
         for role, (description, expected) in PUBLIC_JOB_SAMPLES.items():
             with self.subTest(role=role):
@@ -277,7 +348,8 @@ class ExtractionTests(unittest.TestCase):
             "Manager, countries, job, lab, CTO, Dr. Yihong Qi, Pontosense, "
             "Silvie, January, Waterloo, patents, sensors, families, parent, "
             "safety, sleep, cameras, pendants, wearables, home, time, contact, "
-            "team, head, company, rate, care, member, engineering, reports."
+            "team, head, company, rate, care, member, engineering, reports. "
+            "I can clarify how life can make us perform better on example.com."
         ), [])
 
     def test_company_technology_is_not_a_job_requirement(self):
@@ -347,7 +419,21 @@ Zendesk experience.
         self.assertNotIn("sql", skills)
 
     def test_tool_names_are_not_substrings_of_other_words(self):
-        self.assertEqual(extract_skills("GitHub, JavaScripted, SQLAlchemy, Pythonic"), [])
+        self.assertEqual(
+            extract_skills("GitHub, JavaScripted, SQLAlchemy, Pythonic"),
+            ["github"],
+        )
+
+    def test_imported_skill_abbreviations_resolve_to_canonical_names(self):
+        self.assertEqual(
+            extract_skills("CQL, VHDL, SSMS, VSTS"),
+            [
+                "cassandra query language",
+                "sql server management studio",
+                "vhsic hardware description language",
+                "visual studio team service",
+            ],
+        )
 
     def test_ambiguous_skill_words_require_context(self):
         self.assertEqual(extract_skills(

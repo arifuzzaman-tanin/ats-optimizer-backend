@@ -79,7 +79,7 @@ ROLE_HEADINGS = {
     "about the job", "position overview", "the role", "about the role", "your role", "responsibilities",
     "key responsibilities", "what you'll own", "what you will own",
     "what you'll do", "what you will do", "what you do", "what year one looks like",
-    "requirements", "qualifications", "skills", "required skills",
+    "requirements", "role requirements", "qualifications", "skills", "required skills",
     "preferred skills", "minimum qualifications", "preferred qualifications",
     "what we're looking for", "what we are looking for", "what you bring",
     "this is for you if", "nice to have",
