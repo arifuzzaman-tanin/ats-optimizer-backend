@@ -522,7 +522,10 @@
       "process optimization",
       "process optimisation"
     ],
-    "patterns": ["\\bimprovements? in processes\\b"]
+    "patterns": [
+      "\\bimprovements? in processes\\b",
+      "\\bimprov(?:e|es|ed|ing) (?:development )?(?:standards,? tools,? and )?processes\\b"
+    ]
   },
   {
     "name": "root cause analysis",
@@ -1030,7 +1033,8 @@
   {
     "name": "software design",
     "category": "technical",
-    "aliases": ["application design"]
+    "aliases": ["application design", "subsystem design", "technical design"],
+    "patterns": ["\\bsoftware\\s*/\\s*subsystem design\\b"]
   },
   {
     "name": "software design patterns",
@@ -1158,7 +1162,8 @@
   {
     "name": "relational databases",
     "category": "technical",
-    "aliases": ["relational database", "relational database technologies", "rdbms"]
+    "aliases": ["relational database", "relational database technologies", "rdbms"],
+    "patterns": ["\\brelational (?:and|or|/) nosql databases?\\b"]
   },
   {
     "name": "database schema design",
@@ -1359,7 +1364,11 @@
   {
     "name": "technical mentoring",
     "category": "interpersonal",
-    "aliases": ["engineering mentoring", "developer mentoring", "mentoring engineers", "mentor engineers", "mentor teams", "mentoring the team"]
+    "aliases": [
+      "engineering mentoring", "developer mentoring", "mentoring engineers",
+      "mentor engineers", "mentor teams", "mentoring the team",
+      "mentor junior developers", "mentoring junior developers", "technical guidance"
+    ]
   },
   {
     "name": "software development best practices",
@@ -1490,7 +1499,7 @@
     "contextual_aliases": [
       {
         "aliases": ["windows"],
-        "context": "\\b(?:mac|macos|cross[ -]?platform|desktop|operating systems?|platform support)\\b"
+        "context": "\\b(?:linux|mac|macos|cross[ -]?platform|desktop|operating systems?|platform support|full[ -]?stack|development)\\b"
       }
     ]
   },
@@ -2412,7 +2421,7 @@
     "name_is_alias": false,
     "aliases": ["storybook.js", "storybook js"],
     "contextual_aliases": [
-      {"aliases": ["storybook"], "context": "\\b(?:react|components?|frontend|ui|design system|tailwind)\\b", "allow_standalone": true}
+      {"aliases": ["storybook"], "context": "\\b(?:react|components?|frontend|ui|design system|tailwind|signalr|playwright|nunit|skills?|experience|proficien\\w*)\\b", "allow_standalone": true}
     ]
   },
   {
@@ -7631,7 +7640,8 @@
   },
   {
     "name": "asp.net signalr",
-    "category": "development_tools"
+    "category": "development_tools",
+    "aliases": ["signalr", "signal r"]
   },
   {
     "name": "assembler mc6809",
@@ -20261,6 +20271,54 @@
   {
     "name": "elk",
     "category": "monitoring"
+  },
+  {
+    "name": "couchbase",
+    "category": "database",
+    "aliases": ["couchbase server"]
+  },
+  {
+    "name": "acceptance test-driven development",
+    "category": "technical",
+    "aliases": ["acceptance test driven development", "atdd"]
+  },
+  {
+    "name": "build automation",
+    "category": "technical",
+    "aliases": ["automated builds", "automated build"]
+  },
+  {
+    "name": "robotics",
+    "category": "technical",
+    "aliases": ["robotic systems", "robotic system", "robotics systems"]
+  },
+  {
+    "name": "space operations",
+    "category": "domain",
+    "aliases": ["space operations technology", "space operations technologies"]
+  },
+  {
+    "name": "ground control software",
+    "category": "technical",
+    "aliases": ["ground-control software", "ground control systems"]
+  },
+  {
+    "name": "simulation software development",
+    "category": "technical",
+    "aliases": ["simulator development", "simulation development"],
+    "patterns": ["\\b(?:develop|developing|develops|developed) [^.;]{0,80}\\bsimulators?\\b"]
+  },
+  {
+    "name": "software scalability",
+    "category": "technical",
+    "aliases": ["scalable software", "scalable applications", "scalable application"],
+    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b"]
+  },
+  {
+    "name": "software maintainability",
+    "category": "technical",
+    "aliases": ["maintainable software", "maintainable applications", "maintainable application"],
+    "patterns": ["\\bmaintainable[^.;]{0,60}\\bapplications?\\b"]
   }
 
 ]

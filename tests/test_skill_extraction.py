@@ -103,6 +103,28 @@ Exposure to GenAI/AI tools for software development and QA. Strong
 problem-solving, analytical, and communication skills.
 """
 
+ROBOTICS_FULL_STACK_JOB = """
+About the job
+Senior Full Stack Developer supporting advanced robotics and space operations technology.
+
+What You'll Do
+Design and develop web-based ground control software, simulators and testing tools
+supporting robotic systems. Lead complex software/subsystem design and implementation.
+Build scalable, maintainable and testable full-stack applications. Participate in
+software integration, automated testing and troubleshooting. Conduct technical design
+and code reviews. Mentor junior developers and provide technical guidance. Help
+establish and improve development standards, tools and processes.
+
+What You Must Have
+Full-stack development experience on Windows and/or Linux. Angular, C# / ASP.NET Core,
+JavaScript, ReactJS, HTML/CSS and .NET. Relational and NoSQL databases, including
+SQL/MSSQL/PostgreSQL, Entity Framework, LINQ, MongoDB/Couchbase and Redis. Automated
+software testing, Agile development, technical leadership and communication skills.
+
+Nice to Have
+Storybook, SignalR, Playwright, NUnit, TDD/ATDD/BDD, CI/build automation, Python or Lua.
+"""
+
 # Paraphrased recurring requirements sampled from public LinkedIn, Indeed,
 # Lever, Greenhouse and Ashby postings in October 2026.
 PUBLIC_JOB_SAMPLES = {
@@ -309,6 +331,24 @@ class ExtractionTests(unittest.TestCase):
             "jenkins", "playwright", "problem solving", "process improvement",
             "regression testing", "selenium", "sql", "test analysis",
             "test automation frameworks", "test automation optimization",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_robotics_full_stack_role_extracts_domain_stack_and_methods(self):
+        skills = set(extract_skills(ROBOTICS_FULL_STACK_JOB, source="job_description"))
+        expected = {
+            ".net", "acceptance test-driven development", "agile", "angular",
+            "asp.net core", "asp.net signalr", "automated testing", "bdd",
+            "build automation", "c#", "code review", "communication", "couchbase",
+            "css", "entity framework", "full stack development",
+            "ground control software", "html", "javascript", "leadership", "linq",
+            "linux", "lua", "mongodb", "mssql", "nosql", "nunit", "playwright",
+            "postgresql", "process improvement", "python", "react", "redis",
+            "relational databases", "robotics", "simulation software development",
+            "software design", "software maintainability", "software scalability",
+            "space operations", "sql", "storybook", "systems integration",
+            "technical mentoring", "test-driven development", "troubleshooting",
+            "windows",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
