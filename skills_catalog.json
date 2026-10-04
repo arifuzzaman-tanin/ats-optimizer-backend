@@ -1367,7 +1367,8 @@
     "aliases": [
       "engineering mentoring", "developer mentoring", "mentoring engineers",
       "mentor engineers", "mentor teams", "mentoring the team",
-      "mentor junior developers", "mentoring junior developers", "technical guidance"
+      "mentor junior developers", "mentoring junior developers", "mentor junior analysts",
+      "mentoring junior analysts", "technical guidance"
     ]
   },
   {
@@ -1784,7 +1785,10 @@
     "name": "log analysis",
     "category": "technical",
     "aliases": ["diagnosing from logs", "diagnose from logs", "log diagnostics"],
-    "patterns": ["\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b"]
+    "patterns": [
+      "\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b",
+      "\\bmonitor(?:ing)? (?:the )?(?:application|system) logs\\b"
+    ]
   },
   {
     "name": "on-premises software",
@@ -1817,7 +1821,10 @@
     "category": "technical",
     "name_is_alias": false,
     "aliases": ["software configuration management"],
-    "patterns": ["\\b(?:image builds|software packaging|packaging and installation)[^.;]{0,80}\\bconfiguration\\b"]
+    "patterns": [
+      "\\b(?:image builds|software packaging|packaging and installation)[^.;]{0,80}\\bconfiguration\\b",
+      "\\bdefect management\\s*(?:&|and)\\s*configuration management\\b"
+    ]
   },
   {
     "name": "runbook development",
@@ -2297,7 +2304,10 @@
   {
     "name": "finops",
     "category": "business",
-    "aliases": ["cloud cost management", "cloud cost optimization"]
+    "aliases": [
+      "cloud cost management", "cloud cost optimization", "cloud cost optimisation",
+      "aws cost models", "cloud cost models"
+    ]
   },
   {
     "name": "saas support",
@@ -2577,7 +2587,7 @@
   {"name": "defect management", "category": "technical", "aliases": ["defect tracking", "bug tracking", "manage defects"]},
   {"name": "bug triage", "category": "technical", "aliases": ["defect triage", "issue triage", "triaging bugs", "triaging defects"]},
   {"name": "test planning", "category": "technical", "aliases": ["test plans", "testing plans", "risk-based test plans"]},
-  {"name": "test case design", "category": "technical", "aliases": ["test case development", "test scenario design", "test scenarios", "testable scenarios"]},
+  {"name": "test case design", "category": "technical", "aliases": ["test case development", "test scenario design", "tests design", "test scenarios", "testable scenarios"]},
   {
     "name": "mobile application testing",
     "category": "technical",
@@ -2622,7 +2632,12 @@
       {"aliases": ["e2e"], "context": "\\b(?:qa|test(?:ing)?|methodologies|unit|api|ui|integration|performance)\\b"}
     ]
   },
-  {"name": "test strategy", "category": "technical", "aliases": ["testing strategy", "automated test strategy", "test automation strategy"]},
+  {
+    "name": "test strategy",
+    "category": "technical",
+    "aliases": ["testing strategy", "automated test strategy", "test automation strategy"],
+    "patterns": ["\\btest planning\\s*(?:&|and)\\s*strategy\\b"]
+  },
   {"name": "test automation frameworks", "category": "technical", "aliases": ["test automation framework", "automated test frameworks", "automation frameworks"]},
   {"name": "ai-driven testing", "category": "technical", "aliases": ["ai driven testing", "ai-powered testing", "ai powered testing", "ai testing"]},
   {"name": "automated test generation", "category": "technical", "aliases": ["test case generation", "test-case generation", "ai test generation", "automated test creation"]},
@@ -2632,13 +2647,13 @@
   {
     "name": "quality metrics",
     "category": "technical",
-    "aliases": ["qa metrics", "testing metrics", "quality kpis", "quality dashboards", "release health metrics"],
+    "aliases": ["qa metrics", "test metrics", "testing metrics", "quality kpis", "quality dashboards", "release health metrics"],
     "patterns": ["\\b(?:dashboards?,\\s*)?metrics,?\\s+and\\s+kpis?\\b"]
   },
   {"name": "release quality management", "category": "technical", "aliases": ["release quality", "release health", "release readiness"]},
   {"name": "gocd", "category": "tool", "aliases": ["go cd"]},
   {"name": "teamcity", "category": "tool", "aliases": ["team city"]},
-  {"name": "bitbucket", "category": "tool", "aliases": ["bitbucket pipelines"]},
+  {"name": "bitbucket", "category": "tool", "aliases": ["bit bucket", "bitbucket pipelines"]},
   {"name": "openapi", "category": "technical", "aliases": ["open api", "swagger openapi", "swagger"]},
   {"name": "information security", "category": "technical", "aliases": ["infosec", "information security management"]},
   {"name": "security operations center", "category": "technical", "aliases": ["security operations centre", "soc operations", "soc analyst", "soc environment"]},
@@ -2771,7 +2786,12 @@
   {"name": "financial planning and analysis", "category": "business", "aliases": ["fp&a", "financial planning & analysis"]},
   {"name": "scenario analysis", "category": "analysis", "aliases": ["financial scenario analysis", "scenario modeling", "scenario modelling"]},
   {"name": "power query", "category": "tool", "aliases": ["microsoft power query"]},
-  {"name": "enterprise resource planning", "category": "business", "aliases": ["erp systems", "erp software", "erp implementation"]},
+  {
+    "name": "enterprise resource planning",
+    "category": "business",
+    "aliases": ["erp systems", "erp software", "erp implementation"],
+    "patterns": ["\\boracle fusion cloud erp\\b"]
+  },
   {"name": "microsoft dynamics", "category": "tool", "aliases": ["dynamics 365", "microsoft dynamics 365", "ms dynamics"]},
   {"name": "accounting", "category": "business", "aliases": ["general accounting", "accounting principles"]},
   {"name": "consolidated financial statements", "category": "business", "aliases": ["financial statement consolidation", "consolidated financials"]},
@@ -3381,10 +3401,6 @@
   },
   {
     "name": "pro iv",
-    "category": "languages"
-  },
-  {
-    "name": "progress",
     "category": "languages"
   },
   {
@@ -7173,7 +7189,8 @@
   },
   {
     "name": "microsoft sql server",
-    "category": "databases"
+    "category": "databases",
+    "aliases": ["microsoft sql", "ms sql"]
   },
   {
     "name": "microsoft sql server 2014",
@@ -11849,7 +11866,8 @@
   },
   {
     "name": "stonebranch universal automation center",
-    "category": "middleware_os_system_software"
+    "category": "middleware_os_system_software",
+    "aliases": ["stonebranch uac"]
   },
   {
     "name": "stonebranch universal controller",
@@ -14536,10 +14554,6 @@
     ]
   },
   {
-    "name": "interview",
-    "category": "datacommunication_and_network_technology"
-  },
-  {
     "name": "ip fabric",
     "category": "datacommunication_and_network_technology"
   },
@@ -15581,7 +15595,8 @@
   },
   {
     "name": "ca unicenter autosys job management",
-    "category": "business_and_office_support_applications"
+    "category": "business_and_office_support_applications",
+    "aliases": ["autosys"]
   },
   {
     "name": "ca unicenter dsm",
@@ -16007,7 +16022,8 @@
   },
   {
     "name": "enterprise performance management",
-    "category": "business_and_office_support_applications"
+    "category": "business_and_office_support_applications",
+    "patterns": ["\\boracle fusion cloud epm\\b", "\\boracle fusion cloud erp and epm\\b"]
   },
   {
     "name": "episerver commerce",
@@ -18610,10 +18626,6 @@
     "category": "business_and_office_support_applications"
   },
   {
-    "name": "works",
-    "category": "business_and_office_support_applications"
-  },
-  {
     "name": "xellent",
     "category": "business_and_office_support_applications"
   },
@@ -20319,6 +20331,66 @@
     "category": "technical",
     "aliases": ["maintainable software", "maintainable applications", "maintainable application"],
     "patterns": ["\\bmaintainable[^.;]{0,60}\\bapplications?\\b"]
+  },
+  {
+    "name": "test environment management",
+    "category": "technical",
+    "aliases": ["test environment setup", "testing environment setup", "test environments"]
+  },
+  {
+    "name": "test data management",
+    "category": "technical",
+    "aliases": ["test data setup", "test data preparation"]
+  },
+  {
+    "name": "large-scale data testing",
+    "category": "technical",
+    "aliases": ["large data set testing", "large dataset testing", "large data testing"],
+    "patterns": ["\\b(?:execute|run|perform)(?:s|d|ing)? tests? against large data ?sets?\\b"]
+  },
+  {
+    "name": "data validation",
+    "category": "technical",
+    "aliases": ["backend data validation", "backend data validations", "back-end data validation", "data accuracy validation"],
+    "patterns": ["\\bvalidat(?:e|es|ed|ing) (?:the )?(?:backend|back-end) data\\b"]
+  },
+  {
+    "name": "defect lifecycle management",
+    "category": "technical",
+    "aliases": ["bug life cycle", "bug lifecycle", "defect life cycle", "defect lifecycle"]
+  },
+  {
+    "name": "status reporting",
+    "category": "business",
+    "aliases": ["status reports", "detailed status reports", "test status reporting", "test progress reporting"]
+  },
+  {
+    "name": "release validation",
+    "category": "technical",
+    "aliases": ["post-production release checkout", "postproduction release checkout", "production release checkout"]
+  },
+  {
+    "name": "quality engineering",
+    "category": "technical",
+    "aliases": ["quality engineer", "software quality engineer"]
+  },
+  {
+    "name": "aws secrets manager",
+    "category": "tool",
+    "aliases": ["amazon secrets manager", "aws secret manager", "aws secrets manger"],
+    "contextual_aliases": [
+      {"aliases": ["secrets manager", "secrets manger"], "context": "\\b(?:aws|amazon web services|s3)\\b"}
+    ]
+  },
+  {
+    "name": "oracle fusion cloud",
+    "category": "tool",
+    "aliases": ["oracle fusion cloud erp", "oracle fusion cloud epm"]
+  },
+  {
+    "name": "asset management",
+    "category": "domain",
+    "aliases": ["asset management industry", "investment management"]
   }
 
 ]

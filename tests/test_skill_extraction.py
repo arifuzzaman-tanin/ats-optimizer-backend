@@ -78,6 +78,30 @@ communication, stakeholder influence, ownership, analytical and
 problem-solving skills, and cross-functional collaboration.
 """
 
+INVESCO_SENIOR_QE_JOB = """
+About the role
+Senior Software Quality Engineer for the Finance domain. Lead complex test
+strategies, improve automation maturity, and mentor junior analysts.
+
+Responsibilities
+Expertise in Test Planning & Strategy, Tests Design, Test Environment Setup,
+Test Data Setup, Defect Management & Configuration Management. Experience with
+Microsoft SQL, Snowflake, and Postgres databases, including creating stored
+procedures, views, and tables. Test Master Data Management systems and execute
+tests against large data sets. Perform root cause analysis and use the Unix
+command line. Use AWS S3, Secrets Manager, and AWS cost models. Monitor
+application logs, prepare detailed status reports, and follow the Bug Life
+Cycle. Validate backend data and use AutoSys, Airflow, and Stonebranch UAC.
+Apply Python, Agile methodology, daily Test Metrics, and postproduction release
+checkout. Test automation experience and knowledge of Alteryx, Informatica,
+DBT, and Bit Bucket are advantageous.
+
+Requirements
+Software quality assurance and software testing experience. Financial services
+or Asset Management industry experience is preferred. Oracle Fusion Cloud ERP
+and EPM experience.
+"""
+
 KUMARAN_AI_AUTOMATION_JOB = """
 About the job
 About Us
@@ -321,6 +345,26 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
+    def test_invesco_senior_qe_job_extracts_data_quality_and_workflow_skills(self):
+        skills = set(extract_skills(INVESCO_SENIOR_QE_JOB, source="job_description"))
+        expected = {
+            "agile", "alteryx", "amazon s3", "amazon web services",
+            "apache airflow", "asset management", "automated testing",
+            "aws secrets manager", "bitbucket", "ca unicenter autosys job management",
+            "configuration management", "data validation", "finops",
+            "dbt", "defect lifecycle management", "defect management",
+            "enterprise performance management", "enterprise resource planning",
+            "financial services", "informatica", "large-scale data testing",
+            "log analysis", "master data management", "microsoft sql server", "oracle fusion cloud",
+            "postgresql", "python", "quality engineering", "quality metrics",
+            "release validation", "root cause analysis", "snowflake",
+            "software testing", "status reporting", "stonebranch universal automation center",
+            "stored procedures", "technical mentoring", "test case design",
+            "test data management", "test environment management", "test planning",
+            "test strategy", "unix",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
     def test_kumaran_ai_automation_role_extracts_testing_and_ai_skills(self):
         skills = set(extract_skills(KUMARAN_AI_AUTOMATION_JOB, source="job_description"))
         expected = {
@@ -393,6 +437,11 @@ class ExtractionTests(unittest.TestCase):
             "safety, sleep, cameras, pendants, wearables, home, time, contact, "
             "team, head, company, rate, care, member, engineering, reports. "
             "I can clarify how life can make us perform better on example.com."
+        ), [])
+
+    def test_work_progress_and_interview_words_are_not_skills(self):
+        self.assertEqual(extract_skills(
+            "I work on works in progress and prepare for an interview."
         ), [])
 
     def test_ready_win_wins_and_web_are_not_skills_without_technical_context(self):
