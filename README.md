@@ -146,3 +146,25 @@ Tests cover the supplied job description, selected resume experience without
 personal data, synonyms, company noise, multiword skills, context boundaries,
 negation, PDF text normalization, technical symbols, scoring, access-key
 validation, input validation, health checks, and CORS.
+
+## Deploy from GitHub to PythonAnywhere
+
+The GitHub Actions workflow in `.github/workflows/deploy-pythonanywhere.yml`
+runs the tests on every push to `main`. If they pass, it uploads the runtime
+files through the PythonAnywhere API, reloads
+`arifuzzamantanin.pythonanywhere.com`, and checks the `/health` endpoint.
+
+Create an API token on the PythonAnywhere **Account > API token** page. In the
+GitHub repository, open **Settings > Environments > production**, add an
+environment secret named `PYTHONANYWHERE_API_TOKEN`, and paste the token as its
+value. Never commit the token to the repository.
+
+The workflow updates application source files but does not run commands inside
+PythonAnywhere. When `requirements.txt` changes, install the updated packages
+once from a PythonAnywhere Bash console before deploying:
+
+```bash
+workon ats-optimizer-env
+cd /home/arifuzzamantanin/ats-optimizer-backend
+pip install -r requirements.txt
+```
