@@ -248,7 +248,9 @@
     "aliases": [
       "cross functional teamwork",
       "cross functional coordination",
-      "cross departmental collaboration"
+      "cross departmental collaboration",
+      "multidisciplinary team collaboration",
+      "multidisciplinary engineering team"
     ],
     "patterns": [
       "\\bbring (?:them|issues|patterns|feedback|insights) to product and engineering\\b",
@@ -1032,13 +1034,13 @@
   {
     "name": "software architecture",
     "category": "technical",
-    "aliases": ["application architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions"]
+    "aliases": ["software architectures", "application architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions"]
   },
   {
     "name": "software design",
     "category": "technical",
-    "aliases": ["application design", "subsystem design", "technical design"],
-    "patterns": ["\\bsoftware\\s*/\\s*subsystem design\\b"]
+    "aliases": ["software designs", "application design", "subsystem design", "technical design"],
+    "patterns": ["\\bsoftware\\s*/\\s*subsystem design\\b", "\\bdesign software solutions\\b"]
   },
   {
     "name": "software design patterns",
@@ -1065,13 +1067,37 @@
     "name": "technical research",
     "category": "technical",
     "aliases": ["technology research"],
-    "patterns": ["\\bresearch (?:and prototype )?(?:innovative )?(?:ideas|technologies|patterns|solutions)\\b"]
+    "patterns": ["\\bresearch (?:and prototype )?(?:innovative )?(?:ideas|technologies|patterns|solutions)\\b", "\\bconduct(?:ing)? independent research\\b"]
   },
   {
     "name": "presentation skills",
     "category": "interpersonal",
     "aliases": ["presenting ideas", "present solutions"],
-    "patterns": ["\\bpresent (?:your |technical )?(?:ideas|solutions|designs)\\b"]
+    "patterns": ["\\bpresent (?:your |technical )?(?:ideas|solutions|designs)\\b", "\\b(?:conduct|conducting|prepare|preparing) (?:and prepare )?presentations\\b"]
+  },
+  {
+    "name": "technical demonstrations",
+    "category": "interpersonal",
+    "aliases": ["technical demos"],
+    "patterns": ["\\b(?:conduct|conducting|prepare|preparing) (?:and prepare )?(?:technical )?demonstrations\\b", "\\bpresentations and demonstrations\\b"]
+  },
+  {
+    "name": "technical communication",
+    "category": "interpersonal",
+    "aliases": ["technical communications", "communicating technical ideas", "technical communication skills"],
+    "patterns": ["\\btechnical communication of (?:ideas|designs?|solutions)\\b"]
+  },
+  {
+    "name": "analytical skills",
+    "category": "interpersonal",
+    "aliases": ["analytical skill", "analytical ability", "analytical abilities"],
+    "patterns": ["\\banalytical(?=,? (?:and )?(?:problem[ -]solving )?skills\\b)"]
+  },
+  {
+    "name": "organizational skills",
+    "category": "interpersonal",
+    "aliases": ["organisational skills", "organizational skill", "organisational skill"],
+    "patterns": ["\\b(?:organisational|organizational)(?=,? (?:analytical,? and |analytical and |and )?[^.;]{0,30}skills\\b)"]
   },
   {
     "name": "large language models",
@@ -1561,7 +1587,39 @@
     "name": "systems integration",
     "category": "technical",
     "aliases": ["system integration", "software integration", "complex integration", "platform integration", "application integration", "third-party integration", "third party integration"],
-    "patterns": ["\\bintegrat(?:e|es|ed|ing) third-party [^.;]{0,50}(?:components|software)\\b"]
+    "patterns": ["\\bintegrat(?:e|es|ed|ing) third-party [^.;]{0,50}(?:components|software)\\b", "\\bintegrat(?:e|es|ed|ing) applications?\\b"]
+  },
+  {
+    "name": "systems engineering",
+    "category": "technical",
+    "aliases": ["system engineering", "systems engineer", "system engineer"]
+  },
+  {
+    "name": "real-time systems",
+    "category": "technical",
+    "aliases": ["real time systems", "real-time system", "real time system"],
+    "patterns": ["\\bnear[ -]real[ -]time (?:systems?|simulations?)\\b"]
+  },
+  {
+    "name": "fault tolerance",
+    "category": "technical",
+    "aliases": ["fault tolerant", "fault-tolerant systems", "fault tolerant systems", "fault-tolerant system", "fault tolerant system"]
+  },
+  {
+    "name": "network protocols",
+    "category": "technical",
+    "aliases": ["networking protocols", "network protocol"]
+  },
+  {
+    "name": "military systems",
+    "category": "domain",
+    "aliases": ["defence systems", "defense systems"]
+  },
+  {
+    "name": "military standards",
+    "category": "domain",
+    "aliases": ["military system standards", "defence standards", "defense standards"],
+    "patterns": ["\\bmilitary systems? and standards\\b"]
   },
   {
     "name": "software reliability",
@@ -1744,7 +1802,7 @@
   {
     "name": "computer networking",
     "category": "technical",
-    "aliases": ["networking fundamentals", "network fundamentals", "network infrastructure", "networking concepts"]
+    "aliases": ["networking fundamentals", "network fundamentals", "network infrastructure", "networking concepts", "multi-network environment", "multi network environment"]
   },
   {
     "name": "transport layer security",
@@ -4130,7 +4188,8 @@
   },
   {
     "name": "client-server architecture",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["client-server", "client server architecture", "client server"]
   },
   {
     "name": "client-side object model",
@@ -7506,7 +7565,8 @@
   },
   {
     "name": "akka toolkit",
-    "category": "development_tools"
+    "category": "development_tools",
+    "aliases": ["akka"]
   },
   {
     "name": "aldec activehdl",
@@ -19655,7 +19715,14 @@
   },
   {
     "name": "high availability",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["highly available systems", "highly available system", "high-availability systems", "high availability systems"],
+    "contextual_aliases": [
+      {
+        "aliases": ["highly available"],
+        "context": "\\b(?:systems?|software|services?|applications?|architecture|distributed)\\b"
+      }
+    ]
   },
   {
     "name": "legal services",

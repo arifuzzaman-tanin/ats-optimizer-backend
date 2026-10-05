@@ -15,6 +15,9 @@ AUTODESK_JOB = Path(__file__).with_name("fixtures").joinpath(
 ALPHASENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
     "alphasense_excel_engineer.txt"
 ).read_text(encoding="utf-8")
+L3HARRIS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "l3harris_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -273,6 +276,27 @@ Patience and empathy. Attention to detail. Teamwork. Time management skills.
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_l3harris_job_extracts_communications_system_skills(self):
+        skills = set(extract_skills(L3HARRIS_JOB, source="job_description"))
+        expected = {
+            ".net core", "akka toolkit", "analytical skills", "angular", "asp.net",
+            "asp.net signalr", "c#", "client-server architecture", "computer networking",
+            "cqrs", "cross-functional collaboration", "debugging", "distributed computing",
+            "distributed systems", "fault tolerance", "high availability", "http",
+            "independent work", "message queues", "microservices", "military standards",
+            "military systems", "mysql", "network protocols", "object-oriented programming",
+            "organizational skills", "presentation skills", "problem solving", "rabbitmq",
+            "real-time systems", "relational databases", "rest api", "snmp",
+            "software architecture", "software design", "systems engineering",
+            "systems integration", "technical communication", "technical demonstrations",
+            "technical research", "transmission control protocol", "vue",
+            "web application development", "websocket",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertNotIn("high availability", extract_skills(
+            "The hotel says that a room is highly available this week."
+        ))
+
     def test_alphasense_excel_role_extracts_explicit_engineering_skills(self):
         skills = set(extract_skills(ALPHASENSE_JOB, source="job_description"))
         self.assertTrue({
