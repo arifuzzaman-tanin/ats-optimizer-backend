@@ -473,7 +473,10 @@
     "category": "interpersonal",
     "aliases": [
       "team leadership",
-      "leadership skills"
+      "leadership skills",
+      "technical leadership",
+      "technical direction",
+      "leadership-level technical decision-making"
     ]
   },
   {
@@ -540,6 +543,7 @@
     "category": "analysis",
     "aliases": [
       "data analytics",
+      "analytics technologies",
       "analysing data",
       "analyzing data"
     ]
@@ -1006,7 +1010,7 @@
   {
     "name": "software development",
     "category": "technical",
-    "aliases": ["software engineering", "application development", "developing software", "building production software", "production software development"]
+    "aliases": ["software engineering", "application development", "developing software", "building production software", "production software development", "software development fundamentals"]
   },
   {
     "name": "web application development",
@@ -1023,12 +1027,12 @@
   {
     "name": "cloud services development",
     "category": "technical",
-    "aliases": ["cloud service development", "cloud services", "cloud development"]
+    "aliases": ["cloud service development", "cloud services", "cloud development", "cloud-based application development", "cloud-based applications", "cloud-based application"]
   },
   {
     "name": "software architecture",
     "category": "technical",
-    "aliases": ["application architecture", "software design and architecture"]
+    "aliases": ["application architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions"]
   },
   {
     "name": "software design",
@@ -1178,7 +1182,8 @@
   {
     "name": "monitoring",
     "category": "technical",
-    "aliases": ["system monitoring", "application monitoring", "production monitoring"]
+    "aliases": ["system monitoring", "application monitoring", "production monitoring", "application performance monitoring"],
+    "patterns": ["\\bmonitor(?:ing|s|ed)? application performance\\b"]
   },
   {
     "name": "logging",
@@ -1739,7 +1744,7 @@
   {
     "name": "computer networking",
     "category": "technical",
-    "aliases": ["networking fundamentals", "network fundamentals", "network infrastructure"]
+    "aliases": ["networking fundamentals", "network fundamentals", "network infrastructure", "networking concepts"]
   },
   {
     "name": "transport layer security",
@@ -1902,7 +1907,7 @@
   {
     "name": "cybersecurity",
     "category": "technical",
-    "aliases": ["cyber security", "security engineering"]
+    "aliases": ["cyber security", "security engineering", "security concepts", "security and networking concepts"]
   },
   {
     "name": "open-source software",
@@ -12430,7 +12435,8 @@
   },
   {
     "name": "cloud native",
-    "category": "methods_and_standards"
+    "category": "methods_and_standards",
+    "aliases": ["cloud-native development", "cloud native development", "cloud-native application development", "cloud native application development"]
   },
   {
     "name": "component test",
@@ -12446,7 +12452,8 @@
   },
   {
     "name": "containerization",
-    "category": "methods_and_standards"
+    "category": "methods_and_standards",
+    "aliases": ["containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments"]
   },
   {
     "name": "continuous delivery pipeline",
@@ -19577,7 +19584,8 @@
   },
   {
     "name": "public cloud architecture",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["cloud architecture"]
   },
   {
     "name": "distributed data store operations",
@@ -19605,7 +19613,8 @@
   },
   {
     "name": "iot",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["internet of things", "industrial iot", "industrial internet of things", "iot-enabled manufacturing", "iot enabled manufacturing"]
   },
   {
     "name": "big data",
@@ -19641,7 +19650,8 @@
   },
   {
     "name": "full stack development",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["full-stack application development", "full stack application development", "full-stack developer", "full stack developer"]
   },
   {
     "name": "high availability",
@@ -19736,7 +19746,8 @@
   },
   {
     "name": "serverless",
-    "category": "automation"
+    "category": "automation",
+    "aliases": ["serverless technologies", "serverless technology"]
   },
   {
     "name": "subversion",
@@ -20386,6 +20397,46 @@
     "name": "oracle fusion cloud",
     "category": "tool",
     "aliases": ["oracle fusion cloud erp", "oracle fusion cloud epm"]
+  },
+  {
+    "name": "mqtt",
+    "category": "tool",
+    "aliases": ["message queuing telemetry transport"]
+  },
+  {
+    "name": "function as a service",
+    "category": "methods_and_standards",
+    "aliases": ["faas"]
+  },
+  {
+    "name": "cloud migration",
+    "category": "technical",
+    "aliases": ["cloud migrations", "migrating to the cloud"]
+  },
+  {
+    "name": "cloud shared responsibility model",
+    "category": "technical",
+    "aliases": ["shared responsibility model", "cloud responsibility model"]
+  },
+  {
+    "name": "container lifecycle management",
+    "category": "technical",
+    "aliases": ["container lifecycle", "container life cycle management", "container life cycle"]
+  },
+  {
+    "name": "source control",
+    "category": "technical",
+    "aliases": ["source code control", "version control", "code management strategies"]
+  },
+  {
+    "name": "data storage",
+    "category": "technical",
+    "aliases": ["storage technologies", "data storage technologies", "storage and analytics technologies"]
+  },
+  {
+    "name": "smart manufacturing",
+    "category": "domain",
+    "aliases": ["smart factory", "industry 4.0", "manufacturing technology environments", "factory digitization", "factory digitisation", "iot-enabled manufacturing operations", "iot enabled manufacturing operations"]
   },
   {
     "name": "asset management",

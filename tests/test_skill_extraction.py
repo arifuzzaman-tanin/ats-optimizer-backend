@@ -149,6 +149,37 @@ Nice to Have
 Storybook, SignalR, Playwright, NUnit, TDD/ATDD/BDD, CI/build automation, Python or Lua.
 """
 
+SMART_FACTORY_JOB = """
+About the role
+The senior full-stack developer builds cloud-native applications for connected
+manufacturing operations.
+
+Required skills
+Full-stack application development, cloud architecture, React.js, TypeScript,
+Node.js, API development, HTML and CSS. REST-based service-oriented architecture
+and microservices. Relational and NoSQL databases, data integrations, cloud
+services and cloud migrations. Containers and container lifecycle management,
+DevOps practices, CI/CD, serverless technologies, monitoring and management,
+security and networking concepts, and storage and analytics technologies.
+
+Our stack
+React and TypeScript; Node.js, Python, .NET/C#; AWS and Microsoft Azure; Databricks.
+
+Preferred experience
+Databricks, MQTT, Kafka, industrial IoT / Industry 4.0, event-driven architectures,
+Azure Active Directory / Microsoft Entra ID, OAuth 2.0, Infrastructure-as-a-Service,
+Platform-as-a-Service, Software-as-a-Service, Function-as-a-Service, JavaScript,
+C#, Python, C++, the Cloud Shared Responsibility Model, and manufacturing
+technology environments.
+
+Responsibilities
+Develop IoT-enabled manufacturing applications for production monitoring, quality
+inspection, and factory digitization. Design, document, and unit test cloud-based
+applications. Use GitHub and Confluence, troubleshoot production issues, monitor
+application performance, guide architecture and design decisions, provide technical
+direction, mentor junior developers, and manage source control.
+"""
+
 # Paraphrased recurring requirements sampled from public LinkedIn, Indeed,
 # Lever, Greenhouse and Ashby postings in October 2026.
 PUBLIC_JOB_SAMPLES = {
@@ -393,6 +424,28 @@ class ExtractionTests(unittest.TestCase):
             "space operations", "sql", "storybook", "systems integration",
             "technical mentoring", "test-driven development", "troubleshooting",
             "windows",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_smart_factory_job_extracts_cloud_iot_and_full_stack_skills(self):
+        skills = set(extract_skills(SMART_FACTORY_JOB, source="job_description"))
+        expected = {
+            ".net", "amazon web services", "apache kafka", "api development",
+            "c#", "c++", "ci/cd", "cloud migration",
+            "cloud shared responsibility model", "cloud native",
+            "cloud services development", "computer networking", "confluence",
+            "container lifecycle management", "containerization", "css", "cybersecurity",
+            "data analysis", "data storage", "databricks", "devops",
+            "event-driven architecture", "full stack development",
+            "function as a service", "github", "html", "iot", "javascript",
+            "leadership", "microservices", "microsoft azure",
+            "microsoft entra id", "monitoring", "mqtt", "node.js", "nosql",
+            "oauth", "platform as a service", "public cloud architecture",
+            "python", "react", "relational databases", "serverless",
+            "service-oriented architecture", "smart manufacturing",
+            "software architecture", "software as a service",
+            "software development", "source control", "technical mentoring",
+            "typescript", "unit test",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
