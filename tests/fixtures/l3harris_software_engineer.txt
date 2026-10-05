@@ -1,0 +1,33 @@
+About the job
+We are seeking a Software Engineer to contribute to the design and development
+of a next-generation communications management suite. The successful candidate
+will play a key role in designing robust software architectures, developing
+microservices-based applications, and delivering solutions that enable the
+monitoring, control, and management of complex communications networks. Working
+within a multidisciplinary engineering team, you will tackle challenging
+problems in distributed computing, networking, and real-time systems while
+supporting mission-critical operational requirements and simulation environments.
+
+Essential Functions
+Design software solutions and contribute to software designs. Understand and
+develop a microservices solution that operates in a complex, multi-network
+environment. Conduct independent research and provide new solutions to problems.
+Interact with systems engineering on technical issues. Debug software problems
+for near real-time simulation. Conduct and prepare presentations and demonstrations.
+
+Qualifications
+Minimum seven years of software engineering experience including object-oriented
+design and programming, C#, ASP.NET and .NET Core. Experience building web
+applications using C#, ASP.NET, .NET Core, REST APIs, HTTP, and SignalR.
+Experience with client-server and networking protocols such as SNMP, WebSockets,
+and the TCP stack. Experience with relational databases such as MySQL. Excellent
+technical communication of ideas and design.
+
+Preferred Additional Skills
+Experience with CQRS, distributed systems and Akka. Experience designing and
+developing highly available, fault tolerant and distributed systems. Experience
+with message broker systems such as RabbitMQ. Strong organizational, analytical,
+and problem-solving skills. Able to work independently and in a team-based
+environment. Experience with web frameworks such as Vue.js or Angular. Knowledge
+or experience developing or integrating applications. Experience with military
+systems and standards.
