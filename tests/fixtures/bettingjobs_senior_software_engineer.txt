@@ -1,0 +1,40 @@
+About the job
+BettingJobs is working with a fast-growing sports betting technology business
+to recruit a Senior Software Engineer for its Trading Technology team. You'll
+build the backend engines behind real-time trading, risk management and core
+platform services — systems where low latency, high throughput and reliability
+are critical — as well as the React front-ends that surface them.
+
+This is a role with genuine ownership: open-ended technical challenges, a real
+say in architectural decisions, and the scope to shape team practices rather
+than work through predefined tickets. It will suit an experienced .NET engineer
+who enjoys distributed systems at scale and is equally comfortable delivering
+polished, real-time user interfaces.
+
+Responsibilities:
+Design, develop and maintain efficient, reliable backend systems in Microsoft .NET
+Build responsive React and TypeScript front-ends surfacing live trading and risk data
+Integrate with message brokers (RabbitMQ), caching (Redis) and relational databases
+Deploy and operate services using modern CI/CD, containerisation and cloud-native practices
+Diagnose and resolve production issues using alerts, dashboards and log analysis
+Provide technical leadership and mentorship to intermediate and junior developers
+Contribute to code and design reviews, and write and maintain automated tests
+
+Requirements:
+Degree or diploma in Computer Science or a related field
+5+ years' professional software development experience in Microsoft .NET
+2+ years' front-end experience with a modern framework (React preferred; Angular
+or Vue also valued) and strong TypeScript proficiency
+Experience designing highly scalable, high-performance distributed systems
+Strong analytical and problem-solving skills, with the drive to work independently
+in a fast-paced environment
+
+Desirable:
+Message-oriented middleware (RabbitMQ, Kafka), Redis, Kubernetes
+Cloud platforms (Azure preferred, AWS also valued)
+REST APIs, gRPC, WebSockets or SSE; observability tooling such as OpenTelemetry
+Write-heavy real-time UIs — optimistic updates, concurrency and conflict resolution
+
+Requirements added by the job poster
+• 5+ years of work experience with .NET Core
+• 5+ years of work experience with React.js

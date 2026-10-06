@@ -21,6 +21,9 @@ L3HARRIS_JOB = Path(__file__).with_name("fixtures").joinpath(
 NETBRAIN_JOB = Path(__file__).with_name("fixtures").joinpath(
     "netbrain_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
+BETTINGJOBS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "bettingjobs_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -495,6 +498,25 @@ class ExtractionTests(unittest.TestCase):
             "software scalability", "software testing", "stakeholder management",
             "subject matter expertise", "technical mentoring", "technical research",
             "troubleshooting", "usability",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_bettingjobs_role_extracts_real_time_dotnet_and_react_skills(self):
+        skills = set(extract_skills(BETTINGJOBS_JOB, source="job_description"))
+        expected = {
+            ".net", ".net core", "amazon web services", "analytical skills",
+            "angular", "apache kafka", "automated testing", "caching", "ci/cd",
+            "cloud native", "code review", "concurrent programming", "conflict resolution",
+            "containerization", "distributed systems", "grpc",
+            "high-throughput systems", "independent work", "kubernetes",
+            "leadership", "log analysis", "low-latency systems", "message queues",
+            "microsoft azure", "monitoring", "observability", "opentelemetry",
+            "optimistic ui updates", "performance optimization", "problem solving",
+            "production support", "rabbitmq", "react", "real-time systems", "redis",
+            "relational databases", "rest api", "risk management",
+            "server-sent events", "software architecture", "software reliability",
+            "software scalability", "technical mentoring", "typescript", "vue",
+            "websocket",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 

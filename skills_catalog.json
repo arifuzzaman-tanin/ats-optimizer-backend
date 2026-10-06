@@ -1162,7 +1162,8 @@
   {
     "name": "production support",
     "category": "technical",
-    "aliases": ["support production systems", "production systems support", "supporting customers directly during production incidents"]
+    "aliases": ["support production systems", "production systems support", "supporting customers directly during production incidents"],
+    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b"]
   },
   {
     "name": "software deployment",
@@ -1173,7 +1174,7 @@
   {
     "name": "high-throughput systems",
     "category": "technical",
-    "aliases": ["high throughput systems", "high-throughput services", "high throughput services"]
+    "aliases": ["high throughput systems", "high-throughput services", "high throughput services", "high throughput"]
   },
   {
     "name": "on-call support",
@@ -1216,7 +1217,7 @@
     "name": "monitoring",
     "category": "technical",
     "aliases": ["system monitoring", "application monitoring", "production monitoring", "application performance monitoring"],
-    "patterns": ["\\bmonitor(?:ing|s|ed)? application performance\\b"]
+    "patterns": ["\\bmonitor(?:ing|s|ed)? application performance\\b", "\\b(?:alerts?|dashboards?)(?:,| and| or)[^.;]{0,50}(?:logs?|log analysis)\\b"]
   },
   {
     "name": "logging",
@@ -1391,7 +1392,8 @@
   {
     "name": "performance optimization",
     "category": "technical",
-    "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation"]
+    "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation"],
+    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b"]
   },
   {
     "name": "memory optimization",
@@ -1407,7 +1409,8 @@
       "mentor engineers", "mentor teams", "mentoring the team",
       "mentor junior developers", "mentoring junior developers", "mentor junior analysts",
       "mentoring junior analysts", "technical guidance"
-    ]
+    ],
+    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b"]
   },
   {
     "name": "software development best practices",
@@ -1604,7 +1607,7 @@
   {
     "name": "real-time systems",
     "category": "technical",
-    "aliases": ["real time systems", "real-time system", "real time system"],
+    "aliases": ["real time systems", "real-time system", "real time system", "real-time trading", "real time trading", "real-time user interfaces", "real time user interfaces", "real-time uis", "real time uis"],
     "patterns": ["\\bnear[ -]real[ -]time (?:systems?|simulations?)\\b"]
   },
   {
@@ -1632,7 +1635,7 @@
     "name": "software reliability",
     "category": "technical",
     "aliases": ["application reliability", "application stability", "software stability", "product stability", "performance and stability"],
-    "patterns": ["\\b(?:service|software|system|connector)[^.;]{0,180}\\breliable\\b", "\\bhas to be reliable\\b"]
+    "patterns": ["\\b(?:service|software|system|connector)[^.;]{0,180}\\breliable\\b", "\\b(?:systems?|services?)[^.;]{0,100}\\breliability\\b", "\\bhas to be reliable\\b"]
   },
   {
     "name": "financial technology",
@@ -2226,7 +2229,7 @@
   {
     "name": "concurrent programming",
     "category": "technical",
-    "aliases": ["safe concurrency", "concurrency best practices", "concurrent processing"]
+    "aliases": ["concurrency", "concurrency control", "safe concurrency", "concurrency best practices", "concurrent processing"]
   },
   {
     "name": "background job processing",
@@ -2272,7 +2275,8 @@
   {
     "name": "code review",
     "category": "technical",
-    "aliases": ["code reviews", "peer code review", "reviewing code"]
+    "aliases": ["code reviews", "peer code review", "reviewing code"],
+    "patterns": ["\\bcode and design reviews\\b"]
   },
   {
     "name": "object-oriented programming",
@@ -12564,7 +12568,7 @@
   {
     "name": "containerization",
     "category": "methods_and_standards",
-    "aliases": ["containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments"]
+    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments"]
   },
   {
     "name": "continuous delivery pipeline",
@@ -20453,7 +20457,7 @@
     "name": "software scalability",
     "category": "technical",
     "aliases": ["scalable software", "scalable applications", "scalable application"],
-    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b"]
+    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b"]
   },
   {
     "name": "software maintainability",
@@ -20561,6 +20565,30 @@
     "name": "asset management",
     "category": "domain",
     "aliases": ["asset management industry", "investment management"]
+  },
+  {
+    "name": "low-latency systems",
+    "category": "technical",
+    "aliases": ["low latency systems", "low-latency services", "low latency services", "low latency"]
+  },
+  {
+    "name": "opentelemetry",
+    "category": "tool",
+    "aliases": ["open telemetry", "otel"]
+  },
+  {
+    "name": "server-sent events",
+    "category": "technical",
+    "aliases": ["server sent events"],
+    "name_is_alias": false,
+    "contextual_aliases": [
+      {"aliases": ["sse"], "context": "\\b(?:websockets?|rest apis?|grpc|real[ -]time|streaming|http)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "optimistic ui updates",
+    "category": "technical",
+    "aliases": ["optimistic updates", "optimistic ui", "optimistic user interface updates"]
   }
 
 ]
