@@ -18,6 +18,9 @@ ALPHASENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
 L3HARRIS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "l3harris_software_engineer.txt"
 ).read_text(encoding="utf-8")
+NETBRAIN_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "netbrain_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -470,6 +473,28 @@ class ExtractionTests(unittest.TestCase):
             "software architecture", "software as a service",
             "software development", "source control", "technical mentoring",
             "typescript", "unit test",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_netbrain_role_extracts_support_saas_dotnet_and_cs_skills(self):
+        skills = set(extract_skills(NETBRAIN_JOB, source="job_description"))
+        expected = {
+            ".net", "ai-assisted software development", "algorithm design",
+            "amazon cloudwatch", "amazon rds", "amazon sns", "amazon sqs",
+            "amazon web services", "asp.net core", "aws lambda", "c#",
+            "communication", "computer science fundamentals", "customer experience",
+            "customer support", "data structures", "database schema design",
+            "domain-driven design", "enterprise application development",
+            "entity framework core", "file systems", "full stack development",
+            "github copilot", "independent work", "memory optimization",
+            "multi-tenant architecture", "multithreading", "object-oriented programming",
+            "on-call support", "performance optimization", "postgresql",
+            "product roadmap planning", "query performance optimization",
+            "requirements analysis", "root cause analysis", "software architecture",
+            "software as a service", "software design patterns", "software reliability",
+            "software scalability", "software testing", "stakeholder management",
+            "subject matter expertise", "technical mentoring", "technical research",
+            "troubleshooting", "usability",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 

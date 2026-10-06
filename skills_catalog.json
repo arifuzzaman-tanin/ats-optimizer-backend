@@ -246,6 +246,10 @@
     "name": "cross-functional collaboration",
     "category": "interpersonal",
     "aliases": [
+      "cross-functional",
+      "cross functional",
+      "collaborate cross-functionally",
+      "collaborating cross-functionally",
       "cross functional teamwork",
       "cross functional coordination",
       "cross departmental collaboration",
@@ -485,7 +489,8 @@
     "name": "stakeholder management",
     "category": "business",
     "aliases": [
-      "stakeholder engagement"
+      "stakeholder engagement",
+      "stakeholder alignment"
     ]
   },
   {
@@ -859,9 +864,11 @@
       "qa methodologies",
       "testing philosophy",
       "desktop testing",
-      "desktop application testing"
+      "desktop application testing",
+      "fix validation",
+      "validation of fixes"
     ],
-    "patterns": ["\\bimplementation, testing, and packaging\\b", "\\bverification and validation\\b"]
+    "patterns": ["\\bimplementation, testing, and packaging\\b", "\\bimplementation, testing, and performance optimization\\b", "\\bverification and validation\\b"]
   },
   {
     "name": "unit testing",
@@ -1034,7 +1041,7 @@
   {
     "name": "software architecture",
     "category": "technical",
-    "aliases": ["software architectures", "application architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions"]
+    "aliases": ["software architectures", "application architecture", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions"]
   },
   {
     "name": "software design",
@@ -1045,7 +1052,7 @@
   {
     "name": "software design patterns",
     "category": "technical",
-    "aliases": ["design patterns", "software patterns"]
+    "aliases": ["design patterns", "software patterns", "architectural patterns", "modern architectural patterns"]
   },
   {
     "name": "software development lifecycle",
@@ -1055,8 +1062,8 @@
   {
     "name": "requirements analysis",
     "category": "business",
-    "aliases": ["requirements gathering", "requirements engineering"],
-    "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b"]
+    "aliases": ["requirements gathering", "requirements engineering", "feature request definition"],
+    "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b", "\\btranslat(?:e|es|ing) customer issues[^.;]{0,100}\\bfeature requests?\\b"]
   },
   {
     "name": "prototyping",
@@ -1067,7 +1074,7 @@
     "name": "technical research",
     "category": "technical",
     "aliases": ["technology research"],
-    "patterns": ["\\bresearch (?:and prototype )?(?:innovative )?(?:ideas|technologies|patterns|solutions)\\b", "\\bconduct(?:ing)? independent research\\b"]
+    "patterns": ["\\bresearch (?:and prototype )?(?:innovative )?(?:ideas|technologies|patterns|solutions)\\b", "\\bresearch, evaluate, and apply new and emerging technologies\\b", "\\bconduct(?:ing)? independent research\\b"]
   },
   {
     "name": "presentation skills",
@@ -1198,7 +1205,7 @@
   {
     "name": "database schema design",
     "category": "technical",
-    "aliases": ["schema design", "database design"]
+    "aliases": ["schema design", "database design", "data design"]
   },
   {
     "name": "query performance optimization",
@@ -1389,8 +1396,8 @@
   {
     "name": "memory optimization",
     "category": "technical",
-    "aliases": ["memory optimisation", "memory performance optimization", "memory management"],
-    "patterns": ["\\bmemory\\s*/\\s*performance optimi[sz]ation\\b", "\\bmanaging memory\\b"]
+    "aliases": ["memory optimisation", "memory performance optimization", "memory management", "memory concepts"],
+    "patterns": ["\\bmemory\\s*/\\s*performance optimi[sz]ation\\b", "\\bmanaging memory\\b", "\\bmemory, storage, (?:and )?file systems\\b"]
   },
   {
     "name": "technical mentoring",
@@ -1624,7 +1631,7 @@
   {
     "name": "software reliability",
     "category": "technical",
-    "aliases": ["application reliability", "application stability", "software stability", "performance and stability"],
+    "aliases": ["application reliability", "application stability", "software stability", "product stability", "performance and stability"],
     "patterns": ["\\b(?:service|software|system|connector)[^.;]{0,180}\\breliable\\b", "\\bhas to be reliable\\b"]
   },
   {
@@ -1646,6 +1653,48 @@
     "name": "backend software development",
     "category": "technical",
     "aliases": ["backend software engineering", "backend development", "backend engineering"]
+  },
+  {
+    "name": "computer science fundamentals",
+    "category": "technical",
+    "aliases": ["computer science foundation", "computer science foundations"]
+  },
+  {
+    "name": "data structures",
+    "category": "technical",
+    "aliases": ["data structure"]
+  },
+  {
+    "name": "file systems",
+    "category": "technical",
+    "aliases": ["file system concepts"],
+    "patterns": ["\\bmemory, storage, (?:and )?file systems\\b"]
+  },
+  {
+    "name": "enterprise application development",
+    "category": "technical",
+    "aliases": ["enterprise-scale application development", "enterprise scale application development"],
+    "patterns": ["\\bdeveloping and supporting enterprise[ -]scale applications\\b"]
+  },
+  {
+    "name": "product roadmap planning",
+    "category": "business",
+    "aliases": ["roadmap planning", "roadmap prioritization", "roadmap prioritisation", "roadmap priorities"]
+  },
+  {
+    "name": "customer experience",
+    "category": "business",
+    "aliases": ["customer experience improvement", "customer experience optimization"]
+  },
+  {
+    "name": "usability",
+    "category": "technical",
+    "aliases": ["software usability", "application usability", "usability standards"]
+  },
+  {
+    "name": "subject matter expertise",
+    "category": "interpersonal",
+    "aliases": ["subject matter expert", "domain expertise"]
   },
   {
     "name": "medical device software",
@@ -1696,7 +1745,7 @@
   {
     "name": "multi-tenant architecture",
     "category": "technical",
-    "aliases": ["multitenant architecture", "multi-tenancy", "multitenancy", "tenant isolation"]
+    "aliases": ["multitenant architecture", "multi-tenant saas", "multitenant saas", "multi-tenant saas platform", "multi-tenant saas platforms", "multi-tenancy", "multitenancy", "tenant isolation"]
   },
   {
     "name": "zero-downtime migration",
@@ -8299,7 +8348,8 @@
   },
   {
     "name": "entity framework core",
-    "category": "development_tools"
+    "category": "development_tools",
+    "aliases": ["ef core"]
   },
   {
     "name": "er/studio",
@@ -12374,7 +12424,8 @@
   },
   {
     "name": "algorithm design",
-    "category": "methods_and_standards"
+    "category": "methods_and_standards",
+    "aliases": ["algorithms", "algorithm development"]
   },
   {
     "name": "archimate",
@@ -19711,7 +19762,7 @@
   {
     "name": "full stack development",
     "category": "working_areas",
-    "aliases": ["full-stack application development", "full stack application development", "full-stack developer", "full stack developer"]
+    "aliases": ["full stack", "full-stack", "full-stack development", "full-stack application development", "full stack application development", "full-stack developer", "full stack developer"]
   },
   {
     "name": "high availability",
@@ -20498,7 +20549,8 @@
   {
     "name": "data storage",
     "category": "technical",
-    "aliases": ["storage technologies", "data storage technologies", "storage and analytics technologies"]
+    "aliases": ["storage technologies", "data storage technologies", "storage and analytics technologies"],
+    "patterns": ["\\bmemory, storage, (?:and )?file systems\\b"]
   },
   {
     "name": "smart manufacturing",
