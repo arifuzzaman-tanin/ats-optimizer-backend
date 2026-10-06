@@ -1,0 +1,37 @@
+About the job
+Who We Are
+
+At Bluehost, we believe all small businesses deserve the opportunity to succeed online.
+
+What You'll Do & How You'll Make Your Mark
+
+Design and scale async REST/WebSocket APIs in Python (FastAPI or similar), using
+dependency injection, type hints, and clean, vertical-slice architecture.
+Implement multi-agent workflows (sequential, concurrent, and handoff patterns) to
+route work among specialized LLM agents.
+Integrate multiple LLM providers behind a provider-agnostic layer, enabling A/B
+testing and cost-aware routing rather than hard-coding a single vendor.
+Build and maintain Retrieval-Augmented Generation (RAG) pipelines against vector
+stores such as pgvector, Chroma, or a managed vector search service.
+Design schemas and evolve data models (SQLAlchemy/SQLModel-style ORM plus migrations)
+that support both traditional application logic and AI-driven features.
+Instrument services with structured logs, distributed tracing, and cost/latency
+metrics, holding a real bar for p95 response time under production load.
+Maintain end-to-end CI/CD ownership: lint, type-check, test, package, and deploy.
+Set AI guardrails for generated-code review, provenance and licensing checks, and
+what customer data may enter a prompt.
+
+Who You Are & What You'll Need To Succeed
+
+5+ years building production backend systems in Python, with real async I/O
+experience. Hands-on experience designing and scaling REST or async APIs.
+Practical experience integrating LLM APIs (OpenAI, Gemini, or similar), vector
+databases, RAG retrieval architectures, relational database schema design, query
+optimization, and migration discipline. End-to-end CI/CD ownership.
+
+Bonus: experience with multi-agent orchestration frameworks (Semantic Kernel,
+LangChain, or similar) and LLM cost/observability tooling.
+
+Why You'll Love Us
+
+Work-life balance, benefits, and career growth.

@@ -853,7 +853,8 @@
       "rest apis",
       "restful api",
       "restful apis"
-    ]
+    ],
+    "patterns": ["\\brest/websocket apis\\b"]
   },
   {
     "name": "software testing",
@@ -1114,7 +1115,7 @@
   {
     "name": "ai-assisted software development",
     "category": "technical",
-    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools"]
+    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools", "ai-augmented delivery"]
   },
   {
     "name": "artificial intelligence",
@@ -1918,7 +1919,8 @@
   {
     "name": "software packaging",
     "category": "technical",
-    "aliases": ["application packaging", "container packaging", "packaging and installation"]
+    "aliases": ["application packaging", "container packaging", "packaging and installation"],
+    "patterns": ["\\b(?:lint|type[ -]?check|test),?[^.;]{0,40}\\bpackage,? (?:and )?deploy\\b"]
   },
   {
     "name": "software installation",
@@ -2289,6 +2291,42 @@
     "aliases": ["dependency inversion"]
   },
   {
+    "name": "type hints",
+    "category": "technical",
+    "aliases": ["type hinting", "python type hints", "type annotations", "python type annotations"]
+  },
+  {
+    "name": "type checking",
+    "category": "technical",
+    "aliases": ["type-checking", "type check", "type-check", "static type checking"]
+  },
+  {
+    "name": "linting",
+    "category": "technical",
+    "aliases": ["code linting", "lint checks"],
+    "patterns": ["\\blint(?=,? (?:and )?type[ -]?check)\\b"]
+  },
+  {
+    "name": "vertical slice architecture",
+    "category": "technical",
+    "aliases": ["vertical-slice architecture", "vertical slice design", "vertical-slice design"]
+  },
+  {
+    "name": "multi-agent orchestration",
+    "category": "technical",
+    "aliases": ["multi agent orchestration", "multi-agent workflows", "multi agent workflows", "multi-agent systems", "multi agent systems"]
+  },
+  {
+    "name": "llm provider integration",
+    "category": "technical",
+    "aliases": ["llm provider integrations", "multiple llm providers", "multi-provider llm integration", "provider-agnostic llm integration"]
+  },
+  {
+    "name": "cost-aware routing",
+    "category": "technical",
+    "aliases": ["cost aware routing", "llm cost routing", "cost-based model routing"]
+  },
+  {
     "name": "semantic search",
     "category": "technical",
     "aliases": ["semantic retrieval"]
@@ -2297,6 +2335,45 @@
     "name": "vector databases",
     "category": "technical",
     "aliases": ["vector database", "vector store", "vector stores", "vector search"]
+  },
+  {
+    "name": "pgvector",
+    "category": "tool",
+    "aliases": ["pg vector", "postgresql pgvector"]
+  },
+  {
+    "name": "chroma",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["chroma db", "chromadb"],
+    "contextual_aliases": [
+      {"aliases": ["chroma"], "context": "\\b(?:vector|embedding|rag|retrieval|database|store|search)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "sqlalchemy",
+    "category": "tool",
+    "aliases": ["sql alchemy"]
+  },
+  {
+    "name": "sqlmodel",
+    "category": "tool",
+    "aliases": ["sql model"]
+  },
+  {
+    "name": "database migrations",
+    "category": "technical",
+    "aliases": ["database migration", "schema migrations", "schema migration", "migration discipline"]
+  },
+  {
+    "name": "structured logging",
+    "category": "technical",
+    "aliases": ["structured logs", "structured log"]
+  },
+  {
+    "name": "latency monitoring",
+    "category": "technical",
+    "aliases": ["latency metrics", "response time metrics", "p95 response time", "p95 latency"]
   },
   {
     "name": "rabbitmq",
@@ -2600,6 +2677,21 @@
     "aliases": ["lang chain"]
   },
   {
+    "name": "semantic kernel",
+    "category": "tool",
+    "aliases": ["microsoft semantic kernel"]
+  },
+  {
+    "name": "openai",
+    "category": "tool",
+    "aliases": ["openai api", "openai apis"]
+  },
+  {
+    "name": "llm observability",
+    "category": "technical",
+    "aliases": ["llm monitoring", "llm cost observability", "llm cost/observability tooling"]
+  },
+  {
     "name": "mlops",
     "category": "technical",
     "aliases": ["machine learning operations", "ml operations"]
@@ -2622,7 +2714,7 @@
   {
     "name": "responsible ai",
     "category": "technical",
-    "aliases": ["responsible artificial intelligence", "ai governance", "ai safety"]
+    "aliases": ["responsible artificial intelligence", "ai governance", "ai safety", "ai guardrails"]
   },
   {
     "name": "feature engineering",
@@ -2663,6 +2755,29 @@
     "name": "prompt engineering",
     "category": "technical",
     "aliases": ["prompt design", "prompt management"]
+  },
+  {
+    "name": "prompt data governance",
+    "category": "technical",
+    "aliases": ["prompt data controls", "prompt data boundaries", "data in prompts"],
+    "patterns": ["\\bwhat customer data may enter (?:a|the) prompt\\b"]
+  },
+  {
+    "name": "customer data privacy",
+    "category": "technical",
+    "aliases": ["customer data protection", "customer information privacy"],
+    "patterns": ["\\bwhat customer data may enter (?:a|the) prompt\\b"]
+  },
+  {
+    "name": "code provenance",
+    "category": "technical",
+    "aliases": ["software provenance", "source code provenance", "generated code provenance"],
+    "patterns": ["\\bprovenance and licen[cs]ing checks\\b"]
+  },
+  {
+    "name": "licensing compliance",
+    "category": "technical",
+    "aliases": ["license compliance", "licence compliance", "licensing checks", "license checks"]
   },
   {"name": "selenium", "category": "tool", "aliases": ["selenium webdriver"]},
   {"name": "appium", "category": "tool", "aliases": []},

@@ -24,6 +24,9 @@ NETBRAIN_JOB = Path(__file__).with_name("fixtures").joinpath(
 BETTINGJOBS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "bettingjobs_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
+BLUEHOST_AI_BACKEND_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "bluehost_ai_backend_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -520,6 +523,25 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
+    def test_bluehost_role_extracts_ai_native_backend_and_governance_skills(self):
+        skills = set(extract_skills(BLUEHOST_AI_BACKEND_JOB, source="job_description"))
+        expected = {
+            "a/b testing", "application metrics", "asynchronous programming", "chroma",
+            "ci/cd", "code provenance", "code review",
+            "cost-aware routing", "customer data privacy", "data modeling", "database migrations",
+            "database schema design", "dependency injection", "distributed tracing",
+            "fastapi", "gemini", "langchain", "large language models", "latency monitoring",
+            "licensing compliance", "linting", "llm observability", "llm provider integration",
+            "multi-agent orchestration", "openai",
+            "orm", "pgvector", "prompt data governance", "python",
+            "query performance optimization", "relational databases",
+            "responsible ai", "sqlalchemy", "sqlmodel",
+            "retrieval-augmented generation", "rest api", "semantic kernel",
+            "software packaging", "structured logging", "type checking", "type hints",
+            "vector databases", "vertical slice architecture", "websocket",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
     def test_public_job_market_samples_extract_recurring_skills(self):
         for role, (description, expected) in PUBLIC_JOB_SAMPLES.items():
             with self.subTest(role=role):
@@ -647,10 +669,11 @@ Zendesk experience.
         self.assertNotIn("sql", skills)
 
     def test_tool_names_are_not_substrings_of_other_words(self):
-        self.assertEqual(
-            extract_skills("GitHub, JavaScripted, SQLAlchemy, Pythonic"),
-            ["github"],
-        )
+        skills = extract_skills("GitHub, JavaScripted, SQLAlchemy, Pythonic")
+        self.assertEqual(skills, ["github", "sqlalchemy"])
+        self.assertNotIn("javascript", skills)
+        self.assertNotIn("python", skills)
+        self.assertNotIn("sql", skills)
 
     def test_imported_skill_abbreviations_resolve_to_canonical_names(self):
         self.assertEqual(
