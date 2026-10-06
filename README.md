@@ -142,6 +142,18 @@ cached. Add tests with both positive evidence and plausible false positives.
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
+Run the repeatable extraction benchmark with:
+
+```powershell
+.\.venv\Scripts\python.exe benchmarks\benchmark_extraction.py
+```
+
+Literal aliases are indexed into a single-pass matcher at process startup;
+only the catalogue's custom regular expressions use full-text regex scans.
+Successful extraction responses include `Server-Timing` values for the job
+description and resume phases. Request bodies are limited to 512 KiB by
+default; set `MAX_REQUEST_BYTES` to change that deployment limit.
+
 Tests cover the supplied job description, selected resume experience without
 personal data, synonyms, company noise, multiword skills, context boundaries,
 negation, PDF text normalization, technical symbols, scoring, access-key

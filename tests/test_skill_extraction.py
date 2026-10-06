@@ -714,6 +714,8 @@ class ApiTests(unittest.TestCase):
     def test_existing_response_fields_and_explainable_matches(self):
         response = self.post(JOB, RESUME)
         self.assertEqual(response.status_code, 200)
+        self.assertIn("skill-job;dur=", response.headers["Server-Timing"])
+        self.assertIn("skill-resume;dur=", response.headers["Server-Timing"])
         data = response.get_json()
         self.assertEqual(data["total_required_skills_in_job_description"], 17)
         self.assertEqual(data["total_matching_skills_in_resume"], 6)
@@ -757,6 +759,11 @@ class ApiTests(unittest.TestCase):
     def test_empty_inputs_return_400(self):
         self.assertEqual(self.post("  ", RESUME).status_code, 400)
         self.assertEqual(self.post(JOB, "  ").status_code, 400)
+
+    def test_oversized_request_returns_json_413(self):
+        response = self.post("Python " * 100_000, RESUME)
+        self.assertEqual(response.status_code, 413)
+        self.assertEqual(response.get_json(), {"error": "Request body is too large"})
 
     def test_missing_access_key_returns_400(self):
         response = self.client.post('/extract_skills', json={

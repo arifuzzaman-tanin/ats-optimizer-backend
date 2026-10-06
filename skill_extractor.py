@@ -5,6 +5,7 @@ to skills. Add domain skills and their aliases in skills_catalog.json.
 """
 
 from bisect import bisect_left, bisect_right
+from collections import deque
 from dataclasses import dataclass
 from functools import lru_cache
 import json
@@ -35,32 +36,103 @@ class SkillEvidence:
     phrases: tuple[str, ...]
 
 
+@dataclass(frozen=True)
+class LiteralRule:
+    name: str
+    category: str
+    phrase: str
+    context: re.Pattern | None = None
+    allow_standalone: bool = False
+
+
+@dataclass(frozen=True)
+class RegexRule:
+    name: str
+    category: str
+    pattern: re.Pattern
+
+
+@dataclass(frozen=True)
+class CatalogMatcher:
+    transitions: tuple[dict[str, int], ...]
+    failures: tuple[int, ...]
+    outputs: tuple[tuple[LiteralRule, ...], ...]
+    regex_rules: tuple[RegexRule, ...]
+
+
+@lru_cache(maxsize=1)
+def catalog_entries():
+    with CATALOG_PATH.open(encoding="utf-8") as handle:
+        return tuple(json.load(handle))
+
+
+def _literal_key(phrase):
+    """Use the same flexible whitespace/hyphen behavior as phrase_pattern."""
+    return re.sub(r"[\s-]+", " ", normalize_text(phrase))
+
+
 @lru_cache(maxsize=1)
 def load_catalog():
-    with CATALOG_PATH.open(encoding="utf-8") as handle:
-        entries = json.load(handle)
-    compiled = []
+    """Build a single-pass matcher for literals and compile custom regex rules."""
+    transitions = [{}]
+    outputs = [[]]
+    regex_rules = []
     names = set()
-    for entry in entries:
+    for entry in catalog_entries():
         name = normalize_text(entry["name"])
         if name in names:
             raise ValueError(f"Duplicate skill in catalogue: {name}")
         names.add(name)
-        rules = []
+        category = entry["category"]
         aliases = ([name] if entry.get("name_is_alias", True) else []) + entry.get("aliases", [])
         for alias in aliases:
-            rules.append((re.compile(phrase_pattern(alias)), None))
+            phrase = _literal_key(alias)
+            state = 0
+            for character in phrase:
+                next_state = transitions[state].get(character)
+                if next_state is None:
+                    next_state = len(transitions)
+                    transitions[state][character] = next_state
+                    transitions.append({})
+                    outputs.append([])
+                state = next_state
+            outputs[state].append(LiteralRule(name, category, phrase))
         for pattern in entry.get("patterns", []):
-            rules.append((re.compile(pattern), None))
+            regex_rules.append(RegexRule(name, category, re.compile(pattern)))
         for rule in entry.get("contextual_aliases", []):
+            context = re.compile(rule["context"])
             for alias in rule["aliases"]:
-                context_pattern = rule["context"]
-                if rule.get("allow_standalone", False):
-                    context_pattern = f"(?:{context_pattern})|^(?:{phrase_pattern(alias)})$"
-                context = re.compile(context_pattern)
-                rules.append((re.compile(phrase_pattern(alias)), context))
-        compiled.append((name, entry["category"], tuple(rules)))
-    return tuple(compiled)
+                phrase = _literal_key(alias)
+                state = 0
+                for character in phrase:
+                    next_state = transitions[state].get(character)
+                    if next_state is None:
+                        next_state = len(transitions)
+                        transitions[state][character] = next_state
+                        transitions.append({})
+                        outputs.append([])
+                    state = next_state
+                outputs[state].append(LiteralRule(
+                    name, category, phrase, context, rule.get("allow_standalone", False)
+                ))
+
+    failures = [0] * len(transitions)
+    pending = deque(transitions[0].values())
+    while pending:
+        state = pending.popleft()
+        for character, next_state in transitions[state].items():
+            pending.append(next_state)
+            failure = failures[state]
+            while failure and character not in transitions[failure]:
+                failure = failures[failure]
+            failures[next_state] = transitions[failure].get(character, 0)
+            outputs[next_state].extend(outputs[failures[next_state]])
+
+    return CatalogMatcher(
+        tuple(transitions), tuple(failures),
+        tuple(tuple(state_outputs) for state_outputs in outputs),
+        tuple(regex_rules),
+    )
 
 
 # Company descriptions can mention real technologies that the role never asks
@@ -134,6 +206,49 @@ def is_negated(text, start, end, left, right):
     return False
 
 
+def _search_text_with_offsets(text):
+    """Collapse separator runs while retaining offsets into normalized text."""
+    search_text = []
+    starts = []
+    ends = []
+    index = 0
+    while index < len(text):
+        start = index
+        if text[index].isspace() or text[index] == "-":
+            index += 1
+            while index < len(text) and (text[index].isspace() or text[index] == "-"):
+                index += 1
+            search_text.append(" ")
+        else:
+            search_text.append(text[index])
+            index += 1
+        starts.append(start)
+        ends.append(index)
+    return "".join(search_text), starts, ends
+
+
+def _is_boundary_character(character):
+    return character.isalnum() or character == "_" or character in "+#"
+
+
+def _literal_matches(text, matcher):
+    search_text, starts, ends = _search_text_with_offsets(text)
+    state = 0
+    for index, character in enumerate(search_text):
+        while state and character not in matcher.transitions[state]:
+            state = matcher.failures[state]
+        state = matcher.transitions[state].get(character, 0)
+        for rule in matcher.outputs[state]:
+            search_start = index - len(rule.phrase) + 1
+            start = starts[search_start]
+            end = ends[index]
+            if start and _is_boundary_character(text[start - 1]):
+                continue
+            if end < len(text) and _is_boundary_character(text[end]):
+                continue
+            yield rule, start, end
+
+
 def extract_skill_evidence(text, *, source="resume"):
     if not isinstance(text, str):
         raise TypeError("Skill extraction expects text")
@@ -146,22 +261,36 @@ def extract_skill_evidence(text, *, source="resume"):
     # A period inside .NET or Node.js is not a sentence boundary.
     breaks = list(re.finditer(r"[.!?;](?=\s|$)|[•●]|\bbut\b", text))
     boundaries = ([match.start() for match in breaks], [match.end() for match in breaks])
+    matcher = load_catalog()
     found = {}
-    for name, category, rules in load_catalog():
-        evidence = set()
-        for pattern, context in rules:
-            for match in pattern.finditer(text):
-                left, right = clause_bounds(text, match.start(), match.end(), boundaries)
-                if is_negated(text, match.start(), match.end(), left, right):
-                    continue
-                clause = text[left:right].strip()
-                if context is not None and not context.search(clause):
-                    continue
-                # Contextual matches expose their supporting clause as evidence.
-                evidence.add(clause if context is not None else match.group().strip())
-        if evidence:
-            found[name] = SkillEvidence(category, tuple(sorted(evidence)))
-    return dict(sorted(found.items()))
+
+    for rule, start, end in _literal_matches(text, matcher):
+        left, right = clause_bounds(text, start, end, boundaries)
+        if is_negated(text, start, end, left, right):
+            continue
+        clause = text[left:right].strip()
+        if rule.context is not None:
+            standalone = rule.allow_standalone and clause == text[start:end].strip()
+            if not standalone and not rule.context.search(clause):
+                continue
+        evidence = clause if rule.context is not None else text[start:end].strip()
+        category, phrases = found.setdefault(rule.name, (rule.category, set()))
+        phrases.add(evidence)
+
+    # Free-form catalogue regexes remain on a small fallback path. Literal
+    # aliases no longer require thousands of full-document scans.
+    for rule in matcher.regex_rules:
+        for match in rule.pattern.finditer(text):
+            left, right = clause_bounds(text, match.start(), match.end(), boundaries)
+            if is_negated(text, match.start(), match.end(), left, right):
+                continue
+            category, phrases = found.setdefault(rule.name, (rule.category, set()))
+            phrases.add(match.group().strip())
+
+    return {
+        name: SkillEvidence(category, tuple(sorted(phrases)))
+        for name, (category, phrases) in sorted(found.items())
+    }
 
 
 def extract_skills(text, *, source="resume"):
@@ -170,10 +299,8 @@ def extract_skills(text, *, source="resume"):
 
 @lru_cache(maxsize=1)
 def alias_lookup():
-    with CATALOG_PATH.open(encoding="utf-8") as handle:
-        entries = json.load(handle)
     lookup = {}
-    for entry in entries:
+    for entry in catalog_entries():
         name = normalize_text(entry["name"])
         contextual = [alias for rule in entry.get("contextual_aliases", []) for alias in rule["aliases"]]
         for alias in [name, *entry.get("aliases", []), *contextual]:
