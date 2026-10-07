@@ -27,6 +27,9 @@ BETTINGJOBS_JOB = Path(__file__).with_name("fixtures").joinpath(
 BLUEHOST_AI_BACKEND_JOB = Path(__file__).with_name("fixtures").joinpath(
     "bluehost_ai_backend_engineer.txt"
 ).read_text(encoding="utf-8")
+REAL_TIME_PAYMENTS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "real_time_payments_developer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -539,6 +542,17 @@ class ExtractionTests(unittest.TestCase):
             "retrieval-augmented generation", "rest api", "semantic kernel",
             "software packaging", "structured logging", "type checking", "type hints",
             "vector databases", "vertical slice architecture", "websocket",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_real_time_payments_role_extracts_azure_and_payments_skills(self):
+        skills = set(extract_skills(REAL_TIME_PAYMENTS_JOB, source="job_description"))
+        expected = {
+            ".net core", "api", "api development", "banking", "communication",
+            "microsoft azure", "microsoft azure application insights",
+            "microsoft azure cosmos db", "microsoft azure event hub",
+            "microsoft azure functions", "microsoft azure key vault",
+            "microsoft azure service bus", "payment systems", "redis", "sql",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 

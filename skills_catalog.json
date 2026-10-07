@@ -5090,7 +5090,8 @@
   },
   {
     "name": "microsoft azure application insights",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure application insights", "application insights"]
   },
   {
     "name": "microsoft azure data factory",
@@ -5110,7 +5111,8 @@
   },
   {
     "name": "microsoft azure functions",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure functions"]
   },
   {
     "name": "microsoft azure hdinsight",
@@ -5142,7 +5144,11 @@
   },
   {
     "name": "microsoft azure service bus",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure service bus"],
+    "contextual_aliases": [
+      {"aliases": ["service bus"], "context": "\\b(?:azure|event ?hubs?|cloud)\\b"}
+    ]
   },
   {
     "name": "microsoft azure site recovery",
@@ -7405,7 +7411,8 @@
   },
   {
     "name": "microsoft azure cosmos db",
-    "category": "databases"
+    "category": "databases",
+    "aliases": ["azure cosmos db", "cosmos db", "cosmosdb"]
   },
   {
     "name": "microsoft azure sql database",
@@ -11591,7 +11598,11 @@
   },
   {
     "name": "microsoft azure event hub",
-    "category": "middleware_os_system_software"
+    "category": "middleware_os_system_software",
+    "aliases": ["azure event hub", "azure event hubs", "eventhub", "eventhubs"],
+    "contextual_aliases": [
+      {"aliases": ["event hub", "event hubs"], "context": "\\b(?:azure|service bus|cloud)\\b"}
+    ]
   },
   {
     "name": "microsoft biztalk esb toolkit",
@@ -20704,6 +20715,21 @@
     "name": "optimistic ui updates",
     "category": "technical",
     "aliases": ["optimistic updates", "optimistic ui", "optimistic user interface updates"]
+  },
+  {
+    "name": "microsoft azure key vault",
+    "category": "technologies",
+    "aliases": ["azure key vault", "key vault"]
+  },
+  {
+    "name": "banking",
+    "category": "domain",
+    "aliases": ["banking experience", "banking project experience", "banking projects"]
+  },
+  {
+    "name": "payment systems",
+    "category": "domain",
+    "aliases": ["payments", "payment processing", "payments domain", "real-time payments", "real time payments"]
   }
 
 ]
