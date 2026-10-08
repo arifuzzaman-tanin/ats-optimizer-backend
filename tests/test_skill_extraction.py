@@ -30,6 +30,12 @@ BLUEHOST_AI_BACKEND_JOB = Path(__file__).with_name("fixtures").joinpath(
 REAL_TIME_PAYMENTS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "real_time_payments_developer.txt"
 ).read_text(encoding="utf-8")
+PROMACH_CLOUD_ARCHITECT_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "promach_cloud_architect_engineer.txt"
+).read_text(encoding="utf-8")
+AQUATIC_INFORMATICS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "aquatic_informatics_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -305,6 +311,8 @@ class ExtractionTests(unittest.TestCase):
             "web application development", "websocket",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertNotIn("coaching", skills)
+        self.assertNotIn("sales", skills)
         self.assertNotIn("high availability", extract_skills(
             "The hotel says that a room is highly available this week."
         ))
@@ -555,6 +563,58 @@ class ExtractionTests(unittest.TestCase):
             "microsoft azure service bus", "payment systems", "redis", "sql",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_promach_role_extracts_cloud_architecture_and_manufacturing_skills(self):
+        skills = set(extract_skills(PROMACH_CLOUD_ARCHITECT_JOB, source="job_description"))
+        expected = {
+            ".net", "backend software development", "ci/cd", "cloud infrastructure",
+            "cloud native", "cloud operations", "cloud security",
+            "cloud-agnostic architecture", "data flow design", "data ingestion",
+            "data pipeline development", "database scalability", "database schema design",
+            "decision-making under ambiguity", "distributed systems",
+            "failure mode analysis", "high-volume data processing",
+            "hybrid cloud integration", "industrial systems", "infrastructure as code",
+            "iot", "manufacturing systems", "microsoft azure", "microsoft sql server",
+            "monitoring", "multi-tenant architecture", "observability",
+            "public cloud architecture", "query performance optimization",
+            "resilience engineering", "service boundary design", "software architecture",
+            "software as a service", "software maintainability", "software reliability",
+            "software scalability", "storage architecture", "technical communication",
+            "technical writing", "technology evaluation", "tenant data isolation",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_aquatic_informatics_role_extracts_predictive_ai_and_water_skills(self):
+        skills = set(extract_skills(AQUATIC_INFORMATICS_JOB, source="job_description"))
+        expected = {
+            ".net", "agentic software development", "ai-assisted software development",
+            "amazon web services", "angular", "artificial intelligence", "c#",
+            "cloud native", "cloud operations", "cloud services development", "code review",
+            "communication", "data science", "data-intensive applications",
+            "database schema design", "development infrastructure", "digital twins",
+            "end-to-end testing", "environmental science", "frontend software development",
+            "industrial control systems", "iot", "large language model agents",
+            "large language models", "machine learning", "microservices", "microsoft azure",
+            "oracle", "ownership", "postgresql", "predictive analytics", "process improvement",
+            "react", "responsible ai", "sensor anomaly detection", "software scalability",
+            "sql", "system integration testing", "technical mentoring",
+            "testing framework development", "time series analysis", "troubleshooting",
+            "unit testing", "vue", "water treatment systems",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertNotIn("coaching", skills)
+        self.assertNotIn("sales", skills)
+
+    def test_specialized_aquatic_terms_do_not_match_unrelated_words(self):
+        skills = set(extract_skills(
+            "The twins watched a television series and controlled the water. "
+            "An agent predicted that the sensor would need treatment."
+        ))
+        self.assertFalse({
+            "digital twins", "time series analysis", "industrial control systems",
+            "water treatment systems", "large language model agents",
+            "predictive analytics", "sensor anomaly detection",
+        } & skills)
 
     def test_public_job_market_samples_extract_recurring_skills(self):
         for role, (description, expected) in PUBLIC_JOB_SAMPLES.items():
