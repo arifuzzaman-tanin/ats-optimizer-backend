@@ -142,7 +142,7 @@ IGNORED_HEADINGS = {
     "our mission", "our story", "our products", "how we work", "benefits",
     "our benefits", "what we offer", "perks", "compensation", "salary",
     "why you'll love us", "why join us?", "why join us",
-    "learn more", "about autodesk", "salary transparency", "belonging",
+    "learn more", "about autodesk", "about cority", "salary transparency", "belonging",
     "in-person onboarding and identity verification",
     "equal opportunity", "equal opportunity employer", "how to apply",
     "equal employment opportunity",

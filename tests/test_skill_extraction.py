@@ -36,6 +36,9 @@ PROMACH_CLOUD_ARCHITECT_JOB = Path(__file__).with_name("fixtures").joinpath(
 AQUATIC_INFORMATICS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "aquatic_informatics_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
+CORITY_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "cority_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -604,6 +607,30 @@ class ExtractionTests(unittest.TestCase):
         self.assertTrue(expected.issubset(skills), expected - skills)
         self.assertNotIn("coaching", skills)
         self.assertNotIn("sales", skills)
+
+    def test_cority_role_extracts_dotnet_ai_delivery_and_ehs_skills(self):
+        skills = set(extract_skills(CORITY_JOB, source="job_description"))
+        expected = {
+            ".net", ".net core", ".net framework", "agile", "ai-assisted software development",
+            "alerting", "amazon sqs", "amazon web services", "angular",
+            "agentic ai frameworks", "apache kafka", "api development",
+            "application metrics", "ci/cd", "claude", "code quality", "code review",
+            "communication", "containerization", "css", "cursor", "dapper", "debugging",
+            "decision-making under ambiguity", "distributed teams", "docker",
+            "end-to-end software delivery",
+            "entity framework", "environmental health and safety", "github copilot", "html",
+            "initiative", "javascript", "large language models", "logging", "message queues",
+            "microservices", "microsoft azure", "microsoft sql server", "model context protocol",
+            "mongodb", "node.js", "nosql", "observability", "ownership", "postgresql",
+            "process improvement", "python", "rabbitmq", "react", "relational databases",
+            "requirements analysis",
+            "retrieval-augmented generation", "scrum", "software development",
+            "software development lifecycle", "software project estimation", "sustainability",
+            "technical communication", "technical mentoring", "technical standards",
+            "technical writing", "typescript", "vector databases",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertFalse({"go", "http", "see", "solid"} & skills)
 
     def test_specialized_aquatic_terms_do_not_match_unrelated_words(self):
         skills = set(extract_skills(

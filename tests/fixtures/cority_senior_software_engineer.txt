@@ -1,0 +1,52 @@
+About the job
+
+About Cority
+Cority helps customers see and prevent risks across their operations in real time. Our EHS+ platform converges people, data, and AI agents to provide a clear view of information people can trust, automate workflows that make people more impactful, and deliver personalized insights and expertise to improve decision-making. While most solutions respond to risks one at a time, Cority helps prevent them across environmental management, employee health, safety, quality, and sustainability. For 40 years, Cority has been the market leader in EHS+, recognized by top analysts and trusted by more than 1,500 of the most complex organizations worldwide. To learn more, visit www.cority.com.
+
+The Role
+Cority is looking for a Senior Software Engineer to join one of our product engineering teams. This is a fully remote role open to candidates in the United States and Canada.
+
+Reporting to a Development Manager, the Senior Software Engineer is responsible for designing, building, and enhancing Cority's software platform across one or more product streams, working closely with Product Owners and fellow engineers to deliver high-quality solutions.
+
+What You Will Do:
+- Serve as a reliable technical expert in one or more areas of the codebase, making well-reasoned design decisions with appropriate trade-offs
+- Own features and projects from requirements through technical design to production delivery
+- Scope work into milestones with reasonable estimates and communicate early when timelines are at risk
+- Debug complex issues across system boundaries and design for observability --logging, metrics, and alerting
+- Proactively identify and address issues in the codebase or process, not just the work assigned to you
+- Contribute to technical direction within your team and advocate for quality from the user's perspective
+- Perform thorough, constructive code reviews and mentor engineers earlier in their careers
+- Document your work and decisions so others can build on them
+- Support Product Owners with domain expertise and help translate requirements into technical designs
+- Handle ambiguity - make progress when requirements are incomplete or evolving
+- Design and deliver work that spans multiple system components, unblocking teammates and identifying risks to the broader team's delivery
+- Shape technical standards, drive improvements to code quality and tooling, and communicate complex technical concepts clearly to non-technical stakeholders
+
+What You Bring:
+Core Qualifications
+- University degree in Computer Science or a related field
+- 7+ years of professional software development experience, with increasing ownership of complex work over time
+- Strong understanding of the full software development lifecycle
+- Experience with Agile and Scrum methodologies
+- Demonstrated ability to work effectively with remote, distributed teams
+
+Technical -- Must Have
+- Experience using AI-assisted development tools such as GitHub Copilot, Claude Code, or Cursor
+- Proficiency with .NET Core, .NET Framework, Entity Framework/ Dapper, Web APIs, and Microservices
+- Experience building database applications with relational databases such as PostgreSQL and SQL Server
+- Experience with Node.js, Angular or React, HTMLS, CSS, Typescript, JavaScript, and Python
+- Solid understanding of CI/CD practices and pipelines
+
+Technical -- Nice to Have
+- Experience with LLMs, agentic frameworks, RAG, vector databases, or MCP servers
+- Experience with NoSQL databases such as MongoDB
+- Experience with AWS or Azure cloud platforms
+- Experience designing or working within multi-tenant architectures
+- Experience with message queues such as SQS, RabbitMQ, or Kafka
+- Experience with Docker and containerized deployments
+
+Soft Skills
+- Genuine passion for technology and an ability to stay current with a rapidly evolving landscape
+- A self-starter who challenges the status quo, asks why and what if, and drives improvements without being asked
+- Strong written and verbal communication skills -- you thrive on sharing and gaining knowledge
+- Previous experience in occupational health, environment, safety, or sustainability is an asset

@@ -213,6 +213,7 @@
     "patterns": [
       "\\b(?:document|documenting) (?:and present )?(?:your )?(?:technical )?(?:ideas|solutions|designs|systems|architecture)\\b",
       "\\b(?:document|documenting) architectural decisions\\b",
+      "\\bdocument your work and decisions\\b",
       "\\bdocumentation and (?:verification|validation) evidence\\b",
       "\\bdocumentation and verification\\b"
     ]
@@ -537,7 +538,8 @@
     ],
     "patterns": [
       "\\bimprovements? in processes\\b",
-      "\\bimprov(?:e|es|ed|ing) (?:development )?(?:standards,? tools,? and )?processes\\b"
+      "\\bimprov(?:e|es|ed|ing) (?:development )?(?:standards,? tools,? and )?processes\\b",
+      "\\bdrive improvements to code quality and tooling\\b"
     ]
   },
   {
@@ -788,7 +790,8 @@
     "name": "html",
     "category": "technical",
     "aliases": [
-      "html5"
+      "html5",
+      "htmls"
     ]
   },
   {
@@ -1068,7 +1071,7 @@
     "name": "requirements analysis",
     "category": "business",
     "aliases": ["requirements gathering", "requirements engineering", "feature request definition"],
-    "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b", "\\btranslat(?:e|es|ing) customer issues[^.;]{0,100}\\bfeature requests?\\b"]
+    "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b", "\\btranslat(?:e|es|ing) customer issues[^.;]{0,100}\\bfeature requests?\\b", "\\btranslat(?:e|es|ed|ing) requirements into technical designs?\\b"]
   },
   {
     "name": "prototyping",
@@ -1097,7 +1100,7 @@
     "name": "technical communication",
     "category": "interpersonal",
     "aliases": ["technical communications", "communicating technical ideas", "technical communication skills", "communicate architectural decisions", "communicating architectural decisions"],
-    "patterns": ["\\btechnical communication of (?:ideas|designs?|solutions)\\b"]
+    "patterns": ["\\btechnical communication of (?:ideas|designs?|solutions)\\b", "\\bcommunicat(?:e|es|ed|ing) complex technical concepts?[^.;]{0,40}\\bnon-technical stakeholders?\\b"]
   },
   {
     "name": "analytical skills",
@@ -1189,7 +1192,7 @@
   {
     "name": "api development",
     "category": "technical",
-    "aliases": ["api design", "api design practices", "api contracts", "rest api design", "restful api design", "building apis", "secure apis"]
+    "aliases": ["api design", "api design practices", "api contracts", "rest api design", "restful api design", "building apis", "secure apis", "web api", "web apis"]
   },
   {
     "name": "microservices",
@@ -1243,7 +1246,7 @@
   {
     "name": "debugging",
     "category": "technical",
-    "aliases": ["software debugging", "debug software"]
+    "aliases": ["software debugging", "debug software", "debug complex issues"]
   },
   {
     "name": "automated testing",
@@ -12699,7 +12702,7 @@
   {
     "name": "containerization",
     "category": "methods_and_standards",
-    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments"]
+    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments", "containerized deployments", "containerised deployments"]
   },
   {
     "name": "continuous delivery pipeline",
@@ -13440,7 +13443,9 @@
   },
   {
     "name": "solid",
-    "category": "methods_and_standards"
+    "category": "methods_and_standards",
+    "name_is_alias": false,
+    "aliases": ["solid principles", "solid design principles", "solid object-oriented design"]
   },
   {
     "name": "solution train",
@@ -20819,7 +20824,7 @@
   {
     "name": "decision-making under ambiguity",
     "category": "interpersonal",
-    "aliases": ["decision making under ambiguity", "operating with ambiguity", "comfortable operating with ambiguity"]
+    "aliases": ["decision making under ambiguity", "operating with ambiguity", "comfortable operating with ambiguity", "handle ambiguity", "handling ambiguity"]
   },
   {
     "name": "predictive analytics",
@@ -20893,6 +20898,64 @@
     "name": "water treatment systems",
     "category": "domain",
     "aliases": ["water treatment", "water treatment plants", "water treatment systems", "water technologies"]
+  },
+  {
+    "name": ".net framework",
+    "category": "platforms",
+    "aliases": ["dotnet framework", "dot net framework"]
+  },
+  {
+    "name": "agentic ai frameworks",
+    "category": "technical",
+    "aliases": ["agentic framework", "agentic frameworks", "ai agent frameworks", "agent frameworks"]
+  },
+  {
+    "name": "model context protocol",
+    "category": "technical",
+    "aliases": ["model context protocol servers", "model context protocol server", "mcp servers", "mcp server"],
+    "name_is_alias": false,
+    "contextual_aliases": [
+      {"aliases": ["mcp"], "context": "\\b(?:server|protocol|agent|llm|ai|model context)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "software project estimation",
+    "category": "business",
+    "aliases": ["software estimation", "development estimation", "engineering estimation"],
+    "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b"]
+  },
+  {
+    "name": "end-to-end software delivery",
+    "category": "technical",
+    "aliases": ["end-to-end project delivery", "end to end software delivery", "end to end project delivery"],
+    "patterns": ["\\bown (?:features|projects|features and projects)[^.;]{0,80}\\bproduction delivery\\b"]
+  },
+  {
+    "name": "code quality",
+    "category": "technical",
+    "aliases": ["software code quality", "high-quality code", "high quality code"]
+  },
+  {
+    "name": "technical standards",
+    "category": "technical",
+    "aliases": ["engineering standards", "development standards", "coding standards"]
+  },
+  {
+    "name": "environmental health and safety",
+    "category": "domain",
+    "aliases": ["occupational health and safety", "environment health and safety", "ehs"],
+    "patterns": ["\\boccupational health,? environment,? safety(?:,? or sustainability)?\\b"]
+  },
+  {
+    "name": "sustainability",
+    "category": "domain",
+    "aliases": ["corporate sustainability", "environmental sustainability"]
+  },
+  {
+    "name": "initiative",
+    "category": "interpersonal",
+    "name_is_alias": false,
+    "aliases": ["self-starter", "self starter"]
   }
 
 ]
