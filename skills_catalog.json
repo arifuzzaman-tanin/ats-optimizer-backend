@@ -539,7 +539,8 @@
     "patterns": [
       "\\bimprovements? in processes\\b",
       "\\bimprov(?:e|es|ed|ing) (?:development )?(?:standards,? tools,? and )?processes\\b",
-      "\\bdrive improvements to code quality and tooling\\b"
+      "\\bdrive improvements to code quality and tooling\\b",
+      "\\b(?:contribut(?:e|es|ed|ing)|make|making) improvements? to (?:shared code and )?development practices\\b"
     ]
   },
   {
@@ -885,7 +886,8 @@
     ],
     "patterns": [
       "\\bunit(?: and automated)? testing\\b",
-      "\\bunit(?=\\s*(?:,|/|and)\\s*(?:api|ui|integration|performance|e2e)\\b)"
+      "\\bunit(?=\\s*(?:,|/|and)\\s*(?:api|ui|integration|performance|e2e)\\b)",
+      "\\bautomated unit(?: and functional)? tests?\\b"
     ]
   },
   {
@@ -1070,7 +1072,7 @@
   {
     "name": "requirements analysis",
     "category": "business",
-    "aliases": ["requirements gathering", "requirements engineering", "feature request definition"],
+    "aliases": ["requirements gathering", "requirements engineering", "feature request definition", "clarify requirements", "clarifying requirements"],
     "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b", "\\btranslat(?:e|es|ing) customer issues[^.;]{0,100}\\bfeature requests?\\b", "\\btranslat(?:e|es|ed|ing) requirements into technical designs?\\b"]
   },
   {
@@ -1100,7 +1102,7 @@
     "name": "technical communication",
     "category": "interpersonal",
     "aliases": ["technical communications", "communicating technical ideas", "technical communication skills", "communicate architectural decisions", "communicating architectural decisions"],
-    "patterns": ["\\btechnical communication of (?:ideas|designs?|solutions)\\b", "\\bcommunicat(?:e|es|ed|ing) complex technical concepts?[^.;]{0,40}\\bnon-technical stakeholders?\\b"]
+    "patterns": ["\\btechnical communication of (?:ideas|designs?|solutions)\\b", "\\bcommunicat(?:e|es|ed|ing) complex technical concepts?[^.;]{0,40}\\bnon-technical stakeholders?\\b", "\\bcommunicat(?:e|es|ed|ing) technical decisions? through (?:documentation|walkthroughs?|discussions?)\\b"]
   },
   {
     "name": "analytical skills",
@@ -1171,7 +1173,7 @@
     "name": "production support",
     "category": "technical",
     "aliases": ["support production systems", "production systems support", "supporting customers directly during production incidents"],
-    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b"]
+    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b"]
   },
   {
     "name": "software deployment",
@@ -1251,7 +1253,8 @@
   {
     "name": "automated testing",
     "category": "technical",
-    "aliases": ["automation testing", "automated tests", "test automation"]
+    "aliases": ["automation testing", "automated tests", "test automation"],
+    "patterns": ["\\bautomated (?:unit|functional|integration)(?:[^.;]{0,40})? tests?\\b"]
   },
   {
     "name": "cypress",
@@ -1401,7 +1404,7 @@
     "name": "performance optimization",
     "category": "technical",
     "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation"],
-    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b"]
+    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b"]
   },
   {
     "name": "memory optimization",
@@ -1418,7 +1421,7 @@
       "mentor junior developers", "mentoring junior developers", "mentored junior developers",
       "mentor junior analysts", "mentoring junior analysts", "mentored junior analysts", "technical guidance"
     ],
-    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b"]
+    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b", "\\bmentor(?:ing)? teammates?\\b"]
   },
   {
     "name": "software development best practices",
@@ -1643,7 +1646,7 @@
     "name": "software reliability",
     "category": "technical",
     "aliases": ["application reliability", "application stability", "software stability", "product stability", "performance and stability", "reliability practices"],
-    "patterns": ["\\b(?:service|software|system|connector)[^.;]{0,180}\\breliable\\b", "\\b(?:systems?|services?)[^.;]{0,100}\\breliability\\b", "\\bhas to be reliable\\b"]
+    "patterns": ["\\b(?:service|software|system|connector)[^.;]{0,180}\\breliable\\b", "\\b(?:systems?|services?)[^.;]{0,100}\\breliability\\b", "\\bhas to be reliable\\b", "\\bimprov(?:e|es|ed|ing) (?:its|the software(?:'s)?) reliability\\b"]
   },
   {
     "name": "financial technology",
@@ -2821,7 +2824,7 @@
     "name": "regression testing",
     "category": "technical",
     "aliases": ["regression tests", "manual regression testing"],
-    "patterns": ["\\bregression(?=\\s*(?:(?:,|/)\\s*(?:and\\s+)?|and\\s+)(?:end[ -]to[ -]end|e2e|automated)\\b)"]
+    "patterns": ["\\bregression(?=\\s*(?:(?:,|/)\\s*(?:and\\s+)?|and\\s+)(?:end[ -]to[ -]end|e2e|automated)\\b)", "\\b(?:testing|integration) and regression risks?\\b"]
   },
   {"name": "defect management", "category": "technical", "aliases": ["defect tracking", "bug tracking", "manage defects"]},
   {"name": "bug triage", "category": "technical", "aliases": ["defect triage", "issue triage", "triaging bugs", "triaging defects"]},
@@ -2948,7 +2951,7 @@
   {"name": "vendor management", "category": "business", "aliases": ["vendor coordination", "supplier management", "third-party vendor management"]},
   {"name": "change management", "category": "business", "aliases": ["organizational change management", "change control", "change requests"]},
   {"name": "project governance", "category": "business", "aliases": ["program governance", "governance meetings", "governance forums"]},
-  {"name": "dependency management", "category": "business", "aliases": ["dependency tracking", "managing dependencies"]},
+  {"name": "dependency management", "category": "business", "aliases": ["dependency tracking", "managing dependencies", "identify dependencies", "identifying dependencies"]},
   {"name": "waterfall methodology", "category": "business", "aliases": ["waterfall delivery", "waterfall project management", "waterfall methods"], "contextual_aliases": [{"aliases": ["waterfall"], "context": "\\b(?:agile|delivery|project|methodology|methods?|hybrid|sdlc)\\b", "allow_standalone": true}]},
   {"name": "project management professional", "category": "business", "aliases": ["pmp certification", "pmp-certified", "pmp certified"], "contextual_aliases": [{"aliases": ["pmp"], "context": "\\b(?:project|certification|certified|prince2|agile|manager)\\b", "allow_standalone": true}]},
   {"name": "prince2", "category": "business", "aliases": ["projects in controlled environments"]},
@@ -12952,7 +12955,8 @@
   },
   {
     "name": "integration testing",
-    "category": "methods_and_standards"
+    "category": "methods_and_standards",
+    "patterns": ["\\bintegration and regression risks?\\b"]
   },
   {
     "name": "inversion of control",
@@ -19775,7 +19779,8 @@
   },
   {
     "name": "cloud computing",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["cloud platforms", "cloud platform"]
   },
   {
     "name": "coverage measurement",
@@ -20922,13 +20927,13 @@
     "name": "software project estimation",
     "category": "business",
     "aliases": ["software estimation", "development estimation", "engineering estimation"],
-    "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b"]
+    "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b", "\\bprovide realistic estimates\\b"]
   },
   {
     "name": "end-to-end software delivery",
     "category": "technical",
     "aliases": ["end-to-end project delivery", "end to end software delivery", "end to end project delivery"],
-    "patterns": ["\\bown (?:features|projects|features and projects)[^.;]{0,80}\\bproduction delivery\\b"]
+    "patterns": ["\\bown (?:features|projects|features and projects)[^.;]{0,80}\\bproduction delivery\\b", "\\bown complex features?[^.;]{0,100}\\bfrom design through delivery\\b"]
   },
   {
     "name": "code quality",
@@ -20952,10 +20957,75 @@
     "aliases": ["corporate sustainability", "environmental sustainability"]
   },
   {
+    "name": "usage-based billing",
+    "category": "domain",
+    "aliases": ["usage based billing", "consumption-based billing", "consumption based billing", "metered billing"]
+  },
+  {
+    "name": "subscription billing",
+    "category": "domain",
+    "aliases": ["subscription-based billing", "subscription based billing", "recurring billing"]
+  },
+  {
+    "name": "billing and monetization platforms",
+    "category": "domain",
+    "aliases": ["billing and monetization platform", "billing monetization platform"]
+  },
+  {
+    "name": "ai output validation",
+    "category": "technical",
+    "aliases": ["ai result validation", "ai results validation", "validating ai results", "validating ai-generated code", "validating ai generated code"],
+    "patterns": ["\\bai tools?[^.;]{0,120}\\bvalidat(?:e|es|ed|ing) (?:their|the) results?\\b"]
+  },
+  {
+    "name": "frontend frameworks",
+    "category": "technical",
+    "aliases": ["frontend framework", "front-end framework", "front end framework", "modern ui framework", "modern user interface framework"]
+  },
+  {
+    "name": "requirements task decomposition",
+    "category": "business",
+    "aliases": ["breaking down requirements", "requirements decomposition"],
+    "patterns": ["\\bbreak down requirements into (?:software |development )?tasks\\b"]
+  },
+  {
+    "name": "risk communication",
+    "category": "business",
+    "aliases": ["communicate risks early", "communicating risks early", "raise risks early", "raising risks early"]
+  },
+  {
+    "name": "technical decision-making",
+    "category": "technical",
+    "aliases": ["technical decision making", "technical decisions", "technical tradeoffs", "technical trade-offs", "software design decisions"]
+  },
+  {
+    "name": "performance profiling",
+    "category": "technical",
+    "aliases": ["application profiling", "software profiling"]
+  },
+  {
+    "name": "pair programming",
+    "category": "technical",
+    "aliases": ["developer pairing", "engineering pairing"],
+    "patterns": ["\\bmentor(?:ing)? teammates? through pairing\\b"]
+  },
+  {
+    "name": "design review",
+    "category": "technical",
+    "aliases": ["design reviews", "technical design review", "software design review"]
+  },
+  {
+    "name": "quality assurance collaboration",
+    "category": "interpersonal",
+    "aliases": ["qa collaboration", "collaboration with qa"],
+    "patterns": ["\\bwork(?:ing)? with qa(?: engineers?)?[^.;]{0,100}\\b(?:test(?:ing)?|integration|regression)\\b"]
+  },
+  {
     "name": "initiative",
     "category": "interpersonal",
     "name_is_alias": false,
-    "aliases": ["self-starter", "self starter"]
+    "aliases": ["self-starter", "self starter"],
+    "patterns": ["\\binitiative to (?:improve|strengthen|address|build|develop)\\b"]
   }
 
 ]

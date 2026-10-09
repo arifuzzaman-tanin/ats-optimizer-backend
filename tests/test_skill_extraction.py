@@ -39,6 +39,9 @@ AQUATIC_INFORMATICS_JOB = Path(__file__).with_name("fixtures").joinpath(
 CORITY_JOB = Path(__file__).with_name("fixtures").joinpath(
     "cority_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
+LOGISENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "logisense_software_developer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -631,6 +634,38 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
         self.assertFalse({"go", "http", "see", "solid"} & skills)
+
+    def test_logisense_role_extracts_billing_dotnet_delivery_and_ai_skills(self):
+        skills = set(extract_skills(LOGISENSE_JOB, source="job_description"))
+        expected = {
+            ".net", "agile", "ai output validation", "amazon web services",
+            "artificial intelligence", "automated testing",
+            "billing and monetization platforms", "c#", "cloud computing",
+            "code review", "cross-functional collaboration", "database schema design",
+            "debugging", "dependency management", "design review",
+            "end-to-end software delivery", "frontend frameworks", "functional testing",
+            "initiative", "integration testing", "knowledge transfer",
+            "microsoft sql server", "node.js", "ownership", "pair programming",
+            "performance optimization", "performance profiling", "process improvement",
+            "production support", "quality assurance collaboration",
+            "query performance optimization", "regression testing", "requirements analysis",
+            "requirements task decomposition", "rest api", "risk communication", "scrum",
+            "software design", "software project estimation", "software reliability",
+            "subscription billing", "t-sql", "technical communication", "technical debt",
+            "technical decision-making", "technical mentoring", "unit testing",
+            "usage-based billing",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_logisense_domain_terms_do_not_match_generic_business_language(self):
+        skills = set(extract_skills(
+            "The subscription was renewed after usage increased. The team paired socks, "
+            "reviewed a design, checked a bill, and discussed monetization."
+        ))
+        self.assertFalse({
+            "usage-based billing", "subscription billing",
+            "billing and monetization platforms", "pair programming", "design review",
+        } & skills)
 
     def test_specialized_aquatic_terms_do_not_match_unrelated_words(self):
         skills = set(extract_skills(
