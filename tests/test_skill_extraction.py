@@ -24,6 +24,24 @@ NETBRAIN_JOB = Path(__file__).with_name("fixtures").joinpath(
 BETTINGJOBS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "bettingjobs_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
+BLUEHOST_AI_BACKEND_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "bluehost_ai_backend_engineer.txt"
+).read_text(encoding="utf-8")
+REAL_TIME_PAYMENTS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "real_time_payments_developer.txt"
+).read_text(encoding="utf-8")
+PROMACH_CLOUD_ARCHITECT_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "promach_cloud_architect_engineer.txt"
+).read_text(encoding="utf-8")
+AQUATIC_INFORMATICS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "aquatic_informatics_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
+CORITY_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "cority_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
+LOGISENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "logisense_software_developer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -299,6 +317,8 @@ class ExtractionTests(unittest.TestCase):
             "web application development", "websocket",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertNotIn("coaching", skills)
+        self.assertNotIn("sales", skills)
         self.assertNotIn("high availability", extract_skills(
             "The hotel says that a room is highly available this week."
         ))
@@ -520,6 +540,144 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
+    def test_bluehost_role_extracts_ai_native_backend_and_governance_skills(self):
+        skills = set(extract_skills(BLUEHOST_AI_BACKEND_JOB, source="job_description"))
+        expected = {
+            "a/b testing", "application metrics", "asynchronous programming", "chroma",
+            "ci/cd", "code provenance", "code review",
+            "cost-aware routing", "customer data privacy", "data modeling", "database migrations",
+            "database schema design", "dependency injection", "distributed tracing",
+            "fastapi", "gemini", "langchain", "large language models", "latency monitoring",
+            "licensing compliance", "linting", "llm observability", "llm provider integration",
+            "multi-agent orchestration", "openai",
+            "orm", "pgvector", "prompt data governance", "python",
+            "query performance optimization", "relational databases",
+            "responsible ai", "sqlalchemy", "sqlmodel",
+            "retrieval-augmented generation", "rest api", "semantic kernel",
+            "software packaging", "structured logging", "type checking", "type hints",
+            "vector databases", "vertical slice architecture", "websocket",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_real_time_payments_role_extracts_azure_and_payments_skills(self):
+        skills = set(extract_skills(REAL_TIME_PAYMENTS_JOB, source="job_description"))
+        expected = {
+            ".net core", "api", "api development", "banking", "communication",
+            "microsoft azure", "microsoft azure application insights",
+            "microsoft azure cosmos db", "microsoft azure event hub",
+            "microsoft azure functions", "microsoft azure key vault",
+            "microsoft azure service bus", "payment systems", "redis", "sql",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_promach_role_extracts_cloud_architecture_and_manufacturing_skills(self):
+        skills = set(extract_skills(PROMACH_CLOUD_ARCHITECT_JOB, source="job_description"))
+        expected = {
+            ".net", "backend software development", "ci/cd", "cloud infrastructure",
+            "cloud native", "cloud operations", "cloud security",
+            "cloud-agnostic architecture", "data flow design", "data ingestion",
+            "data pipeline development", "database scalability", "database schema design",
+            "decision-making under ambiguity", "distributed systems",
+            "failure mode analysis", "high-volume data processing",
+            "hybrid cloud integration", "industrial systems", "infrastructure as code",
+            "iot", "manufacturing systems", "microsoft azure", "microsoft sql server",
+            "monitoring", "multi-tenant architecture", "observability",
+            "public cloud architecture", "query performance optimization",
+            "resilience engineering", "service boundary design", "software architecture",
+            "software as a service", "software maintainability", "software reliability",
+            "software scalability", "storage architecture", "technical communication",
+            "technical writing", "technology evaluation", "tenant data isolation",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_aquatic_informatics_role_extracts_predictive_ai_and_water_skills(self):
+        skills = set(extract_skills(AQUATIC_INFORMATICS_JOB, source="job_description"))
+        expected = {
+            ".net", "agentic software development", "ai-assisted software development",
+            "amazon web services", "angular", "artificial intelligence", "c#",
+            "cloud native", "cloud operations", "cloud services development", "code review",
+            "communication", "data science", "data-intensive applications",
+            "database schema design", "development infrastructure", "digital twins",
+            "end-to-end testing", "environmental science", "frontend software development",
+            "industrial control systems", "iot", "large language model agents",
+            "large language models", "machine learning", "microservices", "microsoft azure",
+            "oracle", "ownership", "postgresql", "predictive analytics", "process improvement",
+            "react", "responsible ai", "sensor anomaly detection", "software scalability",
+            "sql", "system integration testing", "technical mentoring",
+            "testing framework development", "time series analysis", "troubleshooting",
+            "unit testing", "vue", "water treatment systems",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertNotIn("coaching", skills)
+        self.assertNotIn("sales", skills)
+
+    def test_cority_role_extracts_dotnet_ai_delivery_and_ehs_skills(self):
+        skills = set(extract_skills(CORITY_JOB, source="job_description"))
+        expected = {
+            ".net", ".net core", ".net framework", "agile", "ai-assisted software development",
+            "alerting", "amazon sqs", "amazon web services", "angular",
+            "agentic ai frameworks", "apache kafka", "api development",
+            "application metrics", "ci/cd", "claude", "code quality", "code review",
+            "communication", "containerization", "css", "cursor", "dapper", "debugging",
+            "decision-making under ambiguity", "distributed teams", "docker",
+            "end-to-end software delivery",
+            "entity framework", "environmental health and safety", "github copilot", "html",
+            "initiative", "javascript", "large language models", "logging", "message queues",
+            "microservices", "microsoft azure", "microsoft sql server", "model context protocol",
+            "mongodb", "node.js", "nosql", "observability", "ownership", "postgresql",
+            "process improvement", "python", "rabbitmq", "react", "relational databases",
+            "requirements analysis",
+            "retrieval-augmented generation", "scrum", "software development",
+            "software development lifecycle", "software project estimation", "sustainability",
+            "technical communication", "technical mentoring", "technical standards",
+            "technical writing", "typescript", "vector databases",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertFalse({"go", "http", "see", "solid"} & skills)
+
+    def test_logisense_role_extracts_billing_dotnet_delivery_and_ai_skills(self):
+        skills = set(extract_skills(LOGISENSE_JOB, source="job_description"))
+        expected = {
+            ".net", "agile", "ai output validation", "amazon web services",
+            "artificial intelligence", "automated testing",
+            "billing and monetization platforms", "c#", "cloud computing",
+            "code review", "cross-functional collaboration", "database schema design",
+            "debugging", "dependency management", "design review",
+            "end-to-end software delivery", "frontend frameworks", "functional testing",
+            "initiative", "integration testing", "knowledge transfer",
+            "microsoft sql server", "node.js", "ownership", "pair programming",
+            "performance optimization", "performance profiling", "process improvement",
+            "production support", "quality assurance collaboration",
+            "query performance optimization", "regression testing", "requirements analysis",
+            "requirements task decomposition", "rest api", "risk communication", "scrum",
+            "software design", "software project estimation", "software reliability",
+            "subscription billing", "t-sql", "technical communication", "technical debt",
+            "technical decision-making", "technical mentoring", "unit testing",
+            "usage-based billing",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_logisense_domain_terms_do_not_match_generic_business_language(self):
+        skills = set(extract_skills(
+            "The subscription was renewed after usage increased. The team paired socks, "
+            "reviewed a design, checked a bill, and discussed monetization."
+        ))
+        self.assertFalse({
+            "usage-based billing", "subscription billing",
+            "billing and monetization platforms", "pair programming", "design review",
+        } & skills)
+
+    def test_specialized_aquatic_terms_do_not_match_unrelated_words(self):
+        skills = set(extract_skills(
+            "The twins watched a television series and controlled the water. "
+            "An agent predicted that the sensor would need treatment."
+        ))
+        self.assertFalse({
+            "digital twins", "time series analysis", "industrial control systems",
+            "water treatment systems", "large language model agents",
+            "predictive analytics", "sensor anomaly detection",
+        } & skills)
+
     def test_public_job_market_samples_extract_recurring_skills(self):
         for role, (description, expected) in PUBLIC_JOB_SAMPLES.items():
             with self.subTest(role=role):
@@ -647,10 +805,11 @@ Zendesk experience.
         self.assertNotIn("sql", skills)
 
     def test_tool_names_are_not_substrings_of_other_words(self):
-        self.assertEqual(
-            extract_skills("GitHub, JavaScripted, SQLAlchemy, Pythonic"),
-            ["github"],
-        )
+        skills = extract_skills("GitHub, JavaScripted, SQLAlchemy, Pythonic")
+        self.assertEqual(skills, ["github", "sqlalchemy"])
+        self.assertNotIn("javascript", skills)
+        self.assertNotIn("python", skills)
+        self.assertNotIn("sql", skills)
 
     def test_imported_skill_abbreviations_resolve_to_canonical_names(self):
         self.assertEqual(
@@ -714,6 +873,8 @@ class ApiTests(unittest.TestCase):
     def test_existing_response_fields_and_explainable_matches(self):
         response = self.post(JOB, RESUME)
         self.assertEqual(response.status_code, 200)
+        self.assertIn("skill-job;dur=", response.headers["Server-Timing"])
+        self.assertIn("skill-resume;dur=", response.headers["Server-Timing"])
         data = response.get_json()
         self.assertEqual(data["total_required_skills_in_job_description"], 17)
         self.assertEqual(data["total_matching_skills_in_resume"], 6)
@@ -757,6 +918,11 @@ class ApiTests(unittest.TestCase):
     def test_empty_inputs_return_400(self):
         self.assertEqual(self.post("  ", RESUME).status_code, 400)
         self.assertEqual(self.post(JOB, "  ").status_code, 400)
+
+    def test_oversized_request_returns_json_413(self):
+        response = self.post("Python " * 100_000, RESUME)
+        self.assertEqual(response.status_code, 413)
+        self.assertEqual(response.get_json(), {"error": "Request body is too large"})
 
     def test_missing_access_key_returns_400(self):
         response = self.client.post('/extract_skills', json={

@@ -1,0 +1,6 @@
+Essential skills for Real Time Payments Developer
+-.net core (with API development experience)-SQL-API -Azure services (Azure Functions| COSMOS DB| Key Vault)
+-Overall 8 to 10 years of development experience with at least 2 years of hands on experience in Azure skills mentioned above
+-Good Communication skills
+-Azure services (Application insights| Redis| EventHub and Service Bus)
+-Banking project experience-Functional knowledge in Payments

@@ -1,0 +1,42 @@
+About the job
+The Senior Software Engineer will contribute to the technical development of
+Aquatic Informatics' predictive analytics products. These solutions help
+customers use intelligent water technologies to protect the environment and
+human health. Collaborate with engineers, data scientists, domain experts, and
+business leaders to design, build, and operate predictive analytics products
+that leverage AI and ML.
+
+In this role, a typical day will look like:
+Work on applications that detect sensor anomalies, digital twins that simulate
+water treatment plants, and LLM-powered agents that synthesize water data.
+Own features end to end: requirements, technical design, implementation, code
+review, testing, documentation, and troubleshooting.
+Build and operate cloud-native services on AWS and Azure that scale with demand.
+Write clean and scalable frontend (Angular) and backend (C#) code.
+Champion AI adoption and use AI to automate and accelerate software development
+lifecycle processes while following AI governance best practices.
+Drive continuous improvement in productivity, quality, and team health.
+Manage and enhance development infrastructure, including build and test systems.
+Improve testing frameworks and contribute to unit, integration, and end-to-end
+(E2E) testing.
+
+The essential requirements of the job include:
+Five or more years designing, building, and operating large-scale,
+data-intensive, cloud-native applications using microservices architectures on
+AWS or Azure.
+Experience with modern front-end frameworks such as Angular, React, or Vue.
+Strong background in Microsoft development (.NET, C#, and related technologies).
+Excellent verbal and written English communication skills.
+Genuine interest in using AI to accelerate software development.
+Hands-on experience with agentic engineering and AI-assisted development workflows.
+
+Preferred skills:
+Expertise in database design and development using SQL, Oracle, or PostgreSQL.
+Background in environmental science, time series data, IoT, or industrial
+controls is an asset.
+Exposure to data science or machine learning concepts.
+Led and mentored junior developers.
+
+Why Join Us?
+Career coaching, a retirement savings plan, and a corporate wellbeing program.
+Compensation may include sales or revenue-based metrics.

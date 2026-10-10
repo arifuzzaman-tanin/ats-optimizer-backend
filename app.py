@@ -1,11 +1,15 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import math
+import os
+from time import perf_counter
+from werkzeug.exceptions import RequestEntityTooLarge
 from access_keys import get_first_key, is_valid_key
-from skill_extractor import compare_skills, extract_skill_evidence, extract_skills
+from skill_extractor import compare_skills, extract_skill_evidence, extract_skills, load_catalog
 
 # -------------------- Initialize Flask App --------------------
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = int(os.getenv("MAX_REQUEST_BYTES", 512 * 1024))
 ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -24,6 +28,10 @@ CORS(app, resources={
         "supports_credentials": True,
     }
 })
+
+# Build and validate the catalogue at process startup instead of delaying the
+# first user request in each worker.
+load_catalog()
 
 # -------------------- Utility Functions --------------------
 
@@ -63,6 +71,11 @@ def format_skills(skills, is_available_in_resume: bool):
 @app.route('/health', methods=['GET'])
 def health_check():
     return jsonify({"status": "ok"}), 200
+
+
+@app.errorhandler(RequestEntityTooLarge)
+def request_too_large(_error):
+    return jsonify({"error": "Request body is too large"}), 413
 
 
 @app.route('/access_key', methods=['GET'])
@@ -115,13 +128,17 @@ def extract_skills_from_description():
             return jsonify({"error": "Empty resume"}), 400
 
         # Compare canonical skill names; preserve the phrases that support them.
+        extraction_started = perf_counter()
         job_evidence = extract_skill_evidence(job_description, source="job_description")
+        job_extraction_ms = (perf_counter() - extraction_started) * 1000
+        resume_extraction_started = perf_counter()
         resume_evidence = extract_skill_evidence(resume, source="resume")
-        skills_in_job_description = list(job_evidence)
-        skills_in_resume = list(resume_evidence)
+        resume_extraction_ms = (perf_counter() - resume_extraction_started) * 1000
 
-        missing_skills = find_missing_skills_in_resume(skills_in_job_description, skills_in_resume)
-        matching_skills = find_matching_skills_in_resume(skills_in_job_description, skills_in_resume)
+        # Evidence dictionaries already use canonical names, so one membership
+        # pass replaces two separately canonicalized comparisons.
+        matching_skills = [name for name in job_evidence if name in resume_evidence]
+        missing_skills = [name for name in job_evidence if name not in resume_evidence]
 
         missing_skills_formatted = format_skills(missing_skills, False)
         matching_skills_formatted = format_skills(matching_skills, True)
@@ -150,8 +167,15 @@ def extract_skills_from_description():
         if not total_required:
             response_data["warning"] = "No recognized job skills found. Extend skills_catalog.json for this domain; the score is not informative."
 
-        return jsonify(response_data), 200
+        response = jsonify(response_data)
+        response.headers["Server-Timing"] = (
+            f"skill-job;dur={job_extraction_ms:.2f}, "
+            f"skill-resume;dur={resume_extraction_ms:.2f}"
+        )
+        return response, 200
 
+    except RequestEntityTooLarge:
+        raise
     except Exception:
         app.logger.exception("Skill extraction failed")
         return jsonify({"error": "Skill extraction failed"}), 500

@@ -1,0 +1,70 @@
+About the job
+
+Help Deliver the Future of Usage-Based Billing
+
+LogiSense is looking for a Software Developer to help build and enhance our
+usage-based billing platform. You'll bring strong C#, .NET, and Microsoft SQL
+Server skills, along with experience applying other technologies to solve
+problems. AI tools are part of your everyday development workflow, and you know
+how to validate their results.
+
+You'll work within a cross-functional sprint team and across the wider
+organization to turn customer and business needs into reliable improvements to
+the LogiSense Billing platform.
+
+Our cloud-based billing and monetization platform helps innovative companies
+automate and scale complex usage-based and subscription billing models.
+
+The Role
+
+As a Software Developer at LogiSense, you'll own complex features spanning
+multiple application components, from design through delivery. You'll help
+clarify requirements, make well-reasoned technical decisions, and work with QA
+and other members of your Scrum team to address testing and regression risks.
+Your ownership extends to supporting the software you deliver and improving its
+reliability in collaboration with IT and Support.
+
+You'll organize and prioritize your work with minimal supervision, provide
+realistic estimates, and raise risks early. You'll know when to work through a
+problem independently and when to involve others. Through pairing, reviews, and
+knowledge sharing, you'll help colleagues grow while contributing improvements
+to shared code and development practices.
+
+What You'll Bring To The Team
+
+- Strong experience developing enterprise applications with C# and .NET, plus
+  experience applying other technologies to solve problems
+- Strong experience with Microsoft SQL Server, including database design,
+  T-SQL, and query optimization
+- Experience with at least one of Node.js or a modern UI framework
+- Practical experience incorporating AI tools into your everyday development
+  workflow, understanding their limitations, validating their results, and
+  sharing effective practices
+- Experience designing, implementing, and integrating with RESTful APIs
+- The ability to own complex features across multiple application components,
+  from design through delivery, with minimal supervision
+- The ability to break down requirements into development tasks, identify
+  dependencies, provide realistic estimates, and communicate risks early
+- Sound judgment in software design decisions and technical tradeoffs,
+  including knowing when to involve others
+- A systematic approach to debugging, performance profiling, and optimization
+- Experience implementing automated unit and functional tests, and working
+  with QA and other members of your Scrum team to address integration and
+  regression risks
+- The ability to work with Product and other stakeholders to understand user
+  needs and clarify requirements, and communicate technical decisions through
+  documentation, walkthroughs, and discussions
+- The ability to develop a broad understanding of the LogiSense Billing
+  platform and deep expertise in the components you support
+- The ability to mentor teammates through pairing, design reviews, code
+  reviews, and knowledge sharing
+- A commitment to supporting and improving the reliability of the software you
+  deliver, in collaboration with IT and Support
+- Initiative to improve shared code, address technical debt, and strengthen
+  development practices
+
+Strongly Preferred
+
+- Experience building, deploying, or supporting applications on AWS or another
+  cloud platform
+- Experience working within Scrum or another Agile development process

@@ -1,0 +1,62 @@
+About the job
+
+ZPI is the software division of ProMach, a leading provider of packaging
+solutions. ZPI develops, implements, and supports digital intelligence software
+systems that enhance the performance of packaged goods manufacturing
+operations. With a strong foundation in production monitoring, ZPI is now
+expanding into cloud-native products designed for the next generation of
+manufacturing customers.
+
+We're looking for a Cloud Architect & Engineer to lead the technical design and
+implementation of our cloud-based products. You'll have significant influence
+over how our products are structured, built, and deployed, working alongside
+our engineering team to turn ideas into production-ready products. This is a
+hands-on role: you'll design the system, build it, and own it in production.
+
+What You'll Do
+
+Architecture & Design
+
+- Design cloud architecture for scalable, multi-tenant SaaS products from data
+  ingestion through cloud-hosted services and customer-facing reporting.
+- Define infrastructure patterns for multi-tenancy, data isolation, scalability,
+  and security that hold up as the product grows.
+- Evaluate technology and platform options with an eye toward long-term
+  maintainability.
+- Document architectural decisions and the reasoning behind them so the team
+  inherits a clear, defensible record.
+
+Cloud Engineering
+
+- Build, deploy, and maintain cloud infrastructure and backend components
+  alongside the engineering team.
+- Design and build data pipelines that move operational data from customer
+  environments into the cloud reliably, securely, and at scale.
+- Contribute working knowledge of CI/CD, Infrastructure-as-Code, and cloud
+  operational practices, getting pipelines stood up and knowing what good looks
+  like.
+- Establish monitoring, observability, and reliability practices that keep the
+  product healthy in production.
+
+What We're Looking For
+
+- Proven experience designing and building cloud-native systems end-to-end, not
+  just contributing to a single layer.
+- Experience building systems that ingest and process high volumes of
+  operational data reliably and at scale.
+- Experience designing and deploying databases at scale, including schema
+  design, query performance, and storage tradeoffs.
+- Strong grasp of distributed systems: data flow, service boundaries, failure
+  modes, and resilience patterns.
+- Experience integrating cloud platforms with on-premises or operationally
+  constrained environments.
+- Experience with Microsoft Azure and the broader Microsoft technology
+  ecosystem, including .NET and SQL Server; comfort with cloud-agnostic design
+  principles a plus.
+- Background in industrial, IoT, or manufacturing environments is a plus.
+- Familiarity with SaaS architecture patterns: multi-tenancy, customer data
+  isolation, subscription-based delivery.
+- Ability to communicate architectural decisions clearly to both technical and
+  non-technical stakeholders.
+- Comfortable operating with ambiguity and able to make sound decisions before
+  everything is fully defined.
