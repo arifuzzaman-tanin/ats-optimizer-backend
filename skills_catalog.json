@@ -3327,11 +3327,6 @@
     "category": "languages"
   },
   {
-    "name": "focus",
-    "category": "languages",
-    "name_is_alias": false
-  },
-  {
     "name": "formula",
     "category": "languages"
   },
@@ -5553,11 +5548,6 @@
   {
     "name": "service fabric",
     "category": "technologies"
-  },
-  {
-    "name": "set",
-    "category": "technologies",
-    "name_is_alias": false
   },
   {
     "name": "sgml",
