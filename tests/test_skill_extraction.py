@@ -45,6 +45,9 @@ LOGISENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
 AUTOSCOUT24_JOB = Path(__file__).with_name("fixtures").joinpath(
     "autoscout24_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
+MAINTAINX_BACKEND_PLATFORM_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "maintainx_backend_platform_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -717,6 +720,42 @@ class ExtractionTests(unittest.TestCase):
             with self.subTest(role=role):
                 skills = set(extract_skills(description, source="job_description"))
                 self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_maintainx_role_extracts_api_platform_and_integration_skills(self):
+        skills = set(extract_skills(
+            MAINTAINX_BACKEND_PLATFORM_JOB, source="job_description"
+        ))
+        expected = {
+            "api development", "api error handling", "api filtering",
+            "api key authentication", "api pagination", "api platforms",
+            "api versioning", "application metrics", "authentication",
+            "authorization", "automated onboarding", "backward compatibility",
+            "batch processing", "bulk operations", "connector development",
+            "contract testing", "credential management", "data migration",
+            "data synchronization", "developer debugging tools",
+            "developer documentation", "developer experience",
+            "distributed systems", "distributed tracing",
+            "environment configuration", "integration marketplaces",
+            "integration platform as a service", "integration security",
+            "least privilege", "logging", "oracle e-business suite",
+            "quality gates", "release automation", "sap cloud platform",
+            "sap ecc", "sdk development", "service level indicators",
+            "service level objectives", "shared library development",
+            "software auditability", "software operability",
+            "software scaffolding", "token rotation", "tray.io", "webhooks",
+            "workato", "zapier",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_maintainx_ambiguous_terms_require_technical_context(self):
+        skills = set(extract_skills(
+            "We filtered water, read a paginated book, carried a lunch tray, "
+            "used scaffolding at a construction site, and inspected a batch of cookies."
+        ))
+        self.assertFalse({
+            "api filtering", "api pagination", "batch processing",
+            "software scaffolding", "tray.io",
+        } & skills)
 
     def test_ambiguous_new_tool_names_still_require_technical_context(self):
         self.assertEqual(extract_skills(

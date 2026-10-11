@@ -1197,7 +1197,8 @@
   {
     "name": "api development",
     "category": "technical",
-    "aliases": ["api design", "api design practices", "api contracts", "rest api design", "restful api design", "building apis", "secure apis", "web api", "web apis"]
+    "aliases": ["api design", "api design practices", "api contracts", "rest api design", "restful api design", "building apis", "designing apis", "design apis", "secure apis", "web api", "web apis"],
+    "patterns": ["\\bdesign(?:ing)?[^.;â€¢]{0,50}\\b(?:rest(?:ful)? )?apis?\\b"]
   },
   {
     "name": "microservices",
@@ -1236,7 +1237,10 @@
     "name": "logging",
     "category": "technical",
     "aliases": ["application logging", "system logging"],
-    "patterns": ["\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b"]
+    "patterns": ["\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b"],
+    "contextual_aliases": [
+      {"aliases": ["logs"], "context": "\\b(?:traces?|metrics|slis?|slos?|monitoring|observability|production|incident)\\b"}
+    ]
   },
   {
     "name": "alerting",
@@ -2228,6 +2232,26 @@
     "aliases": ["graph ql"]
   },
   {
+    "name": "api platforms",
+    "category": "technical",
+    "aliases": ["api platform", "api ecosystems", "api ecosystem"]
+  },
+  {
+    "name": "developer experience",
+    "category": "technical",
+    "aliases": ["developer usability", "developer experience design", "dx engineering"]
+  },
+  {
+    "name": "authentication",
+    "category": "technical",
+    "aliases": ["user authentication", "api authentication", "authentication patterns"]
+  },
+  {
+    "name": "authorization",
+    "category": "technical",
+    "aliases": ["user authorization", "api authorization", "authorization patterns", "access authorization"]
+  },
+  {
     "name": "grpc",
     "category": "technical",
     "aliases": ["google remote procedure call"]
@@ -2241,6 +2265,53 @@
     "name": "rate limiting",
     "category": "technical",
     "aliases": ["rate limits", "api throttling"]
+  },
+  {
+    "name": "api versioning",
+    "category": "technical",
+    "aliases": ["versioned apis", "api versions", "rest api versioning"],
+    "contextual_aliases": [
+      {"aliases": ["versioning"], "context": "\\b(?:api|apis|rest|authentication|authorization|rate limiting|pagination|idempotency|platform standards)\\b"}
+    ]
+  },
+  {
+    "name": "api filtering",
+    "category": "technical",
+    "aliases": ["api filters", "rest api filtering"],
+    "contextual_aliases": [
+      {"aliases": ["filtering"], "context": "\\b(?:api|apis|rest|pagination|versioning|rate limiting)\\b"}
+    ]
+  },
+  {
+    "name": "api pagination",
+    "category": "technical",
+    "aliases": ["paginated apis", "paginated api responses", "rest api pagination"],
+    "contextual_aliases": [
+      {"aliases": ["pagination"], "context": "\\b(?:api|apis|rest|filtering|versioning|rate limiting|idempotency)\\b"}
+    ]
+  },
+  {
+    "name": "backward compatibility",
+    "category": "technical",
+    "aliases": ["backwards compatibility", "backward-compatible apis", "backwards-compatible apis", "backward compatible apis", "backwards compatible apis"]
+  },
+  {
+    "name": "batch processing",
+    "category": "technical",
+    "aliases": ["batch operations", "batch api operations", "batch apis", "batch processing workflows"],
+    "contextual_aliases": [
+      {"aliases": ["batch"], "context": "\\b(?:api|apis|processing|operations?|jobs?|data|workflows?)\\b"}
+    ]
+  },
+  {
+    "name": "bulk operations",
+    "category": "technical",
+    "aliases": ["bulk api operations", "bulk apis", "bulk processing", "bulk data operations"]
+  },
+  {
+    "name": "data migration",
+    "category": "technical",
+    "aliases": ["data migrations", "migration workflows", "large-scale migration", "large scale migration"]
   },
   {
     "name": "concurrent programming",
@@ -2268,6 +2339,155 @@
     "aliases": ["idempotent operations", "idempotent processing"]
   },
   {
+    "name": "contract testing",
+    "category": "technical",
+    "aliases": ["contract tests", "api contract testing", "consumer-driven contract testing", "consumer driven contract testing"]
+  },
+  {
+    "name": "api error handling",
+    "category": "technical",
+    "aliases": ["api error semantics", "error semantics", "api error responses", "api error handling"]
+  },
+  {
+    "name": "software scaffolding",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["code scaffolding", "project scaffolding", "developer scaffolding"],
+    "contextual_aliases": [
+      {"aliases": ["scaffolding"], "context": "\\b(?:code|software|developer|project|templates?|libraries|build|frameworks?)\\b"}
+    ]
+  },
+  {
+    "name": "shared library development",
+    "category": "technical",
+    "aliases": ["shared libraries", "reusable libraries", "common libraries"]
+  },
+  {
+    "name": "connector development",
+    "category": "technical",
+    "aliases": ["connector engineering", "building connectors", "build connectors", "integration connector development", "integration development"]
+  },
+  {
+    "name": "release automation",
+    "category": "technical",
+    "aliases": ["automated releases", "release pipeline automation", "automating releases"]
+  },
+  {
+    "name": "quality gates",
+    "category": "technical",
+    "aliases": ["quality gate", "ci quality gates", "pipeline quality gates"]
+  },
+  {
+    "name": "developer documentation",
+    "category": "technical",
+    "aliases": ["api documentation", "developer docs", "integration documentation"]
+  },
+  {
+    "name": "sdk development",
+    "category": "technical",
+    "aliases": ["software development kit development", "building sdks", "developing sdks", "sdks", "sdk"]
+  },
+  {
+    "name": "integration marketplaces",
+    "category": "technical",
+    "aliases": ["integration marketplace", "integrations marketplace", "connector marketplace", "connector marketplaces", "app marketplace", "app marketplaces"]
+  },
+  {
+    "name": "credential management",
+    "category": "technical",
+    "aliases": ["credential lifecycle management", "managing credentials", "credential rotation"]
+  },
+  {
+    "name": "environment configuration",
+    "category": "technical",
+    "aliases": ["environment configurations", "environment setup"]
+  },
+  {
+    "name": "automated onboarding",
+    "category": "technical",
+    "aliases": ["automation-driven onboarding", "automation driven onboarding", "onboarding automation", "automated onboarding flows"]
+  },
+  {
+    "name": "integration platform as a service",
+    "category": "technical",
+    "aliases": ["integration platform-as-a-service", "ipaas", "ipaas platforms"]
+  },
+  {
+    "name": "webhooks",
+    "category": "technical",
+    "aliases": ["webhook", "webhook development", "webhook integrations"]
+  },
+  {
+    "name": "api key authentication",
+    "category": "technical",
+    "aliases": ["api key authentication", "api keys", "api key management"]
+  },
+  {
+    "name": "token rotation",
+    "category": "technical",
+    "aliases": ["access token rotation", "refresh token rotation", "rotating tokens"]
+  },
+  {
+    "name": "least privilege",
+    "category": "technical",
+    "aliases": ["principle of least privilege", "least-privilege access", "least privilege access"]
+  },
+  {
+    "name": "software auditability",
+    "category": "technical",
+    "aliases": ["system auditability", "application auditability", "auditability"]
+  },
+  {
+    "name": "software operability",
+    "category": "technical",
+    "aliases": ["system operability", "application operability", "operability"]
+  },
+  {
+    "name": "integration security",
+    "category": "technical",
+    "aliases": ["secure integrations", "integration security patterns"],
+    "patterns": ["\\bintegrations?[^.;â€¢]{0,80}\\bsecurity\\b"]
+  },
+  {
+    "name": "service level indicators",
+    "category": "technical",
+    "aliases": ["service-level indicators", "slis", "sli"]
+  },
+  {
+    "name": "service level objectives",
+    "category": "technical",
+    "aliases": ["service-level objectives", "slos", "slo"]
+  },
+  {
+    "name": "self-service admin tooling",
+    "category": "technical",
+    "aliases": ["self-serve admin tooling", "self service admin tooling", "admin tooling", "customer admin tools"]
+  },
+  {
+    "name": "developer debugging tools",
+    "category": "technical",
+    "aliases": ["debug tooling", "debugging tooling", "developer debug tools", "customer debug tools"]
+  },
+  {
+    "name": "workato",
+    "category": "tool",
+    "aliases": ["workato connectors"]
+  },
+  {
+    "name": "tray.io",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["tray.io", "tray io"],
+    "contextual_aliases": [
+      {"aliases": ["tray"], "context": "\\b(?:workato|zapier|ipaas|connectors?|integrations?|workflows?|recipes?)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "zapier",
+    "category": "tool",
+    "aliases": ["zapier connectors", "zaps"]
+  },
+  {
     "name": "dead-letter queues",
     "category": "technical",
     "aliases": ["dead letter queues", "dead-letter queue", "dead letter queue", "dlq", "dlqs"]
@@ -2277,7 +2497,7 @@
     "category": "technical",
     "aliases": ["service metrics", "operational metrics", "application metrics"],
     "contextual_aliases": [
-      {"aliases": ["metrics"], "context": "\\b(?:logging|tracing|alerting|observability|monitoring|dashboards?|services?|production)\\b"}
+      {"aliases": ["metrics"], "context": "\\b(?:logs?|traces?|logging|tracing|alerting|observability|monitoring|dashboards?|services?|production|slis?|slos?)\\b"}
     ]
   },
   {
@@ -2285,7 +2505,8 @@
     "category": "technical",
     "aliases": ["application tracing", "request tracing"],
     "contextual_aliases": [
-      {"aliases": ["tracing"], "context": "\\b(?:distributed|logging|metrics|observability|monitoring|production)\\b"}
+      {"aliases": ["tracing"], "context": "\\b(?:distributed|logging|metrics|observability|monitoring|production)\\b"},
+      {"aliases": ["traces"], "context": "\\b(?:logs?|metrics|slis?|slos?|observability|monitoring|production)\\b"}
     ]
   },
   {
@@ -6903,7 +7124,8 @@
   },
   {
     "name": "sap cloud platform",
-    "category": "platforms"
+    "category": "platforms",
+    "aliases": ["sap btp", "sap business technology platform"]
   },
   {
     "name": "sap integration",
@@ -17413,7 +17635,8 @@
   },
   {
     "name": "oracle e-business suite",
-    "category": "business_and_office_support_applications"
+    "category": "business_and_office_support_applications",
+    "aliases": ["oracle ebs"]
   },
   {
     "name": "oracle e-business suite finance",
@@ -17921,7 +18144,8 @@
   },
   {
     "name": "sap ecc",
-    "category": "business_and_office_support_applications"
+    "category": "business_and_office_support_applications",
+    "aliases": ["sap ecc 6", "ecc 6"]
   },
   {
     "name": "sap edocument",
