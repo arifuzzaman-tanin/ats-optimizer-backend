@@ -518,7 +518,7 @@
         "aliases": [
           "agile"
         ],
-        "context": "\\b(?:scrum|kanban|sprints?|methodolog\\w*|development|project management|skills?|experience|proficien\\w*)\\b",
+        "context": "\\b(?:scrum|kanban|sprints?|methodolog\\w*|development|project management|cross[ -]functional|teams?|skills?|experience|proficien\\w*)\\b",
         "allow_standalone": true
       }
     ]
@@ -874,7 +874,8 @@
       "desktop testing",
       "desktop application testing",
       "fix validation",
-      "validation of fixes"
+      "validation of fixes",
+      "testing discipline"
     ],
     "patterns": ["\\bimplementation, testing, and packaging\\b", "\\bimplementation, testing, and performance optimization\\b", "\\bverification and validation\\b"]
   },
@@ -1051,7 +1052,8 @@
   {
     "name": "software architecture",
     "category": "technical",
-    "aliases": ["software architectures", "application architecture", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions"]
+    "aliases": ["software architectures", "application architecture", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions", "modern architecture principles"],
+    "patterns": ["\\barchitectural discussions? and decisions?\\b"]
   },
   {
     "name": "software design",
@@ -1124,7 +1126,8 @@
   {
     "name": "ai-assisted software development",
     "category": "technical",
-    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools", "ai-augmented delivery"]
+    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools", "ai-augmented delivery", "ai-driven development", "ai driven development"],
+    "patterns": ["\\b(?:leverage|leveraging|use|using|integrate|integrating)[^.;]{0,40}\\b(?:ai|genai|generative ai)[^.;]{0,140}\\b(?:engineering productivity|code generation|debugging|code reviews?|documentation|development workflows?)\\b"]
   },
   {
     "name": "artificial intelligence",
@@ -1417,11 +1420,11 @@
     "category": "interpersonal",
     "aliases": [
       "engineering mentoring", "developer mentoring", "mentoring engineers",
-      "mentor engineers", "mentor teams", "mentoring the team",
+      "mentor engineers", "mentor teams", "mentoring the team", "mentor other engineers", "mentoring other engineers",
       "mentor junior developers", "mentoring junior developers", "mentored junior developers",
       "mentor junior analysts", "mentoring junior analysts", "mentored junior analysts", "technical guidance"
     ],
-    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b", "\\bmentor(?:ing)? teammates?\\b"]
+    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b", "\\bmentor(?:ing)? teammates?\\b", "\\bmentor(?:ing)? and support(?:ing)? (?:other )?engineers?\\b"]
   },
   {
     "name": "software development best practices",
@@ -1591,7 +1594,7 @@
     "name": "legacy system modernization",
     "category": "technical",
     "aliases": ["legacy modernization", "legacy system migration", "migrating off legacy infrastructure", "legacy infrastructure migration"],
-    "patterns": ["\\bmigrat(?:e|es|ed|ing)[^.;]{0,40}off legacy infrastructure\\b"]
+    "patterns": ["\\bmigrat(?:e|es|ed|ing)[^.;]{0,40}off legacy infrastructure\\b", "\\bmoderniz(?:e|es|ed|ing)[^.;]{0,50}\\blegacy (?:components?|systems?|code(?:base)?)\\b"]
   },
   {
     "name": "advanced excel",
@@ -2809,9 +2812,7 @@
     "name": "performance testing",
     "category": "technical",
     "aliases": ["performance tests", "performance test automation"],
-    "contextual_aliases": [
-      {"aliases": ["performance"], "context": "\\b(?:qa|test(?:ing)?|methodologies|unit|api|ui|integration|e2e)\\b"}
-    ]
+    "patterns": ["\\bperformance,? and e2e testing\\b", "\\b(?:unit|api|ui|integration)(?:,? (?:and )?){0,2}performance(?:,? and)?[^.;]{0,30}\\btesting\\b"]
   },
   {"name": "load testing", "category": "technical", "aliases": ["load tests", "stress testing", "volume testing"]},
   {"name": "jmeter", "category": "tool", "aliases": ["apache jmeter", "j meter"]},
@@ -3327,7 +3328,8 @@
   },
   {
     "name": "focus",
-    "category": "languages"
+    "category": "languages",
+    "name_is_alias": false
   },
   {
     "name": "formula",
@@ -5554,7 +5556,8 @@
   },
   {
     "name": "set",
-    "category": "technologies"
+    "category": "technologies",
+    "name_is_alias": false
   },
   {
     "name": "sgml",
@@ -6079,7 +6082,8 @@
   },
   {
     "name": ".net core",
-    "category": "platforms"
+    "category": "platforms",
+    "patterns": ["(?<![\\w+#])\\.net \\(core\\s*/\\s*modern \\.net"]
   },
   {
     "name": "386bsd",
@@ -10577,7 +10581,8 @@
   },
   {
     "name": "velocity",
-    "category": "development_tools"
+    "category": "development_tools",
+    "name_is_alias": false
   },
   {
     "name": "verify",
@@ -20598,7 +20603,7 @@
     "name": "software scalability",
     "category": "technical",
     "aliases": ["scalable software", "scalable applications", "scalable application"],
-    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b"]
+    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b", "\\b(?:design|implement|build|building)[^.;]{0,50}\\bscalable,? (?:and )?(?:resilient )?(?:software )?solutions?\\b"]
   },
   {
     "name": "software maintainability",
@@ -20765,7 +20770,7 @@
   {
     "name": "resilience engineering",
     "category": "technical",
-    "aliases": ["resilience patterns", "system resilience", "service resilience"]
+    "aliases": ["resilience patterns", "system resilience", "service resilience", "resilient solutions", "system robustness"]
   },
   {
     "name": "high-volume data processing",
@@ -20871,7 +20876,13 @@
   {
     "name": "development infrastructure",
     "category": "technical",
-    "aliases": ["developer infrastructure", "development infrastructure", "build and test systems", "build systems", "test systems"]
+    "aliases": ["developer infrastructure", "development infrastructure", "build and test systems"],
+    "contextual_aliases": [
+      {
+        "aliases": ["build systems", "test systems"],
+        "context": "\\b(?:development|developer|infrastructure|ci|continuous integration|tooling|compiler|software engineering)\\b"
+      }
+    ]
   },
   {
     "name": "testing framework development",
@@ -20933,12 +20944,12 @@
     "name": "end-to-end software delivery",
     "category": "technical",
     "aliases": ["end-to-end project delivery", "end to end software delivery", "end to end project delivery"],
-    "patterns": ["\\bown (?:features|projects|features and projects)[^.;]{0,80}\\bproduction delivery\\b", "\\bown complex features?[^.;]{0,100}\\bfrom design through delivery\\b"]
+    "patterns": ["\\bown (?:features|projects|features and projects)[^.;]{0,80}\\bproduction delivery\\b", "\\bown complex features?[^.;]{0,100}\\bfrom design through delivery\\b", "\\bwork across the full software (?:development )?(?:life ?cycle|lifecycle)[^.;]{0,100}\\bdesign, build, deploy, operate, and iterate\\b"]
   },
   {
     "name": "code quality",
     "category": "technical",
-    "aliases": ["software code quality", "high-quality code", "high quality code"]
+    "aliases": ["software code quality", "high-quality code", "high quality code", "clean code"]
   },
   {
     "name": "technical standards",
@@ -21019,6 +21030,65 @@
     "category": "interpersonal",
     "aliases": ["qa collaboration", "collaboration with qa"],
     "patterns": ["\\bwork(?:ing)? with qa(?: engineers?)?[^.;]{0,100}\\b(?:test(?:ing)?|integration|regression)\\b"]
+  },
+  {
+    "name": "fraud detection",
+    "category": "domain",
+    "aliases": ["fraud prevention", "detect fraud", "detecting fraud"]
+  },
+  {
+    "name": "risk analysis",
+    "category": "business",
+    "aliases": ["risk assessment", "assess risk", "assessing risk", "risk decisions", "risk decisioning"]
+  },
+  {
+    "name": "system design",
+    "category": "technical",
+    "aliases": ["systems design"]
+  },
+  {
+    "name": "software modularity",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["modular software", "modular architecture"],
+    "contextual_aliases": [
+      {
+        "aliases": ["modularity"],
+        "context": "\\b(?:architecture|software|systems?|services?|modules?|boundaries|design principles?)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "software testability",
+    "category": "technical",
+    "aliases": ["testable software", "testable systems", "testable applications", "testability"]
+  },
+  {
+    "name": "developer productivity",
+    "category": "technical",
+    "aliases": ["engineering productivity", "developer velocity", "development productivity"]
+  },
+  {
+    "name": "workflow automation",
+    "category": "technical",
+    "aliases": ["workflow optimization", "workflow optimisation", "automate repetitive tasks", "automating repetitive tasks", "optimize workflows", "optimise workflows"]
+  },
+  {
+    "name": "production operations",
+    "category": "technical",
+    "aliases": ["production operation", "operating in production environments", "operate in production environments", "you build it, you run it", "you build it you run it"]
+  },
+  {
+    "name": "generative artificial intelligence",
+    "category": "technical",
+    "aliases": ["generative ai", "genai"]
+  },
+  {
+    "name": "performance engineering",
+    "category": "technical",
+    "aliases": ["performance awareness", "software performance engineering"],
+    "patterns": ["\\bfocus on testability, performance, and reliability\\b"]
   },
   {
     "name": "initiative",

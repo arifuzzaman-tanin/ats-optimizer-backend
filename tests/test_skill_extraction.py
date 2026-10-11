@@ -42,6 +42,9 @@ CORITY_JOB = Path(__file__).with_name("fixtures").joinpath(
 LOGISENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
     "logisense_software_developer.txt"
 ).read_text(encoding="utf-8")
+AUTOSCOUT24_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "autoscout24_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -656,6 +659,37 @@ class ExtractionTests(unittest.TestCase):
             "usage-based billing",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_autoscout24_role_extracts_transformation_risk_and_genai_skills(self):
+        skills = set(extract_skills(AUTOSCOUT24_JOB, source="job_description"))
+        expected = {
+            ".net", ".net core", "agile", "ai-assisted software development",
+            "artificial intelligence", "code quality", "code review",
+            "cross-functional collaboration", "debugging", "developer productivity",
+            "devops", "end-to-end software delivery", "fraud detection",
+            "generative artificial intelligence", "leadership",
+            "legacy system modernization", "next.js", "observability", "ownership",
+            "performance engineering", "problem solving", "production operations",
+            "react", "resilience engineering", "risk analysis", "software architecture",
+            "software development lifecycle", "software maintainability",
+            "software modularity", "software reliability", "software scalability",
+            "software testability", "software testing", "system design",
+            "technical debt", "technical decision-making", "technical mentoring",
+            "typescript", "workflow automation",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertFalse({"focus", "set", "velocity", "development infrastructure",
+                          "performance testing"} & skills)
+
+    def test_autoscout24_terms_do_not_promote_unrelated_language(self):
+        skills = set(extract_skills(
+            "The set focused on velocity. The modularity theorem was discussed. "
+            "They built systems that matter and reviewed a fraud news story."
+        ))
+        self.assertFalse({
+            "focus", "set", "velocity", "software modularity",
+            "development infrastructure", "fraud detection",
+        } & skills)
 
     def test_logisense_domain_terms_do_not_match_generic_business_language(self):
         skills = set(extract_skills(
