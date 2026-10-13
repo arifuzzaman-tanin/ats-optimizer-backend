@@ -1,0 +1,64 @@
+About the job
+
+Magnet Forensics develops digital investigative software that acquires, analyzes,
+and shares evidence from computers, smartphones, tablets, and IoT devices. Magnet
+One is a cloud-based platform combining digital forensic tools, case management,
+evidence storage, and collaboration workflows.
+
+Role overview
+
+We are hiring front-end, back-end, and full-stack Software Engineers.
+
+What you'll do
+
+- Analyze requirements, break down tasks, and estimate effort.
+- Design robust, performant, and secure solutions.
+- Develop efficient, modular, and maintainable software solutions.
+- Participate in code reviews.
+- Troubleshoot, debug, and fix defects.
+- Take initiative, build strong teams, and communicate effectively.
+- Guide best practices for building, delivering, and maintaining multiple source
+  code projects.
+- Understand product intent and use it to make product design and architecture
+  decisions.
+
+What we're looking for
+
+- Professional software engineering experience.
+- Strong full-stack development skills across front-end and back-end systems.
+- React and modern front-end web development, including component design, state
+  management, and responsive UI.
+- C# server-side application development, including APIs, services, and data access.
+- Writing and maintaining automated tests at various levels of abstraction.
+- Cross-functional collaboration and communication with technical and non-technical
+  stakeholders.
+- Navigating ambiguity and adapting in a fast-changing environment.
+
+Nice to have
+
+- Python or other programming languages.
+- Linux environments and shell scripting.
+- Distributed data stores such as Elasticsearch, Redis, or PostgreSQL JSONB.
+- Observability and monitoring with Prometheus, Grafana, or OpenTelemetry.
+- Cloud-native systems, distributed services, and SaaS platform development.
+- AWS, Kubernetes, and container-based deployment pipelines.
+- AI technologies and workflows such as natural language search, agentic workflows,
+  and using AI as part of the development process.
+- Security-conscious or highly regulated environments.
+
+Technologies
+
+- .NET / C#
+- AWS
+- React, TypeScript, HTML, and CSS
+- REST and GraphQL APIs
+- Automated testing with xUnit, Jest, and PyTest
+- Azure DevOps, GitLab, Git, and Jenkins
+- Python
+- Linux and shell scripting
+- Docker and Kubernetes containerized services
+- Infrastructure as code using CDK
+- Distributed, message-driven systems
+- Elasticsearch and search/indexing systems
+- Prometheus, Grafana, and OpenTelemetry
+- AI coding tools such as Claude Code and Cursor

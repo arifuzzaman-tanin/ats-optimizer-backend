@@ -51,6 +51,9 @@ AUTOSCOUT24_JOB = Path(__file__).with_name("fixtures").joinpath(
 MAINTAINX_BACKEND_PLATFORM_JOB = Path(__file__).with_name("fixtures").joinpath(
     "maintainx_backend_platform_engineer.txt"
 ).read_text(encoding="utf-8")
+MAGNET_FORENSICS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "magnet_forensics_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -687,6 +690,41 @@ class ExtractionTests(unittest.TestCase):
             "usage-based billing",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_magnet_forensics_role_extracts_full_stack_cloud_and_forensics_skills(self):
+        skills = set(extract_skills(MAGNET_FORENSICS_JOB, source="job_description"))
+        expected = {
+            ".net", "adaptability", "agentic ai frameworks",
+            "ai-assisted software development", "amazon web services",
+            "application security", "automated testing", "aws cdk", "azure devops",
+            "backend software development", "c#", "claude", "cloud native",
+            "code review", "communication", "component design", "containerization",
+            "cross-functional collaboration", "css", "cursor", "data access",
+            "debugging", "decision-making under ambiguity", "digital forensics",
+            "distributed data stores", "distributed systems", "docker", "elasticsearch",
+            "engineering team building", "full stack development", "git", "gitlab",
+            "grafana", "graphql", "html", "infrastructure as code", "initiative",
+            "jenkins", "jest", "kubernetes", "linux", "message-driven architecture",
+            "monitoring", "natural language search", "observability", "opentelemetry",
+            "performance optimization", "postgresql", "postgresql jsonb", "prometheus",
+            "pytest", "python", "react", "redis", "regulated software development",
+            "requirements analysis", "requirements task decomposition",
+            "responsive web design", "rest api", "search indexing", "software architecture",
+            "software as a service", "software maintainability", "software modularity",
+            "software project estimation", "state management", "troubleshooting",
+            "typescript", "web development", "xunit",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertFalse({"natural", "rest"} & skills)
+
+    def test_magnet_terms_do_not_promote_unrelated_natural_cdk_or_access_language(self):
+        skills = set(extract_skills(
+            "The natural environment is changing. Researchers studied CDK proteins "
+            "in regulated markets. A customer submitted a data access request."
+        ))
+        self.assertFalse({
+            "natural", "aws cdk", "regulated software development", "data access",
+        } & skills)
 
     def test_autoscout24_role_extracts_transformation_risk_and_genai_skills(self):
         skills = set(extract_skills(AUTOSCOUT24_JOB, source="job_description"))

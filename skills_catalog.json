@@ -466,8 +466,11 @@
     "category": "interpersonal",
     "aliases": [
       "adaptable",
-      "adaptability skills"
-    ]
+      "adaptability skills",
+      "adapting in a fast-changing environment",
+      "adapting in fast-changing environments"
+    ],
+    "patterns": ["\\badapt(?:ing)? in (?:a )?fast[ -]changing environments?\\b"]
   },
   {
     "name": "conflict resolution",
@@ -861,7 +864,7 @@
       "restful api",
       "restful apis"
     ],
-    "patterns": ["\\brest/websocket apis\\b"]
+    "patterns": ["\\brest/websocket apis\\b", "\\brest and graphql apis\\b", "\\brest(?:ful)? and graphql api development\\b"]
   },
   {
     "name": "software testing",
@@ -1074,7 +1077,7 @@
   {
     "name": "requirements analysis",
     "category": "business",
-    "aliases": ["requirements gathering", "requirements engineering", "feature request definition", "clarify requirements", "clarifying requirements"],
+    "aliases": ["requirements gathering", "requirements engineering", "feature request definition", "clarify requirements", "clarifying requirements", "analyze requirements", "analysing requirements", "analyzing requirements"],
     "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b", "\\btranslat(?:e|es|ing) customer issues[^.;]{0,100}\\bfeature requests?\\b", "\\btranslat(?:e|es|ed|ing) requirements into technical designs?\\b"]
   },
   {
@@ -1208,8 +1211,8 @@
   {
     "name": "application security",
     "category": "technical",
-    "aliases": ["secure application development", "secure software development", "application security practices"],
-    "patterns": ["\\b(?:building|developing|designing) secure apis\\b"]
+    "aliases": ["secure application development", "secure software development", "application security practices", "security-conscious development", "security conscious development", "security-conscious environment", "security conscious environment"],
+    "patterns": ["\\b(?:building|developing|designing) secure apis\\b", "\\bdesign(?:ing)? (?:robust,? )?(?:performant,? and )?secure solutions?\\b"]
   },
   {
     "name": "relational databases",
@@ -1255,7 +1258,8 @@
   {
     "name": "debugging",
     "category": "technical",
-    "aliases": ["software debugging", "debug software", "debug complex issues"]
+    "aliases": ["software debugging", "debug software", "debug complex issues", "debug defects", "debugging defects"],
+    "patterns": ["\\btroubleshoot,? debug,? and fix defects\\b"]
   },
   {
     "name": "automated testing",
@@ -1411,7 +1415,7 @@
     "name": "performance optimization",
     "category": "technical",
     "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation"],
-    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b"]
+    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b", "\\bdesign(?:ing)? (?:robust,? )?performant(?:,? and secure)? solutions?\\b"]
   },
   {
     "name": "memory optimization",
@@ -1592,7 +1596,7 @@
   {
     "name": "distributed systems",
     "category": "technical",
-    "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer"]
+    "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer", "distributed services"]
   },
   {
     "name": "legacy system modernization",
@@ -1673,7 +1677,7 @@
   {
     "name": "backend software development",
     "category": "technical",
-    "aliases": ["backend software engineering", "backend development", "backend engineering"],
+    "aliases": ["backend software engineering", "backend development", "backend engineering", "server-side application development", "server side application development", "server-side development", "server side development"],
     "patterns": ["\\b(?:build|building|develop|developing|maintain|maintaining)[^.;]{0,50}\\bbackend components?\\b"]
   },
   {
@@ -2022,7 +2026,7 @@
   {
     "name": "regulated software development",
     "category": "domain",
-    "aliases": ["regulated software delivery", "regulated software", "medical-device standards", "medical device standards"]
+    "aliases": ["regulated software delivery", "regulated software", "medical-device standards", "medical device standards", "regulated environment", "regulated environments", "highly regulated environment", "highly regulated environments"]
   },
   {
     "name": "health data privacy",
@@ -3137,7 +3141,7 @@
   {"name": "threat detection", "category": "technical", "aliases": ["incident detection", "security detection", "detection engineering"]},
   {"name": "threat hunting", "category": "technical", "aliases": ["cyber threat hunting"]},
   {"name": "malware analysis", "category": "technical", "aliases": ["malware investigation"]},
-  {"name": "digital forensics", "category": "technical", "aliases": ["forensic investigations", "computer forensics", "network forensics", "memory forensics"]},
+  {"name": "digital forensics", "category": "technical", "aliases": ["forensic investigations", "computer forensics", "network forensics", "memory forensics", "digital forensic tools", "digital forensics tools", "digital forensic software"]},
   {"name": "network security", "category": "technical", "aliases": ["network security engineering", "secure networking"]},
   {"name": "intrusion detection and prevention", "category": "technical", "aliases": ["intrusion detection", "intrusion prevention", "ids/ips", "ids ips"]},
   {"name": "threat intelligence", "category": "technical", "aliases": ["cyber threat intelligence", "threat intelligence platforms"]},
@@ -3731,7 +3735,14 @@
   },
   {
     "name": "natural",
-    "category": "languages"
+    "category": "languages",
+    "name_is_alias": false,
+    "contextual_aliases": [
+      {
+        "aliases": ["natural"],
+        "context": "\\b(?:software ag|adabas|programming language|programmer|developer|compiler|mainframe)\\b"
+      }
+    ]
   },
   {
     "name": "oberon",
@@ -5700,10 +5711,6 @@
   },
   {
     "name": "rendezvous",
-    "category": "technologies"
-  },
-  {
-    "name": "rest",
     "category": "technologies"
   },
   {
@@ -12905,7 +12912,7 @@
   {
     "name": "cloud native",
     "category": "methods_and_standards",
-    "aliases": ["cloud-native development", "cloud native development", "cloud-native application development", "cloud native application development"]
+    "aliases": ["cloud-native development", "cloud native development", "cloud-native application development", "cloud native application development", "cloud-native systems", "cloud native systems"]
   },
   {
     "name": "component test",
@@ -12922,7 +12929,7 @@
   {
     "name": "containerization",
     "category": "methods_and_standards",
-    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments", "containerized deployments", "containerised deployments"]
+    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments", "containerized deployments", "containerised deployments", "containerized services", "containerised services", "container-based deployment", "container based deployment", "container-based deployment pipelines", "container based deployment pipelines"]
   },
   {
     "name": "continuous delivery pipeline",
@@ -13655,7 +13662,10 @@
     "name": "software as a service",
     "category": "methods_and_standards",
     "aliases": [
-      "saas"
+      "saas",
+      "saas platform development",
+      "software-as-a-service platform development",
+      "software as a service platform development"
     ]
   },
   {
@@ -21051,7 +21061,7 @@
   {
     "name": "decision-making under ambiguity",
     "category": "interpersonal",
-    "aliases": ["decision making under ambiguity", "operating with ambiguity", "comfortable operating with ambiguity", "handle ambiguity", "handling ambiguity"]
+    "aliases": ["decision making under ambiguity", "operating with ambiguity", "comfortable operating with ambiguity", "handle ambiguity", "handling ambiguity", "navigating ambiguity"]
   },
   {
     "name": "predictive analytics",
@@ -21140,7 +21150,7 @@
   {
     "name": "agentic ai frameworks",
     "category": "technical",
-    "aliases": ["agentic framework", "agentic frameworks", "ai agent frameworks", "agent frameworks"]
+    "aliases": ["agentic framework", "agentic frameworks", "ai agent frameworks", "agent frameworks", "agentic workflow", "agentic workflows", "ai agent workflows"]
   },
   {
     "name": "model context protocol",
@@ -21155,7 +21165,7 @@
     "name": "software project estimation",
     "category": "business",
     "aliases": ["software estimation", "development estimation", "engineering estimation"],
-    "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b", "\\bprovide realistic estimates\\b"]
+    "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b", "\\bprovide realistic estimates\\b", "\\b(?:analy[sz]e requirements,? )?(?:break down tasks,? and )?estimate effort\\b"]
   },
   {
     "name": "end-to-end software delivery",
@@ -21213,8 +21223,8 @@
   {
     "name": "requirements task decomposition",
     "category": "business",
-    "aliases": ["breaking down requirements", "requirements decomposition"],
-    "patterns": ["\\bbreak down requirements into (?:software |development )?tasks\\b"]
+    "aliases": ["breaking down requirements", "requirements decomposition", "break down tasks"],
+    "patterns": ["\\bbreak down requirements into (?:software |development )?tasks\\b", "\\banaly[sz]e requirements,? break down tasks\\b"]
   },
   {
     "name": "risk communication",
@@ -21267,14 +21277,15 @@
     "name": "software modularity",
     "category": "technical",
     "name_is_alias": false,
-    "aliases": ["modular software", "modular architecture"],
+    "aliases": ["modular software", "modular architecture", "modular software solutions"],
     "contextual_aliases": [
       {
         "aliases": ["modularity"],
         "context": "\\b(?:architecture|software|systems?|services?|modules?|boundaries|design principles?)\\b",
         "allow_standalone": true
       }
-    ]
+    ],
+    "patterns": ["\\bmodular,? and maintainable software (?:solutions?|systems?|applications?)\\b"]
   },
   {
     "name": "software testability",
@@ -21312,7 +21323,7 @@
     "category": "interpersonal",
     "name_is_alias": false,
     "aliases": ["self-starter", "self starter"],
-    "patterns": ["\\binitiative to (?:improve|strengthen|address|build|develop)\\b"]
+    "patterns": ["\\binitiative to (?:improve|strengthen|address|build|develop)\\b", "\\btake initiative\\b"]
   },
   {
     "name": "cloud cost analysis",
@@ -21341,7 +21352,61 @@
     "name": "engineering team building",
     "category": "interpersonal",
     "aliases": ["building an engineering team", "build an engineering team", "anchoring a new engineering team", "anchor a new engineering team", "engineering team formation", "build the team"],
-    "patterns": ["\\bexperience building or anchoring a new engineering team\\b", "\\bdirect input on which roles are hired next\\b"]
+    "patterns": ["\\bexperience building or anchoring a new engineering team\\b", "\\bdirect input on which roles are hired next\\b", "\\bbuild strong teams\\b"]
+  },
+  {
+    "name": "component design",
+    "category": "technical",
+    "aliases": ["ui component design", "user interface component design", "react component design"]
+  },
+  {
+    "name": "data access",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["data access code", "database access", "data access layer", "data access layers"],
+    "patterns": ["\\bserver[ -]side application development[^.;]{0,100}\\bdata access\\b", "\\bapis,? services,? and data access\\b"]
+  },
+  {
+    "name": "distributed data stores",
+    "category": "technical",
+    "aliases": ["distributed data store", "distributed databases", "distributed database systems"]
+  },
+  {
+    "name": "message-driven architecture",
+    "category": "technical",
+    "aliases": ["message driven architecture", "message-driven systems", "message driven systems", "message-driven services", "message driven services"]
+  },
+  {
+    "name": "natural language search",
+    "category": "technical",
+    "aliases": ["natural-language search", "natural language querying", "natural-language querying"]
+  },
+  {
+    "name": "search indexing",
+    "category": "technical",
+    "aliases": ["search indexing systems", "search and indexing systems", "search/indexing systems", "search index design"]
+  },
+  {
+    "name": "aws cdk",
+    "category": "tool",
+    "aliases": ["aws cloud development kit", "amazon cloud development kit", "cloud development kit"],
+    "contextual_aliases": [
+      {
+        "aliases": ["cdk"],
+        "context": "\\b(?:aws|amazon|infrastructure[ -]as[ -]code|iac|cloud|deploy(?:ment|ing)?)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "xunit",
+    "category": "tool",
+    "aliases": ["xunit.net", "xunit testing", "xunit tests"]
+  },
+  {
+    "name": "postgresql jsonb",
+    "category": "technical",
+    "aliases": ["postgres jsonb", "jsonb data", "jsonb storage"]
   }
 
 ]
