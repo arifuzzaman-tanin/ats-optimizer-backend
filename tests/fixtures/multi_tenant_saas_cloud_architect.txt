@@ -1,0 +1,37 @@
+What You'll Do
+
+- Design the architecture for a new multi-tenant SaaS product, from data ingestion at customer sites through cloud-hosted services to customer-facing reporting
+- Build, deploy, and maintain the cloud infrastructure and backend components hands-on while the engineering team is hired
+- Design data pipelines that move operational data from on-premises manufacturing environments into the cloud reliably and securely
+- Define patterns for multi-tenancy, customer data isolation, scalability, and security
+- Evaluate cloud platforms and technology options, recommending where to start small and how to scale based on cost and long-term maintainability
+- Learn how the company's existing on-premises product works and carry that knowledge into a lighter cloud offering
+- Deliver a starting proposal for the platform and the roles needed to build it within the first three months
+- Stand up CI/CD pipelines, Infrastructure-as-Code, and monitoring for the new platform
+- Work with a small group of early customers to identify what the product needs first
+
+What We're Looking For
+
+- 5+ years of experience as a cloud or solutions architect, designing systems and making the platform and technology calls behind them
+- Experience designing and building cloud systems end to end, not just contributing to a single layer
+- Experience with more than one major cloud platform, such as Microsoft Azure, AWS, or Google Cloud
+- Experience building systems that ingest and process high volumes of operational data
+- Significant experience designing and deploying databases at scale, including schema design, query performance, and storage trade-offs
+- Strong grasp of distributed systems: data flow, service boundaries, failure modes, and resilience patterns
+- Experience integrating cloud platforms with on-premises or operationally constrained environments
+- Familiarity with SaaS patterns such as multi-tenancy, customer data isolation, and subscription-based delivery
+- Experience producing cost analyses and platform recommendations that balance a small start against future growth
+
+Nice to have
+
+- Experience in industrial, IoT or manufacturing environments
+- Experience with .NET and SQL Server
+- Experience building or anchoring a new engineering team
+
+What Makes This Role Exciting
+
+- Architect and Builder: A role for someone who wants to design a platform and write the code behind it, rather than choose between the two
+- Build the Team: You'll have direct input on which roles are hired next, and in what order, as a new product team takes shape
+- Customer Input: Early anchor customers help decide what the product delivers first, giving the design a direct line to real users
+- Clear Direction: Business requirements and an MVP target are already defined, so the work starts with a destination
+- Long-Term Pipeline: Further cloud initiatives are planned after this first product, with more architecture work to follow

@@ -33,6 +33,9 @@ REAL_TIME_PAYMENTS_JOB = Path(__file__).with_name("fixtures").joinpath(
 PROMACH_CLOUD_ARCHITECT_JOB = Path(__file__).with_name("fixtures").joinpath(
     "promach_cloud_architect_engineer.txt"
 ).read_text(encoding="utf-8")
+MULTI_TENANT_SAAS_CLOUD_ARCHITECT_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "multi_tenant_saas_cloud_architect.txt"
+).read_text(encoding="utf-8")
 AQUATIC_INFORMATICS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "aquatic_informatics_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
@@ -593,6 +596,28 @@ class ExtractionTests(unittest.TestCase):
             "software as a service", "software maintainability", "software reliability",
             "software scalability", "storage architecture", "technical communication",
             "technical writing", "technology evaluation", "tenant data isolation",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_multi_tenant_saas_cloud_architect_extracts_strategy_and_build_skills(self):
+        skills = set(extract_skills(
+            MULTI_TENANT_SAAS_CLOUD_ARCHITECT_JOB, source="job_description"
+        ))
+        expected = {
+            ".net", "amazon web services", "backend software development", "ci/cd",
+            "cloud cost analysis", "cloud infrastructure", "cloud platform strategy",
+            "cloud security", "customer discovery", "customer-facing reporting",
+            "data flow design", "data ingestion", "data pipeline development",
+            "database scalability", "database schema design", "distributed systems",
+            "engineering team building", "failure mode analysis", "google cloud platform",
+            "high-volume data processing", "hybrid cloud integration", "industrial systems",
+            "infrastructure as code", "iot", "manufacturing systems", "microsoft azure",
+            "microsoft sql server", "monitoring", "multi cloud strategy",
+            "multi-tenant architecture", "on-premises software", "public cloud architecture",
+            "query performance optimization", "resilience engineering",
+            "service boundary design", "software architecture", "software as a service",
+            "software maintainability", "software scalability", "storage architecture",
+            "technology evaluation", "tenant data isolation",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 

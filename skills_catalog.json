@@ -1052,8 +1052,8 @@
   {
     "name": "software architecture",
     "category": "technical",
-    "aliases": ["software architectures", "application architecture", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions", "modern architecture principles"],
-    "patterns": ["\\barchitectural discussions? and decisions?\\b"]
+    "aliases": ["software architectures", "application architecture", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions", "modern architecture principles", "solutions architect"],
+    "patterns": ["\\barchitectural discussions? and decisions?\\b", "\\bdesign the architecture for (?:a |an )?(?:new )?(?:multi[ -]tenant )?(?:saas|cloud|software) (?:product|platform|system)\\b"]
   },
   {
     "name": "software design",
@@ -1927,7 +1927,7 @@
   {
     "name": "on-premises software",
     "category": "technical",
-    "aliases": ["on-premise software", "on-premise agents", "on-premises agents", "installed services"]
+    "aliases": ["on-premise software", "on-premises product", "on-premise product", "on-premise agents", "on-premises agents", "installed services"]
   },
   {
     "name": "embedded systems",
@@ -3158,7 +3158,7 @@
   {"name": "static application security testing", "category": "technical", "aliases": ["static security testing", "sast"]},
   {"name": "dynamic application security testing", "category": "technical", "aliases": ["dynamic security testing", "dast"]},
   {"name": "zero trust security", "category": "technical", "aliases": ["zero-trust security", "zero trust principles", "zero-trust principles"]},
-  {"name": "cloud security", "category": "technical", "aliases": ["cloud security architecture", "secure cloud architecture", "aws security", "azure security", "gcp security"], "patterns": ["\\b(?:cloud )?infrastructure patterns?[^.;]{0,100}\\bsecurity\\b"]},
+  {"name": "cloud security", "category": "technical", "aliases": ["cloud security architecture", "secure cloud architecture", "aws security", "azure security", "gcp security"], "patterns": ["\\b(?:cloud )?infrastructure patterns?[^.;]{0,100}\\bsecurity\\b", "\\bdefine patterns? for (?:multi[ -]tenancy|multi[ -]tenant)[^.;]{0,100}\\bsecurity\\b"]},
   {"name": "secure coding", "category": "technical", "aliases": ["secure coding practices", "secure coding standards", "security by design"]},
   {"name": "devsecops", "category": "technical", "aliases": ["dev sec ops", "security in ci/cd"]},
   {"name": "security risk assessment", "category": "technical", "aliases": ["security risk assessments", "security assessment", "threat risk assessments"]},
@@ -20060,7 +20060,8 @@
   {
     "name": "public cloud architecture",
     "category": "working_areas",
-    "aliases": ["cloud architecture"]
+    "aliases": ["cloud architecture", "cloud architect"],
+    "patterns": ["\\bcloud or solutions architect\\b"]
   },
   {
     "name": "distributed data store operations",
@@ -20149,7 +20150,9 @@
   },
   {
     "name": "multi cloud strategy",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["multi-cloud architecture", "multicloud architecture", "multi-cloud design", "multicloud design", "multi-cloud strategy", "multicloud strategy"],
+    "patterns": ["\\bexperience with more than one major cloud platform\\b"]
   },
   {
     "name": "nearshoring",
@@ -20817,7 +20820,7 @@
     "name": "software scalability",
     "category": "technical",
     "aliases": ["scalable software", "scalable applications", "scalable application"],
-    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b", "\\b(?:design|implement|build|building)[^.;]{0,50}\\bscalable,? (?:and )?(?:resilient )?(?:software )?solutions?\\b"]
+    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b", "\\b(?:design|implement|build|building)[^.;]{0,50}\\bscalable,? (?:and )?(?:resilient )?(?:software )?solutions?\\b", "\\bdefine patterns? for (?:multi[ -]tenancy|multi[ -]tenant)[^.;]{0,80}\\bscalability\\b"]
   },
   {
     "name": "software maintainability",
@@ -21038,7 +21041,7 @@
   {
     "name": "technology evaluation",
     "category": "technical",
-    "aliases": ["technology assessment", "platform evaluation", "evaluate technology and platform options", "evaluating technology and platform options"]
+    "aliases": ["technology assessment", "platform evaluation", "evaluate technology and platform options", "evaluating technology and platform options", "evaluate cloud platforms and technology options", "evaluating cloud platforms and technology options"]
   },
   {
     "name": "data flow design",
@@ -21310,6 +21313,35 @@
     "name_is_alias": false,
     "aliases": ["self-starter", "self starter"],
     "patterns": ["\\binitiative to (?:improve|strengthen|address|build|develop)\\b"]
+  },
+  {
+    "name": "cloud cost analysis",
+    "category": "business",
+    "aliases": ["cloud cost analysis", "cloud cost analyses", "cloud platform cost analysis", "cloud platform cost analyses"],
+    "patterns": ["\\b(?:producing|produce|developing|develop) cost analyses? and platform recommendations?\\b", "\\brecommend(?:ing|ed)?[^.;]{0,80}\\bscale based on cost\\b"]
+  },
+  {
+    "name": "cloud platform strategy",
+    "category": "technical",
+    "aliases": ["cloud strategy", "cloud platform recommendation", "cloud platform recommendations"],
+    "patterns": ["\\brecommend(?:ing|ed)? where to start small and how to scale\\b", "\\b(?:producing|produce|developing|develop) cost analyses? and platform recommendations?\\b"]
+  },
+  {
+    "name": "customer discovery",
+    "category": "business",
+    "aliases": ["customer discovery", "product discovery with customers", "customer input"],
+    "patterns": ["\\bwork with (?:a )?(?:small group of )?early customers? to identify what the product needs? first\\b", "\\bearly (?:anchor )?customers? help decide what the product delivers? first\\b"]
+  },
+  {
+    "name": "customer-facing reporting",
+    "category": "technical",
+    "aliases": ["customer facing reporting", "customer-facing reports", "customer facing reports"]
+  },
+  {
+    "name": "engineering team building",
+    "category": "interpersonal",
+    "aliases": ["building an engineering team", "build an engineering team", "anchoring a new engineering team", "anchor a new engineering team", "engineering team formation", "build the team"],
+    "patterns": ["\\bexperience building or anchoring a new engineering team\\b", "\\bdirect input on which roles are hired next\\b"]
   }
 
 ]
