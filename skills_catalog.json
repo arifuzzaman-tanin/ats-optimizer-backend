@@ -3142,7 +3142,12 @@
   {"name": "threat hunting", "category": "technical", "aliases": ["cyber threat hunting"]},
   {"name": "malware analysis", "category": "technical", "aliases": ["malware investigation"]},
   {"name": "digital forensics", "category": "technical", "aliases": ["forensic investigations", "computer forensics", "network forensics", "memory forensics", "digital forensic tools", "digital forensics tools", "digital forensic software"]},
-  {"name": "network security", "category": "technical", "aliases": ["network security engineering", "secure networking"]},
+  {
+    "name": "network security",
+    "category": "technical",
+    "aliases": ["network security engineering", "secure networking"],
+    "patterns": ["\\bsecurity and compliance best practices[^.;]{0,120}\\bnetworking\\b"]
+  },
   {"name": "intrusion detection and prevention", "category": "technical", "aliases": ["intrusion detection", "intrusion prevention", "ids/ips", "ids ips"]},
   {"name": "threat intelligence", "category": "technical", "aliases": ["cyber threat intelligence", "threat intelligence platforms"]},
   {"name": "mitre att&ck", "category": "technical", "aliases": ["mitre attack", "att&ck framework", "attack framework"]},
@@ -5326,7 +5331,11 @@
   },
   {
     "name": "microsoft azure api management",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure api management"],
+    "contextual_aliases": [
+      {"aliases": ["api management"], "context": "\\b(?:azure|cloud|gateway)\\b"}
+    ]
   },
   {
     "name": "microsoft azure application insights",
@@ -5335,7 +5344,11 @@
   },
   {
     "name": "microsoft azure data factory",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure data factory"],
+    "contextual_aliases": [
+      {"aliases": ["data factory"], "context": "\\b(?:azure|service bus|event grid|event hubs?|cloud)\\b"}
+    ]
   },
   {
     "name": "microsoft azure data lake",
@@ -5364,7 +5377,8 @@
   },
   {
     "name": "microsoft azure logic apps",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure logic apps", "logic apps"]
   },
   {
     "name": "microsoft azure mfa",
@@ -5408,7 +5422,8 @@
   },
   {
     "name": "microsoft azure web apps",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure web apps", "azure app service", "azure app services", "app service", "app services"]
   },
   {
     "name": "microsoft compact framework",
@@ -8123,7 +8138,11 @@
   },
   {
     "name": "arm template",
-    "category": "development_tools"
+    "category": "development_tools",
+    "aliases": ["arm templates"],
+    "contextual_aliases": [
+      {"aliases": ["arm"], "context": "\\b(?:azure|infrastructure[ -]as[ -]code|iac|bicep|terraform|provision)\\b"}
+    ]
   },
   {
     "name": "as/set",
@@ -20829,7 +20848,10 @@
   {
     "name": "software scalability",
     "category": "technical",
-    "aliases": ["scalable software", "scalable applications", "scalable application"],
+    "aliases": ["scalable software", "scalable applications", "scalable application", "application scalability"],
+    "contextual_aliases": [
+      {"aliases": ["scalability"], "context": "\\b(?:applications?|software|systems?|services?|cloud)\\b"}
+    ],
     "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b", "\\b(?:design|implement|build|building)[^.;]{0,50}\\bscalable,? (?:and )?(?:resilient )?(?:software )?solutions?\\b", "\\bdefine patterns? for (?:multi[ -]tenancy|multi[ -]tenant)[^.;]{0,80}\\bscalability\\b"]
   },
   {
@@ -20997,7 +21019,10 @@
   {
     "name": "resilience engineering",
     "category": "technical",
-    "aliases": ["resilience patterns", "system resilience", "service resilience", "resilient solutions", "system robustness"]
+    "aliases": ["resilience patterns", "system resilience", "service resilience", "resilient solutions", "system robustness"],
+    "contextual_aliases": [
+      {"aliases": ["resilience", "resiliency"], "context": "\\b(?:applications?|software|systems?|services?|cloud)\\b"}
+    ]
   },
   {
     "name": "high-volume data processing",
@@ -21407,6 +21432,64 @@
     "name": "postgresql jsonb",
     "category": "technical",
     "aliases": ["postgres jsonb", "jsonb data", "jsonb storage"]
+  },
+  {
+    "name": "bicep",
+    "category": "tool",
+    "aliases": ["azure bicep"]
+  },
+  {
+    "name": "microsoft azure event grid",
+    "category": "tool",
+    "aliases": ["azure event grid"],
+    "contextual_aliases": [
+      {"aliases": ["event grid"], "context": "\\b(?:azure|service bus|event hubs?|data factory|cloud)\\b"}
+    ]
+  },
+  {
+    "name": "microsoft azure monitor",
+    "category": "tool",
+    "aliases": ["azure monitor"]
+  },
+  {
+    "name": "microsoft azure log analytics",
+    "category": "tool",
+    "aliases": ["azure log analytics"],
+    "contextual_aliases": [
+      {"aliases": ["log analytics"], "context": "\\b(?:azure|application insights|monitor(?:ing)?)\\b"}
+    ]
+  },
+  {
+    "name": "api security",
+    "category": "technical",
+    "aliases": ["api security best practices", "secure api architecture"]
+  },
+  {
+    "name": "cloud identity security",
+    "category": "technical",
+    "aliases": ["cloud identity protection", "azure identity security"],
+    "patterns": ["\\bsecurity and compliance best practices[^.;]{0,100}\\bidentity\\b"]
+  },
+  {
+    "name": "cloud compliance",
+    "category": "technical",
+    "aliases": ["cloud security compliance", "azure compliance"],
+    "patterns": ["\\bsecurity and compliance best practices[^.;]{0,100}\\bazure resources\\b"]
+  },
+  {
+    "name": "data workflow orchestration",
+    "category": "technical",
+    "aliases": ["data workflow orchestration", "data workflows"]
+  },
+  {
+    "name": "messaging systems",
+    "category": "technical",
+    "aliases": ["messaging solutions", "messaging and integration solutions"]
+  },
+  {
+    "name": "environment promotion",
+    "category": "technical",
+    "aliases": ["deployment promotion", "environment promotions"]
   }
 
 ]

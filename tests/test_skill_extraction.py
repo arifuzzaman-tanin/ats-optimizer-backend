@@ -54,6 +54,9 @@ MAINTAINX_BACKEND_PLATFORM_JOB = Path(__file__).with_name("fixtures").joinpath(
 MAGNET_FORENSICS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "magnet_forensics_software_engineer.txt"
 ).read_text(encoding="utf-8")
+AZURE_INTEGRATION_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "azure_integration_developer.txt"
+).read_text(encoding="utf-8")
 
 VITAA_JOB = """
 About the job
@@ -312,6 +315,37 @@ Patience and empathy. Attention to detail. Teamwork. Time management skills.
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_azure_integration_role_extracts_cloud_platform_and_delivery_skills(self):
+        skills = set(extract_skills(AZURE_INTEGRATION_JOB, source="job_description"))
+        expected = {
+            ".net", "api development", "api security", "arm template", "azure devops",
+            "bicep", "c#", "ci/cd", "cloud compliance", "cloud identity security",
+            "cloud native", "cloud security", "data workflow orchestration",
+            "distributed systems", "environment promotion", "event-driven architecture",
+            "git", "infrastructure as code", "messaging systems", "microsoft azure",
+            "microsoft azure api management", "microsoft azure application insights",
+            "microsoft azure data factory", "microsoft azure event grid",
+            "microsoft azure event hub", "microsoft azure functions",
+            "microsoft azure log analytics", "microsoft azure logic apps",
+            "microsoft azure monitor", "microsoft azure service bus",
+            "microsoft azure web apps", "monitoring", "network security",
+            "performance optimization",
+            "production support", "release automation", "resilience engineering",
+            "rest api", "root cause analysis", "software development",
+            "software scalability", "source control", "terraform", "troubleshooting",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_ambiguous_azure_integration_terms_require_cloud_context(self):
+        skills = set(extract_skills(
+            "He injured his arm near the service bus. The factory uses a paper data grid. "
+            "A manager performs API management reviews."
+        ))
+        self.assertFalse({
+            "arm template", "microsoft azure data factory", "microsoft azure event grid",
+            "microsoft azure api management",
+        } & skills)
+
     def test_l3harris_job_extracts_communications_system_skills(self):
         skills = set(extract_skills(L3HARRIS_JOB, source="job_description"))
         expected = {

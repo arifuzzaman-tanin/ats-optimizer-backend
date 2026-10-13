@@ -48,8 +48,9 @@ excluded. Generic problem solving does **not** imply technical troubleshooting.
 
 This is a conservative, rule-based extractor, not unrestricted semantic
 understanding. Its catalogue currently covers customer support, interpersonal
-skills, common business capabilities, and selected technical tools. Unknown
-skills are omitted until added to the catalogue. Section filtering needs
+skills, common business capabilities, and selected technical tools, including
+Azure application, integration, infrastructure, monitoring, and security terms.
+Unknown skills are omitted until added to the catalogue. Section filtering needs
 recognizable headings; a single unstructured paragraph may mix company and
 role information. Complex negations and paraphrases may need additional rules.
 Missing means **no recognized evidence in the submitted resume**, not proof
