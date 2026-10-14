@@ -497,7 +497,8 @@
     "category": "business",
     "aliases": [
       "stakeholder engagement",
-      "stakeholder alignment"
+      "stakeholder alignment",
+      "alignment across stakeholders"
     ]
   },
   {
@@ -1179,7 +1180,7 @@
     "name": "production support",
     "category": "technical",
     "aliases": ["support production systems", "production systems support", "supporting customers directly during production incidents"],
-    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b"]
+    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\btroubleshoot(?:ing)? (?:complex )?production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b"]
   },
   {
     "name": "software deployment",
@@ -1280,7 +1281,7 @@
   {
     "name": "independent work",
     "category": "interpersonal",
-    "aliases": ["work independently", "working independently", "self-directed", "self directed"]
+    "aliases": ["work independently", "working independently", "operate independently", "operating independently", "self-directed", "self directed"]
   },
   {
     "name": "prioritization",
@@ -21490,6 +21491,22 @@
     "name": "environment promotion",
     "category": "technical",
     "aliases": ["deployment promotion", "environment promotions"]
+  },
+  {
+    "name": "customer issue resolution",
+    "category": "customer_support",
+    "aliases": ["customer issue resolution", "resolution of customer issues", "resolve complex customer issues", "resolving complex customer issues"],
+    "patterns": ["\\bend[ -]to[ -]end resolution of (?:complex,? )?(?:high[ -]impact )?customer issues\\b"]
+  },
+  {
+    "name": "technical investigation",
+    "category": "analysis",
+    "aliases": ["deep technical investigation", "technical issue investigation", "technical investigations"]
+  },
+  {
+    "name": "product improvement",
+    "category": "business",
+    "aliases": ["product improvements", "product improvement recommendation", "product improvement recommendations", "product enhancement recommendation", "product enhancement recommendations"]
   }
 
 ]
