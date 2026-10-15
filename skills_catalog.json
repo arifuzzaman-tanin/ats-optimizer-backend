@@ -466,8 +466,11 @@
     "category": "interpersonal",
     "aliases": [
       "adaptable",
-      "adaptability skills"
-    ]
+      "adaptability skills",
+      "adapting in a fast-changing environment",
+      "adapting in fast-changing environments"
+    ],
+    "patterns": ["\\badapt(?:ing)? in (?:a )?fast[ -]changing environments?\\b"]
   },
   {
     "name": "conflict resolution",
@@ -494,7 +497,8 @@
     "category": "business",
     "aliases": [
       "stakeholder engagement",
-      "stakeholder alignment"
+      "stakeholder alignment",
+      "alignment across stakeholders"
     ]
   },
   {
@@ -518,7 +522,7 @@
         "aliases": [
           "agile"
         ],
-        "context": "\\b(?:scrum|kanban|sprints?|methodolog\\w*|development|project management|skills?|experience|proficien\\w*)\\b",
+        "context": "\\b(?:scrum|kanban|sprints?|methodolog\\w*|development|project management|cross[ -]functional|teams?|skills?|experience|proficien\\w*)\\b",
         "allow_standalone": true
       }
     ]
@@ -861,7 +865,7 @@
       "restful api",
       "restful apis"
     ],
-    "patterns": ["\\brest/websocket apis\\b"]
+    "patterns": ["\\brest/websocket apis\\b", "\\brest and graphql apis\\b", "\\brest(?:ful)? and graphql api development\\b"]
   },
   {
     "name": "software testing",
@@ -874,7 +878,8 @@
       "desktop testing",
       "desktop application testing",
       "fix validation",
-      "validation of fixes"
+      "validation of fixes",
+      "testing discipline"
     ],
     "patterns": ["\\bimplementation, testing, and packaging\\b", "\\bimplementation, testing, and performance optimization\\b", "\\bverification and validation\\b"]
   },
@@ -1051,7 +1056,8 @@
   {
     "name": "software architecture",
     "category": "technical",
-    "aliases": ["software architectures", "application architecture", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions"]
+    "aliases": ["software architectures", "application architecture", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions", "modern architecture principles", "solutions architect"],
+    "patterns": ["\\barchitectural discussions? and decisions?\\b", "\\bdesign the architecture for (?:a |an )?(?:new )?(?:multi[ -]tenant )?(?:saas|cloud|software) (?:product|platform|system)\\b"]
   },
   {
     "name": "software design",
@@ -1072,7 +1078,7 @@
   {
     "name": "requirements analysis",
     "category": "business",
-    "aliases": ["requirements gathering", "requirements engineering", "feature request definition", "clarify requirements", "clarifying requirements"],
+    "aliases": ["requirements gathering", "requirements engineering", "feature request definition", "clarify requirements", "clarifying requirements", "analyze requirements", "analysing requirements", "analyzing requirements"],
     "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b", "\\btranslat(?:e|es|ing) customer issues[^.;]{0,100}\\bfeature requests?\\b", "\\btranslat(?:e|es|ed|ing) requirements into technical designs?\\b"]
   },
   {
@@ -1124,7 +1130,8 @@
   {
     "name": "ai-assisted software development",
     "category": "technical",
-    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools", "ai-augmented delivery"]
+    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools", "ai-augmented delivery", "ai-driven development", "ai driven development"],
+    "patterns": ["\\b(?:leverage|leveraging|use|using|integrate|integrating)[^.;]{0,40}\\b(?:ai|genai|generative ai)[^.;]{0,140}\\b(?:engineering productivity|code generation|debugging|code reviews?|documentation|development workflows?)\\b"]
   },
   {
     "name": "artificial intelligence",
@@ -1173,7 +1180,7 @@
     "name": "production support",
     "category": "technical",
     "aliases": ["support production systems", "production systems support", "supporting customers directly during production incidents"],
-    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b"]
+    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\btroubleshoot(?:ing)? (?:complex )?production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b"]
   },
   {
     "name": "software deployment",
@@ -1194,7 +1201,8 @@
   {
     "name": "api development",
     "category": "technical",
-    "aliases": ["api design", "api design practices", "api contracts", "rest api design", "restful api design", "building apis", "secure apis", "web api", "web apis"]
+    "aliases": ["api design", "api design practices", "api contracts", "rest api design", "restful api design", "building apis", "designing apis", "design apis", "secure apis", "web api", "web apis"],
+    "patterns": ["\\bdesign(?:ing)?[^.;â€¢]{0,50}\\b(?:rest(?:ful)? )?apis?\\b"]
   },
   {
     "name": "microservices",
@@ -1204,8 +1212,8 @@
   {
     "name": "application security",
     "category": "technical",
-    "aliases": ["secure application development", "secure software development", "application security practices"],
-    "patterns": ["\\b(?:building|developing|designing) secure apis\\b"]
+    "aliases": ["secure application development", "secure software development", "application security practices", "security-conscious development", "security conscious development", "security-conscious environment", "security conscious environment"],
+    "patterns": ["\\b(?:building|developing|designing) secure apis\\b", "\\bdesign(?:ing)? (?:robust,? )?(?:performant,? and )?secure solutions?\\b"]
   },
   {
     "name": "relational databases",
@@ -1233,7 +1241,10 @@
     "name": "logging",
     "category": "technical",
     "aliases": ["application logging", "system logging"],
-    "patterns": ["\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b"]
+    "patterns": ["\\bdiagnos(?:e|ing)[^.;]{0,80}\\bfrom logs\\b"],
+    "contextual_aliases": [
+      {"aliases": ["logs"], "context": "\\b(?:traces?|metrics|slis?|slos?|monitoring|observability|production|incident)\\b"}
+    ]
   },
   {
     "name": "alerting",
@@ -1248,7 +1259,8 @@
   {
     "name": "debugging",
     "category": "technical",
-    "aliases": ["software debugging", "debug software", "debug complex issues"]
+    "aliases": ["software debugging", "debug software", "debug complex issues", "debug defects", "debugging defects"],
+    "patterns": ["\\btroubleshoot,? debug,? and fix defects\\b"]
   },
   {
     "name": "automated testing",
@@ -1269,7 +1281,7 @@
   {
     "name": "independent work",
     "category": "interpersonal",
-    "aliases": ["work independently", "working independently", "self-directed", "self directed"]
+    "aliases": ["work independently", "working independently", "operate independently", "operating independently", "self-directed", "self directed"]
   },
   {
     "name": "prioritization",
@@ -1404,7 +1416,7 @@
     "name": "performance optimization",
     "category": "technical",
     "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation"],
-    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b"]
+    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b", "\\bdesign(?:ing)? (?:robust,? )?performant(?:,? and secure)? solutions?\\b"]
   },
   {
     "name": "memory optimization",
@@ -1417,11 +1429,11 @@
     "category": "interpersonal",
     "aliases": [
       "engineering mentoring", "developer mentoring", "mentoring engineers",
-      "mentor engineers", "mentor teams", "mentoring the team",
+      "mentor engineers", "mentor teams", "mentoring the team", "mentor other engineers", "mentoring other engineers",
       "mentor junior developers", "mentoring junior developers", "mentored junior developers",
       "mentor junior analysts", "mentoring junior analysts", "mentored junior analysts", "technical guidance"
     ],
-    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b", "\\bmentor(?:ing)? teammates?\\b"]
+    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b", "\\bmentor(?:ing)? teammates?\\b", "\\bmentor(?:ing)? and support(?:ing)? (?:other )?engineers?\\b"]
   },
   {
     "name": "software development best practices",
@@ -1585,13 +1597,13 @@
   {
     "name": "distributed systems",
     "category": "technical",
-    "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer"]
+    "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer", "distributed services"]
   },
   {
     "name": "legacy system modernization",
     "category": "technical",
     "aliases": ["legacy modernization", "legacy system migration", "migrating off legacy infrastructure", "legacy infrastructure migration"],
-    "patterns": ["\\bmigrat(?:e|es|ed|ing)[^.;]{0,40}off legacy infrastructure\\b"]
+    "patterns": ["\\bmigrat(?:e|es|ed|ing)[^.;]{0,40}off legacy infrastructure\\b", "\\bmoderniz(?:e|es|ed|ing)[^.;]{0,50}\\blegacy (?:components?|systems?|code(?:base)?)\\b"]
   },
   {
     "name": "advanced excel",
@@ -1666,7 +1678,7 @@
   {
     "name": "backend software development",
     "category": "technical",
-    "aliases": ["backend software engineering", "backend development", "backend engineering"],
+    "aliases": ["backend software engineering", "backend development", "backend engineering", "server-side application development", "server side application development", "server-side development", "server side development"],
     "patterns": ["\\b(?:build|building|develop|developing|maintain|maintaining)[^.;]{0,50}\\bbackend components?\\b"]
   },
   {
@@ -1920,7 +1932,7 @@
   {
     "name": "on-premises software",
     "category": "technical",
-    "aliases": ["on-premise software", "on-premise agents", "on-premises agents", "installed services"]
+    "aliases": ["on-premise software", "on-premises product", "on-premise product", "on-premise agents", "on-premises agents", "installed services"]
   },
   {
     "name": "embedded systems",
@@ -2015,7 +2027,7 @@
   {
     "name": "regulated software development",
     "category": "domain",
-    "aliases": ["regulated software delivery", "regulated software", "medical-device standards", "medical device standards"]
+    "aliases": ["regulated software delivery", "regulated software", "medical-device standards", "medical device standards", "regulated environment", "regulated environments", "highly regulated environment", "highly regulated environments"]
   },
   {
     "name": "health data privacy",
@@ -2225,6 +2237,26 @@
     "aliases": ["graph ql"]
   },
   {
+    "name": "api platforms",
+    "category": "technical",
+    "aliases": ["api platform", "api ecosystems", "api ecosystem"]
+  },
+  {
+    "name": "developer experience",
+    "category": "technical",
+    "aliases": ["developer usability", "developer experience design", "dx engineering"]
+  },
+  {
+    "name": "authentication",
+    "category": "technical",
+    "aliases": ["user authentication", "api authentication", "authentication patterns"]
+  },
+  {
+    "name": "authorization",
+    "category": "technical",
+    "aliases": ["user authorization", "api authorization", "authorization patterns", "access authorization"]
+  },
+  {
     "name": "grpc",
     "category": "technical",
     "aliases": ["google remote procedure call"]
@@ -2238,6 +2270,53 @@
     "name": "rate limiting",
     "category": "technical",
     "aliases": ["rate limits", "api throttling"]
+  },
+  {
+    "name": "api versioning",
+    "category": "technical",
+    "aliases": ["versioned apis", "api versions", "rest api versioning"],
+    "contextual_aliases": [
+      {"aliases": ["versioning"], "context": "\\b(?:api|apis|rest|authentication|authorization|rate limiting|pagination|idempotency|platform standards)\\b"}
+    ]
+  },
+  {
+    "name": "api filtering",
+    "category": "technical",
+    "aliases": ["api filters", "rest api filtering"],
+    "contextual_aliases": [
+      {"aliases": ["filtering"], "context": "\\b(?:api|apis|rest|pagination|versioning|rate limiting)\\b"}
+    ]
+  },
+  {
+    "name": "api pagination",
+    "category": "technical",
+    "aliases": ["paginated apis", "paginated api responses", "rest api pagination"],
+    "contextual_aliases": [
+      {"aliases": ["pagination"], "context": "\\b(?:api|apis|rest|filtering|versioning|rate limiting|idempotency)\\b"}
+    ]
+  },
+  {
+    "name": "backward compatibility",
+    "category": "technical",
+    "aliases": ["backwards compatibility", "backward-compatible apis", "backwards-compatible apis", "backward compatible apis", "backwards compatible apis"]
+  },
+  {
+    "name": "batch processing",
+    "category": "technical",
+    "aliases": ["batch operations", "batch api operations", "batch apis", "batch processing workflows"],
+    "contextual_aliases": [
+      {"aliases": ["batch"], "context": "\\b(?:api|apis|processing|operations?|jobs?|data|workflows?)\\b"}
+    ]
+  },
+  {
+    "name": "bulk operations",
+    "category": "technical",
+    "aliases": ["bulk api operations", "bulk apis", "bulk processing", "bulk data operations"]
+  },
+  {
+    "name": "data migration",
+    "category": "technical",
+    "aliases": ["data migrations", "migration workflows", "large-scale migration", "large scale migration"]
   },
   {
     "name": "concurrent programming",
@@ -2265,6 +2344,155 @@
     "aliases": ["idempotent operations", "idempotent processing"]
   },
   {
+    "name": "contract testing",
+    "category": "technical",
+    "aliases": ["contract tests", "api contract testing", "consumer-driven contract testing", "consumer driven contract testing"]
+  },
+  {
+    "name": "api error handling",
+    "category": "technical",
+    "aliases": ["api error semantics", "error semantics", "api error responses", "api error handling"]
+  },
+  {
+    "name": "software scaffolding",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["code scaffolding", "project scaffolding", "developer scaffolding"],
+    "contextual_aliases": [
+      {"aliases": ["scaffolding"], "context": "\\b(?:code|software|developer|project|templates?|libraries|build|frameworks?)\\b"}
+    ]
+  },
+  {
+    "name": "shared library development",
+    "category": "technical",
+    "aliases": ["shared libraries", "reusable libraries", "common libraries"]
+  },
+  {
+    "name": "connector development",
+    "category": "technical",
+    "aliases": ["connector engineering", "building connectors", "build connectors", "integration connector development", "integration development"]
+  },
+  {
+    "name": "release automation",
+    "category": "technical",
+    "aliases": ["automated releases", "release pipeline automation", "automating releases"]
+  },
+  {
+    "name": "quality gates",
+    "category": "technical",
+    "aliases": ["quality gate", "ci quality gates", "pipeline quality gates"]
+  },
+  {
+    "name": "developer documentation",
+    "category": "technical",
+    "aliases": ["api documentation", "developer docs", "integration documentation"]
+  },
+  {
+    "name": "sdk development",
+    "category": "technical",
+    "aliases": ["software development kit development", "building sdks", "developing sdks", "sdks", "sdk"]
+  },
+  {
+    "name": "integration marketplaces",
+    "category": "technical",
+    "aliases": ["integration marketplace", "integrations marketplace", "connector marketplace", "connector marketplaces", "app marketplace", "app marketplaces"]
+  },
+  {
+    "name": "credential management",
+    "category": "technical",
+    "aliases": ["credential lifecycle management", "managing credentials", "credential rotation"]
+  },
+  {
+    "name": "environment configuration",
+    "category": "technical",
+    "aliases": ["environment configurations", "environment setup"]
+  },
+  {
+    "name": "automated onboarding",
+    "category": "technical",
+    "aliases": ["automation-driven onboarding", "automation driven onboarding", "onboarding automation", "automated onboarding flows"]
+  },
+  {
+    "name": "integration platform as a service",
+    "category": "technical",
+    "aliases": ["integration platform-as-a-service", "ipaas", "ipaas platforms"]
+  },
+  {
+    "name": "webhooks",
+    "category": "technical",
+    "aliases": ["webhook", "webhook development", "webhook integrations"]
+  },
+  {
+    "name": "api key authentication",
+    "category": "technical",
+    "aliases": ["api key authentication", "api keys", "api key management"]
+  },
+  {
+    "name": "token rotation",
+    "category": "technical",
+    "aliases": ["access token rotation", "refresh token rotation", "rotating tokens"]
+  },
+  {
+    "name": "least privilege",
+    "category": "technical",
+    "aliases": ["principle of least privilege", "least-privilege access", "least privilege access"]
+  },
+  {
+    "name": "software auditability",
+    "category": "technical",
+    "aliases": ["system auditability", "application auditability", "auditability"]
+  },
+  {
+    "name": "software operability",
+    "category": "technical",
+    "aliases": ["system operability", "application operability", "operability"]
+  },
+  {
+    "name": "integration security",
+    "category": "technical",
+    "aliases": ["secure integrations", "integration security patterns"],
+    "patterns": ["\\bintegrations?[^.;â€¢]{0,80}\\bsecurity\\b"]
+  },
+  {
+    "name": "service level indicators",
+    "category": "technical",
+    "aliases": ["service-level indicators", "slis", "sli"]
+  },
+  {
+    "name": "service level objectives",
+    "category": "technical",
+    "aliases": ["service-level objectives", "slos", "slo"]
+  },
+  {
+    "name": "self-service admin tooling",
+    "category": "technical",
+    "aliases": ["self-serve admin tooling", "self service admin tooling", "admin tooling", "customer admin tools"]
+  },
+  {
+    "name": "developer debugging tools",
+    "category": "technical",
+    "aliases": ["debug tooling", "debugging tooling", "developer debug tools", "customer debug tools"]
+  },
+  {
+    "name": "workato",
+    "category": "tool",
+    "aliases": ["workato connectors"]
+  },
+  {
+    "name": "tray.io",
+    "category": "tool",
+    "name_is_alias": false,
+    "aliases": ["tray.io", "tray io"],
+    "contextual_aliases": [
+      {"aliases": ["tray"], "context": "\\b(?:workato|zapier|ipaas|connectors?|integrations?|workflows?|recipes?)\\b", "allow_standalone": true}
+    ]
+  },
+  {
+    "name": "zapier",
+    "category": "tool",
+    "aliases": ["zapier connectors", "zaps"]
+  },
+  {
     "name": "dead-letter queues",
     "category": "technical",
     "aliases": ["dead letter queues", "dead-letter queue", "dead letter queue", "dlq", "dlqs"]
@@ -2274,7 +2502,7 @@
     "category": "technical",
     "aliases": ["service metrics", "operational metrics", "application metrics"],
     "contextual_aliases": [
-      {"aliases": ["metrics"], "context": "\\b(?:logging|tracing|alerting|observability|monitoring|dashboards?|services?|production)\\b"}
+      {"aliases": ["metrics"], "context": "\\b(?:logs?|traces?|logging|tracing|alerting|observability|monitoring|dashboards?|services?|production|slis?|slos?)\\b"}
     ]
   },
   {
@@ -2282,7 +2510,8 @@
     "category": "technical",
     "aliases": ["application tracing", "request tracing"],
     "contextual_aliases": [
-      {"aliases": ["tracing"], "context": "\\b(?:distributed|logging|metrics|observability|monitoring|production)\\b"}
+      {"aliases": ["tracing"], "context": "\\b(?:distributed|logging|metrics|observability|monitoring|production)\\b"},
+      {"aliases": ["traces"], "context": "\\b(?:logs?|metrics|slis?|slos?|observability|monitoring|production)\\b"}
     ]
   },
   {
@@ -2809,9 +3038,7 @@
     "name": "performance testing",
     "category": "technical",
     "aliases": ["performance tests", "performance test automation"],
-    "contextual_aliases": [
-      {"aliases": ["performance"], "context": "\\b(?:qa|test(?:ing)?|methodologies|unit|api|ui|integration|e2e)\\b"}
-    ]
+    "patterns": ["\\bperformance,? and e2e testing\\b", "\\b(?:unit|api|ui|integration)(?:,? (?:and )?){0,2}performance(?:,? and)?[^.;]{0,30}\\btesting\\b"]
   },
   {"name": "load testing", "category": "technical", "aliases": ["load tests", "stress testing", "volume testing"]},
   {"name": "jmeter", "category": "tool", "aliases": ["apache jmeter", "j meter"]},
@@ -2915,8 +3142,13 @@
   {"name": "threat detection", "category": "technical", "aliases": ["incident detection", "security detection", "detection engineering"]},
   {"name": "threat hunting", "category": "technical", "aliases": ["cyber threat hunting"]},
   {"name": "malware analysis", "category": "technical", "aliases": ["malware investigation"]},
-  {"name": "digital forensics", "category": "technical", "aliases": ["forensic investigations", "computer forensics", "network forensics", "memory forensics"]},
-  {"name": "network security", "category": "technical", "aliases": ["network security engineering", "secure networking"]},
+  {"name": "digital forensics", "category": "technical", "aliases": ["forensic investigations", "computer forensics", "network forensics", "memory forensics", "digital forensic tools", "digital forensics tools", "digital forensic software"]},
+  {
+    "name": "network security",
+    "category": "technical",
+    "aliases": ["network security engineering", "secure networking"],
+    "patterns": ["\\bsecurity and compliance best practices[^.;]{0,120}\\bnetworking\\b"]
+  },
   {"name": "intrusion detection and prevention", "category": "technical", "aliases": ["intrusion detection", "intrusion prevention", "ids/ips", "ids ips"]},
   {"name": "threat intelligence", "category": "technical", "aliases": ["cyber threat intelligence", "threat intelligence platforms"]},
   {"name": "mitre att&ck", "category": "technical", "aliases": ["mitre attack", "att&ck framework", "attack framework"]},
@@ -2936,7 +3168,7 @@
   {"name": "static application security testing", "category": "technical", "aliases": ["static security testing", "sast"]},
   {"name": "dynamic application security testing", "category": "technical", "aliases": ["dynamic security testing", "dast"]},
   {"name": "zero trust security", "category": "technical", "aliases": ["zero-trust security", "zero trust principles", "zero-trust principles"]},
-  {"name": "cloud security", "category": "technical", "aliases": ["cloud security architecture", "secure cloud architecture", "aws security", "azure security", "gcp security"], "patterns": ["\\b(?:cloud )?infrastructure patterns?[^.;]{0,100}\\bsecurity\\b"]},
+  {"name": "cloud security", "category": "technical", "aliases": ["cloud security architecture", "secure cloud architecture", "aws security", "azure security", "gcp security"], "patterns": ["\\b(?:cloud )?infrastructure patterns?[^.;]{0,100}\\bsecurity\\b", "\\bdefine patterns? for (?:multi[ -]tenancy|multi[ -]tenant)[^.;]{0,100}\\bsecurity\\b"]},
   {"name": "secure coding", "category": "technical", "aliases": ["secure coding practices", "secure coding standards", "security by design"]},
   {"name": "devsecops", "category": "technical", "aliases": ["dev sec ops", "security in ci/cd"]},
   {"name": "security risk assessment", "category": "technical", "aliases": ["security risk assessments", "security assessment", "threat risk assessments"]},
@@ -3326,10 +3558,6 @@
     "category": "languages"
   },
   {
-    "name": "focus",
-    "category": "languages"
-  },
-  {
     "name": "formula",
     "category": "languages"
   },
@@ -3513,7 +3741,14 @@
   },
   {
     "name": "natural",
-    "category": "languages"
+    "category": "languages",
+    "name_is_alias": false,
+    "contextual_aliases": [
+      {
+        "aliases": ["natural"],
+        "context": "\\b(?:software ag|adabas|programming language|programmer|developer|compiler|mainframe)\\b"
+      }
+    ]
   },
   {
     "name": "oberon",
@@ -5097,7 +5332,11 @@
   },
   {
     "name": "microsoft azure api management",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure api management"],
+    "contextual_aliases": [
+      {"aliases": ["api management"], "context": "\\b(?:azure|cloud|gateway)\\b"}
+    ]
   },
   {
     "name": "microsoft azure application insights",
@@ -5106,7 +5345,11 @@
   },
   {
     "name": "microsoft azure data factory",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure data factory"],
+    "contextual_aliases": [
+      {"aliases": ["data factory"], "context": "\\b(?:azure|service bus|event grid|event hubs?|cloud)\\b"}
+    ]
   },
   {
     "name": "microsoft azure data lake",
@@ -5135,7 +5378,8 @@
   },
   {
     "name": "microsoft azure logic apps",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure logic apps", "logic apps"]
   },
   {
     "name": "microsoft azure mfa",
@@ -5179,7 +5423,8 @@
   },
   {
     "name": "microsoft azure web apps",
-    "category": "technologies"
+    "category": "technologies",
+    "aliases": ["azure web apps", "azure app service", "azure app services", "app service", "app services"]
   },
   {
     "name": "microsoft compact framework",
@@ -5485,10 +5730,6 @@
     "category": "technologies"
   },
   {
-    "name": "rest",
-    "category": "technologies"
-  },
-  {
     "name": "restful design",
     "category": "technologies"
   },
@@ -5550,10 +5791,6 @@
   },
   {
     "name": "service fabric",
-    "category": "technologies"
-  },
-  {
-    "name": "set",
     "category": "technologies"
   },
   {
@@ -6079,7 +6316,8 @@
   },
   {
     "name": ".net core",
-    "category": "platforms"
+    "category": "platforms",
+    "patterns": ["(?<![\\w+#])\\.net \\(core\\s*/\\s*modern \\.net"]
   },
   {
     "name": "386bsd",
@@ -6909,7 +7147,8 @@
   },
   {
     "name": "sap cloud platform",
-    "category": "platforms"
+    "category": "platforms",
+    "aliases": ["sap btp", "sap business technology platform"]
   },
   {
     "name": "sap integration",
@@ -7900,7 +8139,11 @@
   },
   {
     "name": "arm template",
-    "category": "development_tools"
+    "category": "development_tools",
+    "aliases": ["arm templates"],
+    "contextual_aliases": [
+      {"aliases": ["arm"], "context": "\\b(?:azure|infrastructure[ -]as[ -]code|iac|bicep|terraform|provision)\\b"}
+    ]
   },
   {
     "name": "as/set",
@@ -10577,7 +10820,8 @@
   },
   {
     "name": "velocity",
-    "category": "development_tools"
+    "category": "development_tools",
+    "name_is_alias": false
   },
   {
     "name": "verify",
@@ -12688,7 +12932,7 @@
   {
     "name": "cloud native",
     "category": "methods_and_standards",
-    "aliases": ["cloud-native development", "cloud native development", "cloud-native application development", "cloud native application development"]
+    "aliases": ["cloud-native development", "cloud native development", "cloud-native application development", "cloud native application development", "cloud-native systems", "cloud native systems"]
   },
   {
     "name": "component test",
@@ -12705,7 +12949,7 @@
   {
     "name": "containerization",
     "category": "methods_and_standards",
-    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments", "containerized deployments", "containerised deployments"]
+    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments", "containerized deployments", "containerised deployments", "containerized services", "containerised services", "container-based deployment", "container based deployment", "container-based deployment pipelines", "container based deployment pipelines"]
   },
   {
     "name": "continuous delivery pipeline",
@@ -13438,7 +13682,10 @@
     "name": "software as a service",
     "category": "methods_and_standards",
     "aliases": [
-      "saas"
+      "saas",
+      "saas platform development",
+      "software-as-a-service platform development",
+      "software as a service platform development"
     ]
   },
   {
@@ -17418,7 +17665,8 @@
   },
   {
     "name": "oracle e-business suite",
-    "category": "business_and_office_support_applications"
+    "category": "business_and_office_support_applications",
+    "aliases": ["oracle ebs"]
   },
   {
     "name": "oracle e-business suite finance",
@@ -17926,7 +18174,8 @@
   },
   {
     "name": "sap ecc",
-    "category": "business_and_office_support_applications"
+    "category": "business_and_office_support_applications",
+    "aliases": ["sap ecc 6", "ecc 6"]
   },
   {
     "name": "sap edocument",
@@ -19841,7 +20090,8 @@
   {
     "name": "public cloud architecture",
     "category": "working_areas",
-    "aliases": ["cloud architecture"]
+    "aliases": ["cloud architecture", "cloud architect"],
+    "patterns": ["\\bcloud or solutions architect\\b"]
   },
   {
     "name": "distributed data store operations",
@@ -19930,7 +20180,9 @@
   },
   {
     "name": "multi cloud strategy",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["multi-cloud architecture", "multicloud architecture", "multi-cloud design", "multicloud design", "multi-cloud strategy", "multicloud strategy"],
+    "patterns": ["\\bexperience with more than one major cloud platform\\b"]
   },
   {
     "name": "nearshoring",
@@ -20597,8 +20849,11 @@
   {
     "name": "software scalability",
     "category": "technical",
-    "aliases": ["scalable software", "scalable applications", "scalable application"],
-    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b"]
+    "aliases": ["scalable software", "scalable applications", "scalable application", "application scalability"],
+    "contextual_aliases": [
+      {"aliases": ["scalability"], "context": "\\b(?:applications?|software|systems?|services?|cloud)\\b"}
+    ],
+    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b", "\\b(?:design|implement|build|building)[^.;]{0,50}\\bscalable,? (?:and )?(?:resilient )?(?:software )?solutions?\\b", "\\bdefine patterns? for (?:multi[ -]tenancy|multi[ -]tenant)[^.;]{0,80}\\bscalability\\b"]
   },
   {
     "name": "software maintainability",
@@ -20765,7 +21020,10 @@
   {
     "name": "resilience engineering",
     "category": "technical",
-    "aliases": ["resilience patterns", "system resilience", "service resilience"]
+    "aliases": ["resilience patterns", "system resilience", "service resilience", "resilient solutions", "system robustness"],
+    "contextual_aliases": [
+      {"aliases": ["resilience", "resiliency"], "context": "\\b(?:applications?|software|systems?|services?|cloud)\\b"}
+    ]
   },
   {
     "name": "high-volume data processing",
@@ -20819,7 +21077,7 @@
   {
     "name": "technology evaluation",
     "category": "technical",
-    "aliases": ["technology assessment", "platform evaluation", "evaluate technology and platform options", "evaluating technology and platform options"]
+    "aliases": ["technology assessment", "platform evaluation", "evaluate technology and platform options", "evaluating technology and platform options", "evaluate cloud platforms and technology options", "evaluating cloud platforms and technology options"]
   },
   {
     "name": "data flow design",
@@ -20829,7 +21087,7 @@
   {
     "name": "decision-making under ambiguity",
     "category": "interpersonal",
-    "aliases": ["decision making under ambiguity", "operating with ambiguity", "comfortable operating with ambiguity", "handle ambiguity", "handling ambiguity"]
+    "aliases": ["decision making under ambiguity", "operating with ambiguity", "comfortable operating with ambiguity", "handle ambiguity", "handling ambiguity", "navigating ambiguity"]
   },
   {
     "name": "predictive analytics",
@@ -20871,7 +21129,13 @@
   {
     "name": "development infrastructure",
     "category": "technical",
-    "aliases": ["developer infrastructure", "development infrastructure", "build and test systems", "build systems", "test systems"]
+    "aliases": ["developer infrastructure", "development infrastructure", "build and test systems"],
+    "contextual_aliases": [
+      {
+        "aliases": ["build systems", "test systems"],
+        "context": "\\b(?:development|developer|infrastructure|ci|continuous integration|tooling|compiler|software engineering)\\b"
+      }
+    ]
   },
   {
     "name": "testing framework development",
@@ -20912,7 +21176,7 @@
   {
     "name": "agentic ai frameworks",
     "category": "technical",
-    "aliases": ["agentic framework", "agentic frameworks", "ai agent frameworks", "agent frameworks"]
+    "aliases": ["agentic framework", "agentic frameworks", "ai agent frameworks", "agent frameworks", "agentic workflow", "agentic workflows", "ai agent workflows"]
   },
   {
     "name": "model context protocol",
@@ -20927,18 +21191,18 @@
     "name": "software project estimation",
     "category": "business",
     "aliases": ["software estimation", "development estimation", "engineering estimation"],
-    "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b", "\\bprovide realistic estimates\\b"]
+    "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b", "\\bprovide realistic estimates\\b", "\\b(?:analy[sz]e requirements,? )?(?:break down tasks,? and )?estimate effort\\b"]
   },
   {
     "name": "end-to-end software delivery",
     "category": "technical",
     "aliases": ["end-to-end project delivery", "end to end software delivery", "end to end project delivery"],
-    "patterns": ["\\bown (?:features|projects|features and projects)[^.;]{0,80}\\bproduction delivery\\b", "\\bown complex features?[^.;]{0,100}\\bfrom design through delivery\\b"]
+    "patterns": ["\\bown (?:features|projects|features and projects)[^.;]{0,80}\\bproduction delivery\\b", "\\bown complex features?[^.;]{0,100}\\bfrom design through delivery\\b", "\\bwork across the full software (?:development )?(?:life ?cycle|lifecycle)[^.;]{0,100}\\bdesign, build, deploy, operate, and iterate\\b"]
   },
   {
     "name": "code quality",
     "category": "technical",
-    "aliases": ["software code quality", "high-quality code", "high quality code"]
+    "aliases": ["software code quality", "high-quality code", "high quality code", "clean code"]
   },
   {
     "name": "technical standards",
@@ -20985,8 +21249,8 @@
   {
     "name": "requirements task decomposition",
     "category": "business",
-    "aliases": ["breaking down requirements", "requirements decomposition"],
-    "patterns": ["\\bbreak down requirements into (?:software |development )?tasks\\b"]
+    "aliases": ["breaking down requirements", "requirements decomposition", "break down tasks"],
+    "patterns": ["\\bbreak down requirements into (?:software |development )?tasks\\b", "\\banaly[sz]e requirements,? break down tasks\\b"]
   },
   {
     "name": "risk communication",
@@ -21021,11 +21285,228 @@
     "patterns": ["\\bwork(?:ing)? with qa(?: engineers?)?[^.;]{0,100}\\b(?:test(?:ing)?|integration|regression)\\b"]
   },
   {
+    "name": "fraud detection",
+    "category": "domain",
+    "aliases": ["fraud prevention", "detect fraud", "detecting fraud"]
+  },
+  {
+    "name": "risk analysis",
+    "category": "business",
+    "aliases": ["risk assessment", "assess risk", "assessing risk", "risk decisions", "risk decisioning"]
+  },
+  {
+    "name": "system design",
+    "category": "technical",
+    "aliases": ["systems design"]
+  },
+  {
+    "name": "software modularity",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["modular software", "modular architecture", "modular software solutions"],
+    "contextual_aliases": [
+      {
+        "aliases": ["modularity"],
+        "context": "\\b(?:architecture|software|systems?|services?|modules?|boundaries|design principles?)\\b",
+        "allow_standalone": true
+      }
+    ],
+    "patterns": ["\\bmodular,? and maintainable software (?:solutions?|systems?|applications?)\\b"]
+  },
+  {
+    "name": "software testability",
+    "category": "technical",
+    "aliases": ["testable software", "testable systems", "testable applications", "testability"]
+  },
+  {
+    "name": "developer productivity",
+    "category": "technical",
+    "aliases": ["engineering productivity", "developer velocity", "development productivity"]
+  },
+  {
+    "name": "workflow automation",
+    "category": "technical",
+    "aliases": ["workflow optimization", "workflow optimisation", "automate repetitive tasks", "automating repetitive tasks", "optimize workflows", "optimise workflows"]
+  },
+  {
+    "name": "production operations",
+    "category": "technical",
+    "aliases": ["production operation", "operating in production environments", "operate in production environments", "you build it, you run it", "you build it you run it"]
+  },
+  {
+    "name": "generative artificial intelligence",
+    "category": "technical",
+    "aliases": ["generative ai", "genai"]
+  },
+  {
+    "name": "performance engineering",
+    "category": "technical",
+    "aliases": ["performance awareness", "software performance engineering"],
+    "patterns": ["\\bfocus on testability, performance, and reliability\\b"]
+  },
+  {
     "name": "initiative",
     "category": "interpersonal",
     "name_is_alias": false,
     "aliases": ["self-starter", "self starter"],
-    "patterns": ["\\binitiative to (?:improve|strengthen|address|build|develop)\\b"]
+    "patterns": ["\\binitiative to (?:improve|strengthen|address|build|develop)\\b", "\\btake initiative\\b"]
+  },
+  {
+    "name": "cloud cost analysis",
+    "category": "business",
+    "aliases": ["cloud cost analysis", "cloud cost analyses", "cloud platform cost analysis", "cloud platform cost analyses"],
+    "patterns": ["\\b(?:producing|produce|developing|develop) cost analyses? and platform recommendations?\\b", "\\brecommend(?:ing|ed)?[^.;]{0,80}\\bscale based on cost\\b"]
+  },
+  {
+    "name": "cloud platform strategy",
+    "category": "technical",
+    "aliases": ["cloud strategy", "cloud platform recommendation", "cloud platform recommendations"],
+    "patterns": ["\\brecommend(?:ing|ed)? where to start small and how to scale\\b", "\\b(?:producing|produce|developing|develop) cost analyses? and platform recommendations?\\b"]
+  },
+  {
+    "name": "customer discovery",
+    "category": "business",
+    "aliases": ["customer discovery", "product discovery with customers", "customer input"],
+    "patterns": ["\\bwork with (?:a )?(?:small group of )?early customers? to identify what the product needs? first\\b", "\\bearly (?:anchor )?customers? help decide what the product delivers? first\\b"]
+  },
+  {
+    "name": "customer-facing reporting",
+    "category": "technical",
+    "aliases": ["customer facing reporting", "customer-facing reports", "customer facing reports"]
+  },
+  {
+    "name": "engineering team building",
+    "category": "interpersonal",
+    "aliases": ["building an engineering team", "build an engineering team", "anchoring a new engineering team", "anchor a new engineering team", "engineering team formation", "build the team"],
+    "patterns": ["\\bexperience building or anchoring a new engineering team\\b", "\\bdirect input on which roles are hired next\\b", "\\bbuild strong teams\\b"]
+  },
+  {
+    "name": "component design",
+    "category": "technical",
+    "aliases": ["ui component design", "user interface component design", "react component design"]
+  },
+  {
+    "name": "data access",
+    "category": "technical",
+    "name_is_alias": false,
+    "aliases": ["data access code", "database access", "data access layer", "data access layers"],
+    "patterns": ["\\bserver[ -]side application development[^.;]{0,100}\\bdata access\\b", "\\bapis,? services,? and data access\\b"]
+  },
+  {
+    "name": "distributed data stores",
+    "category": "technical",
+    "aliases": ["distributed data store", "distributed databases", "distributed database systems"]
+  },
+  {
+    "name": "message-driven architecture",
+    "category": "technical",
+    "aliases": ["message driven architecture", "message-driven systems", "message driven systems", "message-driven services", "message driven services"]
+  },
+  {
+    "name": "natural language search",
+    "category": "technical",
+    "aliases": ["natural-language search", "natural language querying", "natural-language querying"]
+  },
+  {
+    "name": "search indexing",
+    "category": "technical",
+    "aliases": ["search indexing systems", "search and indexing systems", "search/indexing systems", "search index design"]
+  },
+  {
+    "name": "aws cdk",
+    "category": "tool",
+    "aliases": ["aws cloud development kit", "amazon cloud development kit", "cloud development kit"],
+    "contextual_aliases": [
+      {
+        "aliases": ["cdk"],
+        "context": "\\b(?:aws|amazon|infrastructure[ -]as[ -]code|iac|cloud|deploy(?:ment|ing)?)\\b",
+        "allow_standalone": true
+      }
+    ]
+  },
+  {
+    "name": "xunit",
+    "category": "tool",
+    "aliases": ["xunit.net", "xunit testing", "xunit tests"]
+  },
+  {
+    "name": "postgresql jsonb",
+    "category": "technical",
+    "aliases": ["postgres jsonb", "jsonb data", "jsonb storage"]
+  },
+  {
+    "name": "bicep",
+    "category": "tool",
+    "aliases": ["azure bicep"]
+  },
+  {
+    "name": "microsoft azure event grid",
+    "category": "tool",
+    "aliases": ["azure event grid"],
+    "contextual_aliases": [
+      {"aliases": ["event grid"], "context": "\\b(?:azure|service bus|event hubs?|data factory|cloud)\\b"}
+    ]
+  },
+  {
+    "name": "microsoft azure monitor",
+    "category": "tool",
+    "aliases": ["azure monitor"]
+  },
+  {
+    "name": "microsoft azure log analytics",
+    "category": "tool",
+    "aliases": ["azure log analytics"],
+    "contextual_aliases": [
+      {"aliases": ["log analytics"], "context": "\\b(?:azure|application insights|monitor(?:ing)?)\\b"}
+    ]
+  },
+  {
+    "name": "api security",
+    "category": "technical",
+    "aliases": ["api security best practices", "secure api architecture"]
+  },
+  {
+    "name": "cloud identity security",
+    "category": "technical",
+    "aliases": ["cloud identity protection", "azure identity security"],
+    "patterns": ["\\bsecurity and compliance best practices[^.;]{0,100}\\bidentity\\b"]
+  },
+  {
+    "name": "cloud compliance",
+    "category": "technical",
+    "aliases": ["cloud security compliance", "azure compliance"],
+    "patterns": ["\\bsecurity and compliance best practices[^.;]{0,100}\\bazure resources\\b"]
+  },
+  {
+    "name": "data workflow orchestration",
+    "category": "technical",
+    "aliases": ["data workflow orchestration", "data workflows"]
+  },
+  {
+    "name": "messaging systems",
+    "category": "technical",
+    "aliases": ["messaging solutions", "messaging and integration solutions"]
+  },
+  {
+    "name": "environment promotion",
+    "category": "technical",
+    "aliases": ["deployment promotion", "environment promotions"]
+  },
+  {
+    "name": "customer issue resolution",
+    "category": "customer_support",
+    "aliases": ["customer issue resolution", "resolution of customer issues", "resolve complex customer issues", "resolving complex customer issues"],
+    "patterns": ["\\bend[ -]to[ -]end resolution of (?:complex,? )?(?:high[ -]impact )?customer issues\\b"]
+  },
+  {
+    "name": "technical investigation",
+    "category": "analysis",
+    "aliases": ["deep technical investigation", "technical issue investigation", "technical investigations"]
+  },
+  {
+    "name": "product improvement",
+    "category": "business",
+    "aliases": ["product improvements", "product improvement recommendation", "product improvement recommendations", "product enhancement recommendation", "product enhancement recommendations"]
   }
 
 ]

@@ -33,6 +33,9 @@ REAL_TIME_PAYMENTS_JOB = Path(__file__).with_name("fixtures").joinpath(
 PROMACH_CLOUD_ARCHITECT_JOB = Path(__file__).with_name("fixtures").joinpath(
     "promach_cloud_architect_engineer.txt"
 ).read_text(encoding="utf-8")
+MULTI_TENANT_SAAS_CLOUD_ARCHITECT_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "multi_tenant_saas_cloud_architect.txt"
+).read_text(encoding="utf-8")
 AQUATIC_INFORMATICS_JOB = Path(__file__).with_name("fixtures").joinpath(
     "aquatic_informatics_senior_software_engineer.txt"
 ).read_text(encoding="utf-8")
@@ -41,6 +44,18 @@ CORITY_JOB = Path(__file__).with_name("fixtures").joinpath(
 ).read_text(encoding="utf-8")
 LOGISENSE_JOB = Path(__file__).with_name("fixtures").joinpath(
     "logisense_software_developer.txt"
+).read_text(encoding="utf-8")
+AUTOSCOUT24_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "autoscout24_senior_software_engineer.txt"
+).read_text(encoding="utf-8")
+MAINTAINX_BACKEND_PLATFORM_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "maintainx_backend_platform_engineer.txt"
+).read_text(encoding="utf-8")
+MAGNET_FORENSICS_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "magnet_forensics_software_engineer.txt"
+).read_text(encoding="utf-8")
+AZURE_INTEGRATION_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "azure_integration_developer.txt"
 ).read_text(encoding="utf-8")
 
 VITAA_JOB = """
@@ -300,6 +315,37 @@ Patience and empathy. Attention to detail. Teamwork. Time management skills.
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_azure_integration_role_extracts_cloud_platform_and_delivery_skills(self):
+        skills = set(extract_skills(AZURE_INTEGRATION_JOB, source="job_description"))
+        expected = {
+            ".net", "api development", "api security", "arm template", "azure devops",
+            "bicep", "c#", "ci/cd", "cloud compliance", "cloud identity security",
+            "cloud native", "cloud security", "data workflow orchestration",
+            "distributed systems", "environment promotion", "event-driven architecture",
+            "git", "infrastructure as code", "messaging systems", "microsoft azure",
+            "microsoft azure api management", "microsoft azure application insights",
+            "microsoft azure data factory", "microsoft azure event grid",
+            "microsoft azure event hub", "microsoft azure functions",
+            "microsoft azure log analytics", "microsoft azure logic apps",
+            "microsoft azure monitor", "microsoft azure service bus",
+            "microsoft azure web apps", "monitoring", "network security",
+            "performance optimization",
+            "production support", "release automation", "resilience engineering",
+            "rest api", "root cause analysis", "software development",
+            "software scalability", "source control", "terraform", "troubleshooting",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_ambiguous_azure_integration_terms_require_cloud_context(self):
+        skills = set(extract_skills(
+            "He injured his arm near the service bus. The factory uses a paper data grid. "
+            "A manager performs API management reviews."
+        ))
+        self.assertFalse({
+            "arm template", "microsoft azure data factory", "microsoft azure event grid",
+            "microsoft azure api management",
+        } & skills)
+
     def test_l3harris_job_extracts_communications_system_skills(self):
         skills = set(extract_skills(L3HARRIS_JOB, source="job_description"))
         expected = {
@@ -506,17 +552,19 @@ class ExtractionTests(unittest.TestCase):
             "amazon cloudwatch", "amazon rds", "amazon sns", "amazon sqs",
             "amazon web services", "asp.net core", "aws lambda", "c#",
             "communication", "computer science fundamentals", "customer experience",
+            "cross-functional collaboration", "customer issue resolution",
             "customer support", "data structures", "database schema design",
             "domain-driven design", "enterprise application development",
             "entity framework core", "file systems", "full stack development",
             "github copilot", "independent work", "memory optimization",
             "multi-tenant architecture", "multithreading", "object-oriented programming",
             "on-call support", "performance optimization", "postgresql",
+            "product improvement", "production support",
             "product roadmap planning", "query performance optimization",
             "requirements analysis", "root cause analysis", "software architecture",
             "software as a service", "software design patterns", "software reliability",
             "software scalability", "software testing", "stakeholder management",
-            "subject matter expertise", "technical mentoring", "technical research",
+            "subject matter expertise", "technical investigation", "technical mentoring", "technical research",
             "troubleshooting", "usability",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
@@ -590,6 +638,28 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
+    def test_multi_tenant_saas_cloud_architect_extracts_strategy_and_build_skills(self):
+        skills = set(extract_skills(
+            MULTI_TENANT_SAAS_CLOUD_ARCHITECT_JOB, source="job_description"
+        ))
+        expected = {
+            ".net", "amazon web services", "backend software development", "ci/cd",
+            "cloud cost analysis", "cloud infrastructure", "cloud platform strategy",
+            "cloud security", "customer discovery", "customer-facing reporting",
+            "data flow design", "data ingestion", "data pipeline development",
+            "database scalability", "database schema design", "distributed systems",
+            "engineering team building", "failure mode analysis", "google cloud platform",
+            "high-volume data processing", "hybrid cloud integration", "industrial systems",
+            "infrastructure as code", "iot", "manufacturing systems", "microsoft azure",
+            "microsoft sql server", "monitoring", "multi cloud strategy",
+            "multi-tenant architecture", "on-premises software", "public cloud architecture",
+            "query performance optimization", "resilience engineering",
+            "service boundary design", "software architecture", "software as a service",
+            "software maintainability", "software scalability", "storage architecture",
+            "technology evaluation", "tenant data isolation",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
     def test_aquatic_informatics_role_extracts_predictive_ai_and_water_skills(self):
         skills = set(extract_skills(AQUATIC_INFORMATICS_JOB, source="job_description"))
         expected = {
@@ -657,6 +727,72 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 
+    def test_magnet_forensics_role_extracts_full_stack_cloud_and_forensics_skills(self):
+        skills = set(extract_skills(MAGNET_FORENSICS_JOB, source="job_description"))
+        expected = {
+            ".net", "adaptability", "agentic ai frameworks",
+            "ai-assisted software development", "amazon web services",
+            "application security", "automated testing", "aws cdk", "azure devops",
+            "backend software development", "c#", "claude", "cloud native",
+            "code review", "communication", "component design", "containerization",
+            "cross-functional collaboration", "css", "cursor", "data access",
+            "debugging", "decision-making under ambiguity", "digital forensics",
+            "distributed data stores", "distributed systems", "docker", "elasticsearch",
+            "engineering team building", "full stack development", "git", "gitlab",
+            "grafana", "graphql", "html", "infrastructure as code", "initiative",
+            "jenkins", "jest", "kubernetes", "linux", "message-driven architecture",
+            "monitoring", "natural language search", "observability", "opentelemetry",
+            "performance optimization", "postgresql", "postgresql jsonb", "prometheus",
+            "pytest", "python", "react", "redis", "regulated software development",
+            "requirements analysis", "requirements task decomposition",
+            "responsive web design", "rest api", "search indexing", "software architecture",
+            "software as a service", "software maintainability", "software modularity",
+            "software project estimation", "state management", "troubleshooting",
+            "typescript", "web development", "xunit",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertFalse({"natural", "rest"} & skills)
+
+    def test_magnet_terms_do_not_promote_unrelated_natural_cdk_or_access_language(self):
+        skills = set(extract_skills(
+            "The natural environment is changing. Researchers studied CDK proteins "
+            "in regulated markets. A customer submitted a data access request."
+        ))
+        self.assertFalse({
+            "natural", "aws cdk", "regulated software development", "data access",
+        } & skills)
+
+    def test_autoscout24_role_extracts_transformation_risk_and_genai_skills(self):
+        skills = set(extract_skills(AUTOSCOUT24_JOB, source="job_description"))
+        expected = {
+            ".net", ".net core", "agile", "ai-assisted software development",
+            "artificial intelligence", "code quality", "code review",
+            "cross-functional collaboration", "debugging", "developer productivity",
+            "devops", "end-to-end software delivery", "fraud detection",
+            "generative artificial intelligence", "leadership",
+            "legacy system modernization", "next.js", "observability", "ownership",
+            "performance engineering", "problem solving", "production operations",
+            "react", "resilience engineering", "risk analysis", "software architecture",
+            "software development lifecycle", "software maintainability",
+            "software modularity", "software reliability", "software scalability",
+            "software testability", "software testing", "system design",
+            "technical debt", "technical decision-making", "technical mentoring",
+            "typescript", "workflow automation",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertFalse({"focus", "set", "velocity", "development infrastructure",
+                          "performance testing"} & skills)
+
+    def test_autoscout24_terms_do_not_promote_unrelated_language(self):
+        skills = set(extract_skills(
+            "The set focused on velocity. The modularity theorem was discussed. "
+            "They built systems that matter and reviewed a fraud news story."
+        ))
+        self.assertFalse({
+            "focus", "set", "velocity", "software modularity",
+            "development infrastructure", "fraud detection",
+        } & skills)
+
     def test_logisense_domain_terms_do_not_match_generic_business_language(self):
         skills = set(extract_skills(
             "The subscription was renewed after usage increased. The team paired socks, "
@@ -683,6 +819,42 @@ class ExtractionTests(unittest.TestCase):
             with self.subTest(role=role):
                 skills = set(extract_skills(description, source="job_description"))
                 self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_maintainx_role_extracts_api_platform_and_integration_skills(self):
+        skills = set(extract_skills(
+            MAINTAINX_BACKEND_PLATFORM_JOB, source="job_description"
+        ))
+        expected = {
+            "api development", "api error handling", "api filtering",
+            "api key authentication", "api pagination", "api platforms",
+            "api versioning", "application metrics", "authentication",
+            "authorization", "automated onboarding", "backward compatibility",
+            "batch processing", "bulk operations", "connector development",
+            "contract testing", "credential management", "data migration",
+            "data synchronization", "developer debugging tools",
+            "developer documentation", "developer experience",
+            "distributed systems", "distributed tracing",
+            "environment configuration", "integration marketplaces",
+            "integration platform as a service", "integration security",
+            "least privilege", "logging", "oracle e-business suite",
+            "quality gates", "release automation", "sap cloud platform",
+            "sap ecc", "sdk development", "service level indicators",
+            "service level objectives", "shared library development",
+            "software auditability", "software operability",
+            "software scaffolding", "token rotation", "tray.io", "webhooks",
+            "workato", "zapier",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_maintainx_ambiguous_terms_require_technical_context(self):
+        skills = set(extract_skills(
+            "We filtered water, read a paginated book, carried a lunch tray, "
+            "used scaffolding at a construction site, and inspected a batch of cookies."
+        ))
+        self.assertFalse({
+            "api filtering", "api pagination", "batch processing",
+            "software scaffolding", "tray.io",
+        } & skills)
 
     def test_ambiguous_new_tool_names_still_require_technical_context(self):
         self.assertEqual(extract_skills(

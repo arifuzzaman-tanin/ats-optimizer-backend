@@ -1,0 +1,33 @@
+What You’ll Do
+
+- Design, build, and operate MaintainX’s public-facing REST APIs, with a focus on consistency, scalability, and great developer experience.
+- Implement platform standards and patterns: authentication/authorization, rate limiting, versioning, filtering, pagination, idempotency, error semantics, and backwards compatibility.
+- Design and implement robust batch and bulk API operations that enable high-volume data synchronization and large-scale migration workflows for enterprise customers.
+- Decouple the REST API layer from monolithic dependencies while implementing strong contract testing to ensure GraphQL changes do not impact REST API stability, improving overall reliability and iteration speed.
+- Build scaffolding, templates, and shared libraries that make connector/integration development faster and more consistent.
+- Improve CI/CD pipelines, release automation, and quality gates for integrations and ecosystem services.
+- Produce strong developer documentation and reference implementations (for example, SDKs).
+- Contribute to the infrastructure and workflows that allow integrations to be published, versioned, and supported in our internal or external integrations marketplace (for example, Workato and Tray).
+- Enable automation-driven onboarding flows (for example, connection creation, credential management, and environment configuration).
+- Build standardized integration foundations and reusable building blocks for enterprise systems (for example, SAP recipes and BTP building blocks; productized Oracle EBS/NetSuite and Microsoft D365 integrations).
+- Ensure integrations meet enterprise expectations around security, auditability, performance, and operability.
+- Own production services and platform components end-to-end: monitoring, on-call, incident response, root-cause analysis, and iterative hardening.
+- Drive performance tuning and reliability improvements based on data (SLIs/SLOs, logs, traces, and metrics).
+
+About You
+
+- 4+ years of professional software engineering experience building backend systems, APIs, or platform products.
+- Strong experience with service-oriented backend development and one of the following languages (TypeScript, Go, C#) and willingness to learn other languages based on context.
+- Strong experience working with relational databases (for example, MySQL and PostgreSQL), including schema design, query optimization, and data modeling.
+- Solid foundation in distributed systems fundamentals: reliability, scalability, consistency, and failure modes.
+- Experience shipping production-grade APIs and thinking deeply about developer experience and platform usability.
+- Strong testing mindset (unit, integration, end-to-end, and contract testing) and hands-on CI/CD experience.
+- Comfortable collaborating cross-functionally with Product, Design, and customer-facing teams, while keeping work centered on scalable product solutions.
+
+Nice To Have
+
+- Experience with integration ecosystems: API platforms, SDKs, iPaaS/connectors, marketplaces, webhooks/events, ETL/sync patterns.
+- Familiarity with enterprise identity/security patterns (OAuth2/OIDC, API keys, token rotation, least privilege).
+- Experience with ERP ecosystems (SAP S/4HANA or ECC 6, SAP BTP, Oracle EBS/NetSuite, Microsoft Dynamics).
+- Experience building self-serve admin/debug tooling for external developers/customers.
+- Experience with Workato, Tray, or Zapier from a product/platform engineering perspective (for example, building connectors, not just recipes, workflows, or zaps).

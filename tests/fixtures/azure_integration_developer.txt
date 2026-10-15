@@ -1,0 +1,26 @@
+What You'll Do Here
+
+- Design, build, and maintain cloud-native applications using Azure Functions, Logic Apps, App Services, and Azure API Management, ensuring scalability, security, and resiliency.
+- Develop and manage RESTful APIs, event-driven integrations, and data workflows across distributed systems in Azure.
+- Implement CI/CD pipelines using Azure DevOps, including build, test, and release automation, source control, and environment promotion.
+- Apply Infrastructure as Code (ARM, Bicep, or Terraform) to provision and manage Azure resources consistently across environments.
+- Build and orchestrate messaging and integration solutions using Service Bus, Event Grid, Event Hubs, and Data Factory.
+- Monitor, troubleshoot, and optimize applications using Azure Monitor, Application Insights, and Log Analytics.
+- Provide L3 production support, perform root-cause analysis, and implement permanent fixes for cloud-based applications.
+- Enforce security and compliance best practices across Azure resources, including identity, networking, and API security.
+
+What You Bring To The Table
+
+- Undergraduate degree in Computer Science or any combination of equivalent education and experience.
+- 7+ years of hands-on software development experience, with strong focus on Azure cloud platforms.
+- Solid experience with Azure DevOps, Git, and automated CI/CD pipelines.
+- Strong proficiency in C#/.NET.
+- Practical experience designing APIs, integrations, and event-driven architectures in Azure.
+- Working knowledge of Azure monitoring, performance tuning, and cloud security concepts.
+- Azure certifications are an asset.
+- Ability to analyze and synthesize data.
+- Initiative and ability to work under pressure.
+- Can work in a team and detail oriented.
+- No Canadian work experience required however must be eligible to work in Canada.
+
+This role is a new member of our growing team.

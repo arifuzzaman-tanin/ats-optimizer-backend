@@ -1,0 +1,70 @@
+About the job
+
+AutoScout24 is hiring for its Canadian company, Trader Corporation. This role is
+within Dealertrack Canada, an automotive financing portal processing millions of
+credit applications annually.
+
+We are looking for a Senior Software Engineer, Tech Transformation who takes
+end-to-end ownership, thrives in ambiguity, and wants to build systems that matter.
+This role is central to modernizing our platform so we can better detect fraud,
+assess risk, and move faster as a business. You will help shape architecture,
+influence technical direction, and own what you build from design to production.
+The software directly influences financial trust, fraud prevention, and risk
+decisions across Canada's automotive ecosystem.
+
+What You'll Do
+
+Build and Evolve Critical Systems
+
+- Improve and extend a large, production-grade codebase with a strong bias for
+  clean code, testing, and long-term maintainability.
+- Design and implement scalable, resilient solutions using modern architecture
+  principles: modularity, clear boundaries, and observability.
+- Modernize legacy components to unlock new capabilities in fraud detection and
+  risk analysis.
+
+Own Architecture and Technical Decisions
+
+- Drive architectural discussions and decisions, balancing pragmatism with
+  technical excellence.
+- Set and enforce high quality bars for new services and modules, with a focus on
+  testability, performance, and reliability.
+- Identify and reduce technical debt in ways that measurably improve developer
+  velocity and system robustness.
+
+Build With an Ownership Mindset
+
+- Work across the full software lifecycle: design, build, deploy, operate, and
+  iterate.
+- Embrace a "you build it, you run it" DevOps mindset alongside your team.
+- Make thoughtful trade-offs between effort, quality, and user value, with
+  accountability for outcomes.
+
+Collaborate and Lead
+
+- Work closely with product managers, designers, and other engineers in an agile,
+  cross-functional team.
+- Contribute ideas, challenge assumptions, and continuously improve how we build
+  software.
+- Mentor and support other engineers through code reviews, design discussions,
+  and technical leadership.
+
+What We're Looking For
+
+- A senior engineer who takes responsibility for results, not just implementations.
+- Someone who enjoys complex problem-solving and is not afraid of legacy systems or
+  changing them.
+- Strong engineering fundamentals: clean code, testing discipline, system design,
+  and performance awareness.
+- Strong experience with TypeScript and modern React / Next.js.
+- Strong experience building production systems with .NET (Core / modern .NET
+  preferred).
+- Comfort operating in production environments and learning from real-world feedback.
+- A builder's mindset: if you can think it, you can build it. If you build it, you
+  own it.
+- Experience leveraging AI and Generative AI (GenAI) to enhance engineering
+  productivity, automate repetitive tasks, and optimize workflows. Demonstrate the
+  ability to integrate AI-driven solutions into daily work, such as code generation,
+  debugging, reviews, documentation, and decision support, to improve efficiency for
+  yourself and your teams. A proactive approach to exploring and implementing AI
+  tools that drive innovation and streamline development processes is highly valued.

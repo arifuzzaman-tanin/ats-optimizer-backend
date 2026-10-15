@@ -1,37 +1,58 @@
-About the job
-Founded in 2004, NetBrain is a leader in no-code network automation for hybrid
-multi-cloud networks.
-
 What We Need
+
 We are seeking a Senior Software Engineer who thrives at the intersection of
-customer support and software development.
+customer support and software development. In this role, you will own complex,
+high-impact technical issues end-to-end - driving root cause analysis,
+collaborating cross-functionally, and contributing directly to product
+improvements and code. This is a highly visible position for someone who enjoys
+solving real-world problems while shaping the evolution of a modern SaaS
+platform.
 
 What You'll Do
-Own end-to-end resolution of complex customer issues through deep technical
-investigation, root cause analysis, and validation of fixes. Act as liaison
-between customers, support, engineering, and product teams and ensure
-stakeholder alignment. Translate customer issues into well-defined feature
-requests and product improvement recommendations. Influence roadmap priorities,
-product stability, and customer experience.
 
-Design, develop, and maintain scalable web-based SaaS applications across the
-full stack, from system architecture and data design to implementation, testing,
-and performance optimization. Meet scalability, reliability, and usability
-standards in a multi-tenant SaaS environment. Research, evaluate, and apply new
-and emerging technologies. Serve as a subject matter expert and provide
-technical mentoring. Participate in an on-call rotation.
+- Own the end-to-end resolution of complex, high-impact customer issues,
+  including deep technical investigation, root cause analysis, and validation
+  of fixes
+- Act as a key liaison between customers, support, engineering, and product
+  teams to drive timely resolution and ensure alignment across stakeholders
+- Translate customer issues and recurring patterns into actionable insights,
+  including well-defined feature requests and product improvement
+  recommendations
+- Partner with product management and engineering to influence roadmap
+  priorities, improve product stability, and enhance overall customer
+  experience
+- Design, develop, and maintain scalable, web-based SaaS applications,
+  contributing across the full stack - from system architecture and data design
+  to implementation, testing, and performance optimization
+- Collaborate cross-functionally to ensure solutions meet standards for
+  scalability, reliability, and usability in a multi-tenant SaaS environment
+- Research, evaluate, and apply new and emerging technologies to continuously
+  improve product capabilities and engineering efficiency
+- Serve as a subject matter expert for internal teams and customers, providing
+  deep technical guidance and mentorship
+- Participate in an on-call rotation
 
 What You Bring
-Computer science fundamentals including data structures, algorithms,
-multithreading, and system-level concepts (memory, storage, file systems).
-Experience developing and supporting enterprise-scale applications,
-object-oriented design, and modern architectural patterns such as
-Domain-Driven Design. Deep expertise in C#, .NET, ASP.NET Core, and modern
-backend architecture. Experience with EF Core, PostgreSQL, query optimization,
-AWS RDS, Lambda, SQS/SNS, and CloudWatch. Troubleshoot production issues,
-perform root cause analysis, and optimize system performance. Use AI-assisted
-development tools such as GitHub Copilot. Strong communication, independent
-work, and cross-functional collaboration.
 
-What We Offer
-Competitive compensation, benefits, and RRSP matching.
+- Bachelor's degree in Computer Science, Engineering, or equivalent practical
+  experience
+- 5+ years of hands-on experience developing and supporting enterprise-scale
+  applications
+- Strong computer science fundamentals, including data structures, algorithms,
+  multithreading, and system-level concepts (memory, storage, file systems)
+- Solid experience with object-oriented design and modern architectural
+  patterns (e.g., Domain-Driven Design)
+- Deep expertise in the .NET ecosystem, including C#, ASP.NET Core, and modern
+  backend architecture
+- Experience building and operating multi-tenant SaaS platforms, with strong
+  proficiency in EF Core, PostgreSQL, and query optimization
+- Hands-on experience with AWS services (e.g., RDS, Lambda, SQS/SNS,
+  CloudWatch) in production environments
+- Proven ability to troubleshoot complex production issues, perform root cause
+  analysis, and optimize system performance
+- Experience leveraging AI-assisted development tools (e.g., GitHub Copilot)
+  to improve engineering efficiency
+- Strong communication skills, with the ability to clearly explain technical
+  issues to both technical and non-technical audiences
+- Self-motivated and able to operate independently while collaborating across
+  teams
