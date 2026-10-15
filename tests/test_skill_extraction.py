@@ -58,6 +58,34 @@ AZURE_INTEGRATION_JOB = Path(__file__).with_name("fixtures").joinpath(
     "azure_integration_developer.txt"
 ).read_text(encoding="utf-8")
 
+DOTNET_SOLUTIONS_ARCHITECT_JOB = """
+Position Summary
+Lead architecture strategy and solution architecture for enterprise-scale .NET
+applications, guiding multiple engineering teams through technical roadmaps and
+architectural decisions. Define architecture frameworks, architectural
+standards, and engineering best practices.
+
+Responsibilities
+Modernize legacy applications into cloud-native solutions in Microsoft Azure.
+Build distributed systems with microservices, APIs, API design, and
+event-driven architecture. Lead cloud migration planning, CI/CD, DevOps,
+automated testing, production support rotations, and incident management.
+Partner with product, engineering, and implementation teams in Agile and Scrum.
+Provide architectural leadership and technical oversight to multiple teams.
+Champion AI-first development using GitHub Copilot, Claude, and Cursor. Build
+agentic customer-facing applications using Azure AI Foundry and Open AI, with
+orchestration, RAG, retrieval grounding, and MCP server design.
+
+Qualifications
+Experience with .NET, Azure architecture, software design patterns, and
+enterprise SaaS products. Financial services, insurance, annuity, and wealth
+management platforms are relevant domains. Strong communication and stakeholder
+management skills.
+
+Benefits
+Unlimited PTO and subsidized healthcare.
+"""
+
 VITAA_JOB = """
 About the job
 ViTAA is a medical-device software company developing AI-powered medical-image
@@ -315,6 +343,26 @@ Patience and empathy. Attention to detail. Teamwork. Time management skills.
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_dotnet_solutions_architect_job_extracts_architecture_and_ai_skills(self):
+        skills = set(extract_skills(
+            DOTNET_SOLUTIONS_ARCHITECT_JOB, source="job_description"
+        ))
+        expected = {
+            ".net", "agile", "ai-assisted software development", "annuity products",
+            "api development", "automated testing", "azure ai foundry",
+            "cloud migration", "cloud native", "claude", "ci/cd",
+            "distributed systems", "devops", "event-driven architecture",
+            "financial services", "github copilot", "incident response",
+            "insurance", "leadership", "microservices", "microsoft azure",
+            "model context protocol", "openai", "product roadmap planning",
+            "production support", "retrieval-augmented generation", "scrum",
+            "software architecture", "software as a service",
+            "software design patterns", "stakeholder management",
+            "technical standards", "wealth management",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+        self.assertNotIn("unlimited pto", skills)
+
     def test_azure_integration_role_extracts_cloud_platform_and_delivery_skills(self):
         skills = set(extract_skills(AZURE_INTEGRATION_JOB, source="job_description"))
         expected = {
