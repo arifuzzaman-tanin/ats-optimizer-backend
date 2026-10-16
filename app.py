@@ -4,7 +4,6 @@ import math
 import os
 from time import perf_counter
 from werkzeug.exceptions import RequestEntityTooLarge
-from access_keys import get_first_key, is_valid_key
 from skill_extractor import compare_skills, extract_skill_evidence, extract_skills, load_catalog
 
 # -------------------- Initialize Flask App --------------------
@@ -21,7 +20,7 @@ ALLOWED_ORIGINS = [
 ]
 
 CORS(app, resources={
-    r"/(?:access_key|extract_skills)": {
+    r"/extract_skills": {
         "origins": ALLOWED_ORIGINS,
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"],
@@ -78,20 +77,6 @@ def request_too_large(_error):
     return jsonify({"error": "Request body is too large"}), 413
 
 
-@app.route('/access_key', methods=['GET'])
-def access_key():
-    try:
-        key = get_first_key()
-    except Exception:
-        app.logger.exception("Unable to read access key from Google Sheet")
-        return jsonify({"error": "Unable to retrieve access key"}), 503
-
-    if key is None:
-        return jsonify({"error": "No access key found"}), 404
-
-    return jsonify({"access_key": key}), 200
-
-
 @app.route('/extract_skills', methods=['POST', 'OPTIONS'])
 def extract_skills_from_description():
     # Handle preflight OPTIONS request
@@ -102,19 +87,6 @@ def extract_skills_from_description():
         data = request.get_json(silent=True)
         if not isinstance(data, dict):
             return jsonify({"error": "Invalid request data"}), 400
-
-        access_key_value = data.get('access_key')
-        if not isinstance(access_key_value, str) or not access_key_value.strip():
-            return jsonify({"error": "Access key is required"}), 400
-
-        try:
-            key_is_valid = is_valid_key(access_key_value)
-        except Exception:
-            app.logger.exception("Unable to validate access key with Google Sheet")
-            return jsonify({"error": "Unable to validate access key"}), 503
-
-        if not key_is_valid:
-            return jsonify({"error": "Invalid access key"}), 401
 
         if not all(isinstance(data.get(field), str) for field in ('job_description', 'resume')):
             return jsonify({"error": "job_description and resume must be strings"}), 400
