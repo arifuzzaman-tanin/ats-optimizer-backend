@@ -343,6 +343,31 @@ Patience and empathy. Attention to detail. Teamwork. Time management skills.
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_anthropic_inference_role_extracts_inference_and_fleet_skills(self):
+        job = """
+        Build distributed systems that serve models through inference
+        infrastructure. Develop intelligent request routing, load balancing,
+        traffic management, autoscaling, and workload orchestration. Build
+        production-grade deployment pipelines for releasing new models and
+        provide machine learning systems with LLM inference optimization,
+        batching, and caching strategies. Integrate AI accelerator platforms,
+        analyze observability data, and manage multi-region deployments and
+        geographic routing. Experience with Kubernetes, AWS, GCP, Azure, Python,
+        and Rust.
+        """
+        skills = set(extract_skills(job, source="job_description"))
+        expected = {
+            "distributed systems", "inference systems", "request routing",
+            "load balancing", "traffic management", "autoscaling",
+            "workload orchestration", "model deployment pipelines",
+            "machine learning systems", "llm inference optimization",
+            "batch inference", "caching", "ai accelerators", "observability",
+            "multi-region deployment", "geographic routing", "kubernetes",
+            "amazon web services", "google cloud platform", "microsoft azure",
+            "python", "rust",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
     def test_dotnet_solutions_architect_job_extracts_architecture_and_ai_skills(self):
         skills = set(extract_skills(
             DOTNET_SOLUTIONS_ARCHITECT_JOB, source="job_description"

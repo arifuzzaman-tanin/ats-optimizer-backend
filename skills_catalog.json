@@ -1618,6 +1618,46 @@
     "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer", "distributed services"]
   },
   {
+    "name": "request routing",
+    "category": "technical",
+    "aliases": ["intelligent request routing", "inference request routing", "request distribution", "request routing algorithms"]
+  },
+  {
+    "name": "traffic management",
+    "category": "technical",
+    "aliases": ["traffic management systems", "traffic routing", "traffic shaping", "traffic management"]
+  },
+  {
+    "name": "autoscaling",
+    "category": "technical",
+    "aliases": ["auto scaling", "fleet autoscaling", "compute autoscaling", "dynamic autoscaling", "automatic scaling"]
+  },
+  {
+    "name": "workload orchestration",
+    "category": "technical",
+    "aliases": ["orchestrating workloads", "workload scheduling", "compute fleet orchestration", "fleet orchestration"]
+  },
+  {
+    "name": "compute efficiency",
+    "category": "technical",
+    "aliases": ["fleet-wide compute efficiency", "compute utilization optimization", "compute utilization optimisation", "optimizing compute efficiency", "maximizing compute efficiency"]
+  },
+  {
+    "name": "ai accelerators",
+    "category": "technical",
+    "aliases": ["ai accelerator", "ai accelerator platforms", "accelerator platforms", "inference accelerators", "accelerator families", "ai hardware platforms"]
+  },
+  {
+    "name": "multi-region deployment",
+    "category": "technical",
+    "aliases": ["multi-region deployments", "multi region deployment", "multi region deployments", "multi-region infrastructure"]
+  },
+  {
+    "name": "geographic routing",
+    "category": "technical",
+    "aliases": ["geo-routing", "geo routing", "geographical routing", "global traffic routing"]
+  },
+  {
     "name": "legacy system modernization",
     "category": "technical",
     "aliases": ["legacy modernization", "legacy system migration", "migrating off legacy infrastructure", "legacy infrastructure migration"],
@@ -3003,6 +3043,35 @@
     "name": "machine learning deployment",
     "category": "technical",
     "aliases": ["model deployment", "deploying machine learning models", "deploying ml models", "model serving"]
+  },
+  {
+    "name": "machine learning systems",
+    "category": "technical",
+    "aliases": ["ml systems", "machine learning infrastructure", "ml infrastructure"]
+  },
+  {
+    "name": "inference systems",
+    "category": "technical",
+    "aliases": ["inference infrastructure", "inference serving", "model inference infrastructure", "model serving infrastructure"]
+  },
+  {
+    "name": "llm inference optimization",
+    "category": "technical",
+    "aliases": ["large language model inference optimization", "inference optimization", "llm serving optimization", "inference performance optimization"]
+  },
+  {
+    "name": "batch inference",
+    "category": "technical",
+    "aliases": ["inference batching", "continuous batching", "dynamic batching"],
+    "contextual_aliases": [
+      {"aliases": ["batching"], "context": "\\b(?:inference|llm|model serving|models?)\\b"}
+    ]
+  },
+  {
+    "name": "model deployment pipelines",
+    "category": "technical",
+    "aliases": ["model release pipelines", "machine learning deployment pipelines", "production-grade deployment pipelines"],
+    "patterns": ["\\bdeployment pipelines?[^.;]{0,100}\\b(?:releas\\w*|deploy\\w*)[^.;]{0,50}\\bmodels?\\b"]
   },
   {
     "name": "retrieval-augmented generation",
