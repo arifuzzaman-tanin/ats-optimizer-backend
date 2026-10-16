@@ -49,9 +49,32 @@ jobs:
           path: dist/
           if-no-files-found: error
 
+  test-wheel:
+    name: Test built wheel
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-package
+          path: dist
+      # Test the artifact by itself. Installing the checkout editable in this
+      # environment would give pip two sources for the same distribution.
+      - name: Install built wheel
+        shell: bash
+        run: |
+          wheel_path="$(find dist -maxdepth 1 -name '*.whl' -print -quit)"
+          test -n "$wheel_path"
+          python -m pip install -r requirements.txt "${wheel_path}[pdf]"
+      - run: python -m unittest discover -s tests -v
+
   publish-testpypi:
     if: github.event_name == 'workflow_dispatch' && inputs.publish_target == 'testpypi'
-    needs: build
+    needs: test-wheel
     runs-on: ubuntu-latest
     environment: testpypi
     permissions:
@@ -65,7 +88,7 @@ jobs:
 
   publish-pypi:
     if: github.event_name == 'workflow_dispatch' && inputs.publish_target == 'pypi'
-    needs: build
+    needs: test-wheel
     runs-on: ubuntu-latest
     environment: pypi
     permissions:

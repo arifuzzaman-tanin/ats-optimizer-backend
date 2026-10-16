@@ -80,6 +80,6 @@ jobs:
 
       - name: Verify deployment
         run: |
-          curl --silent --show-error --fail \
+          curl --silent --show-error --fail-with-body \
             --retry 6 --retry-delay 5 --retry-all-errors \
             "https://arifuzzamantanin.pythonanywhere.com/health"

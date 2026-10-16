@@ -1,8 +1,20 @@
+import os
+from pathlib import Path
+import sys
+from time import perf_counter
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import os
-from time import perf_counter
 from werkzeug.exceptions import RequestEntityTooLarge
+
+# PythonAnywhere deploys this repository as source rather than installing its
+# package. Put the src-layout package on the import path for every WSGI entry
+# point, while keeping local editable and wheel installs working as before.
+PROJECT_ROOT = Path(__file__).resolve().parent
+SOURCE_ROOT = PROJECT_ROOT / "src"
+if SOURCE_ROOT.is_dir() and str(SOURCE_ROOT) not in sys.path:
+    sys.path.insert(0, str(SOURCE_ROOT))
+
 from ats_optimizer import ATSOptimizer, compare_skills, load_catalog
 
 # -------------------- Initialize Flask App --------------------
