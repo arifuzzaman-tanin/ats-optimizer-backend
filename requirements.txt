@@ -1,3 +1,4 @@
 Flask
 Flask-Cors
 gunicorn
+ats-optimizer @ https://test-files.pythonhosted.org/packages/6f/a3/b1e988436e36fcefe45cd7a4d3e39631c9e9fa6747c8ba1e396593c198f0/ats_optimizer-0.1.0-py3-none-any.whl#sha256=05e8180c432d81e25e470ec129240690b52da1c29d5a8d1876cd606e5a925770

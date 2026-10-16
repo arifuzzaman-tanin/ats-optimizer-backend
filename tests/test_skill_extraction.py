@@ -1111,8 +1111,7 @@ class ApiTests(unittest.TestCase):
     def test_existing_response_fields_and_explainable_matches(self):
         response = self.post(JOB, RESUME)
         self.assertEqual(response.status_code, 200)
-        self.assertIn("skill-job;dur=", response.headers["Server-Timing"])
-        self.assertIn("skill-resume;dur=", response.headers["Server-Timing"])
+        self.assertIn("ats-optimizer;dur=", response.headers["Server-Timing"])
         data = response.get_json()
         self.assertEqual(data["total_required_skills_in_job_description"], 17)
         self.assertEqual(data["total_matching_skills_in_resume"], 6)
