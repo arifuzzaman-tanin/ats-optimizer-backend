@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ats-optimizer"
+version = "0.1.0"
+description = "Deterministic resume-to-job skill coverage analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Unlicense"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Arifuzzaman Tanin", email = "arifuzzaman.tanin@outlook.com" },
+]
+keywords = ["ats", "resume", "skills", "recruiting", "job-description"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.optional-dependencies]
+pdf = ["pypdf>=5,<7"]
+dev = ["build>=1.2", "twine>=6"]
+
+[project.urls]
+Homepage = "https://github.com/arifuzzaman-tanin/ats-optimizer-backend"
+Repository = "https://github.com/arifuzzaman-tanin/ats-optimizer-backend.git"
+Issues = "https://github.com/arifuzzaman-tanin/ats-optimizer-backend/issues"
+Changelog = "https://github.com/arifuzzaman-tanin/ats-optimizer-backend/blob/main-optimized/CHANGELOG.md"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ats_optimizer = ["skills_catalog.json", "py.typed"]
+

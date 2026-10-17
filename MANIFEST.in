@@ -1,0 +1,11 @@
+include LICENSE
+include README.md
+include CHANGELOG.md
+include PACKAGE_ANALYSIS.md
+include PUBLISHING.md
+recursive-include src/ats_optimizer *.json py.typed
+recursive-include examples *.py
+include tests/test_package.py
+exclude tests/test_skill_extraction.py
+prune tests/fixtures
+
