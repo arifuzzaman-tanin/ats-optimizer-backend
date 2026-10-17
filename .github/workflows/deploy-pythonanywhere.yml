@@ -3,7 +3,7 @@ name: Test and deploy to PythonAnywhere
 on:
   push:
     branches:
-      - main-optimized
+      - main
   workflow_dispatch:
 
 permissions:
