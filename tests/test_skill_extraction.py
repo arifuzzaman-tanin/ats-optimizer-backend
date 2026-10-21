@@ -338,6 +338,30 @@ Communication skills. Problem-solving skills. Active listening skills.
 Patience and empathy. Attention to detail. Teamwork. Time management skills.
 """
 
+SENIOR_CUSTOMER_CENTERED_DOTNET_JOB = """
+Duties and Responsibilities
+Apply Customer-Centered Design and Customer-Centered Problem Solving. Build
+customer-centered full-stack applications with C#, .NET, SQL Server,
+Blazor, Visual Studio, RESTful and SOAP APIs. Apply secure coding, privacy,
+vulnerability remediation, dependency management, and appropriate access
+controls throughout the SDLC. Use AI agents for spec-driven development (SDD),
+reusable AI skill building, prompt engineering, code generation, automated code
+review, test generation, documentation support, and ticket triage.
+
+Design multi-tier and distributed application architecture with relational data
+modeling and backward compatibility. Use query tuning and code optimization to
+reduce API latency and accelerate data pipeline processing. Perform root-cause
+analysis, work estimation, risk and dependency management, knowledge sharing,
+mentoring, and formal or informal training.
+
+Preferred Capabilities
+Build Azure-native applications with CI/CD, security, monitoring, and
+observability. Design ETL/ELT data pipelines, lakehouse and medallion
+architecture with Snowflake or Databricks. Apply data mapping, data dictionaries,
+and end-to-end data lineage. Manage image repositories and content tags, and
+automatically validate media files.
+"""
+
 
 class ExtractionTests(unittest.TestCase):
     def test_anthropic_inference_role_extracts_inference_and_fleet_skills(self):
@@ -384,6 +408,30 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
         self.assertNotIn("unlimited pto", skills)
+
+    def test_customer_centered_dotnet_job_extracts_ai_data_and_security_skills(self):
+        skills = set(extract_skills(
+            SENIOR_CUSTOMER_CENTERED_DOTNET_JOB, source="job_description"
+        ))
+        expected = {
+            ".net", "access control", "ai agents", "ai skill development",
+            "automated code review", "automated test generation", "backward compatibility",
+            "blazor", "c#", "ci/cd", "cloud native", "code generation",
+            "content tagging", "customer-centered design",
+            "customer-centered problem solving", "data dictionary", "data lineage", "data mapping",
+            "data pipeline development", "data privacy", "databricks",
+            "dependency management", "distributed systems", "elt", "etl",
+            "full stack development", "medallion architecture",
+            "media asset management", "media validation", "microsoft azure",
+            "microsoft sql server", "observability", "performance optimization",
+            "prompt engineering", "query performance optimization", "rest api",
+            "risk management", "root cause analysis", "snowflake", "soap",
+            "software architecture", "software development lifecycle",
+            "software project estimation", "spec-driven development",
+            "technical mentoring", "technical writing", "ticket management",
+            "visual studio", "vulnerability management",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
 
     def test_azure_integration_role_extracts_cloud_platform_and_delivery_skills(self):
         skills = set(extract_skills(AZURE_INTEGRATION_JOB, source="job_description"))

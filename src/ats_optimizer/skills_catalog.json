@@ -48,6 +48,7 @@
       "ticketing",
       "support tickets",
       "ticket resolution",
+      "ticket triage",
       "case management",
       "case resolution",
       "managing tickets",
@@ -193,6 +194,8 @@
     "category": "customer_support",
     "aliases": [
       "technical documentation",
+      "documentation support",
+      "operational documentation",
       "architecture documentation",
       "architectural documentation",
       "user documentation",
@@ -632,7 +635,8 @@
     "category": "business",
     "aliases": [
       "manage risks",
-      "managing risks"
+      "managing risks",
+      "risk and dependency management"
     ]
   },
   {
@@ -878,7 +882,7 @@
       "restful api",
       "restful apis"
     ],
-    "patterns": ["\\brest/websocket apis\\b", "\\brest and graphql apis\\b", "\\brest(?:ful)? and graphql api development\\b"]
+    "patterns": ["\\brest/websocket apis\\b", "\\brest and graphql apis\\b", "\\brest(?:ful)? and soap apis\\b", "\\brest(?:ful)? and graphql api development\\b"]
   },
   {
     "name": "software testing",
@@ -1069,7 +1073,7 @@
   {
     "name": "software architecture",
     "category": "technical",
-    "aliases": ["software architectures", "application architecture", "application architect", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions", "modern architecture principles", "solutions architect", "solution architect", "solution architecture", "solutions architecture", "architecture strategy", "architecture frameworks", "azure architecture"],
+    "aliases": ["software architectures", "application architecture", "application architect", "system architecture", "backend architecture", "modern backend architecture", "software design and architecture", "architectural decisions", "architecture decisions", "architecture and design decisions", "modern architecture principles", "solutions architect", "solution architect", "solution architecture", "solutions architecture", "multi-tier architecture", "multi-tier application architecture", "architecture strategy", "architecture frameworks", "azure architecture"],
     "patterns": ["\\barchitectural discussions? and decisions?\\b", "\\bdesign the architecture for (?:a |an )?(?:new )?(?:multi[ -]tenant )?(?:saas|cloud|software) (?:product|platform|system)\\b"]
   },
   {
@@ -1247,7 +1251,7 @@
   {
     "name": "query performance optimization",
     "category": "technical",
-    "aliases": ["query performance", "query optimization", "query optimisation", "database performance tuning"]
+    "aliases": ["query performance", "query optimization", "query optimisation", "query tuning", "database performance tuning"]
   },
   {
     "name": "monitoring",
@@ -1433,7 +1437,7 @@
   {
     "name": "performance optimization",
     "category": "technical",
-    "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation"],
+    "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation", "code optimization", "code optimisation", "api performance optimization", "api response optimization", "data pipeline optimization", "latency reduction"],
     "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b", "\\bdesign(?:ing)? (?:robust,? )?performant(?:,? and secure)? solutions?\\b"]
   },
   {
@@ -1451,7 +1455,7 @@
       "mentor junior developers", "mentoring junior developers", "mentored junior developers",
       "mentor junior analysts", "mentoring junior analysts", "mentored junior analysts", "technical guidance"
     ],
-    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b", "\\bmentor(?:ing)? teammates?\\b", "\\bmentor(?:ing)? and support(?:ing)? (?:other )?engineers?\\b"]
+    "patterns": ["\\bmentorship to (?:intermediate|mid[ -]level|junior|senior)(?: and (?:intermediate|mid[ -]level|junior|senior))? (?:developers?|engineers?)\\b", "\\bmentor(?:ing)? teammates?\\b", "\\bmentor(?:ing)? and support(?:ing)? (?:other )?engineers?\\b", "\\bknowledge sharing,? mentoring,? and (?:formal or informal )?training\\b"]
   },
   {
     "name": "software development best practices",
@@ -1615,7 +1619,7 @@
   {
     "name": "distributed systems",
     "category": "technical",
-    "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer", "distributed services"]
+    "aliases": ["distributed system", "distributed systems engineering", "distributed systems engineer", "distributed services", "distributed application architecture", "distributed applications"]
   },
   {
     "name": "request routing",
@@ -2200,7 +2204,7 @@
   {
     "name": "data governance",
     "category": "business",
-    "aliases": ["data governance practices", "data governance principles", "data lineage", "metadata management"]
+    "aliases": ["data governance practices", "data governance principles", "metadata management"]
   },
   {
     "name": "role-based access control",
@@ -2775,7 +2779,7 @@
   {
     "name": "vulnerability management",
     "category": "technical",
-    "aliases": ["vulnerability scanning", "security scanning", "container scanning"]
+    "aliases": ["vulnerability scanning", "vulnerability remediation", "security vulnerability remediation", "security scanning", "container scanning"]
   },
   {
     "name": "argocd",
@@ -3196,7 +3200,7 @@
   },
   {"name": "test automation frameworks", "category": "technical", "aliases": ["test automation framework", "automated test frameworks", "automation frameworks"]},
   {"name": "ai-driven testing", "category": "technical", "aliases": ["ai driven testing", "ai-powered testing", "ai powered testing", "ai testing"]},
-  {"name": "automated test generation", "category": "technical", "aliases": ["test case generation", "test-case generation", "ai test generation", "automated test creation"]},
+  {"name": "automated test generation", "category": "technical", "aliases": ["test generation", "test case generation", "test-case generation", "ai test generation", "automated test creation"]},
   {"name": "defect analysis", "category": "technical", "aliases": ["defect analytics", "bug analysis", "ai-driven defect analysis", "ai driven defect analysis"]},
   {"name": "test analysis", "category": "technical", "aliases": ["automated test analysis", "test result analysis", "test results analysis"]},
   {"name": "test automation optimization", "category": "technical", "aliases": ["automation optimization", "automation optimisation", "test automation optimisation"]},
@@ -3347,6 +3351,85 @@
   {"name": "financial planning and analysis", "category": "business", "aliases": ["fp&a", "financial planning & analysis"]},
   {"name": "scenario analysis", "category": "analysis", "aliases": ["financial scenario analysis", "scenario modeling", "scenario modelling"]},
   {"name": "power query", "category": "tool", "aliases": ["microsoft power query"]},
+  {
+    "name": "customer-centered design",
+    "category": "business",
+    "aliases": ["customer centred design", "customer-centered solution design", "customer centred solution design"]
+  },
+  {
+    "name": "customer-centered problem solving",
+    "category": "business",
+    "aliases": ["customer centred problem solving", "customer-driven problem solving"]
+  },
+  {
+    "name": "data privacy",
+    "category": "technical",
+    "aliases": ["privacy engineering", "privacy practices", "privacy by design"],
+    "contextual_aliases": [
+      {"aliases": ["privacy"], "context": "\\b(?:security|secure|data|customer|company|information|access controls?|cybersecurity|sdlc)\\b"}
+    ]
+  },
+  {
+    "name": "access control",
+    "category": "technical",
+    "aliases": ["access controls", "authorization controls", "authorisation controls"]
+  },
+  {
+    "name": "ai agents",
+    "category": "technical",
+    "aliases": ["ai agent", "artificial intelligence agents", "artificial intelligence agent"]
+  },
+  {
+    "name": "ai skill development",
+    "category": "technical",
+    "aliases": ["reusable ai skills", "reusable ai skill building", "ai skill building"]
+  },
+  {
+    "name": "code generation",
+    "category": "technical",
+    "aliases": ["ai code generation", "automated code generation"]
+  },
+  {
+    "name": "automated code review",
+    "category": "technical",
+    "aliases": ["ai-assisted code review", "ai assisted code review", "ai code review"]
+  },
+  {
+    "name": "medallion architecture",
+    "category": "technical",
+    "aliases": ["medallion data architecture", "bronze silver gold architecture"]
+  },
+  {
+    "name": "data lineage",
+    "category": "technical",
+    "aliases": ["end-to-end data lineage", "end to end data lineage", "data provenance tracking"]
+  },
+  {
+    "name": "data mapping",
+    "category": "technical",
+    "aliases": ["data mappings", "source-to-target mapping", "source to target mapping"]
+  },
+  {
+    "name": "data dictionary",
+    "category": "technical",
+    "aliases": ["data dictionaries", "business data dictionary"]
+  },
+  {
+    "name": "media asset management",
+    "category": "technical",
+    "aliases": ["media file management", "image repository management", "image repositories"]
+  },
+  {
+    "name": "content tagging",
+    "category": "technical",
+    "aliases": ["content tags", "media tagging", "image tagging", "metadata tagging"]
+  },
+  {
+    "name": "media validation",
+    "category": "technical",
+    "aliases": ["media file validation", "image validation", "automated media validation"],
+    "patterns": ["\\bautomatically validat(?:e|es|ed|ing) (?:media|image) files?\\b"]
+  },
   {
     "name": "enterprise resource planning",
     "category": "business",
@@ -12408,8 +12491,9 @@
     "category": "middleware_os_system_software"
   },
   {
-    "name": "sdd",
-    "category": "middleware_os_system_software"
+    "name": "spec-driven development",
+    "category": "technical",
+    "aliases": ["spec driven development", "sdd"]
   },
   {
     "name": "sdsf",
@@ -13019,7 +13103,7 @@
   {
     "name": "cloud native",
     "category": "methods_and_standards",
-    "aliases": ["cloud-native development", "cloud native development", "cloud-native application development", "cloud native application development", "cloud-native systems", "cloud native systems", "cloud-native solutions", "cloud native solutions"]
+    "aliases": ["cloud-native development", "cloud native development", "cloud-native application development", "cloud native application development", "cloud-native applications", "cloud native applications", "azure-native application", "azure-native applications", "azure native application", "azure native applications", "cloud-native systems", "cloud native systems", "cloud-native solutions", "cloud native solutions"]
   },
   {
     "name": "component test",
@@ -21279,7 +21363,7 @@
   {
     "name": "software project estimation",
     "category": "business",
-    "aliases": ["software estimation", "development estimation", "engineering estimation"],
+    "aliases": ["software estimation", "development estimation", "engineering estimation", "work estimation"],
     "patterns": ["\\bscope work into milestones with (?:reasonable )?estimates\\b", "\\bprovide realistic estimates\\b", "\\b(?:analy[sz]e requirements,? )?(?:break down tasks,? and )?estimate effort\\b"]
   },
   {
