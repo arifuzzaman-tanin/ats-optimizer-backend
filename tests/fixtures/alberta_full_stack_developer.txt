@@ -1,0 +1,59 @@
+Role Responsibilities
+
+The Citizen Experience branch is looking for a Full Stack Developer. Reporting
+to the Delivery Manager, deliver hands-on development and operational support
+across the platform lifecycle. The position applies established development
+practices to implement changes, resolve issues, support ongoing maintenance,
+and contribute to modernization and continuous improvement efforts.
+
+The responsibilities of this role include:
+
+- Developing and maintaining front-end and back-end platform components and
+  services in large-scale enterprise environments using modern software
+  development practices.
+- Assessing technical requirements and delivering platform changes,
+  enhancements, defect fixes, and ongoing maintenance.
+- Providing production support, troubleshooting platform issues, and
+  coordinating timely resolution of incidents and defects.
+- Supporting cloud platforms and contributing to scalable, reusable technical
+  solutions.
+- Applying software development, platform, testing, data, and technical
+  standards to support reliable and maintainable solutions.
+- Apply AI-enabled tools and automation to accelerate delivery and improve
+  quality, while validating outputs and safeguarding sensitive information.
+- Collaborating with product teams, technical teams, vendors, and stakeholders
+  to support delivery priorities and continuous improvement.
+
+To be successful in this position, you will demonstrate:
+
+- Ability to communicate technical information clearly and work effectively
+  with multidisciplinary delivery teams.
+- Knowledge of Agile delivery approaches, service design or human-centred
+  design concepts, and continuous delivery of value.
+- Ability to understand user needs, work within technical and organizational
+  constraints, and contribute to collaborative delivery work.
+- Strong troubleshooting, judgment, teamwork, and delivery support skills.
+
+Qualifications
+
+- A university degree in computer science, information technology, software
+  engineering, or a related technical field, supplemented by two years of
+  progressively responsible related experience.
+- Experience developing, maintaining, and supporting applications or platforms
+  using modern digital delivery practices.
+- Experience developing and maintaining cloud-based applications and services
+  using .NET, C#, JavaScript, React, and SQL.
+- Working knowledge of software architecture, common design patterns, and
+  computing science principles, with the ability to apply them in application
+  or platform development.
+- Experience designing, querying, and maintaining relational databases.
+
+Assets
+
+- Experience developing or supporting payment processing or financial
+  management systems.
+- Strong troubleshooting and problem-solving skills in application and
+  production environments.
+- Experience with AI-assisted development tools, CI/CD pipelines, automation,
+  or DevOps practices.
+- Experience with alternative database technologies and models.

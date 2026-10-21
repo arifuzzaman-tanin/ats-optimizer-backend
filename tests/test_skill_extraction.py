@@ -54,6 +54,9 @@ MAGNET_FORENSICS_JOB = Path(__file__).with_name("fixtures").joinpath(
 AZURE_INTEGRATION_JOB = Path(__file__).with_name("fixtures").joinpath(
     "azure_integration_developer.txt"
 ).read_text(encoding="utf-8")
+ALBERTA_FULL_STACK_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "alberta_full_stack_developer.txt"
+).read_text(encoding="utf-8")
 
 DOTNET_SOLUTIONS_ARCHITECT_JOB = """
 Position Summary
@@ -451,6 +454,31 @@ class ExtractionTests(unittest.TestCase):
             "production support", "release automation", "resilience engineering",
             "rest api", "root cause analysis", "software development",
             "software scalability", "source control", "terraform", "troubleshooting",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
+
+    def test_alberta_full_stack_role_extracts_platform_delivery_and_design_skills(self):
+        skills = set(extract_skills(ALBERTA_FULL_STACK_JOB, source="job_description"))
+        expected = {
+            ".net", "agile", "ai-assisted software development",
+            "ai output validation", "application maintenance", "automation",
+            "backend software development", "c#", "ci/cd", "cloud computing",
+            "cloud services development", "computer science fundamentals",
+            "cross-functional collaboration",
+            "data privacy", "debugging", "defect management", "devops",
+            "enterprise application development", "financial management systems",
+            "frontend software development", "full stack development",
+            "human-centered design", "incident response", "javascript", "nosql",
+            "payment systems", "problem solving", "process improvement",
+            "production support", "professional judgment", "react",
+            "relational database operations", "relational databases",
+            "requirements analysis", "service design", "software architecture",
+            "software design patterns", "software development",
+            "software development lifecycle", "software testing",
+            "software maintainability", "software reliability",
+            "software scalability", "sql", "stakeholder management", "teamwork",
+            "technical communication", "technical standards", "troubleshooting",
+            "vendor management",
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
 

@@ -261,7 +261,9 @@
       "cross functional coordination",
       "cross departmental collaboration",
       "multidisciplinary team collaboration",
-      "multidisciplinary engineering team"
+      "multidisciplinary engineering team",
+      "multidisciplinary delivery teams",
+      "multidisciplinary delivery team"
     ],
     "patterns": [
       "\\bbring (?:them|issues|patterns|feedback|insights) to product and engineering\\b",
@@ -503,8 +505,10 @@
     "aliases": [
       "stakeholder engagement",
       "stakeholder alignment",
-      "alignment across stakeholders"
-    ]
+      "alignment across stakeholders",
+      "stakeholder collaboration"
+    ],
+    "patterns": ["\\bcollaborat(?:e|es|ed|ing)[^.;]{0,100}\\bstakeholders?\\b"]
   },
   {
     "name": "project management",
@@ -520,7 +524,9 @@
       "agile methodologies",
       "agile development",
       "agile practices",
-      "agile environments"
+      "agile environments",
+      "agile delivery",
+      "agile delivery approaches"
     ],
     "contextual_aliases": [
       {
@@ -898,7 +904,7 @@
       "validation of fixes",
       "testing discipline"
     ],
-    "patterns": ["\\bimplementation, testing, and packaging\\b", "\\bimplementation, testing, and performance optimization\\b", "\\bverification and validation\\b"]
+    "patterns": ["\\bimplementation, testing, and packaging\\b", "\\bimplementation, testing, and performance optimization\\b", "\\bapplying software development,? platform,? testing,? data,? and technical standards\\b", "\\bverification and validation\\b"]
   },
   {
     "name": "unit testing",
@@ -1053,6 +1059,12 @@
     "aliases": ["software engineering", "application development", "developing software", "building production software", "production software development", "software development fundamentals"]
   },
   {
+    "name": "application maintenance",
+    "category": "technical",
+    "aliases": ["software maintenance", "platform maintenance", "ongoing application maintenance", "ongoing platform maintenance"],
+    "patterns": ["\\bsupport(?:ing)? ongoing maintenance\\b", "\\bdevelop(?:ing)? and maintain(?:ing)?[^.;]{0,50}\\b(?:applications?|platforms?)\\b"]
+  },
+  {
     "name": "web application development",
     "category": "technical",
     "aliases": ["web app development", "web applications", "web application architecture"],
@@ -1090,12 +1102,12 @@
   {
     "name": "software development lifecycle",
     "category": "technical",
-    "aliases": ["software development life cycle", "software lifecycle", "development lifecycle", "sdlc", "full lifecycle"]
+    "aliases": ["software development life cycle", "software lifecycle", "development lifecycle", "platform lifecycle", "sdlc", "full lifecycle"]
   },
   {
     "name": "requirements analysis",
     "category": "business",
-    "aliases": ["requirements gathering", "requirements engineering", "feature request definition", "clarify requirements", "clarifying requirements", "analyze requirements", "analysing requirements", "analyzing requirements"],
+    "aliases": ["requirements gathering", "requirements engineering", "feature request definition", "clarify requirements", "clarifying requirements", "analyze requirements", "analysing requirements", "analyzing requirements", "assessing technical requirements", "technical requirements analysis"],
     "patterns": ["\\bturn(?:ing)? high[ -]level requirements into product enhancements\\b", "\\btranslat(?:e|es|ing) customer issues[^.;]{0,100}\\bfeature requests?\\b", "\\btranslat(?:e|es|ed|ing) requirements into technical designs?\\b"]
   },
   {
@@ -1124,8 +1136,24 @@
   {
     "name": "technical communication",
     "category": "interpersonal",
-    "aliases": ["technical communications", "communicating technical ideas", "technical communication skills", "communicate architectural decisions", "communicating architectural decisions"],
-    "patterns": ["\\btechnical communication of (?:ideas|designs?|solutions)\\b", "\\bcommunicat(?:e|es|ed|ing) complex technical concepts?[^.;]{0,40}\\bnon-technical stakeholders?\\b", "\\bcommunicat(?:e|es|ed|ing) technical decisions? through (?:documentation|walkthroughs?|discussions?)\\b"]
+    "aliases": ["technical communications", "communicating technical ideas", "technical communication skills", "communicate technical information clearly", "communicating technical information clearly", "communicate architectural decisions", "communicating architectural decisions"],
+    "patterns": ["\\btechnical communication of (?:ideas|designs?|solutions)\\b", "\\bcommunicat(?:e|es|ed|ing) complex technical concepts?[^.;]{0,40}\\bnon-technical stakeholders?\\b", "\\bcommunicat(?:e|es|ed|ing) technical (?:information|decisions?)[^.;]{0,50}\\bclearly\\b", "\\bcommunicat(?:e|es|ed|ing) technical decisions? through (?:documentation|walkthroughs?|discussions?)\\b"]
+  },
+  {
+    "name": "professional judgment",
+    "category": "interpersonal",
+    "aliases": ["professional judgement", "sound judgment", "sound judgement"],
+    "patterns": ["\\bstrong troubleshooting,? judgment,? teamwork,? and delivery support skills\\b", "\\bstrong troubleshooting,? judgement,? teamwork,? and delivery support skills\\b"]
+  },
+  {
+    "name": "service design",
+    "category": "business",
+    "aliases": ["service design concepts", "service design principles"]
+  },
+  {
+    "name": "human-centered design",
+    "category": "business",
+    "aliases": ["human-centred design", "human centered design", "human centred design", "human-centred design concepts", "human-centered design concepts", "hcd"]
   },
   {
     "name": "analytical skills",
@@ -1147,7 +1175,7 @@
   {
     "name": "ai-assisted software development",
     "category": "technical",
-    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools", "ai-augmented delivery", "ai-driven development", "ai driven development", "ai-first development", "ai-first engineering"],
+    "aliases": ["ai-assisted coding", "ai assisted coding", "ai-assisted development", "ai coding tools", "ai-assisted tools", "ai-enabled tools", "ai enabled tools", "ai-augmented delivery", "ai-driven development", "ai driven development", "ai-first development", "ai-first engineering"],
     "patterns": ["\\b(?:leverage|leveraging|use|using|integrate|integrating)[^.;]{0,40}\\b(?:ai|genai|generative ai)[^.;]{0,140}\\b(?:engineering productivity|code generation|debugging|code reviews?|documentation|development workflows?)\\b"]
   },
   {
@@ -1201,7 +1229,7 @@
   {
     "name": "production support",
     "category": "technical",
-    "aliases": ["support production systems", "production systems support", "supporting customers directly during production incidents", "production support rotation", "production support rotations"],
+    "aliases": ["support production systems", "production systems support", "operational support", "platform operational support", "supporting customers directly during production incidents", "production support rotation", "production support rotations"],
     "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\btroubleshoot(?:ing)? (?:complex )?production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b"]
   },
   {
@@ -1276,12 +1304,12 @@
   {
     "name": "incident response",
     "category": "technical",
-    "aliases": ["incident management", "production incident response", "production incidents"]
+    "aliases": ["incident management", "incident resolution", "resolution of incidents", "production incident response", "production incidents"]
   },
   {
     "name": "debugging",
     "category": "technical",
-    "aliases": ["software debugging", "debug software", "debug complex issues", "debug defects", "debugging defects"],
+    "aliases": ["software debugging", "debug software", "debug complex issues", "debug defects", "debugging defects", "defect fixes", "fixing defects", "defect resolution"],
     "patterns": ["\\btroubleshoot,? debug,? and fix defects\\b"]
   },
   {
@@ -1740,13 +1768,13 @@
   {
     "name": "backend software development",
     "category": "technical",
-    "aliases": ["backend software engineering", "backend development", "backend engineering", "server-side application development", "server side application development", "server-side development", "server side development"],
-    "patterns": ["\\b(?:build|building|develop|developing|maintain|maintaining)[^.;]{0,50}\\bbackend components?\\b"]
+    "aliases": ["backend software engineering", "backend development", "back-end development", "backend engineering", "back-end engineering", "server-side application development", "server side application development", "server-side development", "server side development"],
+    "patterns": ["\\b(?:build|building|develop|developing|maintain|maintaining)[^.;]{0,80}\\bback[ -]?end (?:platform )?(?:components?|services?)\\b"]
   },
   {
     "name": "computer science fundamentals",
     "category": "technical",
-    "aliases": ["computer science foundation", "computer science foundations"]
+    "aliases": ["computer science foundation", "computer science foundations", "computer science principles", "computing science principles"]
   },
   {
     "name": "data structures",
@@ -1763,7 +1791,7 @@
     "name": "enterprise application development",
     "category": "technical",
     "aliases": ["enterprise-scale application development", "enterprise scale application development"],
-    "patterns": ["\\bdeveloping and supporting enterprise[ -]scale applications\\b"]
+    "patterns": ["\\bdeveloping and supporting enterprise[ -]scale applications\\b", "\\bdevelop(?:ing)? and maintain(?:ing)?[^.;]{0,100}\\blarge[ -]scale enterprise environments?\\b"]
   },
   {
     "name": "product roadmap planning",
@@ -3100,6 +3128,11 @@
     "patterns": ["\\bwhat customer data may enter (?:a|the) prompt\\b"]
   },
   {
+    "name": "financial management systems",
+    "category": "domain",
+    "aliases": ["financial management system", "financial systems", "finance management systems"]
+  },
+  {
     "name": "code provenance",
     "category": "technical",
     "aliases": ["software provenance", "source code provenance", "generated code provenance"],
@@ -3144,7 +3177,7 @@
     "aliases": ["regression tests", "manual regression testing"],
     "patterns": ["\\bregression(?=\\s*(?:(?:,|/)\\s*(?:and\\s+)?|and\\s+)(?:end[ -]to[ -]end|e2e|automated)\\b)", "\\b(?:testing|integration) and regression risks?\\b"]
   },
-  {"name": "defect management", "category": "technical", "aliases": ["defect tracking", "bug tracking", "manage defects"]},
+  {"name": "defect management", "category": "technical", "aliases": ["defect tracking", "bug tracking", "manage defects", "coordinating defect resolution", "resolution of defects"], "patterns": ["\\bcoordinat(?:e|es|ed|ing)[^.;]{0,80}\\bresolution of incidents and defects\\b"]},
   {"name": "bug triage", "category": "technical", "aliases": ["defect triage", "issue triage", "triaging bugs", "triaging defects"]},
   {"name": "test planning", "category": "technical", "aliases": ["test plans", "testing plans", "risk-based test plans"]},
   {"name": "test case design", "category": "technical", "aliases": ["test case development", "test scenario design", "tests design", "test scenarios", "testable scenarios"]},
@@ -3271,7 +3304,7 @@
   {"name": "resource management", "category": "business", "aliases": ["resource allocation", "resource planning", "resource forecasts"]},
   {"name": "scope management", "category": "business", "aliases": ["project scope", "scope control"]},
   {"name": "schedule management", "category": "business", "aliases": ["project scheduling", "project schedules", "schedule control"]},
-  {"name": "vendor management", "category": "business", "aliases": ["vendor coordination", "supplier management", "third-party vendor management"]},
+  {"name": "vendor management", "category": "business", "aliases": ["vendor coordination", "vendor collaboration", "supplier management", "third-party vendor management"], "patterns": ["\\bcollaborat(?:e|es|ed|ing)[^.;]{0,100}\\bvendors?\\b"]},
   {"name": "change management", "category": "business", "aliases": ["organizational change management", "change control", "change requests"]},
   {"name": "project governance", "category": "business", "aliases": ["program governance", "governance meetings", "governance forums"]},
   {"name": "dependency management", "category": "business", "aliases": ["dependency tracking", "managing dependencies", "identify dependencies", "identifying dependencies"]},
@@ -3364,7 +3397,7 @@
   {
     "name": "data privacy",
     "category": "technical",
-    "aliases": ["privacy engineering", "privacy practices", "privacy by design"],
+    "aliases": ["privacy engineering", "privacy practices", "privacy by design", "safeguarding sensitive information", "protecting sensitive information"],
     "contextual_aliases": [
       {"aliases": ["privacy"], "context": "\\b(?:security|secure|data|customer|company|information|access controls?|cybersecurity|sdlc)\\b"}
     ]
@@ -7909,7 +7942,8 @@
   },
   {
     "name": "nosql",
-    "category": "databases"
+    "category": "databases",
+    "aliases": ["non-relational databases", "nonrelational databases", "alternative database technologies", "alternative database models"]
   },
   {
     "name": "object-oriented database",
@@ -20272,7 +20306,9 @@
   },
   {
     "name": "relational database operations",
-    "category": "working_areas"
+    "category": "working_areas",
+    "aliases": ["relational database maintenance"],
+    "patterns": ["\\b(?:design|designing),? quer(?:y|ying),? and maintain(?:ing)? relational databases?\\b"]
   },
   {
     "name": "container orchestration",
@@ -21026,13 +21062,13 @@
     "contextual_aliases": [
       {"aliases": ["scalability"], "context": "\\b(?:applications?|software|systems?|services?|cloud)\\b"}
     ],
-    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b", "\\b(?:design|implement|build|building)[^.;]{0,50}\\bscalable,? (?:and )?(?:resilient )?(?:software )?solutions?\\b", "\\bdefine patterns? for (?:multi[ -]tenancy|multi[ -]tenant)[^.;]{0,80}\\bscalability\\b"]
+    "patterns": ["\\bscalable[^.;]{0,60}\\bapplications?\\b", "\\bscalable[^.;]{0,60}\\b(?:saas )?products?\\b", "\\bscalable[^.;]{0,40}\\b(?:technical )?solutions?\\b", "\\b(?:highly )?scalable[^.;]{0,60}\\bdistributed systems?\\b", "\\b(?:services?|systems?|applications?)[^.;]{0,50}\\bscale with demand\\b", "\\b(?:design|implement|build|building)[^.;]{0,50}\\bscalable,? (?:and )?(?:resilient )?(?:software )?solutions?\\b", "\\bdefine patterns? for (?:multi[ -]tenancy|multi[ -]tenant)[^.;]{0,80}\\bscalability\\b"]
   },
   {
     "name": "software maintainability",
     "category": "technical",
-    "aliases": ["maintainable software", "maintainable applications", "maintainable application", "long-term maintainability", "long term maintainability"],
-    "patterns": ["\\bmaintainable[^.;]{0,60}\\bapplications?\\b"]
+    "aliases": ["maintainable software", "maintainable applications", "maintainable application", "maintainable solutions", "maintainable solution", "long-term maintainability", "long term maintainability"],
+    "patterns": ["\\bmaintainable[^.;]{0,60}\\b(?:applications?|solutions?)\\b"]
   },
   {
     "name": "test environment management",
@@ -21297,7 +21333,7 @@
     "name": "frontend software development",
     "category": "technical",
     "aliases": ["frontend development", "front-end development", "frontend engineering", "front-end engineering"],
-    "patterns": ["\\b(?:write|writing|build|building|develop|developing)[^.;]{0,50}\\bfront[ -]?end[^.;]{0,30}\\bcode\\b"]
+    "patterns": ["\\b(?:write|writing|build|building|develop|developing)[^.;]{0,50}\\bfront[ -]?end[^.;]{0,30}\\bcode\\b", "\\b(?:write|writing|build|building|develop|developing|maintain|maintaining)[^.;]{0,80}\\bfront[ -]?end (?:platform )?(?:components?|services?)\\b", "\\b(?:develop|developing|maintain|maintaining)[^.;]{0,80}\\bfront[ -]?end and back[ -]?end (?:platform )?(?:components?|services?)\\b"]
   },
   {
     "name": "development infrastructure",
@@ -21411,8 +21447,8 @@
   {
     "name": "ai output validation",
     "category": "technical",
-    "aliases": ["ai result validation", "ai results validation", "validating ai results", "validating ai-generated code", "validating ai generated code"],
-    "patterns": ["\\bai tools?[^.;]{0,120}\\bvalidat(?:e|es|ed|ing) (?:their|the) results?\\b"]
+    "aliases": ["ai result validation", "ai results validation", "ai output validation", "validating ai outputs", "validating ai results", "validating ai-generated code", "validating ai generated code"],
+    "patterns": ["\\bai(?:[ -]enabled)? tools?[^.;]{0,160}\\bvalidat(?:e|es|ed|ing) (?:their |the )?(?:outputs?|results?)\\b"]
   },
   {
     "name": "frontend frameworks",
