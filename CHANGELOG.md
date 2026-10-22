@@ -5,6 +5,14 @@ versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-21
+
+### Added
+
+- Expanded full-stack, database, integration, reliability, and document-processing
+  skill recognition for production SaaS job descriptions.
+- Added regression coverage for the Remarcable Full Stack Software Engineer role.
+
 ## [0.1.0] - 2026-10-16
 
 ### Added
