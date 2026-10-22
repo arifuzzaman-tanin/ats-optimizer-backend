@@ -1230,12 +1230,12 @@
     "name": "production support",
     "category": "technical",
     "aliases": ["support production systems", "production systems support", "operational support", "platform operational support", "supporting customers directly during production incidents", "production support rotation", "production support rotations"],
-    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\btroubleshoot(?:ing)? (?:complex )?production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b"]
+    "patterns": ["\\bdiagnos(?:e|ing) and resolv(?:e|ing) production issues\\b", "\\btroubleshoot(?:ing)? (?:complex )?production issues\\b", "\\bsupport(?:ing)? the software (?:you|we|they) deliver\\b", "\\btroubleshoot(?:ing)? (?:high[ -]priority )?customer issues[^.;]{0,100}\\blive production environments?\\b"]
   },
   {
     "name": "software deployment",
     "category": "technical",
-    "aliases": ["application deployment", "deploying software", "deploying applications", "production deployment", "production deployments"],
+    "aliases": ["application deployment", "deploying software", "deploying applications", "production deployment", "production deployments", "automated deployment pipeline", "automated deployment pipelines"],
     "patterns": ["\\b(?:deploying|deployment)(?:,| and) (?:monitoring|supporting|providing support)\\b"]
   },
   {
@@ -1274,12 +1274,14 @@
   {
     "name": "database schema design",
     "category": "technical",
-    "aliases": ["schema design", "database design", "data design"]
+    "aliases": ["schema design", "database design", "data design"],
+    "patterns": ["\\bdesign(?:ing|ed)? normalized database schemas?\\b"]
   },
   {
     "name": "query performance optimization",
     "category": "technical",
-    "aliases": ["query performance", "query optimization", "query optimisation", "query tuning", "database performance tuning"]
+    "aliases": ["query performance", "query optimization", "query optimisation", "query tuning", "database performance tuning"],
+    "patterns": ["\\boptimi[sz](?:e|ing|ed) complex (?:sql |join )?queries\\b", "\\bdebug(?:ging|ged)? slow orm queries\\b"]
   },
   {
     "name": "monitoring",
@@ -1316,7 +1318,7 @@
     "name": "automated testing",
     "category": "technical",
     "aliases": ["automation testing", "automated tests", "test automation"],
-    "patterns": ["\\bautomated (?:unit|functional|integration)(?:[^.;]{0,40})? tests?\\b"]
+    "patterns": ["\\bautomated (?:unit|functional|integration)(?:[^.;]{0,40})? tests?\\b", "\\bautomat(?:e|es|ed|ing) testing\\b"]
   },
   {
     "name": "cypress",
@@ -1427,7 +1429,8 @@
   {
     "name": "asynchronous programming",
     "category": "technical",
-    "aliases": ["async programming", "asynchronous development", "async i/o", "asynchronous i/o", "event loops"]
+    "aliases": ["async programming", "asynchronous development", "async i/o", "asynchronous i/o", "event loops"],
+    "patterns": ["\\b(?:writing|building|developing) asynchronous background jobs\\b"]
   },
   {
     "name": "state management",
@@ -1466,7 +1469,7 @@
     "name": "performance optimization",
     "category": "technical",
     "aliases": ["performance optimisation", "performance tuning", "application performance optimization", "application performance optimisation", "code optimization", "code optimisation", "api performance optimization", "api response optimization", "data pipeline optimization", "latency reduction"],
-    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b", "\\bdesign(?:ing)? (?:robust,? )?performant(?:,? and secure)? solutions?\\b"]
+    "patterns": ["\\bhigh[ -]performance (?:distributed )?systems?\\b", "\\bperformance profiling,? and optimi[sz]ation\\b", "\\bdesign(?:ing)? (?:robust,? )?performant(?:,? and secure)? solutions?\\b", "\\b(?:diagnos(?:e|ing)|resolv(?:e|ing)|identify(?:ing)?) [^.;]{0,80}performance bottlenecks?\\b"]
   },
   {
     "name": "memory optimization",
@@ -1554,7 +1557,7 @@
   {
     "name": "data synchronization",
     "category": "technical",
-    "aliases": ["data synchronisation", "sync mechanisms", "synchronization mechanisms", "synchronisation mechanisms"]
+    "aliases": ["data synchronisation", "data sync", "real-time data sync", "real time data sync", "sync mechanisms", "synchronization mechanisms", "synchronisation mechanisms"]
   },
   {
     "name": "websocket",
@@ -1710,7 +1713,7 @@
     "name": "systems integration",
     "category": "technical",
     "aliases": ["system integration", "software integration", "complex integration", "platform integration", "application integration", "third-party integration", "third party integration"],
-    "patterns": ["\\bintegrat(?:e|es|ed|ing) third-party [^.;]{0,50}(?:components|software)\\b", "\\bintegrat(?:e|es|ed|ing) applications?\\b"]
+    "patterns": ["\\bintegrat(?:e|es|ed|ing) third-party [^.;]{0,50}(?:components|software)\\b", "\\bintegrat(?:e|es|ed|ing) applications?\\b", "\\bthird-party (?:rest|graphql|rest/graphql) apis?\\b", "\\bautomated integration pipelines?\\b"]
   },
   {
     "name": "systems engineering",
@@ -1747,7 +1750,7 @@
   {
     "name": "software reliability",
     "category": "technical",
-    "aliases": ["application reliability", "application stability", "software stability", "product stability", "performance and stability", "reliability practices"],
+    "aliases": ["application reliability", "application stability", "software stability", "product stability", "production reliability", "performance and stability", "reliability practices"],
     "patterns": ["\\b(?:service|software|system|connector)[^.;]{0,180}\\breliable\\b", "\\b(?:systems?|services?)[^.;]{0,100}\\breliability\\b", "\\bhas to be reliable\\b", "\\bimprov(?:e|es|ed|ing) (?:its|the software(?:'s)?) reliability\\b"]
   },
   {
@@ -13154,7 +13157,7 @@
   {
     "name": "containerization",
     "category": "methods_and_standards",
-    "aliases": ["containerisation", "containers", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments", "containerized deployments", "containerised deployments", "containerized services", "containerised services", "container-based deployment", "container based deployment", "container-based deployment pipelines", "container based deployment pipelines"]
+    "aliases": ["containerisation", "containers", "containerized environments", "containerised environments", "containerized applications", "containerized application environments", "containerised applications", "containerised application environments", "containerized deployments", "containerised deployments", "containerized services", "containerised services", "container-based deployment", "container based deployment", "container-based deployment pipelines", "container based deployment pipelines"]
   },
   {
     "name": "continuous delivery pipeline",
@@ -21411,7 +21414,8 @@
   {
     "name": "code quality",
     "category": "technical",
-    "aliases": ["software code quality", "high-quality code", "high quality code", "clean code"]
+    "aliases": ["software code quality", "high-quality code", "high quality code", "clean code"],
+    "patterns": ["\\bcode reviews? to enforce quality\\b"]
   },
   {
     "name": "technical standards",
@@ -21592,7 +21596,7 @@
   {
     "name": "component design",
     "category": "technical",
-    "aliases": ["ui component design", "user interface component design", "react component design"]
+    "aliases": ["ui component design", "user interface component design", "react component design", "component architecture"]
   },
   {
     "name": "data access",
@@ -21705,7 +21709,7 @@
     "name": "customer issue resolution",
     "category": "customer_support",
     "aliases": ["customer issue resolution", "resolution of customer issues", "resolve complex customer issues", "resolving complex customer issues"],
-    "patterns": ["\\bend[ -]to[ -]end resolution of (?:complex,? )?(?:high[ -]impact )?customer issues\\b"]
+    "patterns": ["\\bend[ -]to[ -]end resolution of (?:complex,? )?(?:high[ -]impact )?customer issues\\b", "\\btroubleshoot(?:ing)? (?:high[ -]priority )?customer issues\\b"]
   },
   {
     "name": "technical investigation",
@@ -21716,6 +21720,34 @@
     "name": "product improvement",
     "category": "business",
     "aliases": ["product improvements", "product improvement recommendation", "product improvement recommendations", "product enhancement recommendation", "product enhancement recommendations"]
+  },
+  {
+    "name": "race condition debugging",
+    "category": "technical",
+    "aliases": ["race condition debugging", "race condition diagnosis", "race conditions"],
+    "patterns": ["\\b(?:diagnos(?:e|ing)|debug(?:ging)?|resolv(?:e|ing)) [^.;]{0,80}race conditions?\\b"]
+  },
+  {
+    "name": "database indexing",
+    "category": "technical",
+    "aliases": ["database indexes", "database indices", "sql indexes", "index design"],
+    "patterns": ["\\bcreat(?:e|es|ed|ing) (?:database |sql )?indexes\\b"]
+  },
+  {
+    "name": "database normalization",
+    "category": "technical",
+    "aliases": ["database normalisation", "normalized database schemas", "normalised database schemas", "normalized schemas", "normalised schemas"]
+  },
+  {
+    "name": "email processing",
+    "category": "technical",
+    "aliases": ["email parsing", "email parsers", "email processing tools", "inbound email processing"]
+  },
+  {
+    "name": "document data extraction",
+    "category": "technical",
+    "aliases": ["document extraction", "document data extraction workflows", "document/ocr data extraction", "document ocr extraction"],
+    "patterns": ["\\bdocument(?:/ocr| and ocr)? data extraction workflows?\\b"]
   }
 
 ]

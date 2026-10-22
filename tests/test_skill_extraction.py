@@ -57,6 +57,9 @@ AZURE_INTEGRATION_JOB = Path(__file__).with_name("fixtures").joinpath(
 ALBERTA_FULL_STACK_JOB = Path(__file__).with_name("fixtures").joinpath(
     "alberta_full_stack_developer.txt"
 ).read_text(encoding="utf-8")
+REMARCABLE_FULL_STACK_JOB = Path(__file__).with_name("fixtures").joinpath(
+    "remarcable_full_stack_software_engineer.txt"
+).read_text(encoding="utf-8")
 
 DOTNET_SOLUTIONS_ARCHITECT_JOB = """
 Position Summary
@@ -898,6 +901,31 @@ class ExtractionTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset(skills), expected - skills)
         self.assertFalse({"natural", "rest"} & skills)
+
+    def test_remarcable_role_extracts_full_stack_database_and_integration_skills(self):
+        skills = set(extract_skills(
+            REMARCABLE_FULL_STACK_JOB, source="job_description"
+        ))
+        expected = {
+            "ai-assisted software development", "angular", "api development",
+            "asynchronous programming", "automated testing",
+            "backend software development", "background job processing", "claude",
+            "cloud infrastructure", "code generation", "code quality", "code review",
+            "component design", "containerization", "cursor",
+            "customer issue resolution", "data modeling", "data synchronization",
+            "database indexing", "database normalization", "database schema design",
+            "debugging", "django", "docker", "document data extraction",
+            "email processing", "fastapi", "feature engineering", "flask",
+            "frontend frameworks", "full stack development", "github copilot",
+            "graphql", "mysql", "ocr", "orm", "ownership",
+            "performance optimization", "postgresql", "production support", "python",
+            "query performance optimization", "race condition debugging", "react",
+            "relational databases", "rest api", "software architecture",
+            "software as a service", "software deployment", "software reliability",
+            "sql", "state management", "systems integration", "technical standards",
+            "terraform", "troubleshooting", "unit testing", "vue", "webhooks",
+        }
+        self.assertTrue(expected.issubset(skills), expected - skills)
 
     def test_magnet_terms_do_not_promote_unrelated_natural_cdk_or_access_language(self):
         skills = set(extract_skills(

@@ -1,0 +1,80 @@
+About the job
+
+Remarcable is the intelligent procurement and material operations platform
+transforming how trade contractors (electrical, plumbing, HVAC) and suppliers
+work together. Processing over $1B in monthly purchase volume, our platform
+unifies procurement, inventory, prefabrication, tool management, and delivery.
+We connect live field operations, back offices, and suppliers through real time
+data sync, visual catalogs, side by side distributor pricing, AI discrepancy
+detection, and 180+ supplier and ERP integrations.
+
+We are growing our engineering team and hiring across multiple Full Stack
+Software Engineer roles at both Intermediate and Senior levels. We are looking
+for resourceful, curious engineers to build high-impact software in a
+fast-growing SaaS startup. In these roles, you will not get lost in the shuffle.
+You will own features end to end, collaborate directly with customers, and
+shape product strategy.
+
+What You'll Do
+
+- Feature Engineering: Build and launch end-to-end features across
+  Python/Django backends, Angular frontends, and SQL schemas.
+- Bug Hunting & Performance: Diagnose and resolve complex edge cases, race
+  conditions, and performance bottlenecks across the stack.
+- Production Reliability: Troubleshoot high-priority customer issues and
+  runtime exceptions in live production environments.
+- Code Reviews: Conduct rigorous peer code reviews to enforce quality,
+  security, and architectural standards.
+- System Integrations: Build and maintain resilient REST APIs, webhooks, email
+  parsers, and OCR extraction pipelines.
+- Technical Ownership: Document key architecture, data models, and workflows
+  to ensure team maintainability.
+- Accelerated Growth: Leverage modern AI tools (Claude, Cursor) to speed up
+  execution, automate testing, and master new technologies.
+
+Who You Are
+
+- 4-6+ years of professional software engineering experience in a production
+  SaaS or fast-paced startup environment.
+- 4-6+ years of hands-on experience building backend services with Python and
+  Django (or similar frameworks like FastAPI/Flask), including designing
+  RESTful APIs, writing asynchronous background jobs and structuring modular
+  backend architecture.
+- 4+ years of experience with relational databases (PostgreSQL/MySQL),
+  including writing and optimizing complex JOIN queries, designing normalized
+  database schemas, creating indexes, and debugging slow ORM queries.
+- 2+ years of production experience with modern frontend frameworks
+  (specifically Angular, React, or Vue), including state management, component
+  architecture, and integration with backend APIs.
+- Based in Vancouver (or willing to relocate), working on-site 4 days per week
+  out of our downtown office.
+- A problem-solver with a customer-first mindset.
+- Someone who takes ownership of their work and thrives in a collaborative
+  startup team.
+
+Nice to Have
+
+- Hands-on experience building or maintaining automated integration pipelines,
+  specifically handling third-party REST/GraphQL APIs, webhook ingestion,
+  email processing tools, or document/OCR data extraction workflows.
+- Practical experience with Docker, containerized environments, and basic cloud
+  infrastructure management using Terraform and Cloud to support automated
+  deployment pipelines.
+- Experience using AI-assisted coding tools (e.g., GitHub Copilot, Cursor,
+  ChatGPT) to accelerate code generation, write unit tests, and debug complex
+  stack traces.
+
+Why Join Remarcable?
+
+Remarcable is a Series A SaaS company revolutionizing how electrical
+contractors and distributors do business. Founded by people who know the
+industry inside and out, our platform streamlines procurement and tool
+management--bringing efficiency, visibility, and better communication to a
+market overdue for change.
+
+- Impact: Your work directly shapes the future of our platform.
+- Learning & Growth: Work alongside experienced engineers and industry experts.
+- Team Culture: Collaborative, fast-paced, and focused on solving real customer
+  problems.
+- Mission-Driven: We're helping contractors save time, reduce friction, and
+  modernize their operations.
